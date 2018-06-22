@@ -29,9 +29,9 @@ const schema = new Schema({
 
 const Model = mongoose.model(dbModel, schema);
 // new Model({
-// //     email: 'd@d.com',
+// // //     email: 'd@d.com',
 //     name: 'project1',
-// //     hashPassword: 'sd'
+// // //     hashPassword: 'sd'
 // }).save();
 
 export default Model;
