@@ -5,17 +5,20 @@ import TextField from '@material-ui/core/TextField';
 
 import socket from '../../services/socket/client';
 
-const CardExampleWithAvatar = props => (
-    <Card>
-        <CardHeader
-            title={props.nickname}
-            avatar={props.avatar}
-        />
-        <CardText>
-            {props.message}
-        </CardText>
-    </Card>
-);
+const CardExampleWithAvatar = (props) => {
+    const { nickname, avatar, message } = props;
+    return (
+        <Card>
+            <CardHeader
+                title={nickname}
+                avatar={avatar}
+            />
+            <CardText>
+                {message}
+            </CardText>
+        </Card>
+    );
+};
 
 CardExampleWithAvatar.propTypes = {
     nickname: PropTypes.string.isRequired,
@@ -52,8 +55,6 @@ class ChatRoom extends Component {
                     global.window.scrollBy(0, global.document.getElementsByClassName('list')[0].offsetHeight);
                 }
             );
-            // or with redux action - has bug - sends 2 messages to the connection of webpack dev server
-            // actions.messages.setNewMessage(newMessage);
         });
     }
 
@@ -79,7 +80,9 @@ class ChatRoom extends Component {
         const { session } = this.props;
         return (
             <div style={{ minHeight: '100%' }}>
-                <h3 className="header">Chat</h3>
+                <h3 className="header">
+                    Chat
+                </h3>
                 <div className="list">
                     {messages.map((message, i) => {
                         const a = session.nickname + i;

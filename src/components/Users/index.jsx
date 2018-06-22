@@ -11,7 +11,9 @@ class Container extends Component {
     render() {
         return (
             <div>
-                <h2>Users</h2>
+                <h2>
+                    Users
+                </h2>
                 <UsersConsumer render={props => <List {...props} />} />
             </div>
         );

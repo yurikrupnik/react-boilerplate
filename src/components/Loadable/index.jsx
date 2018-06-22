@@ -3,21 +3,51 @@ import PropTypes from 'prop-types';
 import Loadable from 'react-loadable';
 
 const Loading = (props) => {
-    if (props.error) {
-        return <div>Error! <button onClick={props.retry}>Retry</button></div>;
-    } else if (props.timedOut) {
-        return <div>Taking a long time... <button onClick={props.retry}>Retry</button></div>;
-    } else if (props.pastDelay) {
-        return <div>Loading...</div>;
+    const {
+        error,
+        retry,
+        timedOut,
+        pastDelay
+    } = props;
+    let elm = null;
+    if (error) {
+        elm = (
+            <div>
+                <div>
+                    Error!
+                </div>
+                <button type="button" onClick={retry}>
+                    Retry
+                </button>
+            </div>
+        );
+    } else if (timedOut) {
+        elm = (
+            <div>
+                <div>
+                    Taking a long time...
+                </div>
+                <button type="button" onClick={retry}>
+                    Retry
+                </button>
+            </div>
+        );
+    } else if (pastDelay) {
+        elm = (
+            <div>
+                Loading...
+            </div>
+        );
     }
-    return null;
+    return elm;
 };
 
 Loading.defaultProps = {
     error: '',
     pastDelay: '',
     timedOut: '',
-    retry: () => {}
+    retry: () => {
+    }
 };
 
 Loading.propTypes = {

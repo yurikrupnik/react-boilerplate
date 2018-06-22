@@ -1,15 +1,20 @@
 import React, { Fragment, cloneElement, createElement } from 'react';
+import PropTypes from 'prop-types';
 import providers from './providers';
 
-const DataProviders = props => providers.reduce((acc, C) => {
+const DataProviders = ({ children }) => providers.reduce((acc, C) => {
     if (acc.props.children) {
-        const { children } = acc.props;
+        // const { children } = acc.props;
         return cloneElement(
             acc, {},
-            cloneElement(children, {}, createElement(C, {}, props.children))
+            cloneElement(acc.props.children, {}, createElement(C, {}, children))
         );
     }
-    return cloneElement(acc, {}, createElement(C, {}, props.children));
+    return cloneElement(acc, {}, createElement(C, {}, children));
 }, <Fragment />);
+
+DataProviders.propTypes = {
+    children: PropTypes.element.isRequired
+};
 
 export default DataProviders;

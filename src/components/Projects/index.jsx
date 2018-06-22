@@ -10,7 +10,9 @@ class Container extends Component {
     render() {
         return (
             <div>
-                <h2>Projects</h2>
+                <h2>
+                    Projects
+                </h2>
                 <ProjectsConsumer />
             </div>
         );

@@ -3,23 +3,27 @@ import { Form, Text } from 'react-form';
 import styles from './styles.css';
 
 class FormWithArrays extends Component {
-    static onSubmit(submittedValues) {
-        console.log('submittedValues', submittedValues); // eslint-disable-line no-console
-        // this.setState({ submittedValues });
-    }
     constructor(props) {
         super(props);
         this.state = {};
         // this.onSubmit = this.onSubmit.bind(this);
     }
+
+    static onSubmit(submittedValues) {
+        console.log('submittedValues', submittedValues); // eslint-disable-line no-console
+        // this.setState({ submittedValues });
+    }
+
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-xs-7">
                         <div className={styles.root}>
-                            <div className="root">stam</div>
-                            <Form onSubmit={FormWithArrays.onSubmit} >
+                            <div className="root">
+                                 stam
+                            </div>
+                            <Form onSubmit={FormWithArrays.onSubmit}>
                                 {formApi => (
                                     <form onSubmit={formApi.submitForm} id="form3">
                                         <label htmlFor="firstName2">
@@ -38,7 +42,9 @@ class FormWithArrays extends Component {
                                             Friend3
                                             <Text field={['friends', 2]} id="friend3" />
                                         </label>
-                                        <button type="submit" className="mb-4 btn btn-primary">Submit</button>
+                                        <button type="submit" className="mb-4 btn btn-primary">
+                                            Submit
+                                        </button>
                                     </form>
                                 )}
                             </Form>

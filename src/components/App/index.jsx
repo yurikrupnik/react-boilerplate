@@ -5,13 +5,16 @@ import { Provider as ThemesProvider } from '../contexts/themes';
 import DataProviders from '../../api/dataProvider';
 import Layout from './layout';
 
-const ConfigProviders = props => (
-    <Fragment>
-        <ThemesProvider>
-            {props.children}
-        </ThemesProvider>
-    </Fragment>
-);
+const ConfigProviders = (props) => {
+    const { children } = props;
+    return (
+        <Fragment>
+            <ThemesProvider>
+                {children}
+            </ThemesProvider>
+        </Fragment>
+    );
+};
 
 ConfigProviders.propTypes = {
     children: PropTypes.element.isRequired

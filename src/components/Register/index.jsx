@@ -71,7 +71,9 @@ class Register extends Component {
         // const { form } = this.state;
         // const hasName = form[0].value;
         return (
-            <div>registers</div>
+            <div>
+                registers
+            </div>
         );
     }
 }

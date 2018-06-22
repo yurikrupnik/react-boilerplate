@@ -1,7 +1,14 @@
 import Router from 'koa-router';
 import { url } from './config';
 import Model from './model';
-import { list, find, removeOne, create, response, responseError } from '../methods';
+import {
+    list,
+    find,
+    removeOne,
+    create,
+    response,
+    responseError
+} from '../methods';
 
 const router = new Router();
 

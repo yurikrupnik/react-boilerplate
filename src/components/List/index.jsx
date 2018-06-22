@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Spinner from '../Spinner';
 
 class List extends Component {
     componentDidMount() {
-        this.props.fetch();
+        const { fetch } = this.props;
+        fetch();
     }
+
     render() {
         const { data, loading } = this.props;
         return (
             <div>
                 { /* eslint-disable-next-line no-underscore-dangle */ }
-                {loading ? <div style={{ background: 'red' }}>loading...</div> : data.map(v => (
+                {loading ? <Spinner /> : data.map(v => (
+                    /* eslint-disable-next-line no-underscore-dangle */
                     <div key={v._id}>
-                        <div>name: {v.name}</div>
+                        <div>
+                            <span>
+                                name:
+                            </span>
+                            {v.name}
+                        </div>
                     </div>
                 ))}
             </div>

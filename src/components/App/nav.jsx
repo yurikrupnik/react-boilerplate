@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 
 class MainNav extends PureComponent {
     render() {
+        const { routes } = this.props;
         return (
             <header>
                 <div>
-                    {this.props.routes.map(route => (
+                    {routes.map(route => (
                         <div key={route.key}>
-                            <Link to={route.path}>{route.key}</Link>
+                            <Link to={route.path}>
+                                {route.key}
+                            </Link>
                         </div>
                     ))}
                 </div>

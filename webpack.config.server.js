@@ -2,6 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const json = require('./package');
 
@@ -59,6 +60,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new CopyWebpackPlugin([
+            { from: 'assets' },
+        ]),
         new GenerateJsonPlugin('package.json', Object.assign({}, json, {
             main: filename,
             scripts: {
