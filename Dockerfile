@@ -1,6 +1,6 @@
 FROM node:carbon
 
-# Create app directory
+# Create App directory
 WORKDIR /usr/src/app
 
 COPY dist .
