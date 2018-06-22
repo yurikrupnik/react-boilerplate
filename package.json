@@ -1,0 +1,34 @@
+{
+  "name": "react-boilerplate",
+  "version": "1.0.0",
+  "description": "react-boilerplate",
+  "main": "src/index.jsx",
+  "scripts": {
+    "watch:server": "NODE_ENV=development webpack --config webpack.config.server.js -w",
+    "watch:client": "NODE_ENV=development webpack --config webpack.config.client.js -w",
+    "watch": "npm run watch:server & npm run watch:client",
+    "start": "npm run start:client & npm run start:server",
+    "start:client": "NODE_ENV=development webpack-serve --config webpack.config.serve.js",
+    "start:server": "npm run watch:server & nodemon dist/server.js",
+    "clean": "rimraf dist/",
+    "build": "npm run clean && npm run build:server & npm run build:client",
+    "build:server": "NODE_ENV=production webpack --config webpack.config.server.js",
+    "build:client": "NODE_ENV=production webpack --config webpack.config.client.js",
+    "lint": "eslint eslint --ext js,jsx src",
+    "test": "jest",
+    "deploy:test": "npm run lint && npm run test",
+    "deploy:build": "npm run deploy:test && npm run build && docker build -t yuri/react-bo . ",
+    "deploy:run": "docker run yuri/react-bo --hostname=yuri -p 49170:5000 -d ",
+    "dist": "npm run build && cd dist && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurikrupnik/react-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yurikrupnik/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/yurikrupnik/react-boilerplate#readme"
+}
