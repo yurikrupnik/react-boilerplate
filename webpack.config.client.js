@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -86,11 +86,11 @@ module.exports = {
             chunkFilename: '[name].css'
         }),
         // new CompressionPlugin(),
-        new BundleAnalyzerPlugin({
-            //     // openAnalyzer: false,
-            //     // analyzerMode: 'static',
-            //     // generateStatsFile: true,
-            //     // statsFilename: 'clientBundleAnalyzer.json'
-        })
+        // new BundleAnalyzerPlugin({
+        //     // openAnalyzer: false,
+        //     // analyzerMode: 'static',
+        //     // generateStatsFile: true,
+        //     // statsFilename: 'clientBundleAnalyzer.json'
+        // })
     ]
 };
