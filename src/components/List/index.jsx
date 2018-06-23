@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 
 class List extends Component {
-    componentDidMount() {
-        const { fetch } = this.props;
-        fetch();
-    }
+    // componentDidMount() {
+    //     const { fetch, data } = this.props;
+    //     if (!data.length) {
+    //         fetch();
+    //     }
+    // }
 
     render() {
         const { data, loading } = this.props;

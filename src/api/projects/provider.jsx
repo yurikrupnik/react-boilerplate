@@ -7,30 +7,30 @@ class ProjectsProvider extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            data: props.data || [],
+            data: [],
             loading: false,
-            selected: {}
+            selected: null
         };
 
-        this.setSelected = (item) => {
-            this.setState(() => ({ selected: item }));
+        this.setSelected = (selected) => {
+            this.setState(() => ({ selected }));
         };
 
         this.clearSelected = () => {
-            this.setState(() => ({ selected: {} }));
+            this.setState(() => ({ selected: null }));
         };
 
         this.fetch = (params, cb) => {
-            console.log('params', params); // eslint-disable-line no-console
+            // console.log('params', params); // eslint-disable-line no-console
             return this.setState((prevState) => {
-                console.log('prevState', prevState); // eslint-disable-line no-console
+                // console.log('prevState', prevState); // eslint-disable-line no-console
                 return { loading: !prevState.loading };
-            }, (a) => {
-                console.log('a', a); // eslint-disable-line no-console
+            }, () => {
+                // console.log('a', a); // eslint-disable-line no-console
                 return projectsApi.fetch(params).then((data) => {
-                    console.log('data', data); // eslint-disable-line no-console
+                    // console.log('data', data); // eslint-disable-line no-console
                     return this.setState((prevState) => {
-                        console.log('prevState', prevState); // eslint-disable-line no-console
+                        // console.log('prevState', prevState); // eslint-disable-line no-console
                         return { data, loading: !prevState.loading };
                     }, cb);
                 });
@@ -61,13 +61,13 @@ class ProjectsProvider extends Component {
     }
 }
 
-ProjectsProvider.defaultProps = {
-    data: []
-};
+// ProjectsProvider.defaultProps = {
+//     data: []
+// };
 
 ProjectsProvider.propTypes = {
     children: PropTypes.element.isRequired,
-    data: PropTypes.arrayOf(PropTypes.shape({}))
+    // data: PropTypes.arrayOf(PropTypes.shape({}))
 };
 
 export default ProjectsProvider;

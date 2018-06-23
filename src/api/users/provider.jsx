@@ -7,45 +7,72 @@ class UsersProvider extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            data: props.data || [],
+            data: [],
             loading: false,
-            selected: null
+            selected: null,
+            lastFetch: ''
         };
+        this.setSelected = this.setSelected.bind(this);
+        this.clearSelected = this.clearSelected.bind(this);
+        this.fetch = this.fetch.bind(this);
+    }
 
-        this.setSelected = (selected) => {
-            this.setState(() => ({ selected }));
-        };
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevState', prevState); // eslint-disable-line no-console
+    }
 
-        this.clearSelected = () => {
-            this.setState(() => ({ selected: null }));
-        };
+    setSelected(selected) {
+        this.setState(() => ({ selected }));
+    }
 
-        this.fetch = (params, cb) => {
-            console.log('params', params); // eslint-disable-line no-console
-            return this.setState((prevState) => {
-                console.log('prevState', prevState); // eslint-disable-line no-console
-                return { loading: !prevState.loading };
-            }, (a) => {
-                console.log('a', a); // eslint-disable-line no-console
-                return usersApi.fetch(params).then((data) => {
-                    console.log('data', data); // eslint-disable-line no-console
-                    return this.setState((prevState) => {
-                        console.log('prevState', prevState); // eslint-disable-line no-console
-                        return { data, loading: !prevState.loading };
-                    }, cb);
-                });
+    clearSelected() {
+        this.setState(() => ({ selected: null }));
+    }
+
+    fetch(params, cb) {
+        // return usersApi.fetch(params).then((data) => {
+        //     console.log('data', data); // eslint-disable-line no-console
+        //     return data;
+        //     // return this.setState((prevState) => {
+        //     //     // console.log('prevState', prevState); // eslint-disable-line no-console
+        //     //     return Object.assign({}, prevState, { data, loading: !prevState.loading });
+        //     // }, cb);
+        // });
+        console.log('params', params); // eslint-disable-line no-console
+        return this.setState((prevState) => {
+            // console.log('prevState', prevState); // eslint-disable-line no-console
+            // return Object.assign({}, prevState,
+            return {
+                loading: !prevState.loading,
+                lastFetch: Date.now()
+            };
+            // );
+        }, () => {
+            // console.log('a', a); // eslint-disable-line no-console
+            return usersApi.fetch(params).then((data) => {
+                console.log('data', data); // eslint-disable-line no-console
+                return this.setState((prevState) => {
+                    // console.log('prevState', prevState); // eslint-disable-line no-console
+                    return Object.assign({}, prevState, { data, loading: !prevState.loading });
+                }, cb);
             });
-        };
+        });
     }
 
     render() {
-        const { loading, data, selected } = this.state;
         const { children } = this.props;
+        const {
+            loading,
+            data,
+            selected,
+            lastFetch
+        } = this.state;
         return (
             <Provider value={{
                 data,
                 loading,
                 selected,
+                lastFetch,
                 fetch: this.fetch,
                 setSelected: this.setSelected,
                 clearSelected: this.clearSelected
@@ -57,13 +84,13 @@ class UsersProvider extends Component {
     }
 }
 
-UsersProvider.defaultProps = {
-    data: []
-};
+// UsersProvider.defaultProps = {
+//     data: []
+// };
 
 UsersProvider.propTypes = {
     children: PropTypes.element.isRequired,
-    data: PropTypes.arrayOf(PropTypes.shape({}))
+    // data: PropTypes.arrayOf(PropTypes.shape({}))
 };
 
 export default UsersProvider;

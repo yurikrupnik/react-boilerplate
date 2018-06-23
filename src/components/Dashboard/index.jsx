@@ -4,23 +4,33 @@ import ThemesConsumer from '../contexts/themes/consumer';
 import UsersConsumer from '../../api/users/consumer';
 import ProjectsConsumer from '../../api/projects/consumer';
 import Form from '../Form';
+import List from '../List';
 
 function Dashboard() {
     return (
         <div>
-            <h2>
-                Dashboard
-            </h2>
-            <UsersConsumer />
-            <ProjectsConsumer />
-            <ThemesConsumer />
-            <ThemesConsumer render={() => (
-                <div>
-                    nuuuu
-                </div>
+            <UsersConsumer render={userProps => (
+                <ProjectsConsumer render={projectsProps => (
+                    <div>
+                        <h2>
+                            Dashboard
+                        </h2>
+                        <List {...userProps} />
+                        <List {...projectsProps} />
+                        <ThemesConsumer />
+                        <ThemesConsumer render={() => (
+                            <div>
+                                nuuuu
+                            </div>
+                        )}
+                        />
+                        <Form />
+                    </div>
+                )}
+                />
             )}
             />
-            <Form />
+
         </div>
     );
 }
