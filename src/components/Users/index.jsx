@@ -10,8 +10,6 @@ class Container extends Component {
     }
 
     render() {
-        console.log('Container props', this.props);
-
         return (
             <UsersConsumer render={userProps => (
                 <ProjectsConsumer render={(projectProps) => (

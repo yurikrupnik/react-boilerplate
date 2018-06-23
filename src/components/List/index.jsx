@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 
 class List extends Component {
-    // componentDidMount() {
-    //     const { fetch, data } = this.props;
-    //     if (!data.length) {
-    //         fetch();
-    //     }
-    // }
-
     render() {
         const { data, loading } = this.props;
         return (
@@ -32,15 +25,15 @@ class List extends Component {
 }
 
 List.defaultProps = {
-    fetch: () => {},
-    loading: false,
-    data: []
+    // fetch: () => {},
+    // loading: false,
+    // data: []
 };
 
 List.propTypes = {
-    fetch: PropTypes.func,
-    loading: PropTypes.bool,
-    data: PropTypes.arrayOf(PropTypes.shape({}))
+    // fetch: PropTypes.func,
+    loading: PropTypes.bool.isRequired,
+    data: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default List;

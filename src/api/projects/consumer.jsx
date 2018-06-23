@@ -1,27 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from './context';
-import List from '../../components/List';
+import DataContainer from '../dataContainer';
 
 const ProjectsConsumer = ({ render }) => (
     <Consumer>
-        {(props) => {
-            if (typeof render === 'function') {
-                return render(props);
-            }
-            return (
-                <List {...props} />
-            );
-        }}
+        {props => <DataContainer {...props} render={render} />}
     </Consumer>
 );
 
-ProjectsConsumer.defaultProps = {
-    render: null
-};
-
 ProjectsConsumer.propTypes = {
-    render: PropTypes.func
+    render: PropTypes.func.isRequired
 };
 
 export default ProjectsConsumer;

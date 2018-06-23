@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProjectsConsumer from '../../api/projects/consumer';
+import List from '../List';
 
 class Container extends Component {
     constructor(props) {
@@ -9,12 +10,15 @@ class Container extends Component {
 
     render() {
         return (
-            <div>
-                <h2>
-                    Projects
-                </h2>
-                <ProjectsConsumer />
-            </div>
+            <ProjectsConsumer render={props => (
+                <div>
+                    <h3>
+                        projects
+                    </h3>
+                    <List {...props} />
+                </div>
+            )}
+            />
         );
     }
 }

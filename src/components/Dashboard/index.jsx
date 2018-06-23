@@ -8,30 +8,27 @@ import List from '../List';
 
 function Dashboard() {
     return (
-        <div>
-            <UsersConsumer render={userProps => (
-                <ProjectsConsumer render={projectsProps => (
-                    <div>
-                        <h2>
-                            Dashboard
-                        </h2>
-                        <List {...userProps} />
-                        <List {...projectsProps} />
-                        <ThemesConsumer />
-                        <ThemesConsumer render={() => (
-                            <div>
-                                nuuuu
-                            </div>
-                        )}
-                        />
-                        <Form />
-                    </div>
-                )}
-                />
+        <UsersConsumer render={userProps => (
+            <ProjectsConsumer render={projectsProps => (
+                <div>
+                    <h2>
+                        Dashboard
+                    </h2>
+                    <List {...userProps} />
+                    <List {...projectsProps} />
+                    <ThemesConsumer />
+                    <ThemesConsumer render={() => (
+                        <div>
+                            nuuuu
+                        </div>
+                    )}
+                    />
+                    <Form />
+                </div>
             )}
             />
-
-        </div>
+        )}
+        />
     );
 }
 
