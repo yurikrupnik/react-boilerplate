@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from './context';
-import projectsApi from './api';
+import api from './api';
+
+const toggleLoading = prevState => ({ loading: !prevState.loading });
 
 class ProjectsProvider extends Component {
     constructor(props, context) {
@@ -20,27 +22,13 @@ class ProjectsProvider extends Component {
             this.setState(() => ({ selected: null }));
         };
 
-        this.fetch = (params, cb) => {
-            // console.log('params', params); // eslint-disable-line no-console
-            return this.setState((prevState) => {
-                // console.log('prevState', prevState); // eslint-disable-line no-console
-                return { loading: !prevState.loading };
-            }, () => {
-                // console.log('a', a); // eslint-disable-line no-console
-                return projectsApi.fetch(params).then((data) => {
-                    // console.log('data', data); // eslint-disable-line no-console
-                    return this.setState((prevState) => {
-                        // console.log('prevState', prevState); // eslint-disable-line no-console
-                        return { data, loading: !prevState.loading };
-                    }, cb);
-                });
-            });
-        };
+        this.fetch = (params, cb) => this.setState(toggleLoading,
+            () => api.fetch(params)
+                .then(data => this.setState(prevState => ({
+                    data,
+                    loading: !prevState.loading
+                }), cb)));
     }
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return this.state.data !== nextState.data;
-    // }
 
     render() {
         const { loading, data, selected } = this.state;
@@ -61,13 +49,8 @@ class ProjectsProvider extends Component {
     }
 }
 
-// ProjectsProvider.defaultProps = {
-//     data: []
-// };
-
 ProjectsProvider.propTypes = {
-    children: PropTypes.element.isRequired,
-    // data: PropTypes.arrayOf(PropTypes.shape({}))
+    children: PropTypes.element.isRequired
 };
 
 export default ProjectsProvider;

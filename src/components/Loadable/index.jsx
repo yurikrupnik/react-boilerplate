@@ -46,8 +46,7 @@ Loading.defaultProps = {
     error: '',
     pastDelay: '',
     timedOut: '',
-    retry: () => {
-    }
+    retry: () => {}
 };
 
 Loading.propTypes = {

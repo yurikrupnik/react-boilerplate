@@ -36,7 +36,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: ['babel-loader'],
+                use: ['babel-loader', 'eslint-loader'],
                 exclude: /node_modules/,
             },
             {
@@ -62,12 +62,10 @@ module.exports = {
         ]
     },
     plugins: [
-        // new CopyWebpackPlugin([
-        //     { from: 'assets' },
-        // ]),
         new HtmlWebpackPlugin({
             template: 'index.ejs',
             filename: 'index.ejs',
+            favicon: 'assets/favicon.ico',
             meta: {
                 charset: 'UTF-8',
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'

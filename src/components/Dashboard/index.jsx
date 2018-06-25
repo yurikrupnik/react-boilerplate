@@ -12,7 +12,7 @@ function Dashboard() {
             <ProjectsConsumer render={projectsProps => (
                 <div>
                     <h2>
-                        Dashboard
+                        Dashboardsds
                     </h2>
                     <List {...userProps} />
                     <List {...projectsProps} />

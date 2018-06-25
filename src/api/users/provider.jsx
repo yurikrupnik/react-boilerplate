@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from './context';
-import usersApi from './api';
+import api from './api';
+
+const toggleLoading = prevState => ({ loading: !prevState.loading });
 
 class UsersProvider extends Component {
     constructor(props, context) {
@@ -14,7 +16,12 @@ class UsersProvider extends Component {
         };
         this.setSelected = this.setSelected.bind(this);
         this.clearSelected = this.clearSelected.bind(this);
-        this.fetch = this.fetch.bind(this);
+        this.fetch = (params, cb) => this.setState(toggleLoading,
+            () => api.fetch(params)
+                .then(data => this.setState(prevState => ({
+                    data,
+                    loading: !prevState.loading
+                }), cb)));
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -27,36 +34,6 @@ class UsersProvider extends Component {
 
     clearSelected() {
         this.setState(() => ({ selected: null }));
-    }
-
-    fetch(params, cb) {
-        // return usersApi.fetch(params).then((data) => {
-        //     console.log('data', data); // eslint-disable-line no-console
-        //     return data;
-        //     // return this.setState((prevState) => {
-        //     //     // console.log('prevState', prevState); // eslint-disable-line no-console
-        //     //     return Object.assign({}, prevState, { data, loading: !prevState.loading });
-        //     // }, cb);
-        // });
-        console.log('params', params); // eslint-disable-line no-console
-        return this.setState((prevState) => {
-            // console.log('prevState', prevState); // eslint-disable-line no-console
-            // return Object.assign({}, prevState,
-            return {
-                loading: !prevState.loading,
-                lastFetch: Date.now()
-            };
-            // );
-        }, () => {
-            // console.log('a', a); // eslint-disable-line no-console
-            return usersApi.fetch(params).then((data) => {
-                console.log('data', data); // eslint-disable-line no-console
-                return this.setState((prevState) => {
-                    // console.log('prevState', prevState); // eslint-disable-line no-console
-                    return Object.assign({}, prevState, { data, loading: !prevState.loading });
-                }, cb);
-            });
-        });
     }
 
     render() {
@@ -84,13 +61,8 @@ class UsersProvider extends Component {
     }
 }
 
-// UsersProvider.defaultProps = {
-//     data: []
-// };
-
 UsersProvider.propTypes = {
     children: PropTypes.element.isRequired,
-    // data: PropTypes.arrayOf(PropTypes.shape({}))
 };
 
 export default UsersProvider;

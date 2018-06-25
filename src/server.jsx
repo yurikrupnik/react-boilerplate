@@ -2,7 +2,6 @@ import path from 'path';
 import Koa from 'koa';
 import statics from 'koa-static';
 import views from 'koa-render-view';
-import favicon from 'koa-favicon';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { port, databaseUrl } from './config';
@@ -17,7 +16,6 @@ const assets = path.resolve(__dirname, 'assets');
 
 app.use(statics(assets));
 app.use(views(assets, { extension: 'ejs' }));
-app.use(favicon(path.resolve(assets, 'favicon.ico')));
 app.use(db(databaseUrl));
 app.use(api);
 
@@ -25,7 +23,7 @@ app.use((ctx) => {
     const context = {};
     const { url } = context;
     const title = 'my title';
-    const html = renderToString((<App routes={routes} />));
+    const html = renderToString(<App routes={routes} />);
     ctx.state = { title, html };
     return url ? ctx.redirect(301, url) : ctx.render('index');
 });
