@@ -4,7 +4,7 @@
   "description": "react-boilerplate",
   "main": "src/server.jsx",
   "scripts": {
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start": "npm run start:client & npm run start:server",
     "start:client": "cross-env NODE_ENV=development webpack-serve --config webpack.config.serve.js",
     "start:server": "cross-env NODE_ENV=development babel-watch --plugins dynamic-import-node src/server.jsx",
     "clean": "rimraf dist/",
@@ -13,6 +13,8 @@
     "build:client": "cross-env NODE_ENV=production webpack --config webpack.config.client.js",
     "lint": "eslint eslint --ext js,jsx src",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "deploy:test": "npm run lint && npm run test",
     "deploy:build": "npm run deploy:test && npm run build && docker build -t yuri/react-bo . ",
     "deploy:run": "docker run yuri/react-bo --hostname=yuri -p 49170:5000 -d ",
@@ -70,6 +72,7 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-loader": "^2.0.0",
@@ -80,6 +83,7 @@
     "generate-json-webpack-plugin": "^0.3.1",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.18.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
     "koa-connect": "^2.0.1",
     "mini-css-extract-plugin": "^0.4.0",
@@ -94,5 +98,16 @@
     "webpack-cli": "^3.0.8",
     "webpack-node-externals": "^1.7.2",
     "webpack-serve": "^1.0.4"
+  },
+  "jest": {
+    "setupFiles": [
+      "./jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
   }
 }

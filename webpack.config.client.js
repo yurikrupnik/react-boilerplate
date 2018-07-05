@@ -83,12 +83,6 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[name].css'
         }),
-        // new CompressionPlugin(),
-        new BundleAnalyzerPlugin({
-        //     // openAnalyzer: false,
-        //     // analyzerMode: 'static',
-        //     // generateStatsFile: true,
-        //     // statsFilename: 'clientBundleAnalyzer.json'
-        })
+        isDev ? () => {} : new BundleAnalyzerPlugin({})
     ]
 };

@@ -1,20 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
 import Nav from './nav';
+import Router from '../Router';
 
-const Layout = (props) => {
-    const { routes } = props;
-    return (
-        <Fragment>
+const Layout = ({ routes }) => (
+    <Fragment>
+        <Router routes={routes}>
             <Nav routes={routes} />
-            {routes.map(route => <Route key={route.key} {...route} />)}
-            <div>
-                default footer
-            </div>
-        </Fragment>
-    );
-};
+        </Router>
+        <div>
+            default footer
+        </div>
+    </Fragment>
+);
 
 Layout.propTypes = {
     routes: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
