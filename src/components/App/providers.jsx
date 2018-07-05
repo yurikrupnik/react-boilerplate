@@ -22,16 +22,17 @@ const Providers = ({ children, providers }) => {
         return re;
     }
 
+    function req(ac, c, finalChildren) {
+        let re;
+        Children.forEach(ac.props.children, (child) => {
+            re = cloneElement(child, {}, c > 0 ? req(child, c--, finalChildren) : finalChildren);
+        });
+        // console.log('c', c);
+        return re;
+    }
     function createRecursive(acc, counter, finalChildren) {
-        function req(ac, finalChildren) {
-            let re;
-            Children.forEach(ac.props.children, (child) => {
-                re = cloneElement(child, {}, finalChildren);
-            });
-            return re;
-        }
-
-        return cloneElement(acc, {}, counter === 1 ? req(acc, finalChildren) : finalChildren);
+        console.log('counter', counter);
+        return cloneElement(acc, {}, counter === 0 ? finalChildren : req(acc, counter, finalChildren));
     }
 
     return providers.reduce((acc, C, i, collection) => {
@@ -40,13 +41,21 @@ const Providers = ({ children, providers }) => {
         const finalChildren = createElement(C, {}, children);
 
         if (i === 0) {
+            result = createRecursive(acc, i, finalChildren);
+            console.log('result', result);
+
             result = cloneElement(acc, {}, finalChildren);
         } else if (i === 1) {
             // return acc;
             // console.log('isValidElement(acc[combined])', isValidElement(Acc.props.children));
+            // result = createRecursive(acc, i, finalChildren);
+
             result = cloneElement(acc, {}, cloneElement(acc.props.children, {}, finalChildren));
-            // cloneElement(Acc.props.children, {}, des));
+            console.log('result', result);
         } else if (i === 2) {
+            // result = createRecursive(acc, i, finalChildren);
+            // console.log('result', result);
+
             result = cloneElement(acc, {}, cloneElement(acc.props.children, {}, cloneElement(acc.props.children.props.children, {}, finalChildren)));
             // return acc;
             // result = cloneElement(Acc, {}, createRecursive2(Acc, i, finalChildren));
@@ -55,7 +64,7 @@ const Providers = ({ children, providers }) => {
             result = cloneElement(acc, {}, cloneElement(acc.props.children, {}, cloneElement(acc.props.children.props.children, {}, cloneElement(acc.props.children.props.children.props.children, {}, finalChildren))));
             // result = cloneElement(Acc, {}, createRecursive3(Acc, i, finalChildren));
         }
-        // console.log('result', result);
+        console.log('result', result);
 
         return result;
     }, <Fragment/>);
