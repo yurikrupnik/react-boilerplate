@@ -6,8 +6,9 @@ import { Provider } from '../contexts/themes';
 import apiProviders from '../../api/providers';
 import Layout from './layout';
 
+const Router = global.window ? BrowserRouter : StaticRouter;
+
 const App = ({ routes }) => {
-    const Router = global.window ? BrowserRouter : StaticRouter;
     return (
         <Providers providers={apiProviders.concat(Provider)}>
             <Router>

@@ -7,9 +7,9 @@ function ThemesConsumer({ render }) {
     return (
         <Consumer>
             {(props) => {
-                if (typeof render === 'function') {
-                    return render(props);
-                }
+                // if (typeof render === 'function') {
+                //     return render(props);
+                // }
                 return (
                     <DefaultConsumer {...props} />
                 );

@@ -14,9 +14,11 @@ class UsersProvider extends Component {
             selected: null,
             lastFetch: ''
         };
-        this.setSelected = this.setSelected.bind(this);
-        this.clearSelected = this.clearSelected.bind(this);
-        this.fetch = (params, cb) => this.setState(toggleLoading,
+        this.fetch = this.fetch.bind(this);
+    }
+
+    fetch(params, cb) {
+        this.setState(toggleLoading,
             () => api.fetch(params)
                 .then(data => this.setState(prevState => ({
                     data,
@@ -24,35 +26,12 @@ class UsersProvider extends Component {
                 }), cb)));
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log('prevState', prevState); // eslint-disable-line no-console
-    }
-
-    setSelected(selected) {
-        this.setState(() => ({ selected }));
-    }
-
-    clearSelected() {
-        this.setState(() => ({ selected: null }));
-    }
-
     render() {
         const { children } = this.props;
-        const {
-            loading,
-            data,
-            selected,
-            lastFetch
-        } = this.state;
         return (
             <Provider value={{
-                data,
-                loading,
-                selected,
-                lastFetch,
-                fetch: this.fetch,
-                setSelected: this.setSelected,
-                clearSelected: this.clearSelected
+                ...this.state,
+                fetch: this.fetch
             }}
             >
                 {children}

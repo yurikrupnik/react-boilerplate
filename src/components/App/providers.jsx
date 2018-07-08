@@ -17,9 +17,10 @@ const cloneElementRecursiveByCounter = (component, counter, finalChildren) => {
 const cloneElementRecursively = (tree, counter, finalChildren) => cloneElement(tree, {},
     counter === 0 ? finalChildren : cloneElementRecursiveByCounter(tree, counter, finalChildren));
 
-const Providers = ({ children, providers }) => providers.reduce(
-    (acc, c, i) => cloneElementRecursively(acc, i, createElement(c, {}, children)), <Fragment />
-);
+const reducer = children => (acc, c, i) => cloneElementRecursively(acc, i,
+    createElement(c, {}, children));
+
+const Providers = ({ children, providers }) => providers.reduce(reducer(children), <Fragment />);
 
 Providers.propTypes = {
     children: PropTypes.element.isRequired,
@@ -27,3 +28,8 @@ Providers.propTypes = {
 };
 
 export default Providers;
+export {
+    reducer,
+    cloneElementRecursively,
+    cloneElementRecursiveByCounter
+};
