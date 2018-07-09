@@ -1,10 +1,6 @@
-import React, { Fragment } from 'react';
-import Providers, {
-    reducer,
-    cloneElementRecursively,
-    cloneElementRecursiveByCounter
-} from './providers';
-// import apiProviders from '../../api/providers';
+import React from 'react';
+import Providers from '../providers';
+import ProvidersArray from '../../../api/providers';
 
 const {
     describe,

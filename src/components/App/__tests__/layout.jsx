@@ -1,5 +1,8 @@
-import React, { Fragment } from 'react';
-import Layout from './layout';
+import React from 'react';
+import Layout from '../layout';
+import routes from '../../routes';
+
+jest.mock('../../routes');
 
 const {
     describe,
@@ -7,18 +10,6 @@ const {
     expect,
     shallow
 } = global;
-
-const routes = [
-    {
-        path: '/',
-        component: () => (
-            <div>
-                hello
-            </div>
-        ),
-        key: 1
-    }
-];
 
 describe('app', () => {
     it('renders <Layout /> component', () => {

@@ -1,12 +1,14 @@
 import React from 'react';
 import api from './api';
+// jest.mock('./api'); //
 // import Component from './dataContainer';
 
 const {
     describe,
     it,
     expect,
-    shallow
+    shallow,
+    beforeEach
 } = global;
 const users = {
     4: { name: 'Mark' },
@@ -35,6 +37,11 @@ function request(url) {
 }
 
 describe('theme provider', () => {
+    beforeEach(() => {
+        // Clear all instances and calls to constructor and all methods:
+        // console.log('Api', Api);
+        // api.mockClear();
+    });
     it('renders three <Component.name /> components', (done) => {
         // const wrapper = shallow(<Component><div>helo</div></Component>);
         // expect(wrapper.length).toBe(1);
@@ -49,5 +56,17 @@ describe('theme provider', () => {
             }]);
             done();
         });
+    });
+
+    it('should ta', (done) => {
+        // let asd = Api()
+        console.log('api', api.getMockName);
+
+        api.fetch()
+            // .then(res => {
+            //     console.log('res', res);
+            //
+                done();
+            // });
     });
 });

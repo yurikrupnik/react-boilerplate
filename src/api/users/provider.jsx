@@ -20,10 +20,16 @@ class UsersProvider extends Component {
     fetch(params, cb) {
         this.setState(toggleLoading,
             () => api.fetch(params)
-                .then(data => this.setState(prevState => ({
-                    data,
-                    loading: !prevState.loading
-                }), cb)));
+                .then(this.handleSuccess(cb)));
+    }
+
+    handleSuccess(cb) {
+        return (data = []) => {
+            this.setState(prevState => ({
+                data,
+                loading: !prevState.loading
+            }), cb);
+        };
     }
 
     render() {

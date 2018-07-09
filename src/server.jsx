@@ -3,6 +3,7 @@ import Koa from 'koa';
 import statics from 'koa-static';
 import views from 'koa-render-view';
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { port, databaseUrl } from './config';
 import api from './api';
@@ -23,7 +24,11 @@ app.use((ctx) => {
     const context = {};
     const { url } = context;
     const title = 'my title';
-    const html = renderToString(<App routes={routes} />);
+    const html = renderToString(
+        <StaticRouter>
+            <App routes={routes} />
+        </StaticRouter>
+    );
     ctx.state = { title, html };
     return url ? ctx.redirect(301, url) : ctx.render('index');
 });

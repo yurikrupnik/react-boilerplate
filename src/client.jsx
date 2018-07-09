@@ -1,14 +1,20 @@
 import React from 'react';
 import { render, hydrate } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './components/App';
 import routes from './components/routes';
-import Loadable from './components/Loadable';
+// import Loadable from './components/Loadable';
 import './services/socket/client';
 import './styles/_index.scss';
 
-const App = Loadable({
-    loader: () => import(/* webpackChunkName: "app" */ './components/App'),
-});
+// const App = Loadable({
+//     loader: () => import(/* webpackChunkName: "app" */ './components/App'),
+// });
 
 const renderMethod = module.hot ? render : hydrate;
 
-renderMethod(<App routes={routes} />, global.document.getElementById('root'));
+renderMethod(
+    <BrowserRouter>
+        <App routes={routes} />
+    </BrowserRouter>, global.document.getElementById('root')
+);
