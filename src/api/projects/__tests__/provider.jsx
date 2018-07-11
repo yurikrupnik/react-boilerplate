@@ -1,13 +1,14 @@
 import React from 'react';
-import Provider from './provider';
-import api from './api';
-// jest.mock('./api');
-// jest.mock('./sound-player'); // SoundPlayer is now a mock constructor
-import { themes } from "../../components/contexts/themes/context";
+import Provider from '../provider';
+import api from '../api';
+// import api from '../../api';
+
+jest.mock('../api');
 
 const {
     describe,
     it,
+    test,
     expect,
     shallow,
     render,
@@ -19,7 +20,7 @@ describe('users provider', () => {
         // Clear all instances and calls to constructor and all methods:
         // api.mockClear();
     });
-    it('renders three <Provider /> components', () => {
+    test('renders three <Provider /> components', () => {
         const wrapper = shallow(<Provider><div>helo</div></Provider>);
         // expect(wrapper.length).toBe(1);
         expect(wrapper).toMatchSnapshot();
@@ -27,12 +28,12 @@ describe('users provider', () => {
         // instance.toggleTheme();
         instance.fetch(); // todo mock for this
         expect(instance.state.data).toEqual([]);
-        console.log('api', api);
+        // console.log('api', api);
 
         // expect(instance.state.data).toEqual([]);
     });
 
-    it('should dos', () => {
+    test('should dos', () => {
         const wrapper = shallow(<Provider><div>helo</div></Provider>);
         // expect(wrapper.length).toBe(1);
         // expect(wrapper).toMatchSnapshot();
@@ -42,15 +43,23 @@ describe('users provider', () => {
         expect(instance.state.data).toEqual([]);
     });
 
-    it('should dos', () => {
+    test('should dos', () => {
         const wrapper = shallow(<Provider><div>helo</div></Provider>);
         // expect(wrapper.length).toBe(1);
         // expect(wrapper).toMatchSnapshot();
         const instance = wrapper.instance();
         // instance.toggleTheme();
         // expect(instance.state.loading).toBe(true);
-        instance.handleSuccess(() => {}); // todo mock for this
+        // instance.handleSuccess(() => {}); // todo mock for this
+        const loading = instance.state.loading;
+        return instance.fetch(null, () => {
+            return [
+                { _id: 1, name: 'asd' }
+            ];
+        });
+
         expect(instance.state.data).toEqual([]);
-        expect(instance.state.loading).toBe(false);
+        expect(instance.state.loading).toBe(!loading);
+        expect(api.fetch).toHaveBeenCalledTimes(1);
     });
 });

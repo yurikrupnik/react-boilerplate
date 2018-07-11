@@ -1,6 +1,6 @@
 import React from 'react';
-import Provider from './provider';
-import { themes } from './context';
+import Provider from '../provider';
+import { themes } from '../context';
 
 const {
     describe,
@@ -20,7 +20,7 @@ describe('theme provider', () => {
     });
 
     it('renders three <Provider /> components', () => {
-        const wrapper = render(<Provider><div>asd</div></Provider>);
+        const wrapper = shallow(<Provider><div>asd</div></Provider>);
         expect(wrapper).toMatchSnapshot();
         // const instance = wrapper.instance();
         // instance.toggleTheme();

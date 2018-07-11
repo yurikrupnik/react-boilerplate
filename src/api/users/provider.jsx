@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from './context';
 import api from './api';
+// import { toggleLoading } from '../utils';
 
 const toggleLoading = prevState => ({ loading: !prevState.loading });
 
@@ -15,12 +16,16 @@ class UsersProvider extends Component {
             lastFetch: ''
         };
         this.fetch = this.fetch.bind(this);
+        this.toggleCallback = this.toggleCallback.bind(this);
     }
 
     fetch(params, cb) {
-        this.setState(toggleLoading,
-            () => api.fetch(params)
-                .then(this.handleSuccess(cb)));
+        this.setState(toggleLoading, this.toggleCallback(params, cb));
+    }
+
+    toggleCallback(params, cb) {
+        return () => api.fetch(params)
+            .then(this.handleSuccess(cb));
     }
 
     handleSuccess(cb) {

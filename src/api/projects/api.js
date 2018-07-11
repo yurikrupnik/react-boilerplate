@@ -1,8 +1,9 @@
-import request from '../request';
+import request from 'axios';
 import { url } from './config';
 
-const projectsApi = {
-    fetch: (params, cb) => request.get(url, { params })
+
+const api = {
+    fetch: (params, cb) => request.get(`/api${url}`, { params })
         .then((res) => {
             const { data } = res;
             if (typeof cb === 'function') {
@@ -12,4 +13,4 @@ const projectsApi = {
         })
 };
 
-export default projectsApi;
+export default api;

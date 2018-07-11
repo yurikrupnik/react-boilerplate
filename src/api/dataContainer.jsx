@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class DataContainer extends Component {
     componentDidMount() {
         const { fetch, data } = this.props;
-        if (!data.length) {
+        if (!data.length && typeof fetch === 'function') {
             fetch({});
         }
     }

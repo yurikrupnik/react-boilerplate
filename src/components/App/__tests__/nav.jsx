@@ -1,18 +1,18 @@
 import React from 'react';
-import Nav from '../nav';
+import MainNav from '../nav';
 import routes from '../../routes';
 
 jest.mock('../../routes');
 
 const {
-    describe,
-    it,
+    test,
     expect,
     shallow
 } = global;
 
-it('renders <Nav /> component', () => {
-    const wrapper = shallow(<Nav routes={routes} />);
+test('renders <Nav /> component', () => {
+    const wrapper = shallow(<MainNav routes={routes} />);
     // expect(wrapper.length).toBe(1);
     expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('div').length).toBe(2);
 });

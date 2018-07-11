@@ -13,6 +13,6 @@ describe('theme provider', () => {
         // const wrapper = shallow(<Component><div>helo</div></Component>);
         // expect(wrapper.length).toBe(1);
         // expect(wrapper).toMatchSnapshot();
-        expect(1).toBe(1);
+        // expect(1).toBe(1);
     });
 });

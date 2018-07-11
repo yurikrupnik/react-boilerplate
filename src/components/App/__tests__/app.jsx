@@ -13,10 +13,7 @@ const {
 
 describe('app', () => {
     it('renders <App /> component', () => {
-        console.log('routes', routes);
-
         const wrapper = shallow(<App routes={routes} />);
-        // expect(wrapper.length).toBe(1);
         expect(wrapper).toMatchSnapshot();
     });
 });

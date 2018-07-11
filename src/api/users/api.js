@@ -1,8 +1,8 @@
-import request from '../request';
+import request from 'axios';
 import { url } from './config';
 
-const usersApi = {
-    fetch: (params, cb) => request.get(url, { params })
+const api = {
+    fetch: (params, cb) => request.get(`/api${url}`, { params })
         .then((res) => {
             const { data } = res;
             if (typeof cb === 'function') {
@@ -11,5 +11,4 @@ const usersApi = {
             return data;
         })
 };
-
-export default usersApi;
+export default api;

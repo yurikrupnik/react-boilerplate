@@ -13,16 +13,9 @@ const themes = {
     },
 };
 
-const Context = createContext({
+const { Provider, Consumer } = createContext({
     theme: themes.light,
     toggleTheme: () => {}
 });
 
-// console.log('Context', Context);
-// console.log('Context.Provider', Context.Provider);
-// console.log('Context.Consumer', Context.Consumer);
-
-
-const { Provider, Consumer } = Context;
-
-export { Context, Provider, Consumer, themes };
+export { Provider, Consumer, themes };
