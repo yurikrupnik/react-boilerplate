@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from '../consumer';
-import DefaultConsumer from '../defaultButton';
 
 const {
     describe,
@@ -10,20 +9,14 @@ const {
 } = global;
 
 describe('theme consumer', () => {
-    test('render consumer', () => {
-        const wrapper = render(<Consumer />);
-        expect(wrapper).toMatchSnapshot();
-    });
-
     test('render consumer with render props', () => {
         const wrapper = render( // notice render here
             <Consumer render={(props) => {
-                const { toggleTheme } = props;
-                toggleTheme();
-                return (<DefaultConsumer {...props} />);
+                props.fetch();
+                return (<div>asd</div>);
             }}
             />
         );
-        expect(wrapper.length).toBe(1);
+        expect(wrapper).toMatchSnapshot();
     });
 });

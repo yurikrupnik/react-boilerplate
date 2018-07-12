@@ -9,6 +9,7 @@ class ThemesProvider extends Component {
         this.state = {
             theme: themes.light,
         };
+
         this.toggleTheme = this.toggleTheme.bind(this);
     }
 

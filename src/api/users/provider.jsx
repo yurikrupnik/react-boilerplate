@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from './context';
 import api from './api';
-// import { toggleLoading } from '../utils';
 
 const toggleLoading = prevState => ({ loading: !prevState.loading });
 
@@ -29,7 +28,7 @@ class UsersProvider extends Component {
     }
 
     handleSuccess(cb) {
-        return (data = []) => {
+        return (data) => {
             this.setState(prevState => ({
                 data,
                 loading: !prevState.loading

@@ -29,7 +29,7 @@ class ProjectsProvider extends Component {
     }
 
     handleSuccess(cb) {
-        return (data = []) => {
+        return (data) => {
             this.setState(prevState => ({
                 data,
                 loading: !prevState.loading

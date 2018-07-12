@@ -109,6 +109,7 @@
     ],
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
-    }
+    },
+    "moduleFileExtensions": ["jsx", "js"]
   }
 }

@@ -6,8 +6,7 @@ const {
     describe,
     it,
     expect,
-    shallow,
-    render
+    shallow
 } = global;
 
 describe('theme provider', () => {
