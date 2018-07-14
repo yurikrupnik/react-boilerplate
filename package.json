@@ -101,10 +101,6 @@
     "webpack-serve": "^1.0.4"
   },
   "jest": {
-    "globals": {
-      "__TEST__": true,
-      "__RCTProfileIsProfiling": false
-    },
     "setupFiles": [
       "./jestsetup.js"
     ],
