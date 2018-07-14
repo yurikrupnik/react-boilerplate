@@ -9,11 +9,16 @@ const {
 } = global;
 
 describe('theme consumer', () => {
-    test('render consumer with render props', () => {
+    test('render consumer', () => {
         const wrapper = render( // notice render here
             <Consumer render={(props) => {
-                props.fetch();
-                return (<div>asd</div>);
+                const { fetch } = props;
+                fetch();
+                return (
+                    <div>
+                        asd
+                    </div>
+                );
             }}
             />
         );

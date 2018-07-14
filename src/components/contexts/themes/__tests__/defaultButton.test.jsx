@@ -8,6 +8,11 @@ const {
 } = global;
 
 it('renders <DefaultButton /> component', () => {
-    const wrapper = shallow(<DefaultButton theme={{ foreground: '#000000', background: '#eeeeee', color: 'red' }} toggleTheme={() => {}} />);
+    const wrapper = shallow(
+        <DefaultButton
+            theme={{ foreground: '#000000', background: '#eeeeee', color: 'red' }}
+            toggleTheme={() => {}}
+        />
+    );
     expect(wrapper).toMatchSnapshot();
 });

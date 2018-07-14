@@ -12,8 +12,13 @@ describe('theme consumer', () => {
     test('render consumer with render props', () => {
         const wrapper = render( // notice render here
             <Consumer render={(props) => {
-                props.fetch();
-                return (<div>asd</div>);
+                const { fetch } = props;
+                fetch();
+                return (
+                    <div>
+                        asd
+                    </div>
+                );
             }}
             />
         );

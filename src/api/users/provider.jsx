@@ -24,16 +24,18 @@ class UsersProvider extends Component {
 
     toggleCallback(params, cb) {
         return () => api.fetch(params)
-            .then(this.handleSuccess(cb));
-    }
-
-    handleSuccess(cb) {
-        return (data) => {
-            this.setState(prevState => ({
-                data,
-                loading: !prevState.loading
-            }), cb);
-        };
+            .then((data) => {
+                this.setState(prevState => ({
+                    data,
+                    loading: !prevState.loading
+                }), cb);
+            })
+            .catch((error) => {
+                this.setState(prevState => ({
+                    error,
+                    loading: !prevState.loading
+                }));
+            });
     }
 
     render() {

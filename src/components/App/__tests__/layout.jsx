@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../layout';
 import routes from '../../routes';
 
-jest.mock('../../routes');
+jest.mock('../../routes'); // eslint-disable-line no-undef
 
 const {
     test,

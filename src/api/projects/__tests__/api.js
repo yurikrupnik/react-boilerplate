@@ -1,13 +1,25 @@
 import moxios from 'moxios';
+import instance from '../../request';
 import api from '../api';
 
-describe('mocking axios requests', function () {
-    it('just for a single spec', function (done) {
-        moxios.withMock(function () {
-            const cb = jest.fn();
-            api.fetch({}, cb);
-            moxios.wait(function () {
-                let request = moxios.requests.mostRecent();
+const {
+    describe, test, beforeEach, afterEach
+} = global;
+
+describe('users api', () => {
+    beforeEach(() => {
+        moxios.install(instance);
+    });
+
+    afterEach(() => {
+        moxios.uninstall(instance);
+    });
+
+    test('should fetch projects', (done) => {
+        moxios.withMock(() => {
+            api.fetch({});
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
                 request.respondWith({
                     status: 200,
                     data: {
@@ -16,6 +28,20 @@ describe('mocking axios requests', function () {
                 });
                 done();
             });
-        })
+        });
+    });
+
+    test('should handle error projects', (done) => {
+        moxios.withMock(() => {
+            api.fetch({});
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                    status: 500,
+                    data: new Error('as')
+                });
+                done();
+            });
+        });
     });
 });

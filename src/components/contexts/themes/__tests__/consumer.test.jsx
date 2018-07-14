@@ -11,12 +11,12 @@ const {
 
 describe('theme consumer', () => {
     test('render consumer', () => {
-        const wrapper = render(<Consumer />);
+        const wrapper = render(<Consumer />); // render prop component
         expect(wrapper).toMatchSnapshot();
     });
 
     test('render consumer with render props', () => {
-        const wrapper = render( // notice render here
+        const wrapper = render( // render prop component
             <Consumer render={(props) => {
                 const { toggleTheme } = props;
                 toggleTheme();

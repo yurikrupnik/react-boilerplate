@@ -1,20 +1,47 @@
 import moxios from 'moxios';
+import instance from '../../request';
 import api from '../api';
 
-const { test } = global;
+const {
+    describe, test, beforeEach, afterEach
+} = global;
 
-test('should fetch users', (done) => {
-    moxios.withMock(() => {
-        api.fetch({});
-        moxios.wait(() => {
-            const request = moxios.requests.mostRecent();
-            request.respondWith({
-                status: 200,
-                data: {
-                    id: 12345, firstName: 'Fred', lastName: 'Flintstone'
-                }
+describe('users api', () => {
+    beforeEach(() => {
+        moxios.install(instance);
+    });
+
+    afterEach(() => {
+        moxios.uninstall(instance);
+    });
+
+    test('should fetch users', (done) => {
+        moxios.withMock(() => {
+            api.fetch({});
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                    status: 200,
+                    data: {
+                        id: 12345, firstName: 'Fred', lastName: 'Flintstone'
+                    }
+                });
+                done();
             });
-            done();
+        });
+    });
+
+    test('should handle error users', (done) => {
+        moxios.withMock(() => {
+            api.fetch({});
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                    status: 500,
+                    data: new Error('as')
+                });
+                done();
+            });
         });
     });
 });

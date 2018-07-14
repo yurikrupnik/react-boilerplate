@@ -101,6 +101,10 @@
     "webpack-serve": "^1.0.4"
   },
   "jest": {
+    "globals": {
+      "__TEST__": true,
+      "__RCTProfileIsProfiling": false
+    },
     "setupFiles": [
       "./jestsetup.js"
     ],
@@ -109,7 +113,6 @@
     ],
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
-    },
-    "moduleFileExtensions": ["jsx", "js"]
+    }
   }
 }

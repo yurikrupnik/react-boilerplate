@@ -9,32 +9,28 @@ const {
 } = global;
 
 describe('DataContainer Component', () => {
-    test('render consumer', () => {
+    const Component = () => (
+        <div>
+            sad
+        </div>
+    );
+    test('render DataContainer without data', () => {
         const wrapper = shallow(
             <DataContainer
                 fetch={() => {}}
                 data={[]}
-                render={() => (
-                    <div>
-                        asd
-                    </div>
-                )}
+                render={() => <Component />}
             />
         );
         expect(wrapper).toMatchSnapshot();
     });
 
-    test('render consumer', () => {
+    test('render consumer with data', () => {
         const wrapper = shallow(
             <DataContainer
                 data={[{}]}
-                fetch={() => {
-                }}
-                render={() => (
-                    <div>
-                        asd
-                    </div>
-                )}
+                fetch={() => {}}
+                render={() => <Component />}
             />
         );
         expect(wrapper).toMatchSnapshot();
