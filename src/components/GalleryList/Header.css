@@ -1,0 +1,23 @@
+.flex-container {
+    display: flex;
+
+    background-color: #f0f0f0;
+    height: 44px;
+    text-shadow: 1px 1px #fff;
+    align-items: center;
+}
+
+.flex-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+.flex-item:first-child {
+    flex: 2;
+}
+
+.flex-item:last-child {
+    flex: 2;
+}

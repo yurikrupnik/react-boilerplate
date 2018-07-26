@@ -1,0 +1,35 @@
+.flex-container {
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.flex-container:hover {
+    background-color: #fff4f4;
+}
+
+.flex-container:hover Button {
+    border: none;
+    background-color: #ff8080;
+    color: white;
+}
+
+.flex-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+.flex-item:first-child {
+    flex: 2;
+}
+
+.flex-item:last-child {
+    flex: 2;
+}
+
+Button:first-child {
+    margin-right: 5px;
+}

@@ -1,35 +1,599 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './styles.css';
 import ThemesConsumer from '../contexts/themes/consumer';
 import UsersConsumer from '../../api/users/consumer';
 import ProjectsConsumer from '../../api/projects/consumer';
+// import JewelsConsumer from '../../api/jewels/consumer';
+import LooseConsumer from '../../api/loose/consumer';
 import Form from '../Form';
 import List from '../List';
+import Tabs from '../Tabs';
+import GalleryListItem from '../GalleryList/GalleryListItem';
+import Header from '../GalleryList/Header';
+import Draggable from '../Draggable';
 
-function Dashboard() {
-    return (
-        <UsersConsumer render={userProps => (
-            <ProjectsConsumer render={projectsProps => (
-                <div>
-                    <h2>
-                        Dashboardsds
-                    </h2>
-                    <List {...userProps} />
-                    <List {...projectsProps} />
-                    <ThemesConsumer />
-                    <ThemesConsumer render={() => (
-                        <div>
-                            nuuuu
-                        </div>
-                    )}
+// import DraggableGalleryList from '../GalleryList/DraggableGalleryList';
+
+
+class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            galleryData: [
+                {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4669400',
+                    Lot: 'DQF70823271',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.72',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '8',
+                    Clarity: 'SI2',
+                    Depth: '64.5',
+                    TableSize: '55',
+                    PolishID: '3',
+                    Polish: 'VG',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1290',
+                    Flour: 'F',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.60*5.57*3.60',
+                    GirdleThickID: '8',
+                    GirdleThick: 'VTK',
+                    Cut: 'Good',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '7414778',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '2274595415',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.72-carat-k-color-si2-clarity-good-cut-sku-4669400',
+                    Girdle: 'Slightly Thick to Very Thick',
+                    Loc: 'US',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '5137150',
+                    Lot: 'TY741291',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.71',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '9',
+                    Clarity: 'I1',
+                    Depth: '61.8',
+                    TableSize: '58',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '2',
+                    Symmetry: 'EX',
+                    Price: '1290',
+                    Flour: 'F',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.73*5.69*3.52',
+                    GirdleThickID: '6',
+                    GirdleThick: 'STK',
+                    Cut: 'Excellent',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '8077784',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '2297197696',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.71-carat-k-color-i1-clarity-excellent-cut-sku-5137150',
+                    Girdle: 'Medium to Slightly Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '5209114',
+                    Lot: 'GH154516',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.7',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '7',
+                    Clarity: 'SI1',
+                    Depth: '63.7',
+                    TableSize: '57',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1300',
+                    Flour: 'NN',
+                    Lab: 'IGI',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.54 - 5.56 x 3.54 mm',
+                    Cut: 'Very Good',
+                    CuletID: '7',
+                    Culet: 'PO',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '8181117',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '320852409',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.70-carat-k-color-si1-clarity-very-good-cut-sku-5209114',
+                    Girdle: 'Slightly Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4992475',
+                    Lot: 'KR100725881400',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.7',
+                    ColorID: '7',
+                    Color: 'J',
+                    FancyTitle: 'J',
+                    ClarityID: '9',
+                    Clarity: 'I1',
+                    Depth: '62.6',
+                    TableSize: '57',
+                    PolishID: '3',
+                    Polish: 'VG',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1310',
+                    Flour: 'F',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.69*5.62*3.54',
+                    GirdleThickID: '6',
+                    GirdleThick: 'STK',
+                    Cut: 'Excellent',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '7878162',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '5286879557',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.70-carat-j-color-i1-clarity-excellent-cut-sku-4992475',
+                    Girdle: 'Medium to Slightly Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '5098278',
+                    Lot: 'DK1001-425',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.71',
+                    ColorID: '7',
+                    Color: 'J',
+                    FancyTitle: 'J',
+                    ClarityID: '9',
+                    Clarity: 'I1',
+                    Depth: '63.6',
+                    TableSize: '56',
+                    PolishID: '3',
+                    Polish: 'VG',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1310',
+                    Flour: 'F',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.61*5.59*3.57',
+                    GirdleThickID: '7',
+                    GirdleThick: 'TK',
+                    Cut: 'Very Good',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '8109600',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '6281879832',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.71-carat-j-color-i1-clarity-very-good-cut-sku-5098278',
+                    Girdle: 'Thin to Thick',
+                    Loc: 'HK',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4285956',
+                    Lot: 'BL450-097',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.7',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '7',
+                    Clarity: 'SI1',
+                    Depth: '64.2',
+                    TableSize: '56',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '4',
+                    Symmetry: 'GD',
+                    Price: '1310',
+                    Flour: 'NN',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.59*5.51*3.56',
+                    GirdleThickID: '7',
+                    GirdleThick: 'TK',
+                    Cut: 'Very Good',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '7409170',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '7276732411',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.70-carat-k-color-si1-clarity-very-good-cut-sku-4285956',
+                    Girdle: 'Medium to Thick',
+                    Loc: 'US',
+                    IsExpressShipping: 'True'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4465670',
+                    Lot: 'GH139521',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.7',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '8',
+                    Clarity: 'SI2',
+                    Depth: '62.7',
+                    TableSize: '56',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1310',
+                    Flour: 'NN',
+                    Lab: 'IGI',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.66 - 5.69 x 3.56 mm',
+                    Cut: 'Excellent',
+                    CuletID: '7',
+                    Culet: 'PO',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '7123425',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '291778763',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.70-carat-k-color-si2-clarity-excellent-cut-sku-4465670',
+                    Girdle: 'Medium',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4952653',
+                    Lot: 'GH149864',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.71',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '8',
+                    Clarity: 'SI2',
+                    Depth: '63.4',
+                    TableSize: '61',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '2',
+                    Symmetry: 'EX',
+                    Price: '1310',
+                    Flour: 'NN',
+                    Lab: 'IGI',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.61 - 5.65 x 3.57 mm',
+                    GirdleThickID: '6',
+                    GirdleThick: 'STK',
+                    Cut: 'Excellent',
+                    CuletID: '7',
+                    Culet: 'PO',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '7836720',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '310857000',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.71-carat-k-color-si2-clarity-excellent-cut-sku-4952653',
+                    Girdle: 'Medium to Slightly Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '2321681',
+                    Lot: 'RPKAN63775',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.7',
+                    ColorID: '4',
+                    Color: 'G',
+                    FancyTitle: 'G',
+                    ClarityID: '9',
+                    Clarity: 'I1',
+                    Depth: '58.7',
+                    TableSize: '63',
+                    PolishID: '3',
+                    Polish: 'VG',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1320',
+                    Flour: 'NN',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.81*5.78*3.41',
+                    GirdleThickID: '6',
+                    GirdleThick: 'STK',
+                    Cut: 'Very Good',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '1318717',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '5246239358',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.70-carat-g-color-i1-clarity-very-good-cut-sku-2321681',
+                    Girdle: 'Medium to Slightly Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4727703',
+                    Lot: 'XA62074',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.72',
+                    ColorID: '8',
+                    Color: 'K',
+                    FancyTitle: 'K',
+                    ClarityID: '8',
+                    Clarity: 'SI2',
+                    Depth: '61.7',
+                    TableSize: '58',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '2',
+                    Symmetry: 'EX',
+                    Price: '1320',
+                    Flour: 'NN',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.80*5.76*3.57',
+                    GirdleThickID: '5',
+                    GirdleThick: 'M',
+                    Cut: 'Excellent',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '7532383',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '7288553633',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.72-carat-k-color-si2-clarity-excellent-cut-sku-4727703',
+                    Girdle: 'Thin to Medium',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4956657',
+                    Lot: 'AE72565',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.7',
+                    ColorID: '6',
+                    Color: 'I',
+                    FancyTitle: 'I',
+                    ClarityID: '9',
+                    Clarity: 'I1',
+                    Depth: '63.5',
+                    TableSize: '61',
+                    PolishID: '2',
+                    Polish: 'EX',
+                    SymmetryID: '3',
+                    Symmetry: 'VG',
+                    Price: '1330',
+                    Flour: 'M',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.60*5.52*3.53',
+                    GirdleThickID: '7',
+                    GirdleThick: 'TK',
+                    Cut: 'Very Good',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '8111205',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '6271628335',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.70-carat-i-color-i1-clarity-very-good-cut-sku-4956657',
+                    Girdle: 'Slightly Thick to Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }, {
+                    isVisited: false,
+                    isCompared: false,
+                    isWishlist: false,
+                    DiamondID: '4424718',
+                    Lot: 'HZTHK1206',
+                    ShapeID: '1',
+                    Shape: 'round',
+                    Carat: '0.71',
+                    ColorID: '6',
+                    Color: 'I',
+                    FancyTitle: 'I',
+                    ClarityID: '9',
+                    Clarity: 'I1',
+                    Depth: '64.3',
+                    TableSize: '56',
+                    PolishID: '3',
+                    Polish: 'VG',
+                    SymmetryID: '4',
+                    Symmetry: 'GD',
+                    Price: '1330',
+                    Flour: 'S',
+                    Lab: 'GIA',
+                    Picture: 'https://ion.r2net.com/sgmdirect/photoID/8380704/diamond/5147130/DiamondID-round-0.71-Carat-K-I1_2_first_.jpg',
+                    HasCert: 'True',
+                    PinkCert: '',
+                    HasGallerySet: '',
+                    Measurement: '5.62*5.60*3.61',
+                    GirdleThickID: '7',
+                    GirdleThick: 'TK',
+                    Cut: 'Very Good',
+                    CuletID: '1',
+                    Culet: 'N',
+                    HA: '',
+                    CM: '',
+                    SegomaPhotoID: '6821724',
+                    SegomaPhotoIDDel: '',
+                    CertNumber: '2227241731',
+                    ColorIntensityGroup: '',
+                    Url: 'loose-diamonds/round-cut/0.71-carat-i-color-i1-clarity-very-good-cut-sku-4424718',
+                    Girdle: 'Medium to Thick',
+                    Loc: 'IN',
+                    IsExpressShipping: 'False'
+                }]
+        };
+    }
+
+    render() {
+        const { galleryData } = this.state;
+        return (
+            <UsersConsumer render={userProps => (
+                <ProjectsConsumer render={projectsProps => (
+                    <LooseConsumer render={looseProps => {
+                        const { toggleVisited, toggleWishlist, toggleCompared, data } = looseProps;
+                        return (
+                            <div>
+                                <div>
+                                    <Tabs data={[
+                                        {
+                                            label: 'yuri',
+                                            disabled: false
+                                        },
+                                        {
+                                            label: 'moshe',
+                                            disabled: false
+                                        },
+                                        {
+                                            label: 'dis',
+                                            disabled: true
+                                        }
+                                    ]}
+                                    />
+                                    <Draggable
+                                        data={galleryData}
+                                        toggleVisited={toggleVisited}
+                                        toggleWishlist={toggleWishlist}
+                                        toggleCompared={toggleCompared}
+                                        component={GalleryListItem}
+                                    >
+                                        <Header />
+                                    </Draggable>
+                                </div>
+                                <h2>
+                                    Dashboardsds
+                                </h2>
+                                <List {...userProps} />
+                                <List {...projectsProps} />
+                                <ThemesConsumer />
+                                <ThemesConsumer render={() => (
+                                    <div>
+                                        nuuuu
+                                    </div>
+                                )}
+                                />
+                                <Form />
+                            </div>
+                        );
+                    }}
                     />
-                    <Form />
-                </div>
+                )}
+                />
             )}
             />
-        )}
-        />
-    );
+        );
+    }
 }
 
 export default Dashboard;
