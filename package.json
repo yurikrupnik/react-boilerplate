@@ -12,6 +12,7 @@
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
     "build:client": "cross-env NODE_ENV=production webpack --config webpack.config.client.js",
     "lint": "eslint eslint --ext js,jsx src",
+    "test:generate-output": "jest --json --outputFile=jest-test-results.json",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -22,7 +23,8 @@
     "debug:client": "cross-env NODE_ENV=development webpack --config webpack.config.client.js -w",
     "debug": "npm run debug:server",
     "dist": "npm run build && cd dist && npm start",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "prebuild:storybook": "npm run test:generate-output",
+    "storybook": "npm run test:generate-output && NODE_PATH=src start-storybook -p 9001 -c .storybook"
   },
   "repository": {
     "type": "git",
@@ -62,6 +64,13 @@
     "socket.io-logger": "0.0.2"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^4.0.0-alpha.14",
+    "@storybook/addon-jest": "^4.0.0-alpha.14",
+    "@storybook/addon-knobs": "^4.0.0-alpha.14",
+    "@storybook/addon-links": "^4.0.0-alpha.14",
+    "@storybook/addon-notes": "^3.4.8",
+    "@storybook/addon-storyshots": "^3.4.8",
+    "@storybook/addons": "^4.0.0-alpha.14",
     "@storybook/react": "^4.0.0-alpha.14",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
@@ -93,10 +102,12 @@
     "jest": "^23.1.0",
     "koa-connect": "^2.0.1",
     "mini-css-extract-plugin": "^0.4.0",
+    "moment": "^2.22.2",
     "moxios": "^0.4.0",
     "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
     "raw-loader": "^0.5.1",
+    "react-test-renderer": "^16.4.1",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.6",

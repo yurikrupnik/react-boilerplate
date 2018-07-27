@@ -10,7 +10,7 @@ const {
     shallow
 } = global;
 
-test('renders <Layout /> component', () => {
+test('render Layout', () => {
     const wrapper = shallow(<Layout routes={routes} />);
     // expect(wrapper.length).toBe(1);
     expect(wrapper).toMatchSnapshot();

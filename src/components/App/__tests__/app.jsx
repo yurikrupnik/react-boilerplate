@@ -1,7 +1,7 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import App from '../app';
-import routes from '../../routes';
-
+// import routes from '../../routes';
 jest.mock('../../routes'); // eslint-disable-line no-undef
 
 const {
@@ -11,6 +11,9 @@ const {
 } = global;
 
 it('renders <App /> component', () => {
-    const wrapper = shallow(<App routes={routes} />);
-    expect(wrapper).toMatchSnapshot();
+    const tree = renderer
+        .create(<App routes={[]} />)
+        .toJSON();
+
+    expect(tree).toMatchSnapshot();
 });

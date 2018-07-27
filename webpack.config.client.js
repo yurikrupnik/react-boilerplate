@@ -65,6 +65,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'index.ejs',
             filename: 'index.ejs',
+            previewHead: '',
             favicon: 'assets/favicon.ico',
             meta: {
                 charset: 'UTF-8',

@@ -1,7 +1,22 @@
 import React from 'react';
+import PropsTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
-export default ({onClick}) => {
+function DefaultButton(props) {
+    const { onClick } = props;
     return (
-        <button onClick={onClick}>he</button>
+        <Button
+            variant="contained"
+            color="primary"
+            onClick={onClick}
+        >
+            he
+        </Button>
     );
+}
+
+DefaultButton.propTypes = {
+    onClick: PropsTypes.func.isRequired
 };
+
+export default DefaultButton;
