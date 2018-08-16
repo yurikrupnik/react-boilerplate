@@ -11,10 +11,18 @@ const responseError = ctx => (err) => {
     ctx.body = err;
 };
 
+const respondWithResult = (res) => {
+    return entity => res.status(200).json(entity);
+};
 
-const list = Model => ctx => Model.find({})
-    .then(response(ctx))
-    .catch(responseError(ctx));
+const list = model => (req, res) => {
+    console.log('req.params', req.params);
+    console.log('req.query', req.query);
+
+    return model.find({})
+        .then(respondWithResult(res));
+};
+
 
 const find = Model => ctx => Model.findOne({ _id: ctx.params.id })
     .then(response(ctx))

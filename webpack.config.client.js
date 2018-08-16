@@ -36,7 +36,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: ['babel-loader', 'eslint-loader'],
+                use: ['babel-loader'], // 'eslint-loader'
                 exclude: /node_modules/,
             },
             {
@@ -48,7 +48,7 @@ module.exports = {
             },
             {
                 test: /\.ejs$/,
-                use: ['raw-loader']
+                use: 'raw-loader'
             },
             {
                 test: /\.(png|jpg|gif)$/,

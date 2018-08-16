@@ -3,7 +3,7 @@ import IO from 'socket.io';
 import Logger from 'socket.io-logger';
 
 export default (app) => {
-    const server = http.Server(app.callback());
+    const server = http.Server(app);
     const io = IO(server);
     const users = {}; // list of messages locally saved in the server
     io.use(Logger());
