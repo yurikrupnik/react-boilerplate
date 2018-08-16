@@ -1,13 +1,13 @@
-import Router from 'koa-router';
-import bodyParser from 'koa-bodyparser';
-import logger from 'koa-logger';
+import express from 'express';
+// import bodyParser from 'body-parser';
+// import morgan from 'morgan';
 import users from './users';
 import projects from './projects';
 
-const route = new Router();
+const route = express.Router();
 
-route.use(logger());
-route.use(bodyParser());
-route.use('/api', users, projects);
+// route.use(morgan('dev'));
+// route.use(bodyParser());
+route.use('/api', [users, projects]);
 
-export default route.routes();
+export default route;

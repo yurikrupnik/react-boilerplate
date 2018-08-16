@@ -1,30 +1,30 @@
-import Router from 'koa-router';
+import express from 'express';
 import { url } from './config';
 import Model from './model';
 import {
     list,
-    find,
-    removeOne,
-    create,
-    response,
-    responseError
+    // find,
+    // removeOne,
+    // create,
+    // response,
+    // responseError
 } from '../methods';
 
-const router = new Router();
+const route = express.Router();
 
-router.get(url, list(Model)); // array
-router.get(`${url}/:id`, find(Model)); // object
-router.post(url, create(Model));
+route.get(url, list(Model)); // array
+// route.get(`${url}/:id`, find(Model)); // object
+// route.post(url, create(Model));
+//
+// route.put(url, (req, res) => Model
+//     .findOneAndUpdate({ _id: req.body._id }, { // eslint-disable-line no-underscore-dangle
+//         name: 'else',
+//         email: '',
+//         hashPassword: 'ta s'
+//     }) // eslint-disable-line no-underscore-dangle
+//     .then(response(res))
+//     .catch(responseError(res)));
+//
+// route.delete(`${url}/:id`, removeOne(Model)); // id
 
-router.put(url, ctx => Model
-    .findOneAndUpdate({ _id: ctx.request.body._id }, { // eslint-disable-line no-underscore-dangle
-        name: 'else',
-        email: '',
-        hashPassword: 'ta s'
-    }) // eslint-disable-line no-underscore-dangle
-    .then(response(ctx))
-    .catch(responseError(ctx)));
-
-router.delete(`${url}/:id`, removeOne(Model)); // id
-
-export default router.routes();
+export default route;
