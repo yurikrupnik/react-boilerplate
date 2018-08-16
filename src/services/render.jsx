@@ -6,9 +6,6 @@ function render(app, routes) {
     return (req, res) => {
         const context = {};
         const { url } = context;
-        console.log('app.name ', app.name );
-        console.log('app ', app );
-
         const title = 'my title';
         const html = renderToString(
             <StaticRouter context={context}>

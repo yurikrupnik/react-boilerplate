@@ -1,22 +1,21 @@
 import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
-import bodyParser from 'body-parser';
 import { port, databaseUrl } from './config';
 import api from './api';
-import render from './services/middlewares/render';
+import render from './services/render';
 import db from './services/db';
 import server from './services/socket/server';
 import App from './components/App';
 import routes from './components/routes';
 
 const app = express();
-const assets = path.resolve(__dirname, 'assets');
-app.use(express.static(assets));
+
+app.use(express.static(path.resolve(__dirname, 'assets')));
 app.use(morgan('dev'));
-app.use(bodyParser.json(), bodyParser.urlencoded({ extended: false }));
+app.use(express.json(), express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'assets'));
+app.set('views', path.resolve(__dirname, 'assets')); // todo handle productio and start:server paths
 
 app.use(db(databaseUrl));
 
