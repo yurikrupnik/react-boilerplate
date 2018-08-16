@@ -20,8 +20,5 @@ export default (url) => {
         // we're connected!
         // console.log('disconnected');
     });
-    return (ctx, next) => {
-        ctx.db = db;
-        return next();
-    };
+    return (req, res, next) => next();
 };
