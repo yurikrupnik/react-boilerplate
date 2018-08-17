@@ -1,6 +1,12 @@
 import Loadable from './Loadable';
-import Topics from './Topics';
-import Login from '../api/auth/container';
+
+const TopicsLoadableComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "topics" */ './Topics'),
+});
+
+const LoginLoadableComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "login" */ '../api/auth/container'),
+});
 
 const DashboardLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "dashboard" */ './Dashboard'),
@@ -39,7 +45,7 @@ const routes = [
     },
     {
         path: '/login',
-        component: Login,
+        component: LoginLoadableComponent,
         key: 'login'
     },
     {
@@ -49,7 +55,7 @@ const routes = [
     },
     {
         path: '/topics',
-        component: Topics,
+        component: TopicsLoadableComponent,
         key: 'topics'
     },
     {

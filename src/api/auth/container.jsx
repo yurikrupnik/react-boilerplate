@@ -15,28 +15,25 @@ export default () => (
         <div className="col-xs-6">
             <form className="box" method="POST" action="api/auth/login">
                 <div className="title margin-top-10">
-                    Register
+                    Auth
                 </div>
                 <TextField
                     fullWidth
-                    hintText="Email Field"
-                    floatingLabelText="Email"
-                    id="auth-email"
+                    label="Email Field"
+                    placeholder="enter email"
                     type="email"
                     name="email"
                 />
                 <TextField
                     fullWidth
-                    hintText="Password Field"
-                    floatingLabelText="Password"
-                    id="auth-password"
+                    label="Password Field"
+                    placeholder="enter password"
                     type="password"
                     name="password"
                 />
 
                 <Button
                     fullWidth
-                    primary
                     label="Join now"
                     type="submit"
                 >
@@ -46,10 +43,14 @@ export default () => (
                 <Divider style={style} />
 
                 <a href="/auth/facebook">
-                    <Button label="Continue with Facebook" fullWidth />
+                    <Button label="Continue with Facebook" fullWidth>
+                        facebook
+                    </Button>
                 </a>
                 <a href="/auth/flickr">
-                    <Button label="Continue with Flickr" fullWidth />
+                    <Button label="Continue with Flickr" fullWidth>
+                        flickr
+                    </Button>
                 </a>
             </form>
         </div>
