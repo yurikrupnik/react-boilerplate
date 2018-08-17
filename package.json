@@ -7,6 +7,7 @@
     "start": "npm run start:client & npm run start:server",
     "start:client": "cross-env NODE_ENV=development webpack-serve --config webpack.config.serve.js",
     "start:server": "cross-env NODE_ENV=development babel-watch --plugins dynamic-import-node src/server.jsx",
+    "start:mongo": "docker run --rm -d -p 27017:27017 --name mongo mongo",
     "clean": "rimraf dist/",
     "build": "npm run clean && npm run build:server & npm run build:client",
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
@@ -27,7 +28,10 @@
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/react-boilerplate.git"
   },
-  "author": "",
+  "author": {
+    "name": "Yuri Krupnik",
+    "email": "krupnik.yuri@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yurikrupnik/react-boilerplate/issues"
