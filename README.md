@@ -25,8 +25,8 @@ npm start
 - Dynamic imports
 - MongoDB - Api
 - Auth
-- Jest
-- Eslint
+- Jest testing
+- Eslint checking
 - MongoDB docker 
 - Sass
 
