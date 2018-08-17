@@ -5,10 +5,6 @@ const DashboardLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "dashboard" */ './Dashboard'),
 });
 
-const RegisterLoadableComponent = Loadable({
-    loader: () => import(/* webpackChunkName: "register" */ './Register'),
-});
-
 const ProjectsLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "projects" */ './Projects'),
 });
@@ -18,6 +14,14 @@ const UsersLoadableComponent = Loadable({
 
 const AboutLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "about" */ './About'),
+});
+
+const RegisterLoadableComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "register" */ './Register'),
+});
+
+const ChatLoadableComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "chat" */ './ChatRoom'),
 });
 
 const routes = [
@@ -51,6 +55,11 @@ const routes = [
         path: '/users',
         component: UsersLoadableComponent,
         key: 'users'
+    },
+    {
+        path: '/chat',
+        component: ChatLoadableComponent,
+        key: 'chat'
     }
 ];
 

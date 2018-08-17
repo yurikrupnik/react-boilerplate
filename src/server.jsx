@@ -11,11 +11,13 @@ import routes from './components/routes';
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, 'assets')));
+const assets = path.resolve(__dirname, 'assets');
+
+app.use(express.static(assets));
 app.use(morgan('dev'));
 app.use(express.json(), express.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
-app.set('views', path.resolve(__dirname, 'assets')); // todo handle productio and start:server paths
+app.set('views', assets); // todo handle productio and start:server paths
 
 app.use(db(databaseUrl));
 
