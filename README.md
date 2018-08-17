@@ -3,7 +3,7 @@
 ## Get started
 
 ```
-$ npm run start:mongo
+npm run start:mongo
 ```
 
 Start MongoDB instance on local machine
