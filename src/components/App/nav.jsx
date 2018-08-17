@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import api from '../../api/auth/api';
 
 const MainNav = ({ routes }) => (
     <header>
+        <button type="button" onClick={api.logout}>
+            logout
+        </button>
         {routes.map(route => (
             <div key={route.key}>
                 <Link to={route.path}>

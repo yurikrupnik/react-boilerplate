@@ -6,7 +6,14 @@ const UserSchema = new Schema({
     //     type: String,
     //     index: true
     // },
+    // name: String,
+    // hashPassword: String,
+    id: {
+        type: String,
+        index: true
+    },
     email: { type: String, required: true },
+    // email: {type: String},
     name: String,
     hashPassword: String,
 });

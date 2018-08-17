@@ -1,5 +1,6 @@
 import Loadable from './Loadable';
-import Topics from './Topics/index';
+import Topics from './Topics';
+import Login from '../api/auth/container';
 
 const DashboardLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "dashboard" */ './Dashboard'),
@@ -35,6 +36,11 @@ const routes = [
         path: '/register',
         component: RegisterLoadableComponent,
         key: 'register'
+    },
+    {
+        path: '/login',
+        component: Login,
+        key: 'login'
     },
     {
         path: '/about',
