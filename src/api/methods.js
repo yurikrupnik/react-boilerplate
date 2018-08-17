@@ -1,49 +1,49 @@
-const response = ctx => (res) => {
-    ctx.body = res;
+
+const responseId = (req, res) => {
+    const { id } = req.params;
+    const responseBody = Array.isArray(id) ? id : [id];
+    const statusCode = 202;
+    return () => res.status(statusCode).json(responseBody);
 };
 
-const responseId = ctx => (res) => {
-    ctx.body = res._id; // eslint-disable-line no-underscore-dangle
+const handleError = (res) => {
+    const statusCode = 500;
+    return err => res.status(statusCode).send(err);
 };
 
-const responseError = ctx => (err) => {
-    ctx.status = 500;
-    ctx.body = err;
-};
+const respondWithResult = res => entity => res.status(200).json(entity);
 
-const respondWithResult = (res) => {
-    return entity => res.status(200).json(entity);
-};
-
-const list = model => (req, res) => {
-    console.log('req.params', req.params);
-    console.log('req.query', req.query);
-
-    return model.find({})
-        .then(respondWithResult(res));
-};
+const list = Model => (req, res) => Model.find({})
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 
 
-const find = Model => ctx => Model.findOne({ _id: ctx.params.id })
-    .then(response(ctx))
-    .catch(responseError(ctx));
+const find = Model => (req, res) => Model.findOne({ _id: req.params.id })
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 
-const removeOne = Model => ctx => Model.findOneAndRemove({ _id: ctx.params.id })
-    .then(responseId(ctx))
-    .catch(responseError(ctx));
+const removeOne = Model => (req, res) => Model.findOneAndRemove({ _id: req.params.id })
+    .then(responseId(req, res))
+    .catch(handleError(res));
 
-const create = Model => (ctx) => {
-    const user = new Model(ctx.request.body);
+const create = Model => (req, res) => {
+    const user = new Model(req.body);
     return user.save()
-        .then(response(ctx))
-        .catch(responseError(ctx));
+        .then(respondWithResult(res))
+        .catch(handleError(res));
 };
+
+const update = Model => (req, res) => Model
+    .findOneAndUpdate({
+        _id: req.body._id // eslint-disable-line no-underscore-dangle
+    }, req.body)
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 
 export {
     list,
     find,
     removeOne,
     create,
-    response,
-    responseError
+    update
 };
