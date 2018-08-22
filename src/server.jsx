@@ -24,13 +24,13 @@ app.use(db(databaseUrl));
 app.use(passport(app));
 app.use(api);
 app.use((req, res, next) => {
-    console.log('req.url', req.url);
-    console.log('req.session', req.session.id);
-    console.log('req.user', req.user);
+    // console.log('req.url', req.url);
+    // console.log('req.session', req.session.id);
+    // console.log('req.user', req.user);
     if (req.isAuthenticated()) {
-        console.log('Authenticated');
+        console.log('Authenticated'); // eslint-disable-line no-console
     } else {
-        console.log('Authenticated not');
+        console.log('Authenticated not'); // eslint-disable-line no-console
     }
     return next();
 });

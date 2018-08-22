@@ -1,9 +1,9 @@
 import React from 'react';
 
 const About = () => (
-    <div className="about">
+    <div className="sd">
         <h2>
-            About
+            About abd
         </h2>
     </div>
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import styles from './styles.css';
 import ThemesConsumer from '../contexts/themes/consumer';
 import UsersConsumer from '../../api/users/consumer';
 import ProjectsConsumer from '../../api/projects/consumer';
@@ -11,8 +11,8 @@ function Dashboard() {
         <UsersConsumer render={userProps => (
             <ProjectsConsumer render={projectsProps => (
                 <div>
-                    <h2>
-                        Dashboardsds
+                    <h2 className={styles.base}>
+                        das
                     </h2>
                     <List {...userProps} />
                     <List {...projectsProps} />
