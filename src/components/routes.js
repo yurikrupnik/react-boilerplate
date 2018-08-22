@@ -1,5 +1,5 @@
 import Loadable from './Loadable';
-import DashboardLoadableComponent from './Dashboard';
+// import DashboardLoadableComponent from './Dashboard';
 
 const TopicsLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "topics" */ './Topics'),
@@ -9,9 +9,9 @@ const LoginLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "login" */ '../api/auth/container'),
 });
 
-// const DashboardLoadableComponent = Loadable({
-//     loader: () => import(/* webpackChunkName: "dashboard" */ './Dashboard'),
-// });
+const DashboardLoadableComponent = Loadable({
+    loader: () => import(/* webpackChunkName: "dashboard" */ './Dashboard'),
+});
 
 const ProjectsLoadableComponent = Loadable({
     loader: () => import(/* webpackChunkName: "projects" */ './Projects'),

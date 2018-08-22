@@ -68,7 +68,7 @@ module.exports = {
             devDependencies: {}
         })),
         process.argv.includes('--watch') ? new NodemonPlugin({
-            script: './dist/server.js',
+            script: path.resolve(__dirname, 'dist', filename),
             verbose: true
         }) : () => {}
     ]

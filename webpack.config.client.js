@@ -6,6 +6,8 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+const { devHost } = require('./src/config');
+
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
@@ -89,7 +91,7 @@ module.exports = {
         isDev ? new BrowserSyncPlugin({
             open: true,
             proxy: {
-                target: 'http://localhost:5001/'
+                target: devHost
             }
         }, { reload: false }) : () => {}
     ]
