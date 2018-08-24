@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/carbon-browsers
+    docker: # See https://docs.docker.com/get-started/#docker-concepts if you are new to Docker.
+    - image: circleci/node:8
     steps:
-      - checkout
-      - run: echo "a first hello"
-
+    - checkout
+    - run: echo "A first hello"
