@@ -5,7 +5,5 @@ jobs:
       - image: circleci/carbon-browsers
     steps:
       - checkout
-      - run:  "npm run test"
-      - run:   "npm run build"
       - run: echo "a first hello"
 
