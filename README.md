@@ -1,7 +1,7 @@
 # React-boilerplate  
 [![Build Status](https://travis-ci.org/yurikrupnik/react-boilerplate.svg?branch=master)](https://travis-ci.org/yurikrupnik/react-boilerplate)
 
-#####Fullstack MEAN boilerplate with best practices.
+Fullstack MEAN boilerplate with best practices.
 
 ## Features
 - Webpack 4
