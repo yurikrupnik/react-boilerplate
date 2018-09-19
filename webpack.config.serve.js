@@ -2,7 +2,12 @@ const convert = require('koa-connect');
 const proxy = require('http-proxy-middleware');
 const history = require('connect-history-api-fallback');
 const cors = require('cors');
+// const env = require('dotenv');
+//
+// env.config();
+
 const { host, devPort } = require('./src/config');
+
 
 module.exports = require('./webpack.config.client');
 
