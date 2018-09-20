@@ -22,11 +22,10 @@ app.set('views', assets);
 
 app.use(db(databaseUrl));
 app.use(passport(app));
-app.use(api);
 app.use((req, res, next) => {
-    // console.log('req.url', req.url);
-    // console.log('req.session', req.session.id);
-    // console.log('req.user', req.user);
+    console.log('req.url', req.url);
+    console.log('req.session', req.session.id);
+    console.log('req.user', req.user);
     if (req.isAuthenticated()) {
         console.log('Authenticated'); // eslint-disable-line no-console
     } else {
@@ -34,6 +33,7 @@ app.use((req, res, next) => {
     }
     return next();
 });
+app.use(api);
 app.use(render(App, routes));
 
 server(app).listen(port, (err) => {

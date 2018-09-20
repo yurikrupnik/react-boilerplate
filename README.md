@@ -6,20 +6,18 @@ Fullstack MEAN boilerplate with best practices.
 ## Features
 - Webpack 4
 - Babel - ES2018
+- Eslint
 - React - context api as state manager
 - React-router 4
-- Server side rendering
-- Express
-- Dynamic imports
-- MongoDB - Api
-- Auth - oAuth
-- Jest testing
-- Eslint checking
-- MongoDB docker 
 - Sass
-- Users and projects demo api's
-- Socket.io
-- docket integration
+- Express
+- MongoDB - Users and projects demo api's
+- Server side rendering
+- Dynamic imports
+- Socket.io - chat example
+- Auth - session storage via mongodb
+- Jest
+- Docker integration
 
 ## License
 Copyright © Yuri Krupnik  |  The MIT License
