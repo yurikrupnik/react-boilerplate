@@ -4,19 +4,11 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-// const Dotenv = require('dotenv-webpack');
-// const env = require('dotenv');
-//
-// env.config();
-
-// const { devHost } = require('./src/config');
-
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env) => {
-    // console.log('env', env);
-    // console.log('argv', argv);
-    const isProd = !!env.prod;
+    const isProd = env ? !!env.prod : false;
+    const config = isProd ? null : require('./src/config');
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {
@@ -73,7 +65,7 @@ module.exports = (env) => {
             ]
         },
         plugins: [
-            // new Dotenv(),
+            isProd ? new Dotenv() : () => {},
             new HtmlWebpackPlugin({
                 template: 'index.ejs',
                 filename: 'index.ejs',
@@ -95,13 +87,13 @@ module.exports = (env) => {
                 filename: '[name].css',
                 chunkFilename: '[name].css'
             }),
-            isProd ? () => {} : new BundleAnalyzerPlugin({}),
-            isProd ? () => {} : new BrowserSyncPlugin({
-                open: true,
-                proxy: {
-                    target: require('./src/config').devHost
-                }
-            }, { reload: false })
-        ]
+            !isProd ? new BundleAnalyzerPlugin({}) : () => {},
+        ],
+        devServer: {
+            port: !isProd && config.devPort,
+            open: true,
+            proxy: { '/api': { target: !isProd && config.host } },
+            historyApiFallback: { index: '/index.ejs' }
+        }
     };
 };

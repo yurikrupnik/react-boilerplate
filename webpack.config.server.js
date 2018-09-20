@@ -1,19 +1,14 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-
 const json = require('./package');
 
 const filename = 'server.js';
 
-module.exports = (env) => {
-    // console.log('env', env);
-    // console.log('argv', argv);
-    // console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-    const isProd = !!env.prod;
+module.exports = (env, argv) => {
+    const isProd = env ? !!env.prod : false;
     return {
         context: path.resolve(__dirname, 'src'),
         resolve: {
@@ -57,19 +52,19 @@ module.exports = (env) => {
             ]
         },
         plugins: [
-            new Dotenv(),
-            new GenerateJsonPlugin('package.json', Object.assign({}, json, {
+            isProd ? new Dotenv() : () => {},
+            isProd ? new GenerateJsonPlugin('package.json', Object.assign({}, json, {
                 main: filename,
                 scripts: {
                     start: `node ${filename}`
                 },
                 devDependencies: {}
-            })),
-            process.argv.includes('--watch') ? new NodemonPlugin({
+            })) : () => {},
+            argv.watch ? new NodemonPlugin({
                 script: path.resolve(__dirname, 'dist', filename),
                 watch: path.resolve(__dirname, 'dist', filename),
                 verbose: true
             }) : () => {}
-        ]
+        ],
     };
 };
