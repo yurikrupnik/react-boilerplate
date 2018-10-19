@@ -8,7 +8,7 @@ import db from './services/db';
 import server from './services/socket/server';
 import passport from './services/passport';
 import App from './components/App';
-import routes from './components/routes';
+// import routes from './components/routes';
 
 const app = express();
 
@@ -22,19 +22,19 @@ app.set('views', assets);
 
 app.use(db(databaseUrl));
 app.use(passport(app));
-app.use((req, res, next) => {
-    console.log('req.url', req.url);
-    console.log('req.session', req.session.id);
-    console.log('req.user', req.user);
-    if (req.isAuthenticated()) {
-        console.log('Authenticated'); // eslint-disable-line no-console
-    } else {
-        console.log('Authenticated not'); // eslint-disable-line no-console
-    }
-    return next();
-});
+// app.use((req, res, next) => {
+//     console.log('req.url', req.url);
+//     console.log('req.session', req.session.id);
+//     console.log('req.user', req.user);
+//     if (req.isAuthenticated()) {
+//         console.log('Authenticated'); // eslint-disable-line no-console
+//     } else {
+//         console.log('Authenticated not'); // eslint-disable-line no-console
+//     }
+//     return next();
+// });
 app.use(api);
-app.use(render(App, routes));
+app.use(render(App));
 
 server(app).listen(port, (err) => {
     if (err) {

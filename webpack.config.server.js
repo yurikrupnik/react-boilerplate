@@ -4,7 +4,8 @@ const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const json = require('./package');
-
+const sassVars = require('./src/theme.js');
+const sassFuncs = require('./sassHelper');
 const filename = 'server.js';
 
 module.exports = (env, argv) => {
@@ -32,12 +33,18 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader', 'eslint-loader'],
+                    use: ['babel-loader'],
                 },
                 {
                     test: /\.(css|scss)$/,
                     use: [
-                        'css-loader', 'sass-loader'
+                        'css-loader',
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                functions: sassFuncs(sassVars)
+                            }
+                        }
                     ]
                 },
                 {
