@@ -4,17 +4,22 @@ import { Route } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import Providers from './providers';
 import { Provider as ThemeProvider } from '../contexts/themes';
-import { Provider as DeviceProvider, Consumer as DeviceConsumer } from '../contexts/device';
+import { Provider as DeviceProvider, Consumer as Device } from '../contexts/device';
 import { Provider as SidebarProvider, Consumer as SidebarConsumer } from './sidebar';
 import apiProviders from '../../api/providers';
 import routes from '../../routes';
+import config from '../../config';
 
+if (!config.isProd) {
+    console.log('not produictopm');
+
+}
 // import educationRoutes from '../../routes/Education/routes';
 
 
 const App = () => (
     <Providers providers={apiProviders.concat(ThemeProvider, DeviceProvider)}>
-        <DeviceConsumer render={(deviceProps) => {
+        <Device render={(deviceProps) => {
             const isMobile = deviceProps.isMobile();
             const routess = (
                 <Fragment>

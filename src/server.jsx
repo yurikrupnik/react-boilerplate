@@ -8,7 +8,6 @@ import db from './services/db';
 import server from './services/socket/server';
 import passport from './services/passport';
 import App from './components/App';
-// import routes from './components/routes';
 
 const app = express();
 

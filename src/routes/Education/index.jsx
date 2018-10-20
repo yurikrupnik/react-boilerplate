@@ -1,41 +1,48 @@
 import React, { Fragment } from 'react';
 // import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
-import routes from './routes';
+import { Consumer as Device } from '../../components/contexts/device';
+import routes, { normalRoutes } from './routes';
 
 const Education = () => (
-    <Fragment>
-        {routes.map(route => (
-            <Route
-                key={route.key}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
-            />
-        ))}
-        <div className="row">
-            <div className="col-xs-3">
-                {routes.map(route => (
+    <Device render={(device) => {
+        const isMobile = device.isMobile();
+        return (
+            <Fragment>
+                {normalRoutes.map(route => (
                     <Route
                         key={route.key}
                         path={route.path}
                         exact={route.exact}
-                        component={route.sidebar}
+                        component={route.component}
                     />
                 ))}
-            </div>
-            <div className="col-xs-9">
-                {routes.map(route => (
-                    <Route
-                        key={route.key}
-                        path={route.path}
-                        exact={route.exact}
-                        component={route.main}
-                    />
-                ))}
-            </div>
-        </div>
-    </Fragment>
+                <div className="row">
+                    <div className="col-xs-3">
+                        {normalRoutes.map(route => (
+                            <Route
+                                key={route.key}
+                                path={route.path}
+                                exact={route.exact}
+                                component={route.sidebar}
+                            />
+                        ))}
+                    </div>
+                    <div className="col-xs-9">
+                        {normalRoutes.map(route => (
+                            <Route
+                                key={route.key}
+                                path={route.path}
+                                exact={route.exact}
+                                component={route.main}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </Fragment>
+        );
+    }}
+    />
 );
 
 // Education.propTypes = {

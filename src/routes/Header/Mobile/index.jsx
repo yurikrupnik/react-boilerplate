@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button/Button';
 import { Consumer } from '../../../components/App/sidebar';
 // import links from '../links';
 // import { getLinks } from '../../index';
-import routes from '../../index';
+// import routes from '../../index';
 // const mainLinks = routes.map(route => {
 //     return {
 //         to: route.path,
@@ -26,15 +26,15 @@ class Mobile extends Component {
                         <div>
                             <Button onClick={sidebarProps.toggle}>toggle</Button>
                         </div>
-                        <div>
-                            {routes.getLinks().map(r => {
-                                return (
-                                    <Link to={r.to} key={r.key}>
-                                        {r.label}
-                                    </Link>
-                                );
-                            })}
-                        </div>
+                        {/*<div>*/}
+                            {/*{routes.getLinks().map(r => {*/}
+                                {/*return (*/}
+                                    {/*<Link to={r.to} key={r.key}>*/}
+                                        {/*{r.label}*/}
+                                    {/*</Link>*/}
+                                {/*);*/}
+                            {/*})}*/}
+                        {/*</div>*/}
                     </AppBar>
                 );
             }}

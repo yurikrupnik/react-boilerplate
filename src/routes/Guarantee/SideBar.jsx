@@ -5,7 +5,15 @@ import routes from './routes';
 
 const SideBar = () => (
     <section>
+        <h2>education side bar</h2>
         {
+            // routes.getLinks().map(link => {
+            //     return (
+            //         <Link key={link.key} to={link.to}>
+            //             {link.label}
+            //         </Link>
+            //     );
+            // });
             routes.reduce((acc, route) => {
                 if (!route.label) {
                     return acc;

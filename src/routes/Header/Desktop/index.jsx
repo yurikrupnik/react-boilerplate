@@ -1,13 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import api from '../../api/auth/api';
 import Top from './Top';
-// import { getLinks } from '../../index';
 import guaranteeRoutes from '../../Guarantee/routes';
-// import { getHeaderRoutes } from '../../index';
 import routes from '../../index';
-// import links from '../links';
 const headerRoutes = guaranteeRoutes.reduce((acc, next) => {
     if (!next.headerLabel) {
         return acc;
@@ -18,39 +13,27 @@ const headerRoutes = guaranteeRoutes.reduce((acc, next) => {
         key: next.key
     });
 }, []);
-//
-// const mainLinks = routes.map(route => {
-//     return {
-//         to: route.path,
-//         key: route.key,
-//         label: route.label
-//     };
-// });
-const DesktopNav = (props) => {
-    // const { routes = [] } = props;
-    // console.log('routes', routes);
-    console.log('props', props);
 
+const DesktopNav = (props) => {
     return (
         <header>
-            <h2>Desktop header</h2>
+            <Top routes={headerRoutes} />
             <div>
+                <Link to="/">
+                    Main
+                </Link>
+            </div>
+            <div className="row">
                 {routes.getLinks().map(route => {
                     return (
-                        <Link key={route.key} to={route.to}>
-                            {route.label}
-                        </Link>
+                        <div className="col-xs" key={route.key}>
+                            <Link to={route.to}>
+                                {route.label}
+                            </Link>
+                        </div>
                     );
                 })}
             </div>
-            <Top routes={headerRoutes} />
-            {/*{getLinks().map((route) => (*/}
-                {/*<div key={route.key}>*/}
-                    {/*<Link to={route.to}>*/}
-                        {/*{route.label.toUpperCase()}*/}
-                    {/*</Link>*/}
-                {/*</div>*/}
-            {/*))}*/}
         </header>
     );
 };
