@@ -6,8 +6,7 @@ import Header from './Header';
 import Guarantee from './Guarantee';
 import Education from './Education';
 
-
-export default [
+const routes = [
     new Route({
         component: Header
     }),
@@ -29,3 +28,24 @@ export default [
         component: News
     }),
 ];
+
+function getLinks() {
+    return routes.reduce((acc, next) => {
+        if (!next.label) {
+            return acc;
+        }
+        return acc.concat({
+            label: next.label,
+            to: next.path,
+            key: next.key
+        });
+    }, []);
+}
+
+function getRoutes() {
+    return routes;
+}
+
+export default routes;
+
+export { getLinks, getRoutes };
