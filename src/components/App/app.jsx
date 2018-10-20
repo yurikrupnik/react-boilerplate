@@ -17,7 +17,7 @@ if (!config.isProd) {
 // import educationRoutes from '../../routes/Education/routes';
 
 
-const App = () => (
+const App = ({routes}) => (
     <Providers providers={apiProviders.concat(ThemeProvider, DeviceProvider)}>
         <Device render={(deviceProps) => {
             const isMobile = deviceProps.isMobile();

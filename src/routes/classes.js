@@ -5,13 +5,15 @@ import { Route as reactRoute } from 'react-router-dom';
 class Route {
     constructor({
         path = '/',
-        main = [],
-        sidebar = [],
-        component,
+        main = null,
+        sidebar = null,
+        component = null,
         label = '',
-        exact = false
+        exact = false,
+        fails = false
     }) {
         this.path = path;
+        this.fails = fails;
         // if (component) {
         //     if (Array.isArray(component) ? component.every(isValidElement) : isValidElement(component)) {
         //         console.error('component is not valid react element');
@@ -62,7 +64,10 @@ class Routes {
 
     handleComponents(isMobile) {
         return this.list.map(item => {
-            const { component, sidebar, main, key, path, exact } = item;
+            const { component, sidebar, main, key, path, exact, fails } = item;
+            if (fails) {
+                debugger;
+            }
             let con, side, ma;
             if (Array.isArray(component)) {
                 con = isMobile ? component[0] : component[1];
@@ -85,7 +90,7 @@ class Routes {
             // console.log('side', side);
             // console.log('ma', ma);
             return {
-                component: con,
+                [con ? 'component' : null]: con,
                 sidebar: side,
                 main: ma,
                 exact,

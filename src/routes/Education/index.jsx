@@ -2,14 +2,18 @@ import React, { Fragment } from 'react';
 // import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { Consumer as Device } from '../../components/contexts/device';
-import routes, { normalRoutes } from './routes';
+import routes from './routes';
+
+// console.log('normalRoutes', normalRoutes);
+// console.log('routes.hand', routes.handleComponents(false));
+
 
 const Education = () => (
     <Device render={(device) => {
         const isMobile = device.isMobile();
         return (
             <Fragment>
-                {normalRoutes.map(route => (
+                {routes.handleComponents(isMobile).map(route => (
                     <Route
                         key={route.key}
                         path={route.path}
@@ -19,7 +23,7 @@ const Education = () => (
                 ))}
                 <div className="row">
                     <div className="col-xs-3">
-                        {normalRoutes.map(route => (
+                        {routes.handleComponents(isMobile).map(route => (
                             <Route
                                 key={route.key}
                                 path={route.path}
@@ -29,7 +33,7 @@ const Education = () => (
                         ))}
                     </div>
                     <div className="col-xs-9">
-                        {normalRoutes.map(route => (
+                        {routes.handleComponents(isMobile).map(route => (
                             <Route
                                 key={route.key}
                                 path={route.path}
