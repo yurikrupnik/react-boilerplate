@@ -1,37 +1,81 @@
 import uniqid from 'uniqid';
 import { Route as reactRoute } from 'react-router-dom';
 
-// console.log('reactRoute', reactRoute);
-
 class Route {
     constructor({
-                    path = '/',
-                    // components = [],
-                    main = [],
-                    sidebar = [],
-                    component,
-                    label = '',
-                    exact = false
-                }) {
-        // console.log('component', component);
-
+        path = '/',
+        main = [],
+        sidebar = [],
+        component,
+        label = '',
+        exact = false
+    }) {
         this.path = path;
-        // this.components = components;
         this.component = component;
         this.main = main;
         this.sidebar = sidebar;
-        // this.component = [...component];
-        // this.component = component[0];
         this.label = label;
         this.exact = exact;
         this.key = uniqid();
-        // this.type = 'desktop';
     }
 }
 
-const getRoutesByDevice = routes => isMobile => {
-};
+
+class Routes {
+    constructor(list) {
+        if (Array.isArray(list)) {
+            this.list = list.map(item => new Route(item));
+        } else {
+            this.list = [];
+        }
+    }
+
+    getLinks() {
+        return this.list.reduce((acc, next) => {
+            if (!next.label) {
+                return acc;
+            }
+            return acc.concat({
+                label: next.label,
+                key: next.key,
+                to: next.path,
+            });
+        }, []);
+    }
+
+    handleComponents(isMobile) {
+        return this.list.map(item => {
+            const { component, sidebar, main, key, path, exact } = item;
+            let con, side, ma;
+            if (Array.isArray(component)) {
+                con = isMobile ? component[0] : component[1];
+            } else {
+                con = component;
+            }
+
+            if (Array.isArray(sidebar)) {
+                side = isMobile ? component[0] : component[1];
+            } else {
+                side = sidebar;
+            }
+
+            if (Array.isArray(main)) {
+                ma = isMobile ? component[0] : component[1];
+            } else {
+                ma = main;
+            }
+            return {
+                component: con,
+                sidebar: side,
+                main: ma,
+                exact,
+                path,
+                key
+            };
+        });
+    }
+}
 
 
-export default Route;
-export { getRoutesByDevice };
+export default Routes;
+// export { getRoutesByDevice };

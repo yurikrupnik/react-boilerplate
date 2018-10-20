@@ -14,7 +14,8 @@ const headerRoutes = guaranteeRoutes.reduce((acc, next) => {
     }
     return acc.concat({
         label: next.headerLabel,
-        path: next.path
+        path: next.path,
+        key: next.key
     });
 }, []);
 //
