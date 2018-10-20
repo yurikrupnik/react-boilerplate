@@ -8,7 +8,7 @@ import { Provider as DeviceProvider, Consumer as DeviceConsumer } from '../conte
 import { Provider as SidebarProvider, Consumer as SidebarConsumer } from './sidebar';
 import apiProviders from '../../api/providers';
 // import routes from '../routes';
-import { getRoutes, getLinks } from '../../routes';
+import routes from '../../routes';
 
 // import educationRoutes from '../../routes/Education/routes';
 
@@ -23,35 +23,9 @@ const App = () => {
 
                 const routess = (
                     <Fragment>
-                        {getRoutes().map((route) => {
-                            const { component, sidebar, main } = route;
-                            let con, side, ma;
-                            if (Array.isArray(component)) {
-                                con = isMobile ? component[0] : component[1];
-                            } else {
-                                con = component;
-                            }
-
-                            if (Array.isArray(sidebar)) {
-                                side = isMobile ? component[0] : component[1];
-                            } else {
-                                side = sidebar;
-                            }
-
-                            if (Array.isArray(main)) {
-                                ma = isMobile ? component[0] : component[1];
-                            } else {
-                                ma = main;
-                            }
+                        {routes.handleComponents(isMobile).map((route) => {
                             return (
-                                <Route
-                                    component={con}
-                                    key={route.key}
-                                    exact={route.exact}
-                                    path={route.path}
-                                    main={ma}
-                                    sidebar={side}
-                                />
+                                <Route key={route.key} {...route} />
                             );
                         })}
                     </Fragment>
@@ -60,7 +34,7 @@ const App = () => {
                 return isMobile ? (
                     <SidebarProvider>
                         <Fragment>
-                            <SidebarConsumer links={getLinks()} />
+                            <SidebarConsumer links={routes.getLinks()} />
                             {routess}
                         </Fragment>
                     </SidebarProvider>

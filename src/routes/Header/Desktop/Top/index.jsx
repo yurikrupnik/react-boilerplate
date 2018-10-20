@@ -6,7 +6,7 @@ import styles from './styles.scss';
 const Top = ({ routes }) => (
     <div className={`row center-xs middle-xs ${styles.container}`}>
         {routes.map(route => (
-            <div key={route.path}>
+            <div key={route.key}>
                 <Link
                     className={`${styles.item} col-xs`}
                     to={route.path}

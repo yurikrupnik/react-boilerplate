@@ -6,7 +6,7 @@ import { Route as reactRoute } from 'react-router-dom';
 class Route {
     constructor({
                     path = '/',
-                    components = [],
+                    // components = [],
                     main = [],
                     sidebar = [],
                     component,
@@ -16,7 +16,7 @@ class Route {
         // console.log('component', component);
 
         this.path = path;
-        this.components = components;
+        // this.components = components;
         this.component = component;
         this.main = main;
         this.sidebar = sidebar;
@@ -25,7 +25,7 @@ class Route {
         this.label = label;
         this.exact = exact;
         this.key = uniqid();
-        this.type = 'desktop';
+        // this.type = 'desktop';
     }
 }
 
