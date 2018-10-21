@@ -8,13 +8,13 @@ import LifetimeWarranty from './LifetimeWarranty';
 // import Engraving from './Engraving';
 // import Returns from './Returns';
 // import Update from './Update';
-import SlideBar from './SlideBar/index';
+import SlideBar from './SlideBar';
 import GuaranteeContextComp from './GuaranteeContextComp';
 
 const routes = [
     {
         path: '/guarantee',
-        component: () => (<Redirect to="/guarantee/customer-service" />),
+        component: () => <Redirect to="/guarantee/customer-service" />,
         exact: true,
         key: uniqid()
     },
@@ -25,7 +25,6 @@ const routes = [
         key: uniqid(),
         label: '24/7 Customer Service',
         headerLabel: '24/7 Customer Service',
-        // exact: true
     },
     {
         path: '/guarantee/:id',
@@ -34,47 +33,8 @@ const routes = [
         key: uniqid(),
         label: 'Lifetime Warranty',
         headerLabel: 'Lifetime Warranty',
-        // exact: true
     }
-    // {
-    //     path: '/guarantee/lifetime-warranty',
-    //     component: LifetimeWarranty,
-    //     sidebar: SlideBar,
-    //     key: uniqid(),
-    //     label: 'Lifetime Warranty',
-    //     headerLabel: 'Lifetime Warranty'
-    // },
-    // {
-    //     path: '/guarantee/free-shipping',
-    //     component: Shipping,
-    //     sidebar: SlideBar,
-    //     key: uniqid(),
-    //     label: 'Free Shipping Worldwide',
-    //     headerLabel: 'FREE INTERNATIONAL SHIPPING'
-    // },
-    // {
-    //     path: '/guarantee/hassle-free-returns',
-    //     component: Returns,
-    //     sidebar: SlideBar,
-    //     key: uniqid(),
-    //     label: 'Hassle-Free Returns',
-    //     headerLabel: '100% MONEY BACK GUARANTEE',
-    //     extraLabel: ' with 100% Money Back Guarantee'
-    // },
-    // {
-    //     path: '/guarantee/free-engraving',
-    //     component: Engraving,
-    //     sidebar: SlideBar,
-    //     key: uniqid(),
-    //     label: 'Free Engraving'
-    // },
-    // {
-    //     path: '/guarantee/lifetime-upgrade',
-    //     component: Update,
-    //     sidebar: SlideBar,
-    //     key: uniqid(),
-    //     label: 'Lifetime Upgrade'
-    // }
+
 ];
 
 function getRoutesByType(isMobile) {
@@ -83,18 +43,21 @@ function getRoutesByType(isMobile) {
             return acc.concat(Object.assign({}, next, {
                 component: Array.isArray(next.component) ? isMobile ? next.component[0] : next.component[1] : next.component
             }));
+        } else {
+            if (!next.main) {
+                if (next.sidebar) {
+                    return acc.concat(Object.assign({}, next, {
+                        sidebar: Array.isArray(next.sidebar) ? isMobile ? next.sidebar[0] : next.sidebar[1] : next.sidebar
+                    }));
+                } else {
+                    return acc.concat(next);
+                }
+            } else {
+                return acc.concat(Object.assign({}, next, {
+                    main: Array.isArray(next.main) ? isMobile ? next.main[0] : next.main[1] : next.main
+                }));
+            }
         }
-        if (next.main) {
-            return acc.concat(Object.assign({}, next, {
-                main: Array.isArray(next.main) ? isMobile ? next.main[0] : next.main[1] : next.main
-            }));
-        }
-        if (next.sidebar) {
-            return acc.concat(Object.assign({}, next, {
-                sidebar: Array.isArray(next.sidebar) ? isMobile ? next.sidebar[0] : next.sidebar[1] : next.sidebar
-            }));
-        }
-        return acc.concat(next);
     }, []);
 }
 
@@ -111,4 +74,7 @@ function getLinks() {
     }, []);
 }
 
-export default { getRoutesByType, getLinks };
+export default {
+    getRoutesByType,
+    getLinks
+};
