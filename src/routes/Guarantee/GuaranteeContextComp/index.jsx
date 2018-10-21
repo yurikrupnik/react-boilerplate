@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styles from './styles.css';
 import links from '../links';
 
-
 const List = props => (
     <ol>
         {props.listText.map((item, index) => (
