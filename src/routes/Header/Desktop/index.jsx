@@ -1,23 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Top from './Top';
-import guaranteeRoutes from '../../Guarantee/routes';
+// import guaranteeRoutes from '../../Guarantee/routes';
 import routes from '../../index';
-const headerRoutes = guaranteeRoutes.reduce((acc, next) => {
-    if (!next.headerLabel) {
-        return acc;
-    }
-    return acc.concat({
-        label: next.headerLabel,
-        path: next.path,
-        key: next.key
-    });
-}, []);
+// const headerRoutes = guaranteeRoutes.reduce((acc, next) => {
+//     if (!next.headerLabel) {
+//         return acc;
+//     }
+//     return acc.concat({
+//         label: next.headerLabel,
+//         path: next.path,
+//         key: next.key
+//     });
+// }, []);
 
 const DesktopNav = (props) => {
     return (
         <header>
-            <Top routes={headerRoutes} />
+            header deskotp
+            {/*<Top routes={headerRoutes} />*/}
             <div>
                 <Link to="/">
                     Main

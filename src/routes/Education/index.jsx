@@ -4,16 +4,12 @@ import { Route } from 'react-router-dom';
 import { Consumer as Device } from '../../components/contexts/device';
 import routes from './routes';
 
-// console.log('normalRoutes', normalRoutes);
-// console.log('routes.hand', routes.handleComponents(false));
-
-
 const Education = () => (
     <Device render={(device) => {
         const isMobile = device.isMobile();
         return (
             <Fragment>
-                {routes.handleComponents(isMobile).map(route => (
+                {routes.getRoutesByType(isMobile).map(route => (
                     <Route
                         key={route.key}
                         path={route.path}
@@ -23,7 +19,7 @@ const Education = () => (
                 ))}
                 <div className="row">
                     <div className="col-xs-3">
-                        {routes.handleComponents(isMobile).map(route => (
+                        {routes.getRoutesByType(isMobile).map(route => (
                             <Route
                                 key={route.key}
                                 path={route.path}
@@ -33,7 +29,7 @@ const Education = () => (
                         ))}
                     </div>
                     <div className="col-xs-9">
-                        {routes.handleComponents(isMobile).map(route => (
+                        {routes.getRoutesByType(isMobile).map(route => (
                             <Route
                                 key={route.key}
                                 path={route.path}

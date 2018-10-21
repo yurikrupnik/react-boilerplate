@@ -7,23 +7,23 @@ import { Provider as ThemeProvider } from '../contexts/themes';
 import { Provider as DeviceProvider, Consumer as Device } from '../contexts/device';
 import { Provider as SidebarProvider, Consumer as SidebarConsumer } from './sidebar';
 import apiProviders from '../../api/providers';
-import routes from '../../routes';
-import config from '../../config';
+// import routes from '../../routes';
+// import config from '../../config';
 
-if (!config.isProd) {
-    console.log('not produictopm');
+// if (!config.isProd) {
+//     console.log('not produictopm');
+//
+// }
+// // import educationRoutes from '../../routes/Education/routes';
 
-}
-// import educationRoutes from '../../routes/Education/routes';
 
-
-const App = ({routes}) => (
+const App = ({ routes }) => (
     <Providers providers={apiProviders.concat(ThemeProvider, DeviceProvider)}>
         <Device render={(deviceProps) => {
             const isMobile = deviceProps.isMobile();
             const routess = (
                 <Fragment>
-                    {routes.handleComponents(isMobile).map((route) => {
+                    {routes.getRoutesByType(isMobile).map((route) => {
                         return (
                             <Route key={route.key} {...route} />
                         );

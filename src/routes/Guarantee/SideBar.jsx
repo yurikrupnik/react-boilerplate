@@ -5,27 +5,16 @@ import routes from './routes';
 
 const SideBar = () => (
     <section>
-        <h2>education side bar</h2>
         {
-            // routes.getLinks().map(link => {
-            //     return (
-            //         <Link key={link.key} to={link.to}>
-            //             {link.label}
-            //         </Link>
-            //     );
-            // });
-            routes.reduce((acc, route) => {
-                if (!route.label) {
-                    return acc;
-                }
-                return acc.concat((
-                    <div key={route.key}>
-                        <Link to={route.path}>
-                            {route.label}
+            routes.getLinks().map(link => {
+                return (
+                    <div key={link.key}>
+                        <Link to={link.to}>
+                            {link.label}
                         </Link>
                     </div>
-                ));
-            }, [])
+                );
+            })
         }
     </section>
 );

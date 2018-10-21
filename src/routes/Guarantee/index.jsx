@@ -12,7 +12,7 @@ const Guarantee = () => {
             </h2>
             <div className="row">
                 <div className="col-xs-3">
-                    {routes.map(route => (
+                    {routes.getRoutesByType(false).map(route => (
                         <Route
                             key={route.key}
                             path={route.path}
@@ -22,7 +22,7 @@ const Guarantee = () => {
                     ))}
                 </div>
                 <div className="col-xs-9">
-                    {routes.map(route => (
+                    {routes.getRoutesByType(false).map(route => (
                         <Route
                             key={route.key}
                             path={route.path}

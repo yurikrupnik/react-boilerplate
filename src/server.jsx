@@ -8,6 +8,7 @@ import db from './services/db';
 import server from './services/socket/server';
 import passport from './services/passport';
 import App from './components/App';
+import routes from './routes';
 
 const app = express();
 
@@ -33,7 +34,7 @@ app.use(passport(app));
 //     return next();
 // });
 app.use(api);
-app.use(render(App));
+app.use(render(App, routes));
 
 server(app).listen(port, (err) => {
     if (err) {
