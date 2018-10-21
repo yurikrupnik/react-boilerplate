@@ -1,7 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-const CustomerService = () => (
+const CustomerService = (props) => (
+
     <div>
         <h2>24/7 Customer Service</h2>
         <p>
