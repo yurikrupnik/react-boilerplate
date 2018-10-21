@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const Dotenv = require('dotenv-webpack');
+const sassVars = require('./src/theme.js');
+const sassFuncs = require('./sassHelper');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
@@ -38,7 +40,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader', 'eslint-loader'],
+                    use: ['babel-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -46,7 +48,13 @@ module.exports = (env) => {
                     use: [
                         'css-hot-loader',
                         MiniCssExtractPlugin.loader,
-                        'css-loader?modules=true', 'sass-loader'
+                        'css-loader?modules=true',
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                functions: sassFuncs(sassVars)
+                            }
+                        }
                     ],
                 },
                 {
@@ -87,7 +95,7 @@ module.exports = (env) => {
                 filename: '[name].css',
                 chunkFilename: '[name].css'
             }),
-            !isProd ? new BundleAnalyzerPlugin({}) : () => {},
+            new BundleAnalyzerPlugin({}),
         ],
         devServer: {
             port: !isProd && config.devPort,

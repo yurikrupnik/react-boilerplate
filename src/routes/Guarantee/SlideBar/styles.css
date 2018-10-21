@@ -1,0 +1,24 @@
+.navContainer {
+    /*width: 28%;*/
+    width: 100%;
+    padding: 15px;
+
+    list-style-type: none;
+    font-size: 19px;
+    padding: 0;
+    margin: 0;
+}
+
+
+.navContainer .link {
+    padding-bottom: 14px;
+}
+
+.navContainer a {
+    text-decoration: none;
+    color: black;
+}
+
+.navContainer .selected {
+    color: #d3d3d3;
+}

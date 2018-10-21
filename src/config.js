@@ -24,5 +24,6 @@ module.exports = {
     devPort,
     devHost,
     databaseUrl,
-    baseURL
+    baseURL,
+    isProd
 };

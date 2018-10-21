@@ -1,0 +1,15 @@
+
+:local .mainHeader {
+    font-size: 26px;
+    color: #ff8080;
+    padding-bottom: 22px;
+    font-family: NunitoSans;
+}
+
+:local p {
+    font-size: 16px;
+}
+
+:local mainGeneralComp{
+    /*min-height: 600px;*/
+}

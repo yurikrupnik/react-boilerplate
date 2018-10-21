@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import routes from './routes';
 import Router from '../Router';
 
@@ -25,7 +25,6 @@ const Topics = (props) => {
             <h2>
                 Topics
             </h2>
-            <Router routes={routes}>
                 <ul>
                     {data.map(val => (
                         <li key={val.value}>
@@ -35,7 +34,12 @@ const Topics = (props) => {
                         </li>
                     ))}
                 </ul>
-            </Router>
+            {routes.map(route => {
+                return (
+                    <Route path={route.path} exact={route.export} component={route.component}/>
+                )
+            })}
+
         </div>
     );
 };
