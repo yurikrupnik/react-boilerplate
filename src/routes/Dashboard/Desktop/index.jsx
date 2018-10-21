@@ -5,7 +5,8 @@ import UsersConsumer from '../../../api/users/consumer';
 import ProjectsConsumer from '../../../api/projects/consumer';
 import List from '../../../components/List';
 
-function Dashboard() {
+function Dashboard(props) {
+    console.log('props', props);
     return (
         <UsersConsumer render={userProps => (
             <ProjectsConsumer render={projectsProps => (
