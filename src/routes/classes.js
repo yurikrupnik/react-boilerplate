@@ -20,6 +20,7 @@ class Route {
         //     }
         // }
         this.component = component;
+
         this.main = main;
         this.sidebar = sidebar;
         this.label = label;
