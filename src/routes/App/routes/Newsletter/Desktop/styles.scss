@@ -1,4 +1,4 @@
-//@import "../../../styles/variables";
+@import "../../../../../styles/variables";
 
 .root {
   background: #ddd;
@@ -21,8 +21,8 @@
     color: #fff;
 
     &:hover {
-      //background: map_get($colors, 'primary');
-      background: green;
+      background: map_get($colors, 'primary');
+      //background: green;
     }
   }
 

@@ -1,4 +1,6 @@
+
 :global {
+  @import "reset";
 
   @import "~flexboxgrid";
 
@@ -9,15 +11,6 @@
   .root:hover {
     color: blue;
   }
-
-}
-
-body {
-  margin: 0;
-}
-
-html, body, #root {
-  height: 100%;
 }
 
 .root {
