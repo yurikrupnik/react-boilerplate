@@ -6,6 +6,7 @@ const Dotenv = require('dotenv-webpack');
 const json = require('./package');
 const sassVars = require('./src/theme.js');
 const sassFuncs = require('./sassHelper');
+
 const filename = 'server.js';
 
 module.exports = (env, argv) => {

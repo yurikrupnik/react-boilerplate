@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import routes from './routes';
 import Router from '../Router';
 
@@ -34,11 +34,18 @@ const Topics = (props) => {
                         </li>
                     ))}
                 </ul>
-            {routes.map(route => {
-                return (
-                    <Route path={route.path} exact={route.export} component={route.component}/>
-                )
-            })}
+            <div>
+                {routes.map(route => {
+                    return (
+                        <Route
+                            key={route.key}
+                            path={route.path}
+                            exact={route.exact}
+                            component={route.component}
+                        />
+                    );
+                })}
+            </div>
 
         </div>
     );
