@@ -10,7 +10,7 @@ const sassFuncs = require('./sassHelper');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
-    const config = isProd ? null : require('./src/config');
+    const config = isProd ? null : require('./src/config'); // eslint-disable-line global-require
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {

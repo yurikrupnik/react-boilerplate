@@ -1,14 +1,13 @@
 import React from 'react';
 import { render, hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import App from './components/App';
-import routes from './routes';
+import App from './routes/App';
 import './styles/_index.scss';
 
 const renderMethod = module.hot ? render : hydrate;
 
 renderMethod(
     <BrowserRouter>
-        <App routes={routes} />
+        <App />
     </BrowserRouter>, global.document.getElementById('root')
 );
