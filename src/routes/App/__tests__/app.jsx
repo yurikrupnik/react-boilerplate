@@ -1,15 +1,16 @@
 import React from 'react';
 import App from '../app';
-import routes from '../../index';
+import routes from '../routes';
 
-jest.mock('../../../routes'); // eslint-disable-line no-undef
+jest.mock('../routes'); // eslint-disable-line no-undef
 const {
     it,
     expect,
-    shallow
+    shallow,
+    navigator
 } = global;
 
 it('renders <App /> component', () => {
-    const wrapper = shallow(<App routes={routes} />);
+    const wrapper = shallow(<App userAgent={navigator.userAgent} routes={routes} />);
     expect(wrapper).toMatchSnapshot();
 });

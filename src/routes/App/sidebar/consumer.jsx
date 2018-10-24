@@ -41,13 +41,13 @@ function SidebarConsumer({ render, links }) {
 }
 
 SidebarConsumer.defaultProps = {
-    render: null,
-    link: []
+    // render: null,
+    // link: []
 };
 
 SidebarConsumer.propTypes = {
     // render: PropTypes.func
-    links: PropTypes.arrayOf(PropTypes.shape({}))
+    // links: PropTypes.arrayOf(PropTypes.shape({}))
     // links: PropTypes.arrayOf(PropTypes.shape({
     //     label: PropTypes.string.isRequired,
     //     to: PropTypes.string.isRequired,

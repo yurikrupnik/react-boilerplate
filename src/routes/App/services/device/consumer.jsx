@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from './context';
 // import MenuList from '@material-ui/core/MenuList/MenuList';
@@ -10,13 +10,24 @@ import { Consumer } from './context';
 
 
 function DeviceConsumer({ render }) {
-
     return (
         <Consumer>
             {props => render(props)}
         </Consumer>
     );
 }
+
+// class DeviceConsumer extends React.PureComponent {
+//     render() {
+//         const { render } = this.props;
+//         return (
+//             <Consumer>
+//                 {props => render(props)}
+//             </Consumer>
+//         );
+//     }
+// }
+
 
 DeviceConsumer.defaultProps = {
     render: null
