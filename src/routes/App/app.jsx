@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Providers from './providers';
 import { Provider as ThemeProvider } from '../../components/contexts/themes';
-import { Provider as DeviceProvider, Consumer as Device } from './services/device';
+import { Provider as DeviceProvider, Consumer as DeviceConsumer } from './services/device';
 import { Provider as SidebarProvider, Consumer as SidebarConsumer } from './sidebar';
 import apiProviders from '../../api/providers';
 import routes from './routes';
@@ -80,31 +81,77 @@ const theme = createMuiTheme({
     }
 });
 
-const App = () => (
-    <Providers providers={apiProviders.concat(ThemeProvider, DeviceProvider)}>
-        <MuiThemeProvider theme={theme}>
-            <Device render={(deviceProps) => {
-                const isMobile = deviceProps.isMobile();
-                const basicRoutes = (
-                    <Fragment>
-                        {routes.getRoutesByType(isMobile)
-                            .map(route => <Route key={route.key} {...route} />)}
-                    </Fragment>
-                );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            appData: (global.window && global.window.appData) || {}
+        };
+        if (global.window) {
+            delete global.window.appData;
+        }
+    }
 
-                return isMobile ? (
-                    <SidebarProvider>
-                        <Fragment>
-                            <SidebarConsumer links={routes.getLinks()} />
-                            {basicRoutes}
-                        </Fragment>
-                    </SidebarProvider>
-                ) : basicRoutes;
-            }}
-            />
-        </MuiThemeProvider>
-    </Providers>
-);
+    render() {
+        // console.log('this.state.appData', this.state.appData);
+        const { userAgent } = this.props;
+        return (
+            <DeviceProvider userAgent={userAgent}>
+                <Providers providers={apiProviders.concat(ThemeProvider)}>
+                    <MuiThemeProvider theme={theme}>
+                        <DeviceConsumer render={(deviceProps) => {
+                            const isMobile = deviceProps.isMobile();
+                            const basicRoutes = (
+                                <Fragment>
+                                    <Button onClick={deviceProps.toggle}>Toggle</Button>
+                                    {routes.getRoutesByType(isMobile)
+                                        .map(route => <Route key={route.key} {...route} />)}
+                                </Fragment>
+                            );
+
+                            return isMobile ? (
+                                <SidebarProvider>
+                                    <Fragment>
+                                        <SidebarConsumer links={routes.getLinks()} />
+                                        {basicRoutes}
+                                    </Fragment>
+                                </SidebarProvider>
+                            ) : basicRoutes;
+                        }}
+                        />
+                    </MuiThemeProvider>
+                </Providers>
+            </DeviceProvider>
+        );
+    }
+}
+
+
+// const App = () => (
+//     <Providers providers={apiProviders.concat(ThemeProvider, DeviceProvider)}>
+//         <MuiThemeProvider theme={theme}>
+//             <Device render={(deviceProps) => {
+//                 const isMobile = deviceProps.isMobile();
+//                 const basicRoutes = (
+//                     <Fragment>
+//                         {routes.getRoutesByType(isMobile)
+//                             .map(route => <Route key={route.key} {...route} />)}
+//                     </Fragment>
+//                 );
+//
+//                 return isMobile ? (
+//                     <SidebarProvider>
+//                         <Fragment>
+//                             <SidebarConsumer links={routes.getLinks()} />
+//                             {basicRoutes}
+//                         </Fragment>
+//                     </SidebarProvider>
+//                 ) : basicRoutes;
+//             }}
+//             />
+//         </MuiThemeProvider>
+//     </Providers>
+// );
 
 
 export default App;

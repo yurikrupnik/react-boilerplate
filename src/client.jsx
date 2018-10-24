@@ -8,6 +8,6 @@ const renderMethod = module.hot ? render : hydrate;
 
 renderMethod(
     <BrowserRouter>
-        <App />
+        <App userAgent={global.navigator.userAgent} />
     </BrowserRouter>, global.document.getElementById('root')
 );

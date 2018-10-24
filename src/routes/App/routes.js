@@ -10,7 +10,15 @@ const routes = [
     {
         path: '/',
         component: Header,
-        key: uniqid()
+        key: uniqid(),
+        fetch: () => {
+            return Promise.resolve([
+                {
+                    user: 'shit',
+                    lol: true
+                }
+            ]);
+        }
     },
     {
         path: '/',
@@ -86,4 +94,4 @@ function getLinks() {
     // ];
 }
 
-export default { getRoutesByType, getLinks };
+export default { routes, getRoutesByType, getLinks };

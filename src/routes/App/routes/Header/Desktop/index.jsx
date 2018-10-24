@@ -15,54 +15,103 @@ import Top from './Top/index';
 //     });
 // }, []);
 
+class DestopNav extends React.PureComponent {
+    render() {
+        const links = [
+            {
+                label: 'guarantee',
+                key: uniqid(),
+                to: '/guarantee'
+            },
+            {
+                label: 'topics',
+                key: uniqid(),
+                to: '/topics'
+            },
+            {
+                label: 'education',
+                key: uniqid(),
+                to: '/education'
+            }
+        ];
+        // console.log('headers props', props);
 
-const DesktopNav = (props) => {
-    const links = [
-        {
-            label: 'guarantee',
-            key: uniqid(),
-            to: '/guarantee'
-        },
-        {
-            label: 'topics',
-            key: uniqid(),
-            to: '/topics'
-        },
-        {
-            label: 'education',
-            key: uniqid(),
-            to: '/education'
-        }
-    ];
-    return (
-        <header>
-            header deskotp
-            {/*<Top routes={headerRoutes} />*/}
-            <div>
-                <Link to="/">
-                    Main
-                </Link>
-            </div>
-            <div className="row">
-                {links.map(route => {
-                    return (
-                        <div className="col-xs" key={route.key}>
-                            <Link to={route.to}>
-                                {route.label}
-                            </Link>
-                        </div>
-                    );
-                })}
-            </div>
-        </header>
-    );
-};
+        return (
+            <header>
+                header deskotp
+                {/*<Top routes={headerRoutes} />*/}
+                <div>
+                    <Link to="/">
+                        Main
+                    </Link>
+                </div>
+                <div className="row">
+                    {links.map(route => {
+                        return (
+                            <div className="col-xs" key={route.key}>
+                                <Link to={route.to}>
+                                    {route.label}
+                                </Link>
+                            </div>
+                        );
+                    })}
+                </div>
+            </header>
+        );
+    }
 
-DesktopNav.propTypes = {
+}
+
+
+// const DesktopNav = (props) => {
+//     const links = [
+//         {
+//             label: 'guarantee',
+//             key: uniqid(),
+//             to: '/guarantee'
+//         },
+//         {
+//             label: 'topics',
+//             key: uniqid(),
+//             to: '/topics'
+//         },
+//         {
+//             label: 'education',
+//             key: uniqid(),
+//             to: '/education'
+//         }
+//     ];
+//     console.log('headers props', props);
+//
+//     return (
+//         <header>
+//             header deskotp
+//             {/*<Top routes={headerRoutes} />*/}
+//             <div>
+//                 <Link to="/">
+//                     Main
+//                 </Link>
+//             </div>
+//             <div className="row">
+//                 {links.map(route => {
+//                     return (
+//                         <div className="col-xs" key={route.key}>
+//                             <Link to={route.to}>
+//                                 {route.label}
+//                             </Link>
+//                         </div>
+//                     );
+//                 })}
+//             </div>
+//         </header>
+//     );
+// };
+
+// DesktopNav.propTypes = {
     // routes: PropTypes.arrayOf(PropTypes.shape({
     //     key: PropTypes.string.isRequired,
     //     path: PropTypes.string.isRequired
     // })).isRequired,
-};
-
-export default DesktopNav;
+// };
+//
+export default DestopNav;
