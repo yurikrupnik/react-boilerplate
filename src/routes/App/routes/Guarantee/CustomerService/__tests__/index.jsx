@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomerService from '../index';
+import CustomerService from '../Desktop/index';
 
 const {
     describe,
