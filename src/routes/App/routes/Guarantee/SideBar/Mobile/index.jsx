@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import ScrollableTabsButtonPrevent from './ScrollableTabsButtonPrevent';
 import styles from './styles.scss';
 
 const linksSideBar = [
@@ -34,26 +35,25 @@ const linksSideBar = [
 ];
 
 
-const SideBar = () => {
-    return (
-        <div>
-            <div className={styles.imgContainer}>
-                <div className={styles.img}>
+const SideBar = () => (
+    <div>
+        <div className={styles.imgContainer}>
+            <div className={styles.img}>
                     IMG here!
-                </div>
-            </div>
-            <div className={styles.navContainer}>
-                {linksSideBar.map(link => (
-                    <NavLink
-                        to={link.to}
-                        activeClassName={styles.selected}
-                    >
-                        {link.label}
-                    </NavLink>
-                ))}
             </div>
         </div>
-    );
-};
+        <ScrollableTabsButtonPrevent />
+        {/* <div className={styles.navContainer}> */}
+        {/* {linksSideBar.map(link => ( */}
+        {/* <NavLink */}
+        {/* to={link.to} */}
+        {/* activeClassName={styles.selected} */}
+        {/* > */}
+        {/* {link.label} */}
+        {/* </NavLink> */}
+        {/* ))} */}
+        {/* </div> */}
+    </div>
+);
 
 export default SideBar;
