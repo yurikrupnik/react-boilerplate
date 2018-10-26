@@ -8,7 +8,7 @@ const {
     render
 } = global;
 
-describe('theme consumer', () => {
+describe('projects consumer', () => {
     test('render consumer', () => {
         const wrapper = render( // notice render here
             <Consumer render={(props) => {
