@@ -1,0 +1,13 @@
+@import "../../../../styles/variables";
+
+.mainHeader {
+    margin: 0;
+    font-size: 26px;
+    color: map_get($colors, 'primary');
+    padding-bottom: 22px;
+}
+
+p {
+    font-size: 16px;
+}
+

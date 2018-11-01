@@ -4,7 +4,7 @@ const ip = process.env.IP || 'localhost';
 const host = process.env.WEBSITE_HOSTNAME || `http://${ip}:${port}`;
 const devPort = port + 1;
 const devHost = `http://${ip}:${devPort}`;
-const baseURL = isProd ? host : devHost;
+const baseURL = isProd || process.env.DEBUG ? host : devHost;
 const localDBUrl = 'mongodb://localhost/react-boilerplate';
 
 let databaseUrl;

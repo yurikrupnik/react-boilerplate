@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -10,6 +11,7 @@ const sassFuncs = require('./sassHelper');
 
 module.exports = (env) => {
     const isProd = env ? !!env.prod : false;
+    const isDebug = env ? !!env.debug : false;
     const config = isProd ? null : require('./src/config'); // eslint-disable-line global-require
     return {
         context: path.resolve(__dirname, 'src'),
@@ -40,7 +42,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader'],
+                    use: ['babel-loader', 'eslint-loader'],
                     exclude: /node_modules/,
                 },
                 {
@@ -73,6 +75,9 @@ module.exports = (env) => {
             ]
         },
         plugins: [
+            new webpack.DefinePlugin({
+                'process.env.DEBUG': JSON.stringify(isDebug)
+            }),
             isProd ? new Dotenv() : () => {},
             new HtmlWebpackPlugin({
                 template: 'index.ejs',
@@ -95,7 +100,7 @@ module.exports = (env) => {
                 filename: '[name].css',
                 chunkFilename: '[name].css'
             }),
-            new BundleAnalyzerPlugin({}),
+            // isProd ? new BundleAnalyzerPlugin({}) : () => {},
         ],
         devServer: {
             port: !isProd && config.devPort,

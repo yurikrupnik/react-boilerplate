@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import Providers from './providers';
-import { Provider as ThemeProvider } from '../../components/contexts/themes';
-import { Provider as DeviceProvider, Consumer as DeviceConsumer } from './services/device';
-import { Provider as SidebarProvider, Consumer as SidebarConsumer } from './sidebar';
+import { Provider as ThemeProvider } from '../services/context/themes';
+import { Provider as DeviceProvider, Consumer as DeviceConsumer } from '../services/context/device';
+import { Provider as SidebarProvider, Consumer as SidebarConsumer } from '../services/context/sidebar';
 import apiProviders from '../../api/providers';
 import routes from './routes';
 import themeConfig from '../../theme';
@@ -17,6 +17,7 @@ const theme = createMuiTheme({
     typography: {
         // Tell Material-UI what the font-size on the html element is.
         // htmlFontSize: 10,
+        useNextVariants: true,
         button: {
             padding: '20px',
             '&:hover': {
@@ -28,7 +29,7 @@ const theme = createMuiTheme({
             //     main: green
             // },
             // root: {
-            //     color: blue
+            //     color:    color: #ff8080;blue
             // }
             // }
         }
@@ -81,29 +82,24 @@ const theme = createMuiTheme({
     }
 });
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            appData: (global.window && global.window.appData) || {}
-        };
+const App = ({ userAgent }) => (
+    <Route render={(props) => {
+        const { staticContext } = props;
+        const context = global.window ? global.window.appData : staticContext;
         if (global.window) {
             delete global.window.appData;
         }
-    }
-
-    render() {
-        // console.log('this.state.appData', this.state.appData);
-        const { userAgent } = this.props;
         return (
-            <DeviceProvider userAgent={userAgent}>
-                <Providers providers={apiProviders.concat(ThemeProvider)}>
+            <DeviceProvider theme={themeConfig} userAgent={userAgent}>
+                <Providers
+                    context={context}
+                    providers={apiProviders.concat(ThemeProvider)}
+                >
                     <MuiThemeProvider theme={theme}>
                         <DeviceConsumer render={(deviceProps) => {
                             const isMobile = deviceProps.isMobile();
                             const basicRoutes = (
                                 <Fragment>
-                                    <Button onClick={deviceProps.toggle}>Toggle</Button>
                                     {routes.getRoutesByType(isMobile)
                                         .map(route => <Route key={route.key} {...route} />)}
                                 </Fragment>
@@ -123,35 +119,17 @@ class App extends React.Component {
                 </Providers>
             </DeviceProvider>
         );
-    }
-}
+    }}
+    />
+);
 
+App.defaultProps = {
+    staticContext: {}
+};
 
-// const App = () => (
-//     <Providers providers={apiProviders.concat(ThemeProvider, DeviceProvider)}>
-//         <MuiThemeProvider theme={theme}>
-//             <Device render={(deviceProps) => {
-//                 const isMobile = deviceProps.isMobile();
-//                 const basicRoutes = (
-//                     <Fragment>
-//                         {routes.getRoutesByType(isMobile)
-//                             .map(route => <Route key={route.key} {...route} />)}
-//                     </Fragment>
-//                 );
-//
-//                 return isMobile ? (
-//                     <SidebarProvider>
-//                         <Fragment>
-//                             <SidebarConsumer links={routes.getLinks()} />
-//                             {basicRoutes}
-//                         </Fragment>
-//                     </SidebarProvider>
-//                 ) : basicRoutes;
-//             }}
-//             />
-//         </MuiThemeProvider>
-//     </Providers>
-// );
-
+App.propTypes = {
+    userAgent: PropTypes.string.isRequired,
+    staticContext: PropTypes.shape({})
+};
 
 export default App;

@@ -21,9 +21,9 @@
     "deploy:run": "docker run -p 7000:7000 boil-local",
     "deploy:compose": "npm run deploy:test && npm run build && docker-compose up",
     "deploy:up": "docker run -p 7000:7000 boil",
-    "debug:server": "webpack -p --env.min --config webpack.config.server.js -w",
-    "debug:client": "webpack -p --env.min --config webpack.config.client.js -w",
-    "debug": "npm run debug:server",
+    "debug:server": "webpack --env.debug --config webpack.config.server.js -w",
+    "debug:client": "webpack --env.debug --config webpack.config.client.js -w",
+    "debug": "npm run debug:server & npm run debug:client",
     "dist": "npm run build && cd dist && npm start"
   },
   "repository": {
@@ -50,14 +50,15 @@
     "express-session": "^1.15.6",
     "faker": "^4.1.0",
     "flexboxgrid": "^6.3.1",
+    "lodash": "^4.17.11",
     "mongoose": "^5.2.15",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-loadable": "^5.5.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
@@ -73,7 +74,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.2",
     "css-hot-loader": "^1.4.2",
     "css-loader": "^1.0.0",
@@ -101,7 +102,7 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
-    "uglifyjs-webpack-plugin": "^1.2.6",
+    "uglifyjs-webpack-plugin": "^1.3.0",
     "webpack": "^4.19.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.0",
@@ -117,6 +118,9 @@
     ],
     "moduleNameMapper": {
       "\\.(css|less|scss)$": "identity-obj-proxy"
-    }
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/.*/__mocks__"
+    ]
   }
 }

@@ -1,3 +1,4 @@
+
 export default {
     fetch: jest.fn() // eslint-disable-line no-undef
         .mockResolvedValueOnce([{

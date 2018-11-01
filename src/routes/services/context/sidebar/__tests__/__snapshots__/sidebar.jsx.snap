@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Device context default consumer 1`] = `null`;
+
+exports[`Device context dynamic consumer 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "open": false,
+      "toggle": [Function],
+    }
+  }
+>
+  <SidebarConsumer
+    render={[Function]}
+  />
+</ContextProvider>
+`;
+
+exports[`Device context methods 1`] = `
+<div>
+  hello
+</div>
+`;
+
+exports[`Device context render consumer 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`Device context render provider 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "open": false,
+      "toggle": [Function],
+    }
+  }
+>
+  <Wrapper />
+</ContextProvider>
+`;
