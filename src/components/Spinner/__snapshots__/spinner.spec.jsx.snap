@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`_default render 1`] = `
+<div
+  style={
+    Object {
+      "background": "red",
+    }
+  }
+>
+  loading...
+</div>
+`;

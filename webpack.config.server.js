@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
@@ -11,6 +12,7 @@ const filename = 'server.js';
 
 module.exports = (env, argv) => {
     const isProd = env ? !!env.prod : false;
+    const isDebug = env ? !!env.debug : false;
     return {
         context: path.resolve(__dirname, 'src'),
         resolve: {
@@ -60,6 +62,10 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
+            new webpack.DefinePlugin({
+                // 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+                'process.env.DEBUG': JSON.stringify(isDebug)
+            }),
             isProd ? new Dotenv() : () => {},
             isProd ? new GenerateJsonPlugin('package.json', Object.assign({}, json, {
                 main: filename,

@@ -43,9 +43,9 @@ const Loading = (props) => {
 };
 
 Loading.defaultProps = {
-    error: '',
-    pastDelay: '',
-    timedOut: '',
+    error: {},
+    pastDelay: false,
+    timedOut: false,
     retry: () => {}
 };
 
@@ -62,4 +62,8 @@ export default function (opts) {
         // delay: 200,
         // timeout: 10,
     }, opts));
+}
+
+export {
+    Loading
 }

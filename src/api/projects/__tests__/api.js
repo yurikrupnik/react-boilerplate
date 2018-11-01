@@ -6,7 +6,7 @@ const {
     describe, test, beforeEach, afterEach
 } = global;
 
-describe('users api', () => {
+describe('projects api', () => {
     beforeEach(() => {
         moxios.install(instance);
     });
@@ -23,7 +23,13 @@ describe('users api', () => {
                 request.respondWith({
                     status: 200,
                     data: {
-                        id: 12345, firstName: 'Fred', lastName: 'Flintstone'
+                        CurrencyRates: {
+                            CurrencyRate: [
+                                {
+                                    id: 12345, firstName: 'Fred', lastName: 'Flintstone'
+                                }
+                            ]
+                        }
                     }
                 });
                 done();

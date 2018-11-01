@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders <Component /> component 1`] = `
+<StaticRouter
+  basename=""
+  context={Object {}}
+  location="/"
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <DesktopNav>
+      <header>
+        <CurrencyConsumer
+          render={[Function]}
+        >
+          <DataContainer
+            data={Array []}
+            fetch={[Function]}
+            loading={false}
+            render={[Function]}
+            selected={null}
+          >
+            <div>
+              header deskotp
+              <div />
+              <div>
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    Main
+                  </a>
+                </Link>
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  className="col-xs"
+                  key="rhooi3qjnyeeibv"
+                >
+                  <Link
+                    replace={false}
+                    to="/guarantee"
+                  >
+                    <a
+                      href="/guarantee"
+                      onClick={[Function]}
+                    >
+                      guarantee
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="col-xs"
+                  key="rhooi3qjnyeeibw"
+                >
+                  <Link
+                    replace={false}
+                    to="/topics"
+                  >
+                    <a
+                      href="/topics"
+                      onClick={[Function]}
+                    >
+                      topics
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="col-xs"
+                  key="rhooi3qjnyeeibx"
+                >
+                  <Link
+                    replace={false}
+                    to="/education"
+                  >
+                    <a
+                      href="/education"
+                      onClick={[Function]}
+                    >
+                      education
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </DataContainer>
+        </CurrencyConsumer>
+      </header>
+    </DesktopNav>
+  </Router>
+</StaticRouter>
+`;

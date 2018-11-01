@@ -8,7 +8,7 @@ const router = express.Router();
 router.post(loginUrl, passport.authenticate('local', { failWithError: true }),
     (req, res) => res.redirect('/'),
     (err, req, res) => {
-        console.log('err', err);
+        // console.log('err', err);
         res.redirect('/login');
     });
 

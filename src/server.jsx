@@ -13,6 +13,9 @@ import routes from './routes/App/routes';
 const app = express();
 
 const assets = path.resolve(__dirname, 'assets');
+const route = express.Router();
+
+route.get('/*', render(App, routes));
 
 app.use(express.static(assets));
 app.use(morgan('dev'));
@@ -24,7 +27,7 @@ app.use(db(databaseUrl));
 app.use(passport(app));
 
 app.use(api);
-app.use(render(App, routes));
+app.use(route);
 
 server(app).listen(port, (err) => {
     if (err) {

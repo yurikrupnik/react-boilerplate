@@ -4,12 +4,11 @@ import { StaticRouter, matchPath } from 'react-router-dom';
 import React from 'react';
 
 const render = (App, routes) => (req, response, next) => {
-    // const isMobile = false;
     const activeRoute = routes.routes
         .find(route => matchPath(req.url, route)) || {};
-    const promise = activeRoute.fetch ?
-        activeRoute.fetch() :
-        Promise.resolve([]);
+    const promise = activeRoute.fetchInitialData
+        ? activeRoute.fetchInitialData(req.url)
+        : Promise.resolve([]);
 
     return promise
         .then((res) => {
@@ -20,25 +19,20 @@ const render = (App, routes) => (req, response, next) => {
                     return acc;
                 }, appData);
             }
-            const context = {
-                data: appData
-            };
-            // const modules = {};
+            const context = {};
             const title = 'my title';
             const html = renderToString((
                 <StaticRouter
                     location={req.url}
-                    context={context}
+                    context={appData}
                 >
                     <App userAgent={req.headers['user-agent']} />
                 </StaticRouter>
             ));
-            console.log('html', html);
-            console.log('appData', appData);
             const state = { title, html, appData };
             return context.url ? response.redirect(301, context.url) : response.render('index', state);
         })
-        .catch(err => {
+        .catch((err) => {
             console.log('err', err.stack); // eslint-disable-line no-console
             return next(err);
         });
