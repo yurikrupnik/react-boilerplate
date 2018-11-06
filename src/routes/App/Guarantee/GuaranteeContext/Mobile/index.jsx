@@ -1,22 +1,23 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles.scss';
+import styles from './styles.scss';
 import links from '../../links';
 import ParagraphWithLinks from '../ParagraphWithLinks/index';
 import List from '../List/index';
+import HeaderMobile from '../../HeaderMobile';
+import CountriesShipping from './CountriesShipping';
 
 const GuaranteeContext = (props) => {
     const { match } = props;
     const compContent = links[match.params.id];
     return (
-        <div>
-            <h1 className={styles.mainHeader}>
-                {compContent.mainHeader}
-            </h1>
+        <div className={styles.root}>
+            <HeaderMobile text={compContent.mainHeader} />
             {compContent.sections.map((section, index) => (
-                <Fragment key={index}> {/* eslint-disable-line*/}
+                <Fragment key={section.header}>
+                    {compContent.mainHeader === 'Free Shipping Worldwide' && index === 1 ? <CountriesShipping /> : null}
                     {section.header ? <h3>{section.header}</h3> : null}
-                    {section.listText // eslint-disable-line
+                    {section.listText
                         ? <List listText={section.listText} />
                         : section.urlLink
                             ? <ParagraphWithLinks paragraphConfig={section} />

@@ -1,81 +1,21 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import styles from './styles.scss';
-import routes from './routes';
+import React, { memo } from 'react';
+import Loadable from '../../../components/Loadable';
 import { Consumer as DeviceConsumer } from '../../services/context/device/index';
 
-const Guarantee = () => {
-    return (
-        <DeviceConsumer render={(renderProps) => {
-            const isMobile = renderProps.isMobile();
-            if (isMobile) {
-                return (
-                    <div className={styles.root}>
-                        <div className={styles.guaranteeContainer}>
-                            <Switch>
-                                {routes.getRoutesByType(isMobile)
-                                    .map(route => (
-                                        <Route
-                                            key={route.key}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            component={route.sidebar}
-                                        />
-                                    ))}
-                            </Switch>
-                            <Switch>
-                                {routes.getRoutesByType(isMobile)
-                                    .map(route => (
-                                        <Route
-                                            key={route.key}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            component={route.component}
-                                        />
-                                    ))}
-                            </Switch>
-                        </div>
-                    </div>
-                );
-            }
-            return (
-                <div className={styles.guaranteeContainer}>
-                    <h2 className={styles.guaranteeHeader}>
-                        The James Allen Guarantee
-                    </h2>
-                    <div className="row">
-                        <div className="col-xs-3">
-                            <Switch>
-                                {routes.getRoutesByType(isMobile)
-                                    .map(route => (
-                                        <Route
-                                            key={route.key}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            component={route.sidebar}
-                                        />
-                                    ))}
-                            </Switch>
-                        </div>
-                        <div className="col-xs-8">
-                            <Switch>
-                                {routes.getRoutesByType(isMobile)
-                                    .map(route => (
-                                        <Route
-                                            key={route.key}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            component={route.component}
-                                        />
-                                    ))}
-                            </Switch>
-                        </div>
-                    </div>
-                </div>
-            );
-        }}
-        />
-    );
-};
+const Mobile = Loadable({
+    loader: () => import('./Mobile')
+});
 
-export default Guarantee;
+const Desktop = Loadable({
+    loader: () => import('./Desktop')
+});
+
+const Guarantee = () => (
+    <DeviceConsumer render={(renderProps) => {
+        const isMobile = renderProps.isMobile();
+        return isMobile ? <Mobile /> : <Desktop />;
+    }}
+    />
+);
+
+export default memo(Guarantee);

@@ -1,0 +1,35 @@
+@import "../../../../../../src/styles/variables";
+
+.root {
+  margin-bottom: 25px;
+
+  .header {
+    margin: 0;
+    font-size: 26px;
+    color: map_get($colors, 'primary');
+    padding-bottom: 22px;
+  }
+
+  p {
+    margin: 25px 0;
+  }
+
+  .headerItem {
+    font-size: 16px;
+    text-decoration: underline;
+
+    a {
+      color: black;
+    }
+  }
+  .itemContainer {
+    margin-bottom: 20px;
+
+  }
+}
+
+
+
+
+
+

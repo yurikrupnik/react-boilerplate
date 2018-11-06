@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom';
+/* eslint-disable linebreak-style */
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './styles.scss'
 import PropTypes from 'prop-types';
 
 const ParagraphWithLinks = (props) => {
@@ -9,7 +11,7 @@ const ParagraphWithLinks = (props) => {
         <p>
             {text.split(labelLink)[0]}
             <span>
-                <Link to={urlLink}>{labelLink}</Link>
+                <Link className={styles.link} to={urlLink}>{labelLink}</Link>
             </span>
             {text.split(labelLink)[1]}
         </p>

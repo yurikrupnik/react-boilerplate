@@ -1,8 +1,19 @@
+/* eslint-disable react/button-has-type */
 import React, { Component } from 'react';
 import styles from './styles.scss';
 
 class GuaranteeForm extends Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        console.log('click');
+    }
+
     render() {
+        const { handleClick } = this;
         return (
             <div className={styles.mainContainer}>
                 <div className={styles.inputsContainer}>
@@ -32,7 +43,7 @@ class GuaranteeForm extends Component {
                     <textarea />
                 </div>
                 <div className={styles.btnContainer}>
-                    <button>
+                    <button onClick={handleClick}>
                         Send
                     </button>
                 </div>

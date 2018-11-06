@@ -1,11 +1,24 @@
+.imgContainer {
+    height: 120px;
+    background: #eaeaea;
+    padding: 20px 10px;
+    height: 30vh;
+
+    .img{
+        background: #0074D9;
+        height: 100%;
+    }
+}
 
 .navContainer {
+    color: #656565;
     background: #f8f6f8;
     padding: 12px 6px;
-    overflow: hidden;
+    overflow: auto;
     white-space: nowrap;
 
     a {
+        cursor: pointer;
         text-decoration: underline;
         margin: 0 8px;
         font-size: 17px;
@@ -13,22 +26,12 @@
     }
 }
 
-.selected {
-    color: red;
+.navContainer .selected {
     text-decoration: none;
     color: #9f9f9f;
 }
 
-.imgContainer {
-    background: #eaeaea;
-    padding: 20px 10px;
-    height: 30vh;
-}
 
-.img{
-    background: #0074D9;
-    height: 100%;
-}
 
 
 

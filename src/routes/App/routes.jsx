@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from '../services/Router';
 import Dashboard from './Dashboard';
+import Home from './Home';
 import Header from './Header';
 import Newsletter from './Newsletter';
 import Guarantee from './Guarantee';
@@ -27,17 +28,22 @@ const routes = [
     },
     {
         path: '/',
-        component: Dashboard,
-        exact: true,
-        fetchInitialData: () => {
-            return Promise.resolve([
-                {
-                    user: 'shit',
-                    lol: true
-                }
-            ]);
-        }
+        component: Home,
+        exact: true
     },
+    // {
+    //     path: '/',
+    //     component: Dashboard,
+    //     exact: true,
+    //     fetchInitialData: () => {
+    //         return Promise.resolve([
+    //             {
+    //                 user: 'shit',
+    //                 lol: true
+    //             }
+    //         ]);
+    //     }
+    // },
     {
         component: Guarantee,
         path: '/guarantee',

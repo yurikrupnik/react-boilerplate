@@ -76,6 +76,7 @@ const links = {
             }, {
                 urlLink: '/guarantee/customer-service',
                 labelLink: 'Customer Service',
+                lableModal: 'ring sizer',
                 text: 'We cannot resize eternity bands and tension rings, as they need to be completely re-crafted. Therefore, it is very important that you order the correct size at the time of purchase. If you need help determining a ring size, use our handy ring sizer or contact our Customer Service team.'
             }
         ]

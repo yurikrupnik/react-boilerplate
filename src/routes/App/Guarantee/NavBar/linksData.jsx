@@ -1,6 +1,3 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styles from './styles.css';
 
 const linksSideBar = [
     {
@@ -33,19 +30,4 @@ const linksSideBar = [
     }
 ];
 
-const SideBar = () => {
-    return (linksSideBar.map(link => (
-        <div className={styles.navContainer} key={link.to}>
-            <div className={styles.link}>
-                <NavLink
-                    to={link.to}
-                    activeClassName={styles.selected}
-                >
-                    {link.label}
-                </NavLink>
-            </div>
-        </div>
-    )));
-};
-
-export default SideBar;
+export default linksSideBar;

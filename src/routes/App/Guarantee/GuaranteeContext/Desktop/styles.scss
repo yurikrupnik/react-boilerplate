@@ -1,13 +1,17 @@
-@import "../../../../styles/variables";
+@import "../../../../../styles/variables";
 
-.mainHeader {
+.header {
     margin: 0;
     font-size: 26px;
     color: map_get($colors, 'primary');
     padding-bottom: 22px;
 }
 
-p {
+.root p {
     font-size: 16px;
 }
 
+.root h3{
+    text-align: start;
+    font-size: 17px;
+}
