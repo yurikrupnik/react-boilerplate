@@ -52,7 +52,7 @@ class Desktop extends React.Component {
     }
 
     componentWillUnmount() {
-        // $(window).off('mousewheel DOMMouseScroll');
+        global.window.off('mousewheel DOMMouseScroll');
         global.window.removeEventListener('scroll', this.handleScroll);
     }
 
@@ -156,44 +156,32 @@ class Desktop extends React.Component {
         }
     }
 
-    // makeSmooth() {
-    //     const $window = $(window);
-    //     const scrollTime = 1.2;
-    //     const scrollDistance = 230;
-    //     $window.on('mousewheel DOMMouseScroll', (event) => {
-    //         event.preventDefault();
-    //         const delta = event.originalEvent.wheelDelta / 120 ||
-    //                            -event.originalEvent.detail / 3;
-    //         const scrollTop = $window.scrollTop();
-    //         const finalScroll = scrollTop - parseInt(delta * scrollDistance);
-    //
-    //         TweenLite.to($window, scrollTime, {
-    //             scrollTo: { y: finalScroll, autoKill: true },
-    //             ease: Expo.easeOut,
-    //             overwrite: 5
-    //         });
-    //     });
-    // }
+    makeSmooth() {
+        // const $window = $(window);
+        const scrollTime = 1.2;
+        const scrollDistance = 230;
+        global.window.on('mousewheel DOMMouseScroll', (event) => {
+            event.preventDefault();
+            const delta = event.originalEvent.wheelDelta / 120 ||
+                               -event.originalEvent.detail / 3;
+            const scrollTop = $window.scrollTop();
+            const finalScroll = scrollTop - parseInt(delta * scrollDistance);
+
+            // TweenLite.to($window, scrollTime, {
+            //     scrollTo: { y: finalScroll, autoKill: true },
+            //     ease: Expo.easeOut,
+            //     overwrite: 5
+            // });
+        });
+    }
 
     render() {
         return (
             <div>
                 <TopBanner/>
 
-                <div
-                    className="wideContent"
-                    style={{
-                        position: 'relative',
-                        marginBottom: '105px'
-                    }}
-                >
-                    <JustifyAlign
-                        className={styles['start-align']}
-                        data-styled={{
-                            fontSize: 0,
-                            height: '860px'
-                        }}
-                    >
+                <div className="wideContent" style={{position: 'relative', marginBottom: '105px'}}>
+                    <JustifyAlign className={styles['start-align']} data-styled={{fontSize: 0, height: '860px'}}>
                         <div style={{ position: 'relative', height: '451px' }} data-gtm-name="design your own">
                             <div ref="stoneText" className={styles['start-with-container']}>
                                 <div className={styles['title-pack']}>
@@ -214,40 +202,16 @@ class Desktop extends React.Component {
                                     </div>
                                 </div>
                                 <JustifyAlign className={styles['start-button-container']}>
-                                    <div
-                                        className={styles['start-button']}
-                                        style={{ verticalAlign: 'middle' }}
-                                    >
-                                        <a
-                                            style={{
-                                                padding: '12px 27px',
-                                                fontFamily: 'NunitoSans'
-                                            }}
-                                            href="/engagement-rings/all-settings/"
-                                            data-container="#WidePane"
-                                        >
+                                    <div className={styles['start-button']} style={{ verticalAlign: 'middle' }}>
+                                        <a style={{padding: '12px 27px', fontFamily: 'NunitoSans'}} href="/engagement-rings/all-settings/" data-container="#WidePane">
                                             start with a setting
                                         </a>
                                     </div>
-                                    <div style={{
-                                        verticalAlign: 'middle',
-                                        fontFamily: 'NunitoSans'
-                                    }}
-                                    >
+                                    <div style={{verticalAlign: 'middle', fontFamily: 'NunitoSans'}}>
                                         or
                                     </div>
-                                    <div
-                                        className={styles['start-button']}
-                                        style={{ verticalAlign: 'middle' }}
-                                    >
-                                        <a
-                                            style={{
-                                                padding: '12px 21px',
-                                                fontFamily: 'NunitoSans'
-                                            }}
-                                            href="/loose-diamonds/all-diamonds/"
-                                            data-container="#WidePane"
-                                        >
+                                    <div className={styles['start-button']} style={{ verticalAlign: 'middle' }}>
+                                        <a style={{padding: '12px 21px', fontFamily: 'NunitoSans'}} href="/loose-diamonds/all-diamonds/" data-container="#WidePane">
                                             start with a diamond
                                         </a>
 
@@ -257,15 +221,7 @@ class Desktop extends React.Component {
                                     <span style={{ fontFamily: 'NunitoSans' }}>
                                         Spark your imagination with these
                                     </span>
-                                    <a
-                                        style={{
-                                            color: '#ff8081',
-                                            textDecoration: 'underline',
-                                            fontFamily: 'NunitoSans'
-                                        }}
-                                        href="/diamond-rings/diamond-engagement-rings/"
-                                        data-container="#WidePane"
-                                    >
+                                    <a style={{color: '#ff8081', textDecoration: 'underline', fontFamily: 'NunitoSans'}} href="/diamond-rings/diamond-engagement-rings/" data-container="#WidePane">
                                         recently purchased engagement rings.
                                     </a>
                                 </div>
@@ -274,81 +230,28 @@ class Desktop extends React.Component {
                         <div className={styles['right-t1']}>
                             <span className={styles['right-vav']}>
                                 <div className={styles['ring-container']}>
-                                    <img
-                                        style={{
-                                            position: 'absolute',
-                                            zIndex: 1,
-                                            right: '0',
-                                            top: '174px'
-                                        }}
-                                        src="https://ion.r2net.com/images/amazingHomepage/ring.png?v=2"
-                                        alt="James Allen 14K white gold diamond engagement ring"
-                                    />
-
-                                    <div
-                                        ref="stoneSprite"
-                                        className={styles.stoneSprite}
-                                        style={{
-                                            position: 'absolute',
-                                            zIndex: 1,
-                                            right: '426px',
-                                            top: '-24px'
-                                        }}
-                                    />
-
-                                    <img
-                                        ref="prong"
-                                        style={{
-                                            position: 'absolute',
-                                            zIndex: 2,
-                                            top: '338px',
-                                            right: '470px'
-                                        }}
-                                        src="https://ion.r2net.com/images/amazingHomepage/Prong.png?v=2"
-                                        alt=""
-                                    />
-                                    <img
-                                        src="https://ion.r2net.com/images/amazingHomepage/dyu-bg.png?v=6"
-                                        alt=""
-                                        className={styles['dyu-bg']}
-                                        ref="dyuBg"
-                                    />
+                                    <img style={{position: 'absolute', zIndex: 1, right: '0', top: '174px'}} src="https://ion.r2net.com/images/amazingHomepage/ring.png?v=2" alt="James Allen 14K white gold diamond engagement ring"/>
+                                    <div ref="stoneSprite" className={styles.stoneSprite} style={{position: 'absolute', zIndex: 1, right: '426px', top: '-24px'}}/>
+                                    <img ref="prong" style={{position: 'absolute', zIndex: 2, top: '338px', right: '470px'}} src="https://ion.r2net.com/images/amazingHomepage/Prong.png?v=2" alt=""/>
+                                    <img src="https://ion.r2net.com/images/amazingHomepage/dyu-bg.png?v=6" alt="" className={styles['dyu-bg']} ref="dyuBg"/>
                                 </div>
                             </span>
                         </div>
                     </JustifyAlign>
-                    <a
-                        href="/about-us-press/"
-                        data-container="#WidePane"
-                        style={{
-                            display: 'block',
-                            position: 'relative',
-                            bottom: '29px'
-                        }}
-                    >
+                    {/*--------------------------------------------------------------------------------------------------------------*/}
+                    <a href="/about-us-press/" data-container="#WidePane" style={{display: 'block', position: 'relative', bottom: '29px'}}>
                         <div className={styles['featured-bar']}>
                             {iconsData.map(name => (
-                                <div>
-                                    <img
-                                        alt={`featured in ${name}`}
-                                        title={`featured in ${name}`}
-                                        src={`https://ion.r2net.com/images/amazingHomepage/FeaturedBar/Grey/${name}_Grey.svg`}
-                                    />
+                                <div key={name}>
+                                    <img alt={`featured in ${name}`} title={`featured in ${name}`} src={`https://ion.r2net.com/images/amazingHomepage/FeaturedBar/Grey/${name}_Grey.svg`}/>
                                 </div>
                             ))}
                         </div>
                     </a>
-                    <JustifyAlign
-                        className={styles['events-align']}
-                        data-styled={{
-                            position: 'relative',
-                            zIndex: 3,
-                            fontFamily: 'NunitoSans'
-                        }}
-                        data-gtm-name="large image splash"
-                    >
+                    {/*--------------------------------------------------------------------------------------------------------------*/}
+                    <JustifyAlign className={styles['events-align']} data-styled={{position: 'relative', zIndex: 3, fontFamily: 'NunitoSans'}} data-gtm-name="large image splash">
                         {imgsData.map(item => (
-                            <div key={item.key}>
+                            <div key={item.to}>
                                 <div className={styles['abs-scale']}>
                                     <div className={styles.abs}>
                                         <div className={styles.line}/>
@@ -358,10 +261,7 @@ class Desktop extends React.Component {
                                     </div>
                                     <div className={styles['abs-img-box']}>
                                         <a href={item.to} data-container="#WidePane">
-                                            <img
-                                                src={item.imgSrc}
-                                                alt=""
-                                            />
+                                            <img src={item.imgSrc} alt=""/>
                                         </a>
                                     </div>
                                 </div>
