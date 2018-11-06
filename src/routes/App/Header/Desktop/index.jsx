@@ -3,18 +3,6 @@ import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 // import Top from './Top';
 import Consumer from '../../../../api/currency/context/consumer';
-// import guaranteeRoutes from '../../Guarantee/routes';
-// import routes from '../r';
-// const headerRoutes = guaranteeRoutes.reduce((acc, next) => {
-//     if (!next.headerLabel) {
-//         return acc;
-//     }
-//     return acc.concat({
-//         label: next.headerLabel,
-//         path: next.path,
-//         key: next.key
-//     });
-// }, []);
 
 class DesktopNav extends React.Component {
     render() {

@@ -105,13 +105,14 @@ const App = ({ userAgent }) => (
                         <DeviceConsumer render={(deviceProps) => {
                             const isMobile = deviceProps.isMobile();
                             const Head = isMobile ? Header[0] : Header[1];
+                            const News = isMobile ? Newsletter[0] : Newsletter[1];
                             const basicRoutes = (
                                 <Fragment>
                                     <button onClick={deviceProps.toggle}>Toggle Mode</button>
                                     <Head />
                                     {routes
                                         .map(route => <Route key={route.key} {...route} />)}
-                                    {/*<Newsletter />*/}
+                                    <News />
                                 </Fragment>
                             );
 
