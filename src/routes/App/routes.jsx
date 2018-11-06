@@ -6,6 +6,7 @@ import Header from './Header';
 import Newsletter from './Newsletter';
 import Guarantee from './Guarantee';
 import Topics from './Topics';
+import Footer from './Footer';
 import Education from './Education';
 import api from '../../api/currency/api';
 import users from '../../api/users/api';
@@ -61,7 +62,7 @@ const routes = [
     },
     {
         path: '/',
-        component: Newsletter,
+        component: Footer,
     }
 ];
 

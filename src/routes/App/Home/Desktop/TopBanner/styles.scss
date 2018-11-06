@@ -1,0 +1,50 @@
+.root {
+  position: relative;
+
+  .imgBanner {
+    max-width: 100%;
+    min-width: 1000px;
+  }
+
+  .textContainer {
+    width: fit-content;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 72.5%;
+    top: 44%;
+
+    .topHeader {
+      font-size: 34px;
+      letter-spacing: 1px;
+      color: #1b1b1b;
+      margin: 0 0 5px;
+    }
+
+    @media only screen and (max-width: 1260px) {
+      .topHeader {
+        font-size: 44px;
+      }
+    }
+
+    .buttonContainer {
+      background-color: #fff;
+      height: 50px;
+      width: 310px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .button {
+        font-size: 19px;
+        letter-spacing: 2px;
+        color: #000;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,1149 @@
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("https://ion.r2net.com/Images/Fonts/JAFonts/PlayfairDisplay.ttf");
+}
+
+.moments {
+  max-width: 1375px;
+  margin: 0 auto;
+}
+
+.moments a {
+  display: block;
+}
+
+.moments > div {
+  padding: 0.7%;
+  display: inline-block;
+  width: 20%;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.moments img {
+  max-width: 100%;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.moments > div.collage-double {
+  width: 40%;
+}
+
+.moments > div.collage-middle {
+  padding: 0;
+}
+
+.collage-middle > div {
+  padding: 3.5%;
+  display: inline-block;
+}
+
+.moments > div.collage-middle:hover {
+  opacity: 1;
+}
+
+.moments > div:hover, .collage-middle > div:hover {
+  opacity: .3;
+}
+
+.vertical-center:before {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  width: 0;
+  vertical-align: middle;
+}
+
+.vertical-center > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img-bg {
+  width: 43%;
+  height: 100%;
+}
+
+.scroll-started .img-bg {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Showroom.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.scroll-started .img-bg.Costumer_Brake {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Costumer_Brake.jpg?v=1');
+  background-position: right -72px top 0;
+}
+
+/*.as-container {
+    font-size: 0;
+}*/
+
+.as-container > div {
+  text-align: left;
+  height: 610px;
+  width: 49%;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.as-text {
+  border: 1px solid #fff;
+  width: 57%;
+  box-sizing: border-box;
+  display: table;
+  padding: 43px 35px;
+  min-height: 344px;
+  font-family: NunitoSans;
+}
+
+.as-content > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.float-white-box {
+  transition: bottom .2s ease-out;
+  width: 363px;
+  height: 328px;
+  padding: 50px;
+}
+
+.bottom-section {
+  transition: background-position .1s ease-out;
+}
+
+.start-with-container, .stoneSprite {
+  transition: top .1s ease-out;
+}
+
+.stoneSprite {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Diamond_Sprite.png');
+  width: 318px;
+  height: 266px;
+  background-position: left top 0;
+  /* transition: top 1s ease-out;*/
+}
+
+.newhomepage {
+  font-family: "PlayfairDisplay";
+  width: 100%;
+  overflow: hidden;
+  color: rgb(27, 27, 27);
+}
+
+.newhomepage a {
+  color: #232323;
+}
+
+.video-container {
+  /* min-height: 400px;*/
+}
+
+.featured-bar {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.featured-bar:hover {
+  opacity: .7;
+}
+
+.featured-bar > div img {
+  height: 80px;
+}
+
+.featured-bar > div {
+  max-width: 10%;
+  float: left;
+}
+
+.featured-bar > div img {
+  width: 100%;
+}
+
+.start-with-container {
+  text-align: left;
+  width: 519px;
+  position: relative;
+  top: 0;
+  z-index: 2;
+  margin: 0 auto;
+  padding-top: 70px;
+  transform-origin: top;
+}
+
+.design-text {
+  font-size: 30px; /* Approximation due to font substitution */
+  line-height: 52px; /* Approximation due to font substitution */
+}
+
+.design-text-2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  line-height: 49px;
+  /*margin-bottom: 58px;*/
+}
+
+.mystic-text {
+  line-height: 26px;
+  text-align: center;
+  /*margin-bottom: 109px;*/
+  position: relative;
+  width: 563px;
+  margin: 0 auto;
+  margin-bottom: 129px;
+  font-family: 'NunitoSans';
+  color: rgb(27, 27, 27);
+}
+
+.arrow-left, .arrow-right {
+  content: '';
+  position: absolute;
+  top: 29%;
+  width: 200px;
+  height: 84px;
+  cursor: pointer;
+  /*background-image: url('https://ion.r2net.com/images/amazingHomepage/arrow-left.png');*/
+  background-size: 50%;
+  margin-top: -42px;
+  transition: all .3s;
+}
+
+.scroll-started .arrow-left, .scroll-started .arrow-right {
+  background-image: url(https://ion.r2net.com/images/amazingHomepage/Arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50%;
+}
+
+.arrow-left:hover {
+  -ms-transform: rotate(180deg) translate(10px, 0);
+  -webkit-transform: rotate(180deg) translate(10px, 0);
+  transform: rotate(180deg) translate(10px, 0);
+}
+
+.arrow-right:hover {
+  -ms-transform: translate(10px, 0);
+  -webkit-transform: translate(10px, 0);
+  transform: translate(10px, 0);
+}
+
+.arrow-left {
+  left: -87px;
+  transform: rotate(180deg);
+}
+
+.arrow-right {
+  right: -87px;
+
+}
+
+.design-own > div:first-child {
+  color: rgba(243, 227, 213, 0.3);
+  font-size: 172px;
+  font-weight: 700;
+  text-align: center;
+  height: 150px;
+}
+
+.top-video {
+  max-height: 640px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-size: 26px;
+  z-index: 3;
+}
+
+.ring-gallery {
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.brown {
+  padding: 80px 0;
+}
+
+.scroll-started .brown {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/find.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.brown > div {
+  background-color: #fbf8f3;
+  padding: 120px 0;
+}
+
+.float-area {
+  position: relative;
+}
+
+.float-area img {
+  max-width: 80%;
+}
+
+.float-white-box {
+  text-align: left;
+  width: 363px;
+  height: 328px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+  z-index: 1;
+  padding: 50px;
+}
+
+.pink-box {
+  position: relative;
+  width: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*  margin: 0 auto;*/
+  box-shadow: 0px 40px 72px -16px rgba(0, 0, 0, 0.22);
+  max-width: 96%;
+  display: inline-block;
+}
+
+.pink-box1, .pink-box2, .pink-box3, .pink-box4 {
+  background-position-x: 100%;
+  background-position-y: 0;
+}
+
+.pink-box1 {
+  width: 637px;
+  height: 477px;
+}
+
+.scroll-started .pink-box1 {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Eternity-Rings.jpg');
+}
+
+.pink-box2 {
+  width: 540px;
+  height: 644px;
+}
+
+.scroll-started .pink-box2 {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Gemstone-Rings.jpg');
+}
+
+.pink-box3 {
+  width: 541px;
+  height: 621px;
+}
+
+.scroll-started .pink-box3 {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Men-Wedding-Rings.jpg');
+}
+
+.pink-box4 {
+  width: 691px;
+  height: 431px;
+}
+
+.scroll-started .pink-box4 {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/image4.jpg?v=10');
+}
+
+.pink-box img {
+  opacity: 0;
+}
+
+.floating-banners {
+  transform: translate(18px, 0);
+  position: relative;
+}
+
+.text-bg {
+  color: #f5ebea;
+  font-size: 130px;
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  white-space: nowrap;
+}
+
+.text-bg-1 {
+  top: 565px;
+  left: 0px;
+}
+
+.text-bg-2 {
+  top: 1188px;
+  right: -14px;
+}
+
+.text-bg-3 {
+  top: 1755px;
+  left: 0;
+}
+
+.text-bg-4 {
+  top: 2150px;
+  right: 0;
+}
+
+.float-header {
+  font-size: 23px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.float-content {
+  font-size: 17px;
+  line-height: 29px;
+  margin-bottom: 20px;
+}
+
+.float-bottom {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.float-bottom a {
+  font-weight: bold;
+}
+
+.start-button-container {
+  text-transform: uppercase;
+  margin-bottom: 53px;
+}
+
+.meet-bg {
+  background-color: #fbf7f3;
+  height: 102px;
+  margin-bottom: -64px;
+}
+
+.pics-or .meet-bg {
+  height: 61px;
+}
+
+.meet-bg-container {
+  margin-top: 29px;
+  text-align: center;
+}
+
+.start-button {
+  border: 1px solid #1b1b1b;
+  display: inline-block;
+  font-size: 15px;
+  color: #232323;
+  position: relative;
+  cursor: pointer;
+}
+
+.start-button a {
+  display: inline-block;
+}
+
+.start-button:after {
+  content: '';
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(253, 198, 199, 0.3);
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.start-button:active {
+  color: #ff8081;
+  border-color: #ff8081;
+}
+
+.start-button:hover:after, .start-button:active:after {
+  width: 100%;
+}
+
+.top-brown-text {
+  /*    background-image: url(https://ion.r2net.com/images/amazingHomepage/design-as.jpg);
+      background-position: bottom;
+      background-repeat: no-repeat;*/
+  font-family: NunitoSans;
+  font-weight: bold;
+}
+
+.top-brown {
+  height: 240px;
+  background-color: #fbf8f3;
+  position: relative;
+}
+
+.top-align {
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.top-align > div {
+  position: relative;
+  z-index: 1;
+}
+
+.images-align > div {
+  vertical-align: middle;
+}
+
+.start-align > div {
+  width: 50%;
+}
+
+.separator-container {
+  width: 3px;
+  height: 58px;
+}
+
+.separator {
+  height: 29px;
+}
+
+/* link style */
+
+.pink-bg {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pink-bg:before {
+  content: '';
+  display: block;
+  height: 15px;
+  position: absolute;
+  top: 11px;
+  width: 300%;
+  z-index: -1;
+  right: 0;
+  transition: right .4s ease-out;
+  background: linear-gradient(to right, #fdc6c7 0%, #fdc6c7 33.3%, transparent 33.3%, transparent 66.6%, #fdc6c7 66.6%, #fdc6c7 100%);;
+}
+
+.pink-bg:hover:before {
+  transition: right .5s ease-out;
+  right: -200%;
+}
+
+.top-title.pink-bg {
+  display: block;
+}
+
+.top-title.pink-bg:before {
+  height: 21px;
+  top: 27px;
+}
+
+.float-area .pink-bg:before {
+  height: 12px;
+  top: 9px;
+}
+
+.events-align > div {
+  max-width: 32%;
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.abs-scale {
+  cursor: pointer;
+}
+
+.abs-scale .abs-img-box {
+  transition: transform .4s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.abs-scale:hover .abs-img-box {
+  transform: scale(1.2);
+  opacity: 0.6;
+}
+
+.events-align > div img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.events-text-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+.title-pack {
+  color: #1b1b1b;
+  line-height: 41px;
+  text-transform: uppercase;
+  margin-bottom: 53px;
+}
+
+.title-pack > h1 > span, .title-pack > h1 > span.sub-title {
+  display: block;
+}
+
+.title-pack > div, .title-pack > div > span {
+  font-size: 42px;
+  font-family: 'Playfair Display'
+}
+
+.title-pack > div:first-child, .title-pack > div > span:first-child {
+  font-size: 31px;
+  font-family: 'NunitoSans';
+  height: 41px;
+  display: block;
+}
+
+.title-pack > div.sub-title, .title-pack > div > span.sub-title {
+  font-size: 18px;
+  text-transform: none;
+  font-family: 'NunitoSans';
+  line-height: 28px;
+  margin-top: 6px;
+}
+
+.start-with-container .title-pack > div.sub-title, .diamond-inspection .title-pack > div.sub-title {
+  margin-top: 58px;
+}
+
+.abs {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.line-text {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 33px;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  font-weight: bold;
+}
+
+.line {
+  height: 100%;
+  display: inline-block;
+  width: 0px;
+  background: red;
+  vertical-align: middle;
+}
+
+.events-text {
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  font-size: 38px;
+  text-transform: uppercase;
+}
+
+.sparkle-bg {
+  position: absolute;
+  width: 357px;
+  height: 305px;
+  z-index: 1;
+  left: 400px;
+  top: 200px;
+}
+
+.scroll-started .sparkle-bg {
+  background-image: url(https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1);
+  background-repeat: no-repeat;
+}
+
+.bottom-section {
+  position: relative;
+  padding: 243px 0;
+  background-color: #fdfdfa;
+}
+
+.scroll-started .bottom-section {
+  background-image: url(https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1), url(https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5);
+  background-repeat: no-repeat;
+  background-position: right 70px top 100px, 0 117px;
+}
+
+.bottom-left-bg-container {
+  position: relative;
+  bottom: 200px;
+}
+
+.bottom-left-bg {
+  height: 800px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.scroll-started .bottom-left-bg {
+  background-image: url(https://ion.r2net.com/images/amazingHomepage/twy.png?v=5);
+  background-repeat: no-repeat;
+}
+
+/* slick slider */
+.slickImg {
+  /*    transition: transform 0.5s;
+      height: 190px;
+      padding: 45px 0;*/
+}
+
+.ring-container {
+  transform: translate(-50%, 0) scale(.9);
+}
+
+.right-t1 {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.dyu-bg {
+  position: absolute;
+  transform: translate(-50%, 0);
+  bottom: -236px;
+  transition: bottom 0.1s ease-out;
+}
+
+.right-vav {
+  width: 1px;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  /*   background: yellow;*/
+}
+
+.right-vav .ring-container {
+  position: relative;
+  width: 1166px;
+  height: 800px;
+  transform-origin: top;
+}
+
+/*  HOME PAGE BANNER */
+
+.main-banner-container .text-container {
+  position: absolute;
+  top: calc(50% - 10px);
+  transform: translate(-50%, -50);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  left: 27%;
+  text-align: center;
+  width: 730px;
+  max-width: 39%;
+  box-sizing: border-box;
+}
+
+.text-container > img {
+  max-width: 100%;
+}
+
+.text-container .banner-text-container > img {
+  max-width: 55%;
+}
+
+.text-container .text-pre {
+  max-width: 100%;
+}
+
+.text-container .text-first {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: #1b1b1b;
+  /* font-family: PlayFairDisplay; */
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.text-container .text-second {
+  color: #000000;
+  font-size: 26px;
+  text-align: center;
+  /* font-family: PlayFairDisplay; */
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
+
+.text-container .text-third {
+  font-size: 19px;
+  letter-spacing: 2px;
+  margin: 25px auto 0;
+  width: 100%;
+  max-width: 220px;
+  height: 44px;
+  line-height: 46px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.text-container .royal-text-first {
+  color: #1b1b1b;
+  font-size: 46px;
+}
+
+.text-container .royal-text-second {
+  color: #1b1b1b;
+  font-size: 28px;
+  line-height: 90px;
+}
+
+.text-container .royal-text-third {
+  color: #1b1b1b;
+  font-size: 64px;
+  line-height: 80px;
+}
+
+/*.main-banner-container .text-container {
+    position: absolute;
+    top: 35%;
+    right: 16%;
+    text-align: center;
+    width: 40%;
+}*/
+.main-banner-container .text-container .buttons-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main-banner-container .text-container .buttons-container input {
+  font-size: 16px;
+  -webkit-border-radius: 0;
+}
+
+.main-banner-container .text-container .banner-button-container {
+  width: 100%;
+  margin-top: 3%;
+  position: relative;
+}
+
+@media screen and (max-width: 1260px) {
+
+  .banner-button-container > div {
+    font-size: 14px;
+  }
+
+  .banner-button-container h1 {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (max-width: 1320px) {
+
+}
+
+/*@media (min-width: 768px) and (max-width: 1290px) {
+    .main-banner-container .text-container {
+        position: absolute;
+        right: 10%;
+        text-align: center;
+        width: 45%;
+    }
+}*/
+
+@media (max-width: 1660px) {
+  .bottom-left-bg-container {
+    left: -100px;
+  }
+}
+
+@media (max-width: 1600px) {
+
+}
+
+@media (max-width: 1460px) {
+  .bottom-left-bg-container {
+    left: -200px;
+  }
+
+}
+
+@media (max-width: 1400px) {
+
+  .start-align {
+    height: 740px !important;
+  }
+
+  .ring-container {
+    transform: translate(-50%, 0) scale(.8);
+  }
+
+  .design-own > div:first-child {
+    font-size: 150px;
+    height: 124px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .bottom-left-bg-container {
+    left: -300px;
+  }
+
+  .text-container > img {
+    max-width: 87%;
+  }
+
+  .text-container .royal-text-first {
+    color: #1b1b1b;
+    font-size: 28px;
+  }
+
+  .text-container .royal-text-second {
+    color: #1b1b1b;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  .text-container .royal-text-third {
+    color: #1b1b1b;
+    font-size: 40px;
+    line-height: 80px;
+  }
+
+
+}
+
+@media (max-width: 1060px) {
+
+  .bottom-left-bg-container {
+    left: -340px;
+  }
+  .text-container .royal-text-first {
+    color: #1b1b1b;
+    font-size: 28px;
+  }
+
+  .text-container .royal-text-second {
+    color: #1b1b1b;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  .text-container .royal-text-third {
+    color: #1b1b1b;
+    font-size: 40px;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 1820px) {
+  .start-align {
+    height: 820px !important;
+  }
+  .text-container .royal-text-first {
+    color: #1b1b1b;
+    font-size: 28px;
+  }
+
+  .text-container .royal-text-second {
+    color: #1b1b1b;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  .text-container .royal-text-third {
+    color: #1b1b1b;
+    font-size: 40px;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 1500px) {
+  /*
+      .start-align {
+          height: 820px !important;
+      }*/
+
+
+
+}
+
+@media (max-width: 1422px) {
+  .featured-bar {
+    white-space: nowrap;
+  }
+  .text-container .royal-text-first {
+    color: #1b1b1b;
+    font-size: 28px;
+  }
+
+  .text-container .royal-text-second {
+    color: #1b1b1b;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  .text-container .royal-text-third {
+    color: #1b1b1b;
+    font-size: 40px;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 1330px) {
+  .pink-box1, .pink-box2, .pink-box3, .pink-box4 {
+    width: 80%;
+  }
+
+  .float-header {
+    font-size: 23px;
+  }
+
+  .float-white-box {
+    text-align: left;
+    width: 284px;
+    height: 339px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    z-index: 1;
+    padding: 45px;
+  }
+
+  .pink-box1 {
+    background-position-x: -124px;
+  }
+
+  .pink-box4 {
+    background-position-x: -124px;
+  }
+  .text-container .royal-text-first {
+    color: #1b1b1b;
+    font-size: 28px;
+  }
+
+  .text-container .royal-text-second {
+    color: #1b1b1b;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  .text-container .royal-text-third {
+    color: #1b1b1b;
+    font-size: 40px;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 1280px) {
+
+  .start-with-container {
+    padding-left: 10px;
+  }
+
+  .img-bg {
+    background-position-y: -65px;
+  }
+
+  .as-container > div {
+    height: 448px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .img-bg.Costumer_Brake {
+    background-position: right 22px top -106px;
+  }
+
+  .as-text {
+    height: 382px;
+    padding: 71px 60px;
+  }
+  .text-container .royal-text-first {
+    color: #1b1b1b;
+    font-size: 28px;
+  }
+
+  .text-container .royal-text-second {
+    color: #1b1b1b;
+    font-size: 18px;
+    line-height: 90px;
+  }
+
+  .text-container .royal-text-third {
+    color: #1b1b1b;
+    font-size: 40px;
+    line-height: 80px;
+  }
+
+}
+
+@media (max-width: 1180px) {
+
+  .design-own > div:first-child {
+    font-size: 120px;
+    height: 100px;
+  }
+
+  .ring-container {
+    transform: translate(-50%, 0) scale(.6);
+  }
+
+  .start-align {
+    height: 580px !important;
+  }
+
+  .start-with-container {
+    transform: scale(.9);
+  }
+
+  .main-banner-container .text-container {
+    max-width: 43%;
+  }
+
+  .text-container .text-first {
+    margin: 0;
+  }
+
+  .text-container .text-third {
+    margin: 0 auto;
+  }
+
+}
+
+.diamond-inspection-container {
+  width: 50%;
+  padding-left: 90px;
+}
+
+.diamond-inspection {
+  max-width: 583px;
+  text-align: left;
+}
+
+@media (min-width: 2200px) {
+  .diamond-inspection-container {
+    width: 74%;
+    padding-left: 0;
+  }
+
+  .diamond-inspection {
+    max-width: 883px;
+  }
+
+}
