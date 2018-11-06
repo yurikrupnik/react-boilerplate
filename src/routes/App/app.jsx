@@ -10,6 +10,9 @@ import apiProviders from '../../api/providers';
 import routes from './routes';
 import Route from '../../components/Route';
 
+import Header from './Header';
+import Newsletter from './Newsletter';
+
 import themeConfig from '../../theme';
 
 const theme = createMuiTheme({
@@ -85,6 +88,7 @@ const theme = createMuiTheme({
 });
 
 const App = ({ userAgent }) => (
+
     <R render={(props) => {
         const { staticContext } = props;
         const context = global.window ? global.window.appData : staticContext;
@@ -100,17 +104,21 @@ const App = ({ userAgent }) => (
                     <MuiThemeProvider theme={theme}>
                         <DeviceConsumer render={(deviceProps) => {
                             const isMobile = deviceProps.isMobile();
+                            const Head = isMobile ? Header[0] : Header[1];
                             const basicRoutes = (
                                 <Fragment>
+                                    <button onClick={deviceProps.toggle}>Toggle Mode</button>
+                                    <Head />
                                     {routes
                                         .map(route => <Route key={route.key} {...route} />)}
+                                    {/*<Newsletter />*/}
                                 </Fragment>
                             );
 
                             return isMobile ? (
                                 <SidebarProvider>
                                     <Fragment>
-                                        <SidebarConsumer links={routes.getLinks()} />
+                                        <SidebarConsumer />
                                         {basicRoutes}
                                     </Fragment>
                                 </SidebarProvider>
@@ -134,4 +142,4 @@ App.propTypes = {
     staticContext: PropTypes.shape({})
 };
 
-export default App;
+export default App; // memo here has no route updates TODO CHECK IT

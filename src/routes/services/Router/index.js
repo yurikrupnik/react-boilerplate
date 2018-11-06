@@ -6,19 +6,23 @@ class Helper {
         return ['component', 'sidebar', 'main'].includes(key);
     }
 
+    static handleRoute(isMobile) {
+        return (acc, val, key) => {
+            if (Helper.componentTypes(key)) {
+                if (Array.isArray(val)) {
+                    acc[key] = isMobile // eslint-disable-line no-param-reassign
+                        ? val[0] : val[1];
+                } else {
+                    acc[key] = val; // eslint-disable-line no-param-reassign
+                }
+            }
+            return acc;
+        };
+    }
+
     getRoutesByType(isMobile) {
         return this.routes.reduce((acc, next) => {
-            const keys = reduce(next, (accum, val, key) => {
-                if (Helper.componentTypes(key)) {
-                    if (Array.isArray(val)) {
-                        accum[key] = isMobile // eslint-disable-line no-param-reassign
-                            ? val[0] : val[1];
-                    } else {
-                        accum[key] = val; // eslint-disable-line no-param-reassign
-                    }
-                }
-                return accum;
-            }, {});
+            const keys = reduce(next, Helper.handleRoute(isMobile), {});
             return acc.concat(Object.assign({}, next, keys));
         }, []);
     }

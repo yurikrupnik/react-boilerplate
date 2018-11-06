@@ -1,27 +1,30 @@
-import Diamonds from './Diamonds/index';
-import Engagement from './Engagement/index';
-import Sidebar from './Sidebar/index';
-import Main from './Main/index';
-import Router from '../../services/Router';
+import uniqid from 'uniqid';
+import Diamonds from './Diamonds';
+import Engagement from './Engagement';
+import Sidebar from './Sidebar';
+import Main from './Main';
 
 const routes = [
     {
+        key: uniqid(),
         path: '/education',
-        component: Main,
+        main: Main,
         exact: true
     },
     {
+        key: uniqid(),
         path: '/education/diamonds',
-        main: Diamonds,
+        component: Diamonds,
         sidebar: Sidebar,
         label: 'loose diamonds'
     },
     {
+        key: uniqid(),
         path: '/education/engagement-rings',
-        main: Engagement,
+        component: Engagement,
         sidebar: Sidebar,
         label: 'engagement rings'
     }
 ];
 
-export default Router.create(routes);
+export default routes;

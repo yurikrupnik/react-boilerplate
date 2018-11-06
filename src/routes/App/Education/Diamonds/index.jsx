@@ -1,23 +1,12 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import Loadable from '../../../../components/Loadable';
 
-const DiamondsMobile = () => (
-    <div>
-        <h3>
-            Diamonds mobile
-        </h3>
-    </div>
-);
+const Mobile = Loadable({
+    loader: () => import('./Mobile'),
+});
 
-const DiamondsDesktop = () => (
-    <div>
-        <h3>
-            Diamonds mobile
-        </h3>
-    </div>
-);
-// CustomerService.propTypes = {
-//     match: PropTypes.shape({}).isRequired
-// };
 
-export default [DiamondsMobile, DiamondsDesktop];
+const Desktop = Loadable({
+    loader: () => import('./Desktop'),
+});
+
+export default [Mobile, Desktop];

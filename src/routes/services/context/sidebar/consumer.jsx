@@ -24,13 +24,9 @@ function SidebarConsumer({ render, links }) {
                         <MenuList style={{ width: '300px' }}>
                             <Input placeholder="press me" fullWidth />
 
-                            {links.map(link => (
-                                <MenuItem key={link.key}>
-                                    <Link onClick={props.toggle} to={link.to}>
-                                        {link.label}
-                                    </Link>
-                                </MenuItem>
-                            ))}
+                            <div>
+                                links here
+                            </div>
 
                         </MenuList>
                     </SwipeableDrawer>

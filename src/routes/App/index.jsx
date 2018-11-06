@@ -1,8 +1,7 @@
-// import Loadable from '../Loadable';
-import App from './app';
+import Loadable from '../../components/Loadable';
 
-// const App = Loadable({
-//     loader: () => import(/* webpackChunkName: "app" */ './app'),
-// });
+const App = Loadable({
+    loader: () => import('./app'),
+});
 
 export default App;
