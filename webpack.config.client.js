@@ -42,14 +42,14 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/,
-                    use: ['babel-loader', 'eslint-loader'],
+                    use: ['babel-loader'],
                     exclude: /node_modules/,
                 },
                 {
                     test: /\.(css|scss)$/,
                     use: [
                         'css-hot-loader',
-                        MiniCssExtractPlugin.loader,
+                        !isProd ? 'style-loader' : MiniCssExtractPlugin.loader,
                         'css-loader?modules=true',
                         {
                             loader: 'sass-loader',
@@ -91,16 +91,16 @@ module.exports = (env) => {
                     removeComments: true,
                     collapseWhitespace: true,
                     conservativeCollapse: true
-                },
-                hash: true
+                }
             }),
             new MiniCssExtractPlugin({
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional
-                filename: '[name].css',
-                chunkFilename: '[name].css'
+                filename: !isProd ? '[name].css' : '[name].[hash].css',
+                chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
             }),
             // isProd ? new BundleAnalyzerPlugin({}) : () => {},
+            new BundleAnalyzerPlugin({})
         ],
         devServer: {
             port: !isProd && config.devPort,
