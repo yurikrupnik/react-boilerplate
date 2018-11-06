@@ -1,17 +1,23 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-const Diamonds = () => (
+const DiamondsMobile = () => (
     <div>
         <h3>
-            Diamonds
+            Diamonds mobile
         </h3>
     </div>
 );
 
-
+const DiamondsDesktop = () => (
+    <div>
+        <h3>
+            Diamonds mobile
+        </h3>
+    </div>
+);
 // CustomerService.propTypes = {
 //     match: PropTypes.shape({}).isRequired
 // };
 
-export default Diamonds;
+export default [DiamondsMobile, DiamondsDesktop];

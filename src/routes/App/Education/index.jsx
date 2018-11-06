@@ -45,9 +45,50 @@ const Education = () => (
     />
 );
 
+const Mobile = () => {
+    return (
+        <Device render={() => {
+            return (
+                <div>
+                    educatopm mpbile
+                    {routes.getRoutesByType(true).map(route => (
+                        <Route
+                            key={route.key}
+                            path={route.path}
+                            exact={route.exact}
+                            component={route.component}
+                        />
+                    ))}
+                </div>
+            );
+        }}
+        />
+    );
+};
+
+const Dekstop = () => {
+    return (
+        <Device render={() => {
+            return (
+                <div>
+                    educatopm desktop
+                    {routes.getRoutesByType(false).map(route => (
+                        <Route
+                            key={route.key}
+                            path={route.path}
+                            exact={route.exact}
+                            component={route.component}
+                        />
+                    ))}
+                </div>
+            );
+        }}
+        />
+    );
+};
 // Education.propTypes = {
 //     match: PropTypes.shape({}).isRequired,
 //     location: PropTypes.shape({}).isRequired
 // };
 
-export default Education;
+export default [Mobile, Dekstop];
