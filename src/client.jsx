@@ -3,8 +3,9 @@ import { render, hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './routes/App';
 import './styles/_index.scss';
+import config from './config';
 
-const renderMethod = module.hot ? render : hydrate;
+const renderMethod = config.isProd ? hydrate : render;
 
 renderMethod(
     <BrowserRouter>

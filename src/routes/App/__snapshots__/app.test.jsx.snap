@@ -473,7 +473,7 @@ exports[`renders <App /> component 1`] = `
                         <Route
                           component={[Function]}
                           fetchInitialData={[Function]}
-                          key="rhooi3pjnyeejsl"
+                          key="1rfl1tgjo5twduf"
                           path="/"
                           providers={
                             Array [
@@ -533,7 +533,7 @@ exports[`renders <App /> component 1`] = `
                           component={[Function]}
                           exact={true}
                           fetchInitialData={[Function]}
-                          key="rhooi3pjnyeejsm"
+                          key="1rfl1tgjo5twdug"
                           path="/"
                         >
                           <LoadableComponent
@@ -585,25 +585,25 @@ exports[`renders <App /> component 1`] = `
                         </Route>
                         <Route
                           component={[Function]}
-                          key="rhooi3pjnyeejsn"
+                          key="1rfl1tgjo5twduh"
                           label="guarantee"
                           path="/guarantee"
                         />
                         <Route
                           component={[Function]}
-                          key="rhooi3pjnyeejso"
+                          key="1rfl1tgjo5twdui"
                           label="education"
                           path="/education"
                         />
                         <Route
                           component={[Function]}
-                          key="rhooi3pjnyeejsp"
+                          key="1rfl1tgjo5twduj"
                           label="topics"
                           path="/topics"
                         />
                         <Route
                           component={[Function]}
-                          key="rhooi3pjnyeejsq"
+                          key="1rfl1tgjo5twduk"
                           path="/"
                         >
                           <LoadableComponent

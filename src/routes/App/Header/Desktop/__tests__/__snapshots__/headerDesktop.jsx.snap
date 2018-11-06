@@ -28,7 +28,7 @@ exports[`renders <Component /> component 1`] = `
     }
   >
     <DesktopNav>
-      <header>
+      <div>
         <CurrencyConsumer
           render={[Function]}
         >
@@ -60,7 +60,7 @@ exports[`renders <Component /> component 1`] = `
               >
                 <div
                   className="col-xs"
-                  key="rhooi3qjnyeeibv"
+                  key="1rfl1thjo5twejv"
                 >
                   <Link
                     replace={false}
@@ -76,7 +76,7 @@ exports[`renders <Component /> component 1`] = `
                 </div>
                 <div
                   className="col-xs"
-                  key="rhooi3qjnyeeibw"
+                  key="1rfl1thjo5twejw"
                 >
                   <Link
                     replace={false}
@@ -92,7 +92,7 @@ exports[`renders <Component /> component 1`] = `
                 </div>
                 <div
                   className="col-xs"
-                  key="rhooi3qjnyeeibx"
+                  key="1rfl1thjo5twejx"
                 >
                   <Link
                     replace={false}
@@ -110,7 +110,7 @@ exports[`renders <Component /> component 1`] = `
             </div>
           </DataContainer>
         </CurrencyConsumer>
-      </header>
+      </div>
     </DesktopNav>
   </Router>
 </StaticRouter>
