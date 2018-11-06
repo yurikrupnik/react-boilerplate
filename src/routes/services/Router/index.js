@@ -54,3 +54,4 @@ class Router extends Routes {
 }
 
 export default Router;
+export { Helper };

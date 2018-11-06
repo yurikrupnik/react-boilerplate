@@ -59,4 +59,4 @@ const routes = [
     }
 ];
 
-export default Router.create(routes);
+export default routes;

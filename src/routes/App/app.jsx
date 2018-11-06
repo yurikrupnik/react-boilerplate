@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route as R } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import Providers from './providers';
 import { Provider as ThemeProvider } from '../services/context/themes';
@@ -8,6 +8,8 @@ import { Provider as DeviceProvider, Consumer as DeviceConsumer } from '../servi
 import { Provider as SidebarProvider, Consumer as SidebarConsumer } from '../services/context/sidebar';
 import apiProviders from '../../api/providers';
 import routes from './routes';
+import Route from '../../components/Route';
+
 import themeConfig from '../../theme';
 
 const theme = createMuiTheme({
@@ -83,7 +85,7 @@ const theme = createMuiTheme({
 });
 
 const App = ({ userAgent }) => (
-    <Route render={(props) => {
+    <R render={(props) => {
         const { staticContext } = props;
         const context = global.window ? global.window.appData : staticContext;
         if (global.window) {
@@ -100,7 +102,7 @@ const App = ({ userAgent }) => (
                             const isMobile = deviceProps.isMobile();
                             const basicRoutes = (
                                 <Fragment>
-                                    {routes.getRoutesByType(isMobile)
+                                    {routes
                                         .map(route => <Route key={route.key} {...route} />)}
                                 </Fragment>
                             );
