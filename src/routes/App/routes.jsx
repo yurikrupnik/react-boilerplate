@@ -2,8 +2,8 @@
 import uniqid from 'uniqid';
 // import Router from '../services/Router';
 import Dashboard from './Dashboard';
-import Header from './Header';
-import Newsletter from './Newsletter';
+// import Header from './Header';
+// import Newsletter from './Newsletter';
 import Guarantee from './Guarantee';
 import Topics from './Topics';
 import Education from './Education';
@@ -51,11 +51,6 @@ const routes = [
         path: '/topics',
         label: 'topics',
     }
-    // {
-    //     key: uniqid(),
-    //     path: '/',
-    //     component: Newsletter,
-    // }
 ];
 
 export default routes;

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import styles from './styles.scss';
 import routes from './routes';
 import { Consumer as DeviceConsumer } from '../../services/context/device/index';
+import Route from '../../../components/Route';
 
 const Guarantee = () => {
     return (
@@ -13,7 +14,7 @@ const Guarantee = () => {
                     <div className={styles.root}>
                         <div className={styles.guaranteeContainer}>
                             <Switch>
-                                {routes.getRoutesByType(isMobile)
+                                {routes
                                     .map(route => (
                                         <Route
                                             key={route.key}
@@ -24,7 +25,7 @@ const Guarantee = () => {
                                     ))}
                             </Switch>
                             <Switch>
-                                {routes.getRoutesByType(isMobile)
+                                {routes
                                     .map(route => (
                                         <Route
                                             key={route.key}
@@ -46,7 +47,7 @@ const Guarantee = () => {
                     <div className="row">
                         <div className="col-xs-3">
                             <Switch>
-                                {routes.getRoutesByType(isMobile)
+                                {routes
                                     .map(route => (
                                         <Route
                                             key={route.key}
@@ -59,7 +60,7 @@ const Guarantee = () => {
                         </div>
                         <div className="col-xs-8">
                             <Switch>
-                                {routes.getRoutesByType(isMobile)
+                                {routes
                                     .map(route => (
                                         <Route
                                             key={route.key}

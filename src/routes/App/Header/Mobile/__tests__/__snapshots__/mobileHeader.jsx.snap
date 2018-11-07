@@ -232,39 +232,15 @@ exports[`renders <Component /> component 1`] = `
                   </div>
                   <div>
                     <Link
-                      key="1rfl1tfjo5twd7l"
+                      key="1"
                       replace={false}
-                      to="/guarantee"
+                      to="/"
                     >
                       <a
-                        href="/guarantee"
+                        href="/"
                         onClick={[Function]}
                       >
-                        guarantee
-                      </a>
-                    </Link>
-                    <Link
-                      key="1rfl1tfjo5twd7m"
-                      replace={false}
-                      to="/education"
-                    >
-                      <a
-                        href="/education"
-                        onClick={[Function]}
-                      >
-                        education
-                      </a>
-                    </Link>
-                    <Link
-                      key="1rfl1tfjo5twd7n"
-                      replace={false}
-                      to="/topics"
-                    >
-                      <a
-                        href="/topics"
-                        onClick={[Function]}
-                      >
-                        topics
+                        ass
                       </a>
                     </Link>
                   </div>

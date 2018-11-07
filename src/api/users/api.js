@@ -1,8 +1,8 @@
 import request from '../request';
-import { url, Provider } from './config';
+import { url, provider } from './config';
 
 const api = {
-    provider: Provider,
+    provider,
     fetch: params => request.get(`/api${url}`, { params })
         .then(res => res.data)
         .catch(error => error)

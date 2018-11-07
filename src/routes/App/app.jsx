@@ -88,50 +88,51 @@ const theme = createMuiTheme({
 });
 
 const App = ({ userAgent }) => (
-
-    <R render={(props) => {
-        const { staticContext } = props;
-        const context = global.window ? global.window.appData : staticContext;
-        if (global.window) {
-            delete global.window.appData;
-        }
-        return (
-            <DeviceProvider theme={themeConfig} userAgent={userAgent}>
-                <Providers
-                    context={context}
-                    providers={apiProviders.concat(ThemeProvider)}
-                >
-                    <MuiThemeProvider theme={theme}>
-                        <DeviceConsumer render={(deviceProps) => {
-                            const isMobile = deviceProps.isMobile();
-                            const Head = isMobile ? Header[0] : Header[1];
-                            const News = isMobile ? Newsletter[0] : Newsletter[1];
-                            const basicRoutes = (
-                                <Fragment>
-                                    <button onClick={deviceProps.toggle}>Toggle Mode</button>
-                                    <Head />
-                                    {routes
-                                        .map(route => <Route key={route.key} {...route} />)}
-                                    <News />
-                                </Fragment>
-                            );
-
-                            return isMobile ? (
-                                <SidebarProvider>
+    <div>
+        <R render={(props) => {
+            const { staticContext } = props;
+            const context = global.window ? global.window.appData : staticContext;
+            if (global.window) {
+                delete global.window.appData;
+            }
+            return (
+                <DeviceProvider theme={themeConfig} userAgent={userAgent}>
+                    <Providers
+                        context={context}
+                        providers={apiProviders.concat(ThemeProvider)}
+                    >
+                        <MuiThemeProvider theme={theme}>
+                            <DeviceConsumer render={(deviceProps) => {
+                                const isMobile = deviceProps.isMobile();
+                                const Head = isMobile ? Header[0] : Header[1];
+                                const News = isMobile ? Newsletter[0] : Newsletter[1];
+                                const basicRoutes = (
                                     <Fragment>
-                                        <SidebarConsumer />
-                                        {basicRoutes}
+                                        <button onClick={deviceProps.toggle}>Toggle Mode</button>
+                                        <Head />
+                                        {routes
+                                            .map(route => <Route key={route.key} {...route} />)}
+                                        <News />
                                     </Fragment>
-                                </SidebarProvider>
-                            ) : basicRoutes;
-                        }}
-                        />
-                    </MuiThemeProvider>
-                </Providers>
-            </DeviceProvider>
-        );
-    }}
-    />
+                                );
+
+                                return isMobile ? (
+                                    <SidebarProvider>
+                                        <Fragment>
+                                            <SidebarConsumer />
+                                            {basicRoutes}
+                                        </Fragment>
+                                    </SidebarProvider>
+                                ) : basicRoutes;
+                            }}
+                            />
+                        </MuiThemeProvider>
+                    </Providers>
+                </DeviceProvider>
+            );
+        }}
+        />
+    </div>
 );
 
 App.defaultProps = {

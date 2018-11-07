@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer/SwipeableDrawer';
 import { Consumer } from './context';
 
-function SidebarConsumer({ render, links }) {
-
+function SidebarConsumer({ render }) {
     return (
         <Consumer>
             {(props) => {

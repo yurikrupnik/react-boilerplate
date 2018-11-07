@@ -2,13 +2,24 @@ import React from 'react';
 import reduce from 'lodash/reduce';
 import { Route } from 'react-router-dom';
 import { Consumer } from '../../routes/services/context/device';
-import { Helper } from '../../routes/services/Router';
+
+const componentTypes = key => ['component', 'sidebar', 'main'].includes(key);
+
+const handleRoute = isMobile => (acc, val, key) => {
+    if (componentTypes(key)) {
+        if (Array.isArray(val)) {
+            acc[key] = isMobile // eslint-disable-line no-param-reassign
+                ? val[0] : val[1];
+        } else {
+            acc[key] = val; // eslint-disable-line no-param-reassign
+        }
+    }
+    return acc;
+};
 
 const MyRoute = route => (
     <Consumer render={(device) => {
-        // console.log('route', route);
-        // console.log('typeof route.component', typeof route.component);
-        const keys = reduce(route, Helper.handleRoute(device.isMobile()), {});
+        const keys = reduce(route, handleRoute(device.isMobile()), {});
         return (
             <Route {...Object.assign({}, route, keys)} />
         );

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from './context';
 import api from '../api';
-// import Utils from '../utils';
-const toggleLoading = prevState => ({ loading: !prevState.loading });
+import { toggleLoading } from '../../helpers';
 
 class ProjectsProvider extends Component {
     constructor(props, context) {
