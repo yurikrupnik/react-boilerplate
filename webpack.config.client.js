@@ -105,8 +105,7 @@ module.exports = (env) => {
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
                 chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
             }),
-            // isProd ? new BundleAnalyzerPlugin({}) : () => {},
-            new BundleAnalyzerPlugin({})
+            !isDebug ? new BundleAnalyzerPlugin({}) : () => {}
         ],
         devServer: {
             port: !isProd && config.devPort,

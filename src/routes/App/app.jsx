@@ -9,7 +9,6 @@ import { Provider as SidebarProvider, Consumer as SidebarConsumer } from '../ser
 import apiProviders from '../../api/providers';
 import routes from './routes';
 import Route from '../../components/Route';
-
 import Header from './Header';
 import Newsletter from './Newsletter';
 import Loadable from '../../components/Loadable';

@@ -80,7 +80,7 @@ const SidebarConsumer = React.memo(() => {
                     }, []);
                     return (
                         <div>
-                            <h2>{a.name}</h2>
+                            <h2>{C.name}</h2>
                             <ReactJson src={a} />
                             {showHelpers && keys}
                         </div>
