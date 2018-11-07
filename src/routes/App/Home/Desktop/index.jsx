@@ -6,101 +6,100 @@ import stylesSlick from './slick.scss';
 import stylesGeneral from './general.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
-import Slider from './Slider';
 
-// const bestSellersGallery = [
-//     {
-//         src: 'Channel-Set-Engagement-Ring',
-//         name: 'Channel Set',
-//         alt: 'Channel Set',
-//         sub: 'Bezel Set Pavé Engagement Ring',
-//         href: '/engagement-rings/tension/14k-white-gold-bezel-set-pave-diamond-engagement-ring-item-53294'
-//     },
-//     {
-//         src: 'Halo-Women-Engagement-Ring',
-//         name: 'Halo',
-//         alt: 'Halo',
-//         sub: 'Floral Halo Engagement Ring',
-//         href: '/engagement-rings/vintage/14k-rose-gold-floral-halo-engagement-ring-item-53439'
-//     },
-//     {
-//         src: 'Anniversary-Ring',
-//         name: 'Anniversary',
-//         alt: 'Anniversary',
-//         sub: 'Bar Set Anniversary Ring',
-//         href: '/wedding-rings/womens-anniversary/18k-white-gold-100ctw-bar-set-diamond-anniversary-ring-item-16453'
-//     },
-//     {
-//         src: 'Side-stone-Engagement-Ring',
-//         name: 'Side-stone',
-//         alt: 'Side-stone',
-//         sub: 'Round & Marquise Diamond Engagement Ring',
-//         href: '/engagement-rings/side-stones/14k-white-gold-round-and-marquise-shape-diamond-engagement-ring-item-49489'
-//     },
-//     {
-//         src: 'eternity-ring',
-//         name: 'Eternity',
-//         alt: 'Eternity',
-//         sub: 'Angled Common Prong Diamond Eternity Ring',
-//         href: '/wedding-rings/womens-eternity/14k-yellow-gold-ladies-050ctw-angled-common-prong-diamond-eternity-ring-item-56291'
-//     },
-//     {
-//         src: 'Halo-Engagement-Ring',
-//         name: 'Halo',
-//         alt: 'Halo',
-//         sub: 'Round Split Band Halo Engagement Ring',
-//         href: '/engagement-rings/halo/14k-white-gold-round-split-band-diamond-halo-engagement-ring-item-49498'
-//     },
-//     {
-//         src: 'Solitaire-Classic-Engagement-Ring',
-//         name: 'Solitaire',
-//         alt: 'Solitaire',
-//         sub: 'Rope Solitaire Engagement Ring',
-//         href: '/engagement-rings/solitaire/14k-white-gold-rope-solitaire-engagement-ring-item-52624'
-//     },
-//     {
-//         src: 'Stackable-Ring',
-//         name: 'Stackable',
-//         alt: 'Stackable',
-//         sub: 'Round Diamond & Marquise Sapphire Wedding Ring',
-//         href: '/wedding-rings/womens-stackable/14k-white-gold-round-brilliant-diamond-and-marquise-sapphire-wedding-ring-item-49417'
-//     },
-//     {
-//         src: 'diamond-pendant',
-//         name: 'Diamond Pendant',
-//         alt: 'Diamond Pendant',
-//         sub: 'Pavé Set Pendant Frame',
-//         href: '/fine-jewelry/design-your-own-pendants/18k-white-gold-pave-set-frame-pendant-mounting-item-17021'
-//     },
-//     {
-//         src: 'Side-stone-Diamond-Engagement-Ring',
-//         name: 'Side-stone',
-//         alt: 'Side-stone',
-//         sub: 'Blossoming Vine Engagement Ring',
-//         href: '/engagement-rings/side-stones/14k-yellow-gold-blossoming-vine-engagement-ring-item-53370'
-//     },
-//     {
-//         src: 'Solitaire-Engagement-Ring',
-//         name: 'Solitaire',
-//         alt: 'Solitaire',
-//         sub: 'Knife Edge Solitaire Engagement Ring',
-//         href: '/engagement-rings/solitaire/14k-white-gold-2mm-knife-edge-solitaire-engagement-ring-item-7115'
-//     },
-//     {
-//         src: 'pave-engagement-ring',
-//         name: 'Pavé',
-//         alt: 'Pavé',
-//         sub: 'Petite Pavé Flush Fit Engagement Ring',
-//         href: '/engagement-rings/pave/14k-rose-gold-petite-pave-engagement-ring-flush-fit-item-56265'
-//     },
-//     {
-//         src: 'Three-stone-Engagement-Ring',
-//         name: 'Three-stone',
-//         alt: 'Three-stone',
-//         sub: 'Tapered Baguette Diamond Engagement Ring',
-//         href: '/engagement-rings/side-stones/14k-white-gold-tapered-baguette-diamond-engagement-ring-item-7101'
-//     }
-// ];
+const bestSellersGallery = [
+    {
+        src: 'Channel-Set-Engagement-Ring',
+        name: 'Channel Set',
+        alt: 'Channel Set',
+        sub: 'Bezel Set Pavé Engagement Ring',
+        href: '/engagement-rings/tension/14k-white-gold-bezel-set-pave-diamond-engagement-ring-item-53294'
+    },
+    {
+        src: 'Halo-Women-Engagement-Ring',
+        name: 'Halo',
+        alt: 'Halo',
+        sub: 'Floral Halo Engagement Ring',
+        href: '/engagement-rings/vintage/14k-rose-gold-floral-halo-engagement-ring-item-53439'
+    },
+    {
+        src: 'Anniversary-Ring',
+        name: 'Anniversary',
+        alt: 'Anniversary',
+        sub: 'Bar Set Anniversary Ring',
+        href: '/wedding-rings/womens-anniversary/18k-white-gold-100ctw-bar-set-diamond-anniversary-ring-item-16453'
+    },
+    {
+        src: 'Side-stone-Engagement-Ring',
+        name: 'Side-stone',
+        alt: 'Side-stone',
+        sub: 'Round & Marquise Diamond Engagement Ring',
+        href: '/engagement-rings/side-stones/14k-white-gold-round-and-marquise-shape-diamond-engagement-ring-item-49489'
+    },
+    {
+        src: 'eternity-ring',
+        name: 'Eternity',
+        alt: 'Eternity',
+        sub: 'Angled Common Prong Diamond Eternity Ring',
+        href: '/wedding-rings/womens-eternity/14k-yellow-gold-ladies-050ctw-angled-common-prong-diamond-eternity-ring-item-56291'
+    },
+    {
+        src: 'Halo-Engagement-Ring',
+        name: 'Halo',
+        alt: 'Halo',
+        sub: 'Round Split Band Halo Engagement Ring',
+        href: '/engagement-rings/halo/14k-white-gold-round-split-band-diamond-halo-engagement-ring-item-49498'
+    },
+    {
+        src: 'Solitaire-Classic-Engagement-Ring',
+        name: 'Solitaire',
+        alt: 'Solitaire',
+        sub: 'Rope Solitaire Engagement Ring',
+        href: '/engagement-rings/solitaire/14k-white-gold-rope-solitaire-engagement-ring-item-52624'
+    },
+    {
+        src: 'Stackable-Ring',
+        name: 'Stackable',
+        alt: 'Stackable',
+        sub: 'Round Diamond & Marquise Sapphire Wedding Ring',
+        href: '/wedding-rings/womens-stackable/14k-white-gold-round-brilliant-diamond-and-marquise-sapphire-wedding-ring-item-49417'
+    },
+    {
+        src: 'diamond-pendant',
+        name: 'Diamond Pendant',
+        alt: 'Diamond Pendant',
+        sub: 'Pavé Set Pendant Frame',
+        href: '/fine-jewelry/design-your-own-pendants/18k-white-gold-pave-set-frame-pendant-mounting-item-17021'
+    },
+    {
+        src: 'Side-stone-Diamond-Engagement-Ring',
+        name: 'Side-stone',
+        alt: 'Side-stone',
+        sub: 'Blossoming Vine Engagement Ring',
+        href: '/engagement-rings/side-stones/14k-yellow-gold-blossoming-vine-engagement-ring-item-53370'
+    },
+    {
+        src: 'Solitaire-Engagement-Ring',
+        name: 'Solitaire',
+        alt: 'Solitaire',
+        sub: 'Knife Edge Solitaire Engagement Ring',
+        href: '/engagement-rings/solitaire/14k-white-gold-2mm-knife-edge-solitaire-engagement-ring-item-7115'
+    },
+    {
+        src: 'pave-engagement-ring',
+        name: 'Pavé',
+        alt: 'Pavé',
+        sub: 'Petite Pavé Flush Fit Engagement Ring',
+        href: '/engagement-rings/pave/14k-rose-gold-petite-pave-engagement-ring-flush-fit-item-56265'
+    },
+    {
+        src: 'Three-stone-Engagement-Ring',
+        name: 'Three-stone',
+        alt: 'Three-stone',
+        sub: 'Tapered Baguette Diamond Engagement Ring',
+        href: '/engagement-rings/side-stones/14k-white-gold-tapered-baguette-diamond-engagement-ring-item-7101'
+    }
+];
 
 const imgsData = [
     {
@@ -124,31 +123,31 @@ const iconsData = [
     'FeaturedIn', 'Forbes', 'BuzzFeed', 'EliteDaily', 'LaurenConrad', 'Maxim', 'Refinery29', 'Popsugar', 'UsWeekly', 'TheKnot'
 ];
 
-// class NextArrow extends React.Component {
-//     render() {
-//         return (
-//             <div
-//                 {...this.props}
-//                 className={stylesSlick['next-carousel-button']}
-//             >
-//             &#xe626;
-//             </div>
-//         );
-//     }
-// }
+class NextArrow extends React.Component {
+    render() {
+        return (
+            <div
+                {...this.props}
+                className={stylesSlick['next-carousel-button']}
+            >
+            &#xe626;
+            </div>
+        );
+    }
+}
 
-// class PrevArrow extends React.Component {
-//     render() {
-//         return (
-//             <div
-//                 {...this.props}
-//                 className={stylesSlick['prev-carousel-button']}
-//             >
-//             &#xe625;
-//             </div>
-//         );
-//     }
-// }
+class PrevArrow extends React.Component {
+    render() {
+        return (
+            <div
+                {...this.props}
+                className={stylesSlick['prev-carousel-button']}
+            >
+            &#xe625;
+            </div>
+        );
+    }
+}
 
 class Desktop extends React.Component {
     constructor(props) {
@@ -166,8 +165,8 @@ class Desktop extends React.Component {
         //     videoSrc: `https://ion.r2net.com/images/amazingHomepage/${this.videoName}.mp4`
         // })
         // this.isTouch = !~document.body.className.indexOf('Notouch');
-        // this.refs.bestSellersHeader.innerText = this.bestSellersGallery[0].name;
-        // this.refs.bestSellersSub.innerText = this.bestSellersGallery[0].sub;
+        this.refs.bestSellersHeader.innerText = bestSellersGallery[0].name;
+        this.refs.bestSellersSub.innerText = bestSellersGallery[0].sub;
         // this.refs.looseDiamondsHeader.innerText = this.looseDiamondsGallery[0].name;
         // this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[0].sub;
         global.window.addEventListener('scroll', this.handleScroll);
@@ -344,26 +343,26 @@ class Desktop extends React.Component {
     // }
 
     render() {
-        // const settings = {
-        //     dots: false,
-        //     infinite: true,
-        //     slidesToShow: 5,
-        //     slidesToScroll: 1,
-        //     centerMode: true,
-        //     centerPadding: '600px',
-        //     draggable: this.isTouch,
-        //     responsive: [{ breakpoint: 1600, settings: { slidesToShow: 4.31 } },
-        //         { breakpoint: 1300, settings: { slidesToShow: 3 } }],
-        //     nextArrow: <NextArrow />,
-        //     prevArrow: <PrevArrow />,
-        // };
-        // const bestSellersSettings = Object.assign({
-        //     beforeChange: (i, next) => {
-        //         this.refs.bestSellersHeader.innerText = this.bestSellersGallery[next].name;
-        //         this.refs.bestSellersSub.innerText = this.bestSellersGallery[next].sub;
-        //     },
-        //     className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`,
-        // }, settings);
+        const settings = {
+            dots: false,
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            centerMode: true,
+            draggable: this.isTouch,
+            responsive: [{ breakpoint: 1600, settings: { slidesToShow: 4.31 } },
+                { breakpoint: 1300, settings: { slidesToShow: 3 } }],
+            nextArrow: <NextArrow />,
+            prevArrow: <PrevArrow />,
+            centerPadding: '-100px'
+        };
+        const bestSellersSettings = Object.assign({
+            beforeChange: (i, next) => {
+                this.refs.bestSellersHeader.innerText = this.bestSellersGallery[next].name;
+                this.refs.bestSellersSub.innerText = this.bestSellersGallery[next].sub;
+            },
+            className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`,
+        }, settings);
 
         // const looseDiamondsSettings = Object.assign({
         //     beforeChange: (i, next) => {
@@ -535,36 +534,33 @@ class Desktop extends React.Component {
                     </div>
                 </div>
                 {/* --------------------------- SLIDE IMAGES --------------------*/}
-                <Slider />
-                {/*<SliderSlick ref={c => this.bestSellersSlider = c} {...bestSellersSettings}>*/}
-                    {/*{bestSellersGallery.map((item, i) => (*/}
-                        {/*<span key={i} span>*/}
-                            {/*<a href={item.href} data-container="#WidePane" data-gtm-name="best sellers" title={item.alt}>*/}
-                                {/*<span>*/}
-                                    {/*<img*/}
-                                        {/*className={styles.slickImg}*/}
-                                        {/*src={`https://ion.r2net.com/images/amazingHomepage/rings/${item.src}.png?v=8`}*/}
-                                        {/*alt=""*/}
-                                    {/*/>*/}
-                                {/*</span>*/}
-                            {/*</a>*/}
-                        {/*</span>*/}
-                    {/*))}*/}
-                {/*</SliderSlick>*/}
-                {/*<div className={styles['mystic-text']}>*/}
-                    {/*<div className={styles['arrow-right']} onClick={() => this.bestSellersSlider.slickNext()} />*/}
-                    {/*<div*/}
-                        {/*style={{*/}
-                            {/*fontSize: '18px', fontWeight: 'bold', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)', textTransform: 'uppercase'*/}
-                        {/*}}*/}
-                        {/*ref="bestSellersHeader"*/}
-                    {/*/>*/}
-                    {/*<div*/}
-                        {/*style={{ fontSize: '16px', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)' }}*/}
-                        {/*ref="bestSellersSub"*/}
-                    {/*/>*/}
-                    {/*<div className={styles['arrow-left']} onClick={() => this.bestSellersSlider.slickPrev()} />*/}
-                {/*</div>*/}
+                <SliderSlick ref={c => this.bestSellersSlider = c} {...bestSellersSettings}>
+                    {bestSellersGallery.map((item, i) => (
+                        <span key={i} span>
+                            <a href={item.href} data-container="#WidePane" data-gtm-name="best sellers" title={item.alt}>
+                                <span>
+                                    <img
+                                        className={styles.slickImg}
+                                        src={`https://ion.r2net.com/images/amazingHomepage/rings/${item.src}.png?v=8`}
+                                        alt=""
+                                    />
+                                </span>
+                            </a>
+                        </span>
+                    ))}
+                </SliderSlick>
+
+                <div className={styles['mystic-text']}>
+                    <div className={styles['arrow-right']} onClick={() => this.bestSellersSlider.slickNext()} />
+                    <div
+                        style={{
+                            fontSize: '18px', fontWeight: 'bold', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)', textTransform: 'uppercase'
+                        }}
+                        ref="bestSellersHeader"
+                    />
+                    <div style={{ fontSize: '16px', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)' }} ref="bestSellersSub" />
+                    <div className={styles['arrow-left']} onClick={() => this.bestSellersSlider.slickPrev()} />
+                </div>
             </div>
         );
     }

@@ -210,11 +210,12 @@
   background-size: 50%;
   margin-top: -42px;
   transition: all .3s;
-
 }
 
-.scroll-started .arrow-left, .scroll-started .arrow-right {
-  background: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg') no-repeat center center;
+.arrow-left,  .arrow-right {
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 50%;
 }
 

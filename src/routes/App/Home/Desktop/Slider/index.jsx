@@ -13,20 +13,26 @@ class Slider extends Component {
             slidesToScroll: 1,
         };
         return (
-            <div className={styles.root}>
+            <div>
                 <h2> Single Item</h2>
                 <SliderSlick {...settings}>
                     <div>
-                        <div className={styles['slide-0']}><h3>Graph 1</h3></div>
+                        <h3>1</h3>
                     </div>
                     <div>
-                        <div className={styles['slide-1']}><h3>Graph 2</h3></div>
+                        <h3>2</h3>
                     </div>
                     <div>
-                        <div className={styles['slide-2']}><h3>Graph 3</h3></div>
+                        <h3>3</h3>
                     </div>
                     <div>
-                        <div className={styles['slide-3']}><h3>Set Up</h3></div>
+                        <h3>4</h3>
+                    </div>
+                    <div>
+                        <h3>5</h3>
+                    </div>
+                    <div>
+                        <h3>6</h3>
                     </div>
                 </SliderSlick>
             </div>
