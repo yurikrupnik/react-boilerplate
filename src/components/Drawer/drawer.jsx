@@ -5,13 +5,14 @@ import MenuList from '@material-ui/core/MenuList/MenuList';
 
 const Drawer = (props) => {
     const {
-        open, toggle, children, style
+        open, toggle, children, style, anchor
     } = props;
     return (
         <SwipeableDrawer
             open={open}
             onClose={toggle}
             onOpen={toggle}
+            anchor={anchor}
         >
             <MenuList style={style}>
                 {children}
@@ -21,13 +22,15 @@ const Drawer = (props) => {
 };
 
 Drawer.defaultProps = {
-    style: {}
+    style: {},
+    anchor: 'left'
 };
 
 Drawer.propTypes = {
     open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
     children: PropTypes.func.isRequired,
+    anchor: PropTypes.string,
     style: PropTypes.shape({})
 };
 

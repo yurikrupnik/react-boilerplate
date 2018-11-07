@@ -16,14 +16,14 @@ module.exports = (env) => {
     return {
         context: path.resolve(__dirname, 'src'),
         optimization: {
-            // minimizer: [
-            //     new UglifyJsPlugin({
-            //         cache: true,
-            //         parallel: true,
-            //         sourceMap: true // set to true if you want JS source maps
-            //     }),
-            //     new OptimizeCSSAssetsPlugin({})
-            // ]
+            minimizer: [
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    sourceMap: true // set to true if you want JS source maps
+                }),
+                new OptimizeCSSAssetsPlugin({})
+            ]
         },
         target: 'web',
         resolve: {
@@ -55,7 +55,6 @@ module.exports = (env) => {
                             options: {
                                 modules: true,
                                 localIdentName: isProd ? '[hash:base64]' : '[local]--[hash:base64:5]'
-                                // localIdentName: 'hash:base64'
                             }
                         },
                         {

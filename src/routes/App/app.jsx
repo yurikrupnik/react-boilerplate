@@ -12,8 +12,16 @@ import Route from '../../components/Route';
 
 import Header from './Header';
 import Newsletter from './Newsletter';
-
+import Loadable from '../../components/Loadable';
 import themeConfig from '../../theme';
+import { isProd } from '../../config';
+
+const DevSidebarProvider = Loadable({
+    loader: () => import('../services/context/devSidebar/provider'),
+});
+const DevSidebarConsumer = Loadable({
+    loader: () => import('../services/context/devSidebar/consumer'),
+});
 
 const theme = createMuiTheme({
     // palette: {
@@ -88,7 +96,7 @@ const theme = createMuiTheme({
 });
 
 const App = ({ userAgent }) => (
-    <div>
+    <Fragment>
         <R render={(props) => {
             const { staticContext } = props;
             const context = global.window ? global.window.appData : staticContext;
@@ -99,16 +107,18 @@ const App = ({ userAgent }) => (
                 <DeviceProvider theme={themeConfig} userAgent={userAgent}>
                     <Providers
                         context={context}
-                        providers={apiProviders.concat(ThemeProvider)}
+                        providers={apiProviders
+                            .concat(ThemeProvider, !isProd ? DevSidebarProvider : [])}
                     >
                         <MuiThemeProvider theme={theme}>
                             <DeviceConsumer render={(deviceProps) => {
                                 const isMobile = deviceProps.isMobile();
                                 const Head = isMobile ? Header[0] : Header[1];
                                 const News = isMobile ? Newsletter[0] : Newsletter[1];
+
                                 const basicRoutes = (
                                     <Fragment>
-                                        <button onClick={deviceProps.toggle}>Toggle Mode</button>
+                                        {!isProd && <DevSidebarConsumer />}
                                         <Head />
                                         {routes
                                             .map(route => <Route key={route.key} {...route} />)}
@@ -132,7 +142,7 @@ const App = ({ userAgent }) => (
             );
         }}
         />
-    </div>
+    </Fragment>
 );
 
 App.defaultProps = {

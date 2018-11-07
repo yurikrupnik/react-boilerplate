@@ -1,14 +1,10 @@
-// import React from 'react';
 import uniqid from 'uniqid';
-// import Router from '../services/Router';
 import Dashboard from './Dashboard';
-// import Header from './Header';
-// import Newsletter from './Newsletter';
 import Guarantee from './Guarantee';
 import Topics from './Topics';
 import Education from './Education';
-// import api from '../../api/currency/api';
-// import users from '../../api/users/api';
+import api from '../../api/currency/api';
+import users from '../../api/users/api';
 
 const routes = [
     // {
@@ -31,7 +27,14 @@ const routes = [
         key: uniqid(),
         path: '/',
         component: Dashboard,
-        exact: true
+        exact: true,
+        fetchInitialData: (url) => {
+            console.log('url', url);
+            return Promise.all([
+                api.fetch(), users.fetch()
+            ]);
+        },
+        providers: [api.provider, users.provider]
     },
     {
         key: uniqid(),
