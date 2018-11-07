@@ -34,7 +34,6 @@ a {
   display: table-cell;
   text-align: center;
 }
-
 /*shira*/
 .table-align-left {
   display: table;
@@ -42,12 +41,12 @@ a {
   table-layout: fixed;
 }
 
+
 .table-align-left > * {
   display: table-cell;
   text-align: left;
 
 }
-
 /*shira*/
 
 .tableAlign {
@@ -70,7 +69,7 @@ a {
 }
 
 .sku-container {
-  width: 100%;
+  width: 100% ;
   height: 37px;
   position: relative;
 }
@@ -108,6 +107,7 @@ a {
 }
 */
 
+
 .search-by-sku {
   margin-top: 10px;
   margin-bottom: 15px;
@@ -131,11 +131,10 @@ a {
 .table-align.filters-panel {
   height: 47px;
   padding-bottom: 9px;
-  .logo {
+  .logo{
     border-bottom: 1px solid #d6d6d6;
+    /*box-shadow: 0px 1.6px 3px 0px rgba(20, 26, 46, 0.17);*/
   }
-
-  /*box-shadow: 0px 1.6px 3px 0px rgba(20, 26, 46, 0.17);*/
 }
 
 .justify-align {
@@ -143,14 +142,14 @@ a {
   /* font-size: 0.1px;*/
 }
 
-.justify-align > *:not(span) {
+.justify-align>*:not(span){
   display: inline-block;
   float: none !important;
   /*  font-size: 1rem;*/
   /*vertical-align: middle;*/
 }
 
-.justify-align > span {
+.justify-align>span {
   display: inline;
   line-height: 0;
 }
@@ -161,12 +160,14 @@ a {
   width: 100%;
 }
 
-.justify-align.font-inherit > * {
+.justify-align.font-inherit > *{
   font-size: inherit;
   vertical-align: middle;
 }
 
-select {
+
+
+select{
   width: auto !important;
 }
 
@@ -175,9 +176,11 @@ select {
   color: white;
 }
 
-.slick-track {
+.slick-track{
   width: 10000px;
 }
+
+
 
 .general-paragraph {
   font-family: NunitoSans;
@@ -215,10 +218,12 @@ select {
   text-transform: uppercase;
   cursor: pointer;
 }
-
 /* Tablets */
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
   .general-paragraph {
     font-size: 13px;
     line-height: 22px;
@@ -238,7 +243,7 @@ select {
   vertical-align: middle;
 }
 
-.mid-content {
+.mid-content{
   width: 980px;
   margin: 0 auto;
   margin-bottom: 100px;

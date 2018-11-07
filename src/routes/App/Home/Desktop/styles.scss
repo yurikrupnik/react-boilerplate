@@ -210,12 +210,11 @@
   background-size: 50%;
   margin-top: -42px;
   transition: all .3s;
+
 }
 
 .scroll-started .arrow-left, .scroll-started .arrow-right {
-  background-image: url(https://ion.r2net.com/images/amazingHomepage/Arrow.svg);
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg') no-repeat center center;
   background-size: 50%;
 }
 
@@ -708,7 +707,7 @@
 }
 
 .ring-container {
-  transform: translate(-50%, 0) scale(.9);
+  transform: translate(-0%, 0) scale(.9);
 }
 
 .right-t1 {
