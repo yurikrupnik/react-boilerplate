@@ -7,22 +7,6 @@ import api from '../../api/currency/api';
 import users from '../../api/users/api';
 
 const routes = [
-    // {
-    //     key: uniqid(),
-    //     path: '/',
-    //     component: Header, // todo pass paramaters to fetch
-    //     // render: (props) => {
-    //     //     return <Header {...props} />
-    //     // },
-    //     // fetchInitialData: (url) => {
-    //     //     console.log('url', url);
-    //     //
-    //     //     return Promise.all([
-    //     //         api.fetch(), users.fetch()
-    //     //     ]);
-    //     // },
-    //     // providers: [api.provider, users.provider]
-    // },
     {
         key: uniqid(),
         path: '/',

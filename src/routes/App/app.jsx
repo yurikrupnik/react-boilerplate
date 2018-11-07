@@ -153,4 +153,4 @@ App.propTypes = {
     staticContext: PropTypes.shape({})
 };
 
-export default App; // memo here has no route updates TODO CHECK IT
+export default App;
