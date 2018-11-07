@@ -1,10 +1,9 @@
 import { renderToString } from 'react-dom/server';
-// import { StaticRouter, matchPath } from 'react-router';
 import { StaticRouter, matchPath } from 'react-router-dom';
 import React from 'react';
 
 const render = (App, routes) => (req, response, next) => {
-    const activeRoute = routes.routes
+    const activeRoute = routes
         .find(route => matchPath(req.url, route)) || {};
     const promise = activeRoute.fetchInitialData
         ? activeRoute.fetchInitialData(req.url)

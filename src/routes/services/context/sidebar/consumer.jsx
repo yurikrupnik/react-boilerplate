@@ -1,11 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MenuList from '@material-ui/core/MenuList/MenuList';
-import Input from '@material-ui/core/Input/Input';
-import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import { Link } from 'react-router-dom';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer/SwipeableDrawer';
 import { Consumer } from './context';
+import Drawer from '../../../../components/Drawer';
+
+const SidebarDrawer = (props) => {
+    const { render, open, toggle } = props;
+    if (typeof render === 'function') {
+        return render(props);
+    }
+    return (
+        <Drawer style={{ width: '400px' }} toggle={toggle} open={open} render={render}>
+            <div>
+                links here
+            </div>
+        </Drawer>
+    );
+};
+
+SidebarDrawer.defaultProps = {
+    render: null
+};
+
+SidebarDrawer.propTypes = {
+    open: PropTypes.bool.isRequired,
+    toggle: PropTypes.func.isRequired,
+    render: PropTypes.func
+};
+
 
 function SidebarConsumer({ render }) {
     return (
@@ -15,20 +36,7 @@ function SidebarConsumer({ render }) {
                     return render(props);
                 }
                 return (
-                    <SwipeableDrawer
-                        open={props.open}
-                        onClose={props.toggle}
-                        onOpen={props.toggle}
-                    >
-                        <MenuList style={{ width: '300px' }}>
-                            <Input placeholder="press me" fullWidth />
-
-                            <div>
-                                links here
-                            </div>
-
-                        </MenuList>
-                    </SwipeableDrawer>
+                    <SidebarDrawer {...props} />
                 );
             }}
         </Consumer>
@@ -36,18 +44,11 @@ function SidebarConsumer({ render }) {
 }
 
 SidebarConsumer.defaultProps = {
-    // render: null,
-    // link: []
+    render: null
 };
 
 SidebarConsumer.propTypes = {
-    // render: PropTypes.func
-    // links: PropTypes.arrayOf(PropTypes.shape({}))
-    // links: PropTypes.arrayOf(PropTypes.shape({
-    //     label: PropTypes.string.isRequired,
-    //     to: PropTypes.string.isRequired,
-    //     key: PropTypes.string.isRequired
-    // })),
+    render: PropTypes.func
 };
 
 export default SidebarConsumer;
