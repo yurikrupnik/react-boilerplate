@@ -1,12 +1,12 @@
 import Loadable from '../../../../components/Loadable';
 
 const Mobile = Loadable({
-    loader: () => import(/* webpackChunkName: "educationMainMobile" */ './Mobile'),
+    loader: () => import('./Mobile'),
 });
 
 
 const Desktop = Loadable({
-    loader: () => import(/* webpackChunkName: "educationMainDesktop" */ './Desktop'),
+    loader: () => import('./Desktop'),
 });
 
 export default [Mobile, Desktop];

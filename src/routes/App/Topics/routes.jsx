@@ -1,6 +1,6 @@
+import uniqid from 'uniqid';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Router from '../../services/Router';
 
 const Topic = ({ match }) => (
     <div>
@@ -16,6 +16,7 @@ Topic.propTypes = {
 
 const routes = [
     {
+        key: uniqid(),
         path: '/topics',
         component: () => (
             <h3>
@@ -25,10 +26,11 @@ const routes = [
         exact: true
     },
     {
+        key: uniqid(),
         path: '/topics/:topicId',
         component: Topic,
         exact: true
     }
 ];
 
-export default Router.create(routes);
+export default routes;

@@ -1,10 +1,9 @@
 import { renderToString } from 'react-dom/server';
-// import { StaticRouter, matchPath } from 'react-router';
 import { StaticRouter, matchPath } from 'react-router-dom';
 import React from 'react';
 
 const render = (App, routes) => (req, response, next) => {
-    const activeRoute = routes.routes
+    const activeRoute = routes
         .find(route => matchPath(req.url, route)) || {};
     const promise = activeRoute.fetchInitialData
         ? activeRoute.fetchInitialData(req.url)
@@ -29,6 +28,8 @@ const render = (App, routes) => (req, response, next) => {
                     <App userAgent={req.headers['user-agent']} />
                 </StaticRouter>
             ));
+            console.log('html', html);
+            console.log('appData', appData);
             const state = { title, html, appData };
             return context.url ? response.redirect(301, context.url) : response.render('index', state);
         })

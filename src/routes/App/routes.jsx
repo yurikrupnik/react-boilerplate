@@ -1,24 +1,26 @@
-import React from 'react';
-import Router from '../services/Router';
+import uniqid from 'uniqid';
 import Dashboard from './Dashboard';
-import Header from './Header';
-import Newsletter from './Newsletter';
 import Guarantee from './Guarantee';
 import Topics from './Topics';
 import Education from './Education';
 import api from '../../api/currency/api';
 import users from '../../api/users/api';
 
+const keyByElement = (ele) => {
+    if (Array.isArray(ele)) {
+        return ele[0].name;
+    }
+    return ele.name;
+};
+
 const routes = [
     {
+        key: keyByElement(Dashboard),
         path: '/',
-        component: Header, // todo pass paramaters to fetch
-        // render: (props) => {
-        //     return <Header {...props} />
-        // },
+        component: Dashboard,
+        exact: true,
         fetchInitialData: (url) => {
-            console.log('url', url);
-
+            console.log('url', url); // eslint-disable-line no-console
             return Promise.all([
                 api.fetch(), users.fetch()
             ]);
@@ -26,37 +28,23 @@ const routes = [
         providers: [api.provider, users.provider]
     },
     {
-        path: '/',
-        component: Dashboard,
-        exact: true,
-        fetchInitialData: () => {
-            return Promise.resolve([
-                {
-                    user: 'shit',
-                    lol: true
-                }
-            ]);
-        }
-    },
-    {
+        key: keyByElement(Guarantee),
         component: Guarantee,
         path: '/guarantee',
         label: 'guarantee',
     },
     {
+        key: keyByElement(Education),
         component: Education,
         path: '/education',
         label: 'education',
     },
     {
+        key: keyByElement(Topics),
         component: Topics,
         path: '/topics',
         label: 'topics',
-    },
-    {
-        path: '/',
-        component: Newsletter,
     }
 ];
 
-export default Router.create(routes);
+export default routes;

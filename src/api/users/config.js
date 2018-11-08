@@ -1,11 +1,11 @@
 const url = '/users';
-const Provider = 'Users';
+const provider = 'Users';
 const dbModel = 'User';
 const selector = 'users';
 
 export {
     url,
-    Provider,
+    provider,
     dbModel,
     selector
 };

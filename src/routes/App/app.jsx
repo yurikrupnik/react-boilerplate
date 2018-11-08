@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route as R } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import Providers from './providers';
 import { Provider as ThemeProvider } from '../services/context/themes';
@@ -8,7 +8,19 @@ import { Provider as DeviceProvider, Consumer as DeviceConsumer } from '../servi
 import { Provider as SidebarProvider, Consumer as SidebarConsumer } from '../services/context/sidebar';
 import apiProviders from '../../api/providers';
 import routes from './routes';
+import Route from '../../components/Route';
+import Header from './Header';
+import Newsletter from './Newsletter';
+import Loadable from '../../components/Loadable';
 import themeConfig from '../../theme';
+import { isProd } from '../../config';
+
+const DevSidebarProvider = Loadable({
+    loader: () => import('../services/context/devSidebar/provider'),
+});
+const DevSidebarConsumer = Loadable({
+    loader: () => import('../services/context/devSidebar/consumer'),
+});
 
 const theme = createMuiTheme({
     // palette: {
@@ -83,44 +95,53 @@ const theme = createMuiTheme({
 });
 
 const App = ({ userAgent }) => (
-    <Route render={(props) => {
-        const { staticContext } = props;
-        const context = global.window ? global.window.appData : staticContext;
-        if (global.window) {
-            delete global.window.appData;
-        }
-        return (
-            <DeviceProvider theme={themeConfig} userAgent={userAgent}>
-                <Providers
-                    context={context}
-                    providers={apiProviders.concat(ThemeProvider)}
-                >
-                    <MuiThemeProvider theme={theme}>
-                        <DeviceConsumer render={(deviceProps) => {
-                            const isMobile = deviceProps.isMobile();
-                            const basicRoutes = (
-                                <Fragment>
-                                    {routes.getRoutesByType(isMobile)
-                                        .map(route => <Route key={route.key} {...route} />)}
-                                </Fragment>
-                            );
+    <Fragment>
+        <R render={(props) => {
+            const { staticContext } = props;
+            const context = global.window ? global.window.appData : staticContext;
+            if (global.window) {
+                delete global.window.appData;
+            }
+            return (
+                <DeviceProvider theme={themeConfig} userAgent={userAgent}>
+                    <Providers
+                        context={context}
+                        providers={apiProviders
+                            .concat(ThemeProvider, !isProd ? DevSidebarProvider : [])}
+                    >
+                        <MuiThemeProvider theme={theme}>
+                            <DeviceConsumer render={(deviceProps) => {
+                                const isMobile = deviceProps.isMobile();
+                                const Head = isMobile ? Header[0] : Header[1];
+                                const News = isMobile ? Newsletter[0] : Newsletter[1];
 
-                            return isMobile ? (
-                                <SidebarProvider>
+                                const basicRoutes = (
                                     <Fragment>
-                                        <SidebarConsumer links={routes.getLinks()} />
-                                        {basicRoutes}
+                                        {!isProd && <DevSidebarConsumer />}
+                                        <Head />
+                                        {routes
+                                            .map(route => <Route key={route.key} {...route} />)}
+                                        <News />
                                     </Fragment>
-                                </SidebarProvider>
-                            ) : basicRoutes;
-                        }}
-                        />
-                    </MuiThemeProvider>
-                </Providers>
-            </DeviceProvider>
-        );
-    }}
-    />
+                                );
+
+                                return isMobile ? (
+                                    <SidebarProvider>
+                                        <Fragment>
+                                            <SidebarConsumer />
+                                            {basicRoutes}
+                                        </Fragment>
+                                    </SidebarProvider>
+                                ) : basicRoutes;
+                            }}
+                            />
+                        </MuiThemeProvider>
+                    </Providers>
+                </DeviceProvider>
+            );
+        }}
+        />
+    </Fragment>
 );
 
 App.defaultProps = {
