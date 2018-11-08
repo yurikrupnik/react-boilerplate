@@ -19,7 +19,7 @@ module.exports = {
         font: '\'Nunito Sans\', sans-serif',
         text: '1rem',
         title: '2rem'
-    },typography
+    },
     colors: {
         desktop: '#303030',
         mobile: '#656565',
