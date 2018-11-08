@@ -6,14 +6,21 @@ import Education from './Education';
 import api from '../../api/currency/api';
 import users from '../../api/users/api';
 
+const keyByElement = (ele) => {
+    if (Array.isArray(ele)) {
+        return ele[0].name;
+    }
+    return ele.name;
+};
+
 const routes = [
     {
-        key: uniqid(),
+        key: keyByElement(Dashboard),
         path: '/',
         component: Dashboard,
         exact: true,
         fetchInitialData: (url) => {
-            console.log('url', url);
+            console.log('url', url); // eslint-disable-line no-console
             return Promise.all([
                 api.fetch(), users.fetch()
             ]);
@@ -21,19 +28,19 @@ const routes = [
         providers: [api.provider, users.provider]
     },
     {
-        key: uniqid(),
+        key: keyByElement(Guarantee),
         component: Guarantee,
         path: '/guarantee',
         label: 'guarantee',
     },
     {
-        key: uniqid(),
+        key: keyByElement(Education),
         component: Education,
         path: '/education',
         label: 'education',
     },
     {
-        key: uniqid(),
+        key: keyByElement(Topics),
         component: Topics,
         path: '/topics',
         label: 'topics',

@@ -60,7 +60,7 @@ exports[`renders <Component /> component 1`] = `
               >
                 <div
                   className="col-xs"
-                  key="1rfl885jo7on0xy"
+                  key="guarantee"
                 >
                   <Link
                     replace={false}
@@ -76,7 +76,7 @@ exports[`renders <Component /> component 1`] = `
                 </div>
                 <div
                   className="col-xs"
-                  key="1rfl885jo7on0xz"
+                  key="topics"
                 >
                   <Link
                     replace={false}
@@ -92,7 +92,7 @@ exports[`renders <Component /> component 1`] = `
                 </div>
                 <div
                   className="col-xs"
-                  key="1rfl885jo7on0y0"
+                  key="education"
                 >
                   <Link
                     replace={false}

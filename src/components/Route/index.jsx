@@ -27,4 +27,4 @@ const MyRoute = route => (
     />
 );
 
-export default React.memo(MyRoute);
+export default MyRoute;

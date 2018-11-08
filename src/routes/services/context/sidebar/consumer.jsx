@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from './context';
-import Drawer from '../../../../components/Drawer';
+// import Drawer from '../../../../components/Drawer';
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer/SwipeableDrawer";
+import MenuList from "@material-ui/core/MenuList/MenuList";
+import Button from "@material-ui/core/Button/Button";
 
 const SidebarDrawer = (props) => {
     const { render, open, toggle } = props;
@@ -9,11 +12,17 @@ const SidebarDrawer = (props) => {
         return render(props);
     }
     return (
-        <Drawer style={{ width: '400px' }} toggle={toggle} open={open} render={render}>
-            <div>
-                links here
-            </div>
-        </Drawer>
+        <SwipeableDrawer
+            open={open}
+            onClose={toggle}
+            onOpen={toggle}
+        >
+            <MenuList style={{ width: '400px' }}>
+                <div>
+                    links here
+                </div>
+            </MenuList>
+        </SwipeableDrawer>
     );
 };
 

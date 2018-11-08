@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import uniqid from 'uniqid';
+// import uniqid from 'uniqid';
 // import Top from './Top';
 import Consumer from '../../../../api/currency/context/consumer';
 
@@ -9,17 +9,14 @@ class DesktopNav extends React.Component {
         const links = [
             {
                 label: 'guarantee',
-                key: uniqid(),
                 to: '/guarantee'
             },
             {
                 label: 'topics',
-                key: uniqid(),
                 to: '/topics'
             },
             {
                 label: 'education',
-                key: uniqid(),
                 to: '/education'
             }
         ];
@@ -45,7 +42,7 @@ class DesktopNav extends React.Component {
                             </div>
                             <div className="row">
                                 {links.map(route => (
-                                    <div className="col-xs" key={route.key}>
+                                    <div className="col-xs" key={route.label}>
                                         <Link to={route.to}>
                                             {route.label}
                                         </Link>

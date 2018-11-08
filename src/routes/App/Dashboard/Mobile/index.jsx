@@ -30,4 +30,4 @@ function DashboardMobile() {
     );
 }
 
-export default React.memo(DashboardMobile);
+export default DashboardMobile;

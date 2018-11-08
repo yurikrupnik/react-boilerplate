@@ -8,4 +8,4 @@ const DiamondsDesktop = () => (
     </div>
 );
 
-export default React.memo(DiamondsDesktop);
+export default DiamondsDesktop;

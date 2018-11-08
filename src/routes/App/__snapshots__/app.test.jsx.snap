@@ -1,3 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders <App /> component 1`] = `null`;
+exports[`renders <App /> component 1`] = `
+<StaticRouter
+  basename=""
+  context={Object {}}
+  location="/"
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <App
+      staticContext={Object {}}
+      userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+    >
+      <Route
+        render={[Function]}
+      >
+        <DeviceProvider
+          theme={
+            Object {
+              "breakpoints": Object {
+                "desktop": "1024px",
+                "phone": "640px",
+                "tablet": "768px",
+              },
+              "button": Object {
+                "background": "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+                "border": 0,
+                "borderRadius": 3,
+                "boxShadow": "0 3px 5px 2px rgba(255, 105, 135, .3)",
+                "color": "white",
+                "height": 48,
+                "padding": "0 30px",
+                "primary": "blue",
+              },
+              "colors": Object {
+                "danger": "#e94b35",
+                "desktop": "#303030",
+                "error": "#e94b35",
+                "mobile": "#656565",
+                "primary": "#ff8080",
+                "secondary": "#7F8FA4",
+                "success": "#1fce6d",
+                "warning": "#f2c500",
+              },
+              "typography": Object {
+                "families": Object {
+                  "primary": "'Nunito Sans', sans-serif",
+                  "secondary": "'Playfair Display', serif",
+                },
+                "font": "'Nunito Sans', sans-serif",
+                "fontSize": "13px",
+                "text": "1rem",
+                "title": "2rem",
+              },
+            }
+          }
+          userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+        >
+          <Providers
+            providers={
+              Array [
+                [Function],
+                [Function],
+                [Function],
+                [Function],
+                [Function],
+              ]
+            }
+          >
+            <UsersProvider
+              initData={Array []}
+            >
+              <ProjectsProvider>
+                <CurrencyProvider
+                  initData={Array []}
+                >
+                  <ThemesProvider>
+                    <LoadableComponent>
+                      <Loading
+                        error={null}
+                        isLoading={true}
+                        pastDelay={false}
+                        retry={[Function]}
+                        timedOut={false}
+                      />
+                    </LoadableComponent>
+                  </ThemesProvider>
+                </CurrencyProvider>
+              </ProjectsProvider>
+            </UsersProvider>
+          </Providers>
+        </DeviceProvider>
+      </Route>
+    </App>
+  </Router>
+</StaticRouter>
+`;

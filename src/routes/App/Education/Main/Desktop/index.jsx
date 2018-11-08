@@ -26,4 +26,4 @@ const MainDesktop = (props) => {
 //     })).isRequired
 // };
 
-export default React.memo(MainDesktop);
+export default MainDesktop;
