@@ -7,6 +7,59 @@ import stylesGeneral from './general.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
 
+const looseDiamondsGallery = [
+    {
+        name: 'round',
+        alt: 'round',
+        sub: 'Maximizes light return from the top of the stone'
+    },
+    {
+        name: 'princess',
+        alt: 'princess',
+        sub: 'Maximum brilliance in an exquisite square form'
+    },
+    {
+        name: 'emerald',
+        alt: 'emerald',
+        sub: 'Long lines create an elegant and sophisticated look'
+    },
+    {
+        name: 'asscher',
+        alt: 'asscher',
+        sub: 'Vintage-style square shape with cropped corners'
+    },
+    {
+        name: 'oval',
+        alt: 'oval',
+        sub: 'Elongated shape accentuates the length of the finger'
+    },
+    {
+        name: 'radiant',
+        alr: 'radiant',
+        sub: 'Brilliance combined with non-traditional cropped corners'
+    },
+    {
+        name: 'pear',
+        alt: 'pear',
+        sub: 'Tradition meets brilliance in unique ‘water drop’ shape'
+    },
+    {
+        name: 'heart',
+        alt: 'heart',
+        sub: 'Features a distinctive cleft at the top and superior brilliance'
+    },
+    {
+        name: 'marquise',
+        alt: 'marquise',
+        sub: 'Long, narrow surface makes it appear larger than life'
+    },
+    {
+        name: 'cushion',
+        alt: 'cushion',
+        sub: 'Antique cut with 58 facets and rounded corners'
+    }
+];
+
 const bestSellersGallery = [
     {
         src: 'Channel-Set-Engagement-Ring',
@@ -149,6 +202,8 @@ class PrevArrow extends React.Component {
     }
 }
 
+let slider1 = null;
+
 class Desktop extends React.Component {
     constructor(props) {
         super(props);
@@ -167,8 +222,8 @@ class Desktop extends React.Component {
         // this.isTouch = !~document.body.className.indexOf('Notouch');
         this.refs.bestSellersHeader.innerText = bestSellersGallery[0].name;
         this.refs.bestSellersSub.innerText = bestSellersGallery[0].sub;
-        // this.refs.looseDiamondsHeader.innerText = this.looseDiamondsGallery[0].name;
-        // this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[0].sub;
+        this.refs.looseDiamondsHeader.innerText = looseDiamondsGallery[0].name;
+        this.refs.looseDiamondsSub.innerText = looseDiamondsGallery[0].sub;
         global.window.addEventListener('scroll', this.handleScroll);
         // this.makeSmooth();
     }
@@ -287,60 +342,10 @@ class Desktop extends React.Component {
         });
     }
 
-    // get looseDiamondsGallery() {
-    //     return [
-    //         {
-    //             name: 'round',
-    //             alt: 'round',
-    //             sub: 'Maximizes light return from the top of the stone'
-    //         },
-    //         {
-    //             name: 'princess',
-    //             alt: 'princess',
-    //             sub: 'Maximum brilliance in an exquisite square form'
-    //         },
-    //         {
-    //             name: 'emerald',
-    //             alt: 'emerald',
-    //             sub: 'Long lines create an elegant and sophisticated look'
-    //         },
-    //         {
-    //             name: 'asscher',
-    //             alt: 'asscher',
-    //             sub: 'Vintage-style square shape with cropped corners'
-    //         },
-    //         {
-    //             name: 'oval',
-    //             alt: 'oval',
-    //             sub: 'Elongated shape accentuates the length of the finger'
-    //         },
-    //         {
-    //             name: 'radiant',
-    //             alr: 'radiant',
-    //             sub: 'Brilliance combined with non-traditional cropped corners'
-    //         },
-    //         {
-    //             name: 'pear',
-    //             alt: 'pear',
-    //             sub: 'Tradition meets brilliance in unique ‘water drop’ shape'
-    //         },
-    //         {
-    //             name: 'heart',
-    //             alt: 'heart',
-    //             sub: 'Features a distinctive cleft at the top and superior brilliance'
-    //         },
-    //         {
-    //             name: 'marquise',
-    //             alt: 'marquise',
-    //             sub: 'Long, narrow surface makes it appear larger than life'
-    //         },
-    //         {
-    //             name: 'cushion',
-    //             alt: 'cushion',
-    //             sub: 'Antique cut with 58 facets and rounded corners'
-    //         }
-    //     ];
-    // }
+    storeSliderRef(c) {
+        slider1 = c;
+        console.log(slider1);
+    }
 
     render() {
         const settings = {
@@ -363,29 +368,13 @@ class Desktop extends React.Component {
             },
             className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`,
         }, settings);
-
-        // const looseDiamondsSettings = Object.assign({
-        //     beforeChange: (i, next) => {
-        //         this.refs.looseDiamondsHeader.innerText = `${this.looseDiamondsGallery[next].name}`;
-        //         this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[next].sub;
-        //     },
-        //     className: `${stylesSlick['homepage-slick']} ${stylesSlick['diamond-slick']}`,
-        // }, settings);
-
-        // const looseDiamonds = this.looseDiamondsGallery.map((item, i) => <span key={i} span>
-        //           <LoadLink title={item.alt} href={`/loose-diamonds/${item.name}-${item.name == 'pear' || item.name == 'heart' ? 'shaped' : 'cut'}/`} data-container="#WidePane" data-gtm-name="diamond revolution">
-        //             <span>
-        //                 {lazyLoadHomepage &&
-        //                 <LazyLoad height={171}>
-        //                     <img styleName="slickImg" src={`https://ion.r2net.com/images/amazingHomepage/diamonds/${item.name}-Diamond.png?v=5`} alt=""/>
-        //                 </LazyLoad>}
-        //                 {!lazyLoadHomepage &&
-        //                 <img styleName="slickImg" src={`https://ion.r2net.com/images/amazingHomepage/diamonds/${item.name}-Diamond.png?v=5`} alt=""/>
-        //                 }
-        //             </span>
-        //                             </LoadLink>
-        // </span>);
-
+        const looseDiamondsSettings = Object.assign({
+            beforeChange: (i, next) => {
+                this.refs.looseDiamondsHeader.innerText = `${this.looseDiamondsGallery[next].name}`;
+                this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[next].sub;
+            },
+            className: `${stylesSlick['homepage-slick']} ${stylesSlick['diamond-slick']}`,
+        }, settings);
         return (
             <div>
                 <TopBanner />
@@ -534,9 +523,9 @@ class Desktop extends React.Component {
                     </div>
                 </div>
                 {/* --------------------------- SLIDE IMAGES --------------------*/}
-                <SliderSlick ref={c => this.bestSellersSlider = c} {...bestSellersSettings}>
+                <SliderSlick ref={this.storeSliderRef} {...bestSellersSettings}>
                     {bestSellersGallery.map((item, i) => (
-                        <span key={i} span>
+                        <span key={i}>
                             <a href={item.href} data-container="#WidePane" data-gtm-name="best sellers" title={item.alt}>
                                 <span>
                                     <img
@@ -549,9 +538,9 @@ class Desktop extends React.Component {
                         </span>
                     ))}
                 </SliderSlick>
-
+                {/* --------------------------- SLIDE IMAGES - BUTTONS --------------------*/}
                 <div className={styles['mystic-text']}>
-                    <div className={styles['arrow-right']} onClick={() => this.bestSellersSlider.slickNext()} />
+                    <div className={styles['arrow-right']} onClick={() => slider1.slickNext()} />
                     <div
                         style={{
                             fontSize: '18px', fontWeight: 'bold', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)', textTransform: 'uppercase'
@@ -559,7 +548,454 @@ class Desktop extends React.Component {
                         ref="bestSellersHeader"
                     />
                     <div style={{ fontSize: '16px', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)' }} ref="bestSellersSub" />
-                    <div className={styles['arrow-left']} onClick={() => this.bestSellersSlider.slickPrev()} />
+                    <div className={styles['arrow-left']} onClick={() => slider1.slickPrev()} />
+                </div>
+                {/* -----------------------------------------------*/}
+                <div className={styles['bottom-section']} ref="bottomSection">
+                    <div className={styles['bottom-left-bg-container']}>
+                        <div ref="sparkleBg" className={styles['sparkle-bg']} />
+                        <div className={styles['bottom-left-bg']} />
+                    </div>
+                    <div className={stylesGeneral.wideContent} data-gtm-name="diamond inspection">
+                        <div className={stylesGeneral['table-align']}>
+                            <div style={{ width: '50%' }} />
+                            <div className={styles['diamond-inspection-container']}>
+                                <div className={styles['diamond-inspection']}>
+                                    <div className={styles['title-pack']}>
+                                        <div>REAL-TIME INTERACTIVE</div>
+                                        <div>DIAMOND INSPECTION</div>
+                                        <div className={styles['sub-title']}>
+                                            Take a closer look at your favorite diamonds using our
+                                            Real-Time Diamond Inspection service; a one-on-one
+                                            consultation with a non-commissioned certified
+                                            gemologist. Share your
+                                            screen and get expert guidance as you
+                                            {' '}
+                                            <b>
+explore
+                                            diamonds in 360° HD
+                                            </b>
+                                            {' '}
+with up to 40x magnification.
+                                            Mark points of interest on the screen while chatting
+                                            with your diamond expert in
+                                            real time, and review everything from the specs to the
+                                            grading certificate together.
+                                        </div>
+                                    </div>
+                                    <div style={{ fontSize: '17px', fontFamily: 'NunitoSans', color: 'rgb(27, 27, 27)' }}>
+                                        <div style={{ fontWeight: 'bold' }} className={styles['pink-bg']}>
+                                            <a href="/diamond-consultation/" data-container="#WidePane">
+                                                START YOUR DIAMOND INSPECTION NOW
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* -----------------------------------------------*/}
+                <div style={{ margin: '100px 0px 60px 0' }} className={`${styles['title-pack']} ${styles.center}`}>
+                    <div>EXPERIENCE THE</div>
+                    <div>DIAMOND REVOLUTION</div>
+                    <div className={styles['sub-title']}>
+                        Spin actual diamonds in 360° HD and zoom in up to 40x. One of the world's
+                        biggest collections of loose diamonds, at your fingertips.
+                    </div>
+                </div>
+
+                {/* ------------------looseDiamonds slider----------------------*/}
+                <SliderSlick ref={c => this.looseDiamondsSlider = c} {...looseDiamondsSettings}>
+                    {looseDiamondsGallery.map((item, i) => (
+                        <span key={i}>
+                            <a
+                                title={item.alt}
+                                href={`/loose-diamonds/${item.name}-${item.name === 'pear' || item.name === 'heart' ? 'shaped' : 'cut'}/`}
+                                data-container="#WidePane"
+                                data-gtm-name="diamond revolution"
+                            >
+                                <span>
+                                    <img
+                                        className={styles.slickImg}
+                                        src={`https://ion.r2net.com/images/amazingHomepage/diamonds/${item.name}-Diamond.png?v=5`}
+                                        alt=""
+                                    />
+                                </span>
+                            </a>
+                        </span>
+                    ))}
+                </SliderSlick>
+                {/* ------------------looseDiamonds slider buttons----------------------*/}
+                <div style={{ marginBottom: '80px' }} className={styles['mystic-text']}>
+                    <div className={styles['arrow-right']} onClick={() => this.looseDiamondsSlider.slickNext()} />
+                    <div style={{ fontSize: '18px', fontWeight: 'bold', textTransform: 'uppercase' }} ref="looseDiamondsHeader" />
+                    <div style={{ fontSize: '16px' }} ref="looseDiamondsSub" />
+                    <div className={styles['arrow-left']} onClick={() => this.looseDiamondsSlider.slickPrev()} />
+                </div>
+                {/* --------------------------------------*/}
+                <div className={`${styles['top-brown-text']} ${styles['design-own']}`}>
+                    <div>
+                        find your sparkle
+                    </div>
+                </div>
+                <div
+                    style={{
+                        backgroundColor: '#fbf8f3',
+                        marginBottom: '98px',
+                        backgroundPosition: 'top -38px left',
+                        position: 'relative',
+                        fontFamily: 'NunitoSans',
+                        color: 'rgb(27, 27, 27)'
+                    }}
+                >
+                    <div
+                        className={`${styles['title-pack']} ${styles.center}`}
+                        style={{ padding: '50px', width: '500px', margin: '0px auto' }}
+                    >
+                        <div />
+                        <div>the crowning jewels</div>
+                        <div className={styles['sub-title']}>
+                            Our diamond and gemstone fine jewelry collection offers hand-crafted
+                            pieces of unforgettable luxury that are perfect for any occasion.
+                        </div>
+                    </div>
+                    <div style={{ position: 'relative' }}>
+                        <div className={`${styles['text-bg']} ${styles['text-bg-1']}`}>
+                            eternity rings
+                        </div>
+                        <div className={`${styles['text-bg']} ${styles['text-bg-2']}`}>
+                            gemstone collection
+                        </div>
+                        <div className={`${styles['text-bg']} ${styles['text-bg-3']}`}>
+                            men's wedding
+                        </div>
+                        <div className={`${styles['text-bg']} ${styles['text-bg-4']}`}>
+                            diamond studs
+                        </div>
+                        <div className={`${stylesGeneral.wideContent} ${styles['floating-banners']}`} style={{ textAlign: 'center', padding: '300px 0 240px 0' }} data-gtm-name="floating banners">
+                            <div className={stylesGeneral.tableAlign}>
+                                <div className={styles['float-area']}>
+                                    <a href="/wedding-rings/womens-eternity/" data-container="#WidePane">
+                                        <span ref="parallax3" className={styles['float-white-box']} style={{ marginBottom: '100px' }}>
+                                            <h3 className={styles['float-header']}>eternity rings</h3>
+                                            <div className={styles['float-content']}>
+                                                The ultimate symbol of lifelong commitment,
+                                                eternity rings make for an ideal wedding or
+                                                anniversary ring, or can be worn alongside your
+                                                engagement ring.
+                                            </div>
+                                            <div className={styles['float-bottom']}>
+                                                <div className={styles['pink-bg']}>
+                                                    explore
+                                                </div>
+                                            </div>
+                                        </span>
+                                    </a>
+                                    <div ref="pink1" className={`${styles['pink-box']} ${styles['pink-box1']}`} />
+                                </div>
+                                <div />
+                            </div>
+                            <div className={`${stylesGeneral['table-align']} ${styles['images-align']}`} style={{ marginTop: '-380px' }}>
+                                <div>
+                                    <div className={styles['float-area']} style={{ marginTop: '400px' }}>
+                                        <a href="/wedding-rings/mens-classic/" data-container="#WidePane">
+                                            <span ref="parallax2" className={styles['float-white-box']} style={{ marginBottom: '200px' }}>
+                                                <h3 className={styles['float-header']}>
+                                                    Men's Wedding Rings
+                                                </h3>
+                                                <div className={styles['float-content']}>
+                                                    Match his style with the perfect wedding ring,
+                                                    be it traditional classic
+                                                    , rugged carved, elegant diamond, or funky
+                                                    alternative metal.
+                                                </div>
+                                                <div className={styles['float-bottom']}>
+                                                    <div className={styles['pink-bg']}>
+                                                        discover
+                                                    </div>
+                                                </div>
+                                            </span>
+                                        </a>
+                                        <div ref="pink3" className={`${styles['pink-box']} ${styles['pink-box3']}`} />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className={styles['float-area']} style={{ marginTop: '250px' }}>
+                                        <div ref="pink2" className={`${styles['pink-box']} ${styles['pink-box2']}`} />
+                                        <a href="/gemstones/blue-sapphire/" data-container="#WidePane">
+                                            <span ref="parallax1" className={styles['float-white-box']} style={{ marginBottom: '100px' }}>
+                                                <h3 className={styles['float-header']}>gemstone collection</h3>
+                                                <div className={styles['float-content']}>Kissed by the colors of nature, sapphire, ruby, and emerald jewelry makes for a stunningly exotic look.</div>
+                                                <div className={styles['float-bottom']}>
+                                                    <div className={styles['pink-bg']}>
+                                                        Browse
+                                                    </div>
+                                                </div>
+                                            </span>
+
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <div className={styles['float-area']} style={{ marginTop: '400px' }}>
+                                            <a href="/fine-jewelry/design-your-own-studs/" data-container="#WidePane">
+                                                <span ref="parallax4" className={styles['float-white-box']} style={{ marginBottom: '50px' }}>
+                                                    <h3 className={styles['float-header']}>diamond studs</h3>
+                                                    <div className={styles['float-content']}>
+                                                       The perfect gift for any occasion, these
+                                                        handcrafted preset diamond studs make a bold
+                                                        yet elegant statement.
+                                                    </div>
+                                                    <div className={styles['float-bottom']}>
+                                                        <div className={styles['pink-bg']}>browse</div>
+                                                    </div>
+                                                </span>
+                                            </a>
+                                            <div ref="pink4" className={`${styles['pink-box']} ${styles['pink-box4']}`} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* --------------------------------------*/}
+                <div className={`${styles['title-pack']} ${styles.center}`} style={{ marginBottom: '98px' }}>
+                    <div>your personal</div>
+                    <div>diamond concierge awaits...</div>
+                </div>
+                <div className={stylesGeneral.wideContent} style={{ marginBottom: '105px' }}>
+                    <JustifyAlign className={styles['as-container']} data-gtm-name="diamond concierge">
+                        <div className={styles['as-content']} style={{ backgroundColor: '#f0e2da', paddingRight: '33px' }}>
+                            <div className={`${styles.Costumer_Brake} ${styles['img-bg']}`} />
+                            <div className={styles['as-text']} style={{ borderLeft: 'none' }}>
+                                <div style={{ textAlign: 'right' }}>
+                                    <div style={{ fontSize: '25px', lineHeight: '30px' }}>
+                                        VISIT OUR FIFTH AVENUE,
+                                    </div>
+                                    <div style={{ fontSize: '32px', marginBottom: '30px', fontWeight: 'bold' }}>
+                                        NYC SHOWROOM
+                                    </div>
+                                    <div style={{ fontSize: '15px', marginBottom: '30px' }}>
+                                        Stop by our ‘sanctuary of sparkle’ on Fifth Avenue for a
+                                        truly immersive 3D experience. Our NYC showroom is
+                                        <i>the</i>
+                                        {' '}
+place to view diamond rings and fine jewelry up
+                                        close,
+                                        and
+                                        try on
+                                        actual products -
+                                        <b>by appointment only</b>
+.
+                                    </div>
+                                    <div className={styles['pink-bg']} style={{ fontSize: '16px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+                                        <a href="/showroom/" data-container="#WidePane">
+                                            SCHEDULE APPOINTMENT
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles['as-content']} style={{ backgroundColor: '#fae4cb', paddingLeft: '33px' }}>
+                            <div className={styles['as-text']} style={{ borderRight: 'none' }}>
+                                <div>
+                                    <div style={{ fontSize: '25px', lineHeight: '30px' }}>
+                                        WORLD-CLASS
+                                    </div>
+                                    <div style={{ fontSize: '32px', marginBottom: '30px', fontWeight: 'bold' }}>
+                                        CUSTOMER SERVICE
+                                    </div>
+                                    <div style={{ fontSize: '15px', marginBottom: '30px' }}>
+                                        James Allen’s team of non-commissioned certified gemologists
+                                        is available 24/7 via live chat, phone, and email to help
+                                        you choose the product that’s right for you.
+                                    </div>
+                                    <div className={styles['pink-bg']} style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                        <a href="/guarantee/customer-service/" data-container="#WidePane">
+                                            CONTACT US
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles['img-bg']} />
+                        </div>
+                    </JustifyAlign>
+                </div>
+                {/* --------------------------------------*/}
+                <div className={styles['pics-or']}>
+                    <div className={styles['meet-bg-container']}>
+                        <div className={styles['meet-bg']}>
+                            <div
+                                className={styles['separator-container']}
+                                style={{ margin: '0 auto', position: 'relative', bottom: '29px' }}
+                            >
+                                <div className={styles.separator} style={{ backgroundColor: '#f9f3ec' }} />
+                                <div className={styles.separator} style={{ backgroundColor: '#fff' }} />
+                            </div>
+                        </div>
+                        <div className={styles['title-pack']}>
+                            <div />
+                            <div>
+                                Pics or It Didn’t Happen!
+                            </div>
+                            <div className={styles['sub-title']}>
+                                View our customers’ engagement moments from around the world
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className={stylesGeneral.wideContent}>
+                    <div className={styles.moments} data-gtm-name="engagement moments">
+                        <div>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=165"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/a_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=59"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/b_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=157"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/c_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=163"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/d_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=161"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/e_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                        <div>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=55"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/f_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+
+                        <div className={styles['collage-middle']}>
+                            <div>
+                                <a
+                                    href="/engagement-moments/?EngagementMomentID=470"
+                                    data-container="#EngagementMomentsItemPreview"
+                                >
+                                    <img
+                                        src="https://ion.r2net.com/images/amazingHomepage/g_engage.png"
+                                        alt=""
+                                    />
+                                </a>
+                            </div>
+                            <div>
+                                <a
+                                    href="/engagement-moments/?EngagementMomentID=464"
+                                    data-container="#EngagementMomentsItemPreview"
+                                >
+                                    <img
+                                        src="https://ion.r2net.com/images/amazingHomepage/j_engage.png"
+                                        alt=""
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                        <div className={styles['collage-middle']}>
+                            <div>
+                                <a
+                                    href="/engagement-moments/?EngagementMomentID=408"
+                                    data-container="#EngagementMomentsItemPreview"
+                                >
+                                    <img
+                                        src="https://ion.r2net.com/images/amazingHomepage/h_engage.png"
+                                        alt=""
+                                    />
+                                </a>
+                            </div>
+                            <div>
+                                <a
+                                    href="/engagement-moments/?EngagementMomentID=188"
+                                    data-container="#EngagementMomentsItemPreview"
+                                >
+                                    <img
+                                        src="https://ion.r2net.com/images/amazingHomepage/k_engage.png"
+                                        alt=""
+                                    />
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div className={styles['collage-double']}>
+                            <a
+                                href="/engagement-moments/?EngagementMomentID=183"
+                                data-container="#EngagementMomentsItemPreview"
+                            >
+                                <img
+                                    src="https://ion.r2net.com/images/amazingHomepage/i_engage.png"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div
+                        data-gtm-name="engagement moments"
+                        className={styles['start-button']}
+                        style={{
+                            width: '225px',
+                            margin: '42px auto',
+                            textAlign: 'center',
+                            fontSize: '18px',
+                            display: 'block'
+                        }}
+                    >
+                        <a
+                            style={{ padding: '15px 27px', fontFamily: 'NunitoSans' }}
+                            href="/engagement-moments/"
+                            data-container="#WidePane"
+                        >
+                            READ THE STORIES
+                        </a>
+                    </div>
                 </div>
             </div>
         );

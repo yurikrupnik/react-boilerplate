@@ -63,15 +63,23 @@
 .img-bg {
   width: 43%;
   height: 100%;
-}
-
-.scroll-started .img-bg {
   background-image: url('https://ion.r2net.com/images/amazingHomepage/Showroom.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.scroll-started .img-bg.Costumer_Brake {
+//.scroll-started .img-bg {
+//  background-image: url('https://ion.r2net.com/images/amazingHomepage/Showroom.jpg');
+//  background-size: cover;
+//  background-repeat: no-repeat;
+//}
+
+//.scroll-started .img-bg.Costumer_Brake {
+//  background-image: url('https://ion.r2net.com/images/amazingHomepage/Costumer_Brake.jpg?v=1');
+//  background-position: right -72px top 0;
+//}
+
+.img-bg.Costumer_Brake {
   background-image: url('https://ion.r2net.com/images/amazingHomepage/Costumer_Brake.jpg?v=1');
   background-position: right -72px top 0;
 }
@@ -112,6 +120,7 @@
 
 .bottom-section {
   transition: background-position .1s ease-out;
+  position: relative;
 }
 
 .start-with-container, .stoneSprite {
@@ -124,6 +133,10 @@
   height: 266px;
   background-position: left top 0;
   /* transition: top 1s ease-out;*/
+}
+
+a{
+  color: black !important;
 }
 
 .newhomepage {
@@ -318,6 +331,7 @@
 .pink-box1 {
   width: 637px;
   height: 477px;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Eternity-Rings.jpg');
 }
 
 .scroll-started .pink-box1 {
@@ -327,6 +341,7 @@
 .pink-box2 {
   width: 540px;
   height: 644px;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Gemstone-Rings.jpg');
 }
 
 .scroll-started .pink-box2 {
@@ -336,6 +351,7 @@
 .pink-box3 {
   width: 541px;
   height: 621px;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/Men-Wedding-Rings.jpg');
 }
 
 .scroll-started .pink-box3 {
@@ -345,6 +361,7 @@
 .pink-box4 {
   width: 691px;
   height: 431px;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/image4.jpg?v=10');
 }
 
 .scroll-started .pink-box4 {
@@ -664,10 +681,12 @@
   z-index: 1;
   left: 400px;
   top: 200px;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1');
+  background-repeat: no-repeat;
 }
 
 .scroll-started .sparkle-bg {
-  background-image: url(https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1);
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1');
   background-repeat: no-repeat;
 }
 
@@ -675,10 +694,13 @@
   position: relative;
   padding: 243px 0;
   background-color: #fdfdfa;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
+  background-repeat: no-repeat;
+  background-position: right 70px top 100px, 0 117px;
 }
 
 .scroll-started .bottom-section {
-  background-image: url(https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1), url(https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5);
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
   background-repeat: no-repeat;
   background-position: right 70px top 100px, 0 117px;
 }
@@ -693,10 +715,12 @@
   position: absolute;
   width: 100%;
   top: 0;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5');
+  background-repeat: no-repeat;
 }
 
 .scroll-started .bottom-left-bg {
-  background-image: url(https://ion.r2net.com/images/amazingHomepage/twy.png?v=5);
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5');
   background-repeat: no-repeat;
 }
 
