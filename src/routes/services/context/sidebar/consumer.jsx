@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer/SwipeableDrawer';
+import MenuList from '@material-ui/core/MenuList/MenuList';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { Consumer } from './context';
-// import Drawer from '../../../../components/Drawer';
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer/SwipeableDrawer";
-import MenuList from "@material-ui/core/MenuList/MenuList";
-import Button from "@material-ui/core/Button/Button";
 
 const SidebarDrawer = (props) => {
     const { render, open, toggle } = props;
@@ -36,6 +35,11 @@ SidebarDrawer.propTypes = {
     render: PropTypes.func
 };
 
+const theme = createMuiTheme({
+    typography: {
+        useNextVariants: true,
+    }
+});
 
 function SidebarConsumer({ render }) {
     return (
@@ -45,7 +49,9 @@ function SidebarConsumer({ render }) {
                     return render(props);
                 }
                 return (
-                    <SidebarDrawer {...props} />
+                    <MuiThemeProvider theme={theme}>
+                        <SidebarDrawer {...props} />
+                    </MuiThemeProvider>
                 );
             }}
         </Consumer>
