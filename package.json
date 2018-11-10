@@ -26,7 +26,8 @@
     "debug:server": "webpack --env.debug --config webpack.config.server.js -w",
     "debug:client": "webpack --env.debug --config webpack.config.client.js -w",
     "debug": "npm run debug:server & npm run debug:client",
-    "dist": "npm run build && cd dist && npm start"
+    "dist": "npm run build && cd dist && npm start",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "repository": {
     "type": "git",
@@ -76,6 +77,7 @@
     "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^4.0.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.2",

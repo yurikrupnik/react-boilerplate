@@ -4,14 +4,8 @@ exports[`Device context defualt props 1`] = `
 <ContextProvider
   value={
     Object {
-      "browser": "",
-      "engine": "Webkit",
       "isMobile": [Function],
-      "os": "Windows",
       "toggle": [Function],
-      "type": "Desktop",
-      "userAgent": "Mozilla/5.0 (darwin) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0",
-      "version": "5.0",
     }
   }
 >
@@ -35,14 +29,8 @@ exports[`Device context render provider 1`] = `
 <ContextProvider
   value={
     Object {
-      "browser": "",
-      "engine": "Webkit",
       "isMobile": [Function],
-      "os": "Windows",
       "toggle": [Function],
-      "type": "Desktop",
-      "userAgent": "Mozilla/5.0 (darwin) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0",
-      "version": "5.0",
     }
   }
 >

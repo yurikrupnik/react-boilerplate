@@ -14,11 +14,12 @@ class CurrencyProvider extends Component {
         this.state = {
             data: props.initData,
             loading: false,
-            selected: null,
+            selected: '',
             lastFetch: ''
         };
         this.fetch = this.fetch.bind(this);
         this.toggleCallback = this.toggleCallback.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     fetch(params, cb) {
@@ -30,7 +31,8 @@ class CurrencyProvider extends Component {
             .then((data) => {
                 this.setState(prevState => ({
                     data,
-                    loading: !prevState.loading
+                    loading: !prevState.loading,
+                    selected: data[0].DisplaySymbol
                 }), cb);
             })
             .catch((error) => {
@@ -41,12 +43,19 @@ class CurrencyProvider extends Component {
             });
     }
 
+    handleChange(event) {
+        const { target } = event;
+        const { value } = target;
+        this.setState({ selected: value });
+    }
+
     render() {
         const { children } = this.props;
         return (
             <Provider value={{
                 ...this.state,
-                fetch: this.fetch
+                fetch: this.fetch,
+                handleChange: this.handleChange
             }}
             >
                 {children}

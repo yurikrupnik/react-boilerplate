@@ -1,22 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import uniqid from 'uniqid';
-// import Top from './Top';
 import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Consumer from '../../../../api/currency/context/consumer';
+import Top from './Top';
 
 class DesktopNav extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            age: '',
-            name: 'hai',
-            labelWidth: 0,
-        };
-
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -43,30 +36,28 @@ class DesktopNav extends React.Component {
         return (
             <div>
                 <Consumer render={(p) => {
-                    console.log('p', p);
                     return (
                         <div>
                             header deskotp
-                            <FormControl >
-                                <InputLabel htmlFor="age-simple">Age</InputLabel>
+                            <Top routes={[]} />
+                            <FormControl>
                                 <Select
-                                    value={this.state.age}
-                                    onChange={this.handleChange}
-                                    inputProps={{
-                                        name: 'age',
-                                        id: 'age-simple',
-                                    }}
+                                    value={p.selected}
+                                    onChange={p.handleChange}
                                 >
 
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
+                                    {
+                                        p.data.map(a => (
+                                            <MenuItem
+                                                key={a.CurrencyCode}
+                                                value={a.CurrencyCode}
+                                            >
+                                                {a.CurrencyCode}
+                                            </MenuItem>
+                                        ))
+                                    }
                                 </Select>
                             </FormControl>
-                            {/*<Top routes={[]} />*/}
                             <div>
                                 {p.data.map(v => (
                                     <div key={v.CurrencyCode}>

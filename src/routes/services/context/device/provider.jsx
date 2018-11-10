@@ -10,7 +10,9 @@ class DeviceProvider extends Component {
 
     constructor(props) {
         super(props);
-        this.state = parse(props.userAgent);
+        this.state = {
+            type: parse(props.userAgent).type
+        };
         this.isMobile = this.isMobile.bind(this);
         this.toggle = this.toggle.bind(this);
     }
@@ -26,7 +28,8 @@ class DeviceProvider extends Component {
     }
 
     componentDidUpdate(nextProp, nextState) {
-        if (nextState.type !== this.state.type) {
+        const { type } = this.state;
+        if (nextState.type !== type) {
             if (this.isMobile()) {
                 this.setMobile();
             } else {
@@ -52,7 +55,6 @@ class DeviceProvider extends Component {
         const { children } = this.props;
         return (
             <Provider value={{
-                ...this.state,
                 isMobile: this.isMobile,
                 toggle: this.toggle
             }}
