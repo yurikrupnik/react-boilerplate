@@ -58,22 +58,22 @@
   background-color: rgba(161, 177, 194, 0.36);
 }
 
-.homepage-slick :global .slick-slide {
+.homepage-slick .slick-slide {
   transition: transform 0.5s;
   text-align: center;
 }
 
-.homepage-slick :global .slick-track {
+.homepage-slick .slick-track {
   height: 100%;
 }
 
-.homepage-slick :global .slick-slide a {
+.homepage-slick  .slick-slide a {
   display: block;
   text-align: center;
   height: 100%;
 }
 
-.homepage-slick :global .slick-slide span {
+.homepage-slick .slick-slide span {
   display: inline-block;
   position: relative;
   left: 1px;
@@ -81,7 +81,7 @@
   height: 100%;
 }
 
-.homepage-slick :global .slick-slide img {
+.homepage-slick .slick-slide img {
   transition: all .3s;
   width: 273px;
   display: inline-block;
@@ -90,68 +90,68 @@
   transform: translate(-50%, 0);
 }
 
-.diamond-slick :global .slick-slide img {
+.diamond-slick .slick-slide img {
   top: 35px;
 }
 
-.ring-slick :global .slick-slide img {
+.ring-slick  .slick-slide img {
   top: 54px;
 }
 
 
-.homepage-slick :global .slick-list {
+.homepage-slick  .slick-list {
   box-sizing: border-box;
 }
 
-.homepage-slick :global .slick-center {
+.homepage-slick .slick-center {
   margin: 0 0;
   z-index: 1;
   position: relative;
 }
 
-.diamond-slick :global .slick-center img {
+.diamond-slick  .slick-center img {
   width: 480px;
   top: 0;
 }
 
-.ring-slick :global .slick-slide img {
+.ring-slick  .slick-slide img {
   width: 390px;
 }
 
-.ring-slick :global .slick-center img {
+.ring-slick  .slick-center img {
   width: 600px;
   top: 0;
 }
 
-.diamond-slick :global .slick-list {
+.diamond-slick  .slick-list {
   height: 300px;
 }
 
-.ring-slick :global .slick-list {
+.ring-slick  .slick-list {
   height: 431px;
 }
 
-.homepage-slick :global .slick-arrow {
+.homepage-slick  .slick-arrow {
   display: none !important;
 }
 
-.ring-slick :global .slick-slide {
+.ring-slick  .slick-slide {
   position: relative;
   transition: right .3s;
 }
 
-.ring-slick :global .slick-slide:not(.slick-center) {
+.ring-slick  .slick-slide:not(.slick-center) {
   right: 40px;
 }
 
-.ring-slick :global .slick-center + span.slick-slide {
+.ring-slick  .slick-center + span.slick-slide {
   right: -40px;
 }
 
-.ring-slick :global .slick-center + span.slick-slide + span.slick-slide {
+.ring-slick  .slick-center + span.slick-slide + span.slick-slide {
   right: -40px;
 }
 
-.ring-slick :global .slick-center + span.slick-slide + span.slick-slide + span.slick-slide {
+.ring-slick  .slick-center + span.slick-slide + span.slick-slide + span.slick-slide {
   right: -40px;
 }

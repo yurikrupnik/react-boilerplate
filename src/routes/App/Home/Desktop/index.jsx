@@ -1,6 +1,5 @@
 /* eslint-disable react/no-string-refs,react/no-array-index-key */
 import React from 'react';
-import SliderSlick from 'react-slick';
 import styles from './styles.scss';
 import stylesSlick from './slick.scss';
 import stylesGeneral from './general.scss';
@@ -156,6 +155,34 @@ const bestSellersGallery = [
     }
 ];
 
+const collageData =[
+    {
+        href:'/engagement-moments/?EngagementMomentID=165',
+        imgSrc: 'https://ion.r2net.com/images/amazingHomepage/a_engage.png',
+        imgAlt:'',
+    }, {
+        href:'/engagement-moments/?EngagementMomentID=59',
+        imgSrc: 'https://ion.r2net.com/images/amazingHomepage/b_engage.png',
+        imgAlt:'',
+    }, {
+        href:'/engagement-moments/?EngagementMomentID=157',
+        imgSrc: 'https://ion.r2net.com/images/amazingHomepage/c_engage.png',
+        imgAlt:'',
+    },{
+        href:'/engagement-moments/?EngagementMomentID=163',
+        imgSrc: 'https://ion.r2net.com/images/amazingHomepage/d_engage.png',
+        imgAlt:'',
+    },{
+        href:'/engagement-moments/?EngagementMomentID=161',
+        imgSrc: 'https://ion.r2net.com/images/amazingHomepage/e_engage.png',
+        imgAlt:'',
+    },{
+        href:'/engagement-moments/?EngagementMomentID=55',
+        imgSrc: 'https://ion.r2net.com/images/amazingHomepage/f_engage.png',
+        imgAlt:'',
+    }
+];
+
 const imgsData = [
     {
         text: 'designer \n collections',
@@ -178,34 +205,6 @@ const iconsData = [
     'FeaturedIn', 'Forbes', 'BuzzFeed', 'EliteDaily', 'LaurenConrad', 'Maxim', 'Refinery29', 'Popsugar', 'UsWeekly', 'TheKnot'
 ];
 
-class NextArrow extends React.Component {
-    render() {
-        return (
-            <div
-                {...this.props}
-                className={stylesSlick['next-carousel-button']}
-            >
-            &#xe626;
-            </div>
-        );
-    }
-}
-
-class PrevArrow extends React.Component {
-    render() {
-        return (
-            <div
-                {...this.props}
-                className={stylesSlick['prev-carousel-button']}
-            >
-            &#xe625;
-            </div>
-        );
-    }
-}
-
-let slider1 = null;
-
 class Desktop extends React.Component {
     constructor(props) {
         super(props);
@@ -213,7 +212,6 @@ class Desktop extends React.Component {
         // this.state = {
         //     videoSrc: undefined
         // };
-        this.state = {};
         this.handleScroll = this.handleScroll.bind(this);
     }
 
@@ -344,39 +342,7 @@ class Desktop extends React.Component {
         });
     }
 
-    // storeSliderRef(c) {
-    //     slider1 = c;
-    //     console.log(slider1);
-    // }
-
     render() {
-        // const settings = {
-        //     dots: false,
-        //     infinite: true,
-        //     slidesToShow: 5,
-        //     slidesToScroll: 1,
-        //     centerMode: true,
-        //     draggable: this.isTouch,
-        //     responsive: [{ breakpoint: 1600, settings: { slidesToShow: 4.31 } },
-        //         { breakpoint: 1300, settings: { slidesToShow: 3 } }],
-        //     nextArrow: <NextArrow />,
-        //     prevArrow: <PrevArrow />,
-        //     centerPadding: '-100px'
-        // };
-        // const bestSellersSettings = Object.assign({
-        //     beforeChange: (i, next) => {
-        //         this.refs.bestSellersHeader.innerText = this.bestSellersGallery[next].name;
-        //         this.refs.bestSellersSub.innerText = this.bestSellersGallery[next].sub;
-        //     },
-        //     className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`,
-        // }, settings);
-        // const looseDiamondsSettings = Object.assign({
-        //     beforeChange: (i, next) => {
-        //         this.refs.looseDiamondsHeader.innerText = `${this.looseDiamondsGallery[next].name}`;
-        //         this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[next].sub;
-        //     },
-        //     className: `${stylesSlick['homepage-slick']} ${stylesSlick['diamond-slick']}`,
-        // }, settings);
         return (
             <div>
                 <TopBanner />
@@ -525,35 +491,7 @@ class Desktop extends React.Component {
                     </div>
                 </div>
                 {/* -------------------------- SLIDE IMAGES --------------------*/}
-                {/*<SliderSlick ref={this.storeSliderRef} {...bestSellersSettings}>*/}
-                    {/*{bestSellersGallery.map((item, i) => (*/}
-                        {/*<span key={i}>*/}
-                            {/*<a href={item.href} data-container="#WidePane" data-gtm-name="best sellers" title={item.alt}>*/}
-                                {/*<span>*/}
-                                    {/*<img*/}
-                                        {/*className={styles.slickImg}*/}
-                                        {/*src={`https://ion.r2net.com/images/amazingHomepage/rings/${item.src}.png?v=8`}*/}
-                                        {/*alt=""*/}
-                                    {/*/>*/}
-                                {/*</span>*/}
-                            {/*</a>*/}
-                        {/*</span>*/}
-                    {/*))}*/}
-                {/*</SliderSlick>*/}
-
                 <HomeSlider imgsData={bestSellersGallery}/>
-                {/* --------------------------- SLIDE IMAGES - BUTTONS --------------------*/}
-                {/*<div className={styles['mystic-text']}>*/}
-                    {/*/!*<div className={styles['arrow-right']} onClick={() => slider1.slickNext()} />*!/*/}
-                    {/*<div*/}
-                        {/*style={{*/}
-                            {/*fontSize: '18px', fontWeight: 'bold', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)', textTransform: 'uppercase'*/}
-                        {/*}}*/}
-                        {/*ref="bestSellersHeader"*/}
-                    {/*/>*/}
-                    {/*<div style={{ fontSize: '16px', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)' }} ref="bestSellersSub" />*/}
-                    {/*/!*<div className={styles['arrow-left']} onClick={() => slider1.slickPrev()} />*!/*/}
-                {/*</div>*/}
                 {/* -----------------------------------------------*/}
                 <div className={styles['bottom-section']} ref="bottomSection">
                     <div className={styles['bottom-left-bg-container']}>
@@ -610,6 +548,7 @@ with up to 40x magnification.
                 </div>
 
                 {/* ------------------looseDiamonds slider----------------------*/}
+
                 {/*<SliderSlick ref={c => this.looseDiamondsSlider = c} {...looseDiamondsSettings}>*/}
                     {/*{looseDiamondsGallery.map((item, i) => (*/}
                         {/*<span key={i}>*/}
@@ -630,7 +569,7 @@ with up to 40x magnification.
                         {/*</span>*/}
                     {/*))}*/}
                 {/*</SliderSlick>*/}
-                {/* ------------------looseDiamonds slider buttons----------------------*/}
+                 ------------------looseDiamonds slider buttons----------------------
                 {/*<div style={{ marginBottom: '80px' }} className={styles['mystic-text']}>*/}
                     {/*<div className={styles['arrow-right']} onClick={() => this.looseDiamondsSlider.slickNext()} />*/}
                     {/*<div style={{ fontSize: '18px', fontWeight: 'bold', textTransform: 'uppercase' }} ref="looseDiamondsHeader" />*/}
@@ -852,72 +791,16 @@ place to view diamond rings and fine jewelry up
 
                 <div className={stylesGeneral.wideContent}>
                     <div className={styles.moments} data-gtm-name="engagement moments">
-                        <div>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=165"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/a_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=59"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/b_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=157"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/c_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=163"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/d_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=161"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/e_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                        <div>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=55"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/f_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
+                        {collageData.map(item=>(
+                            <div>
+                                <a
+                                    href={item.href}
+                                    data-container="#EngagementMomentsItemPreview"
+                                >
+                                    <img src={item.imgSrc} alt={item.imgAlt} />
+                                </a>
+                            </div>
+                        ))}
 
                         <div className={styles['collage-middle']}>
                             <div>
@@ -967,7 +850,6 @@ place to view diamond rings and fine jewelry up
                                 </a>
                             </div>
                         </div>
-
 
                         <div className={styles['collage-double']}>
                             <a
