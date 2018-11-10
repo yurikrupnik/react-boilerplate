@@ -212,47 +212,47 @@ a{
   color: rgb(27, 27, 27);
 }
 
-.arrow-left, .arrow-right {
-  content: '';
-  position: absolute;
-  top: 29%;
-  width: 200px;
-  height: 84px;
-  cursor: pointer;
-  /*background-image: url('https://ion.r2net.com/images/amazingHomepage/arrow-left.png');*/
-  background-size: 50%;
-  margin-top: -42px;
-  transition: all .3s;
-}
+//.arrow-left, .arrow-right {
+//  content: '';
+//  position: absolute;
+//  top: 29%;
+//  width: 200px;
+//  height: 84px;
+//  cursor: pointer;
+//  /*background-image: url('https://ion.r2net.com/images/amazingHomepage/arrow-left.png');*/
+//  background-size: 50%;
+//  margin-top: -42px;
+//  transition: all .3s;
+//}
 
-.arrow-left,  .arrow-right {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50%;
-}
-
-.arrow-left:hover {
-  -ms-transform: rotate(180deg) translate(10px, 0);
-  -webkit-transform: rotate(180deg) translate(10px, 0);
-  transform: rotate(180deg) translate(10px, 0);
-}
-
-.arrow-right:hover {
-  -ms-transform: translate(10px, 0);
-  -webkit-transform: translate(10px, 0);
-  transform: translate(10px, 0);
-}
-
-.arrow-left {
-  left: -87px;
-  transform: rotate(180deg);
-}
-
-.arrow-right {
-  right: -87px;
-
-}
+//.arrow-left,  .arrow-right {
+//  background-image: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg');
+//  background-repeat: no-repeat;
+//  background-position: center center;
+//  background-size: 50%;
+//}
+//
+//.arrow-left:hover {
+//  -ms-transform: rotate(180deg) translate(10px, 0);
+//  -webkit-transform: rotate(180deg) translate(10px, 0);
+//  transform: rotate(180deg) translate(10px, 0);
+//}
+//
+//.arrow-right:hover {
+//  -ms-transform: translate(10px, 0);
+//  -webkit-transform: translate(10px, 0);
+//  transform: translate(10px, 0);
+//}
+//
+//.arrow-left {
+//  left: -87px;
+//  transform: rotate(180deg);
+//}
+//
+//.arrow-right {
+//  right: -87px;
+//
+//}
 
 .design-own > div:first-child {
   color: rgba(243, 227, 213, 0.3);

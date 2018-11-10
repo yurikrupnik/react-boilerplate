@@ -6,6 +6,8 @@ import stylesSlick from './slick.scss';
 import stylesGeneral from './general.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
+import Collage from "./Collage";
+import HomeSlider from "./HomeSlider";
 
 const looseDiamondsGallery = [
     {
@@ -220,17 +222,17 @@ class Desktop extends React.Component {
         //     videoSrc: `https://ion.r2net.com/images/amazingHomepage/${this.videoName}.mp4`
         // })
         // this.isTouch = !~document.body.className.indexOf('Notouch');
-        this.refs.bestSellersHeader.innerText = bestSellersGallery[0].name;
-        this.refs.bestSellersSub.innerText = bestSellersGallery[0].sub;
-        this.refs.looseDiamondsHeader.innerText = looseDiamondsGallery[0].name;
-        this.refs.looseDiamondsSub.innerText = looseDiamondsGallery[0].sub;
+        // this.refs.bestSellersHeader.innerText = bestSellersGallery[0].name;
+        // this.refs.bestSellersSub.innerText = bestSellersGallery[0].sub;
+        // this.refs.looseDiamondsHeader.innerText = looseDiamondsGallery[0].name;
+        // this.refs.looseDiamondsSub.innerText = looseDiamondsGallery[0].sub;
         global.window.addEventListener('scroll', this.handleScroll);
         // this.makeSmooth();
     }
 
     componentWillUnmount() {
-        global.window.off('mousewheel DOMMouseScroll');
-        global.window.removeEventListener('scroll', this.handleScroll);
+        // global.window.off('mousewheel DOMMouseScroll');
+        // global.window.removeEventListener('scroll', this.handleScroll);
     }
 
     handleScroll() {
@@ -342,39 +344,39 @@ class Desktop extends React.Component {
         });
     }
 
-    storeSliderRef(c) {
-        slider1 = c;
-        console.log(slider1);
-    }
+    // storeSliderRef(c) {
+    //     slider1 = c;
+    //     console.log(slider1);
+    // }
 
     render() {
-        const settings = {
-            dots: false,
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            centerMode: true,
-            draggable: this.isTouch,
-            responsive: [{ breakpoint: 1600, settings: { slidesToShow: 4.31 } },
-                { breakpoint: 1300, settings: { slidesToShow: 3 } }],
-            nextArrow: <NextArrow />,
-            prevArrow: <PrevArrow />,
-            centerPadding: '-100px'
-        };
-        const bestSellersSettings = Object.assign({
-            beforeChange: (i, next) => {
-                this.refs.bestSellersHeader.innerText = this.bestSellersGallery[next].name;
-                this.refs.bestSellersSub.innerText = this.bestSellersGallery[next].sub;
-            },
-            className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`,
-        }, settings);
-        const looseDiamondsSettings = Object.assign({
-            beforeChange: (i, next) => {
-                this.refs.looseDiamondsHeader.innerText = `${this.looseDiamondsGallery[next].name}`;
-                this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[next].sub;
-            },
-            className: `${stylesSlick['homepage-slick']} ${stylesSlick['diamond-slick']}`,
-        }, settings);
+        // const settings = {
+        //     dots: false,
+        //     infinite: true,
+        //     slidesToShow: 5,
+        //     slidesToScroll: 1,
+        //     centerMode: true,
+        //     draggable: this.isTouch,
+        //     responsive: [{ breakpoint: 1600, settings: { slidesToShow: 4.31 } },
+        //         { breakpoint: 1300, settings: { slidesToShow: 3 } }],
+        //     nextArrow: <NextArrow />,
+        //     prevArrow: <PrevArrow />,
+        //     centerPadding: '-100px'
+        // };
+        // const bestSellersSettings = Object.assign({
+        //     beforeChange: (i, next) => {
+        //         this.refs.bestSellersHeader.innerText = this.bestSellersGallery[next].name;
+        //         this.refs.bestSellersSub.innerText = this.bestSellersGallery[next].sub;
+        //     },
+        //     className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`,
+        // }, settings);
+        // const looseDiamondsSettings = Object.assign({
+        //     beforeChange: (i, next) => {
+        //         this.refs.looseDiamondsHeader.innerText = `${this.looseDiamondsGallery[next].name}`;
+        //         this.refs.looseDiamondsSub.innerText = this.looseDiamondsGallery[next].sub;
+        //     },
+        //     className: `${stylesSlick['homepage-slick']} ${stylesSlick['diamond-slick']}`,
+        // }, settings);
         return (
             <div>
                 <TopBanner />
@@ -522,34 +524,36 @@ class Desktop extends React.Component {
                         <div>best sellers</div>
                     </div>
                 </div>
-                {/* --------------------------- SLIDE IMAGES --------------------*/}
-                <SliderSlick ref={this.storeSliderRef} {...bestSellersSettings}>
-                    {bestSellersGallery.map((item, i) => (
-                        <span key={i}>
-                            <a href={item.href} data-container="#WidePane" data-gtm-name="best sellers" title={item.alt}>
-                                <span>
-                                    <img
-                                        className={styles.slickImg}
-                                        src={`https://ion.r2net.com/images/amazingHomepage/rings/${item.src}.png?v=8`}
-                                        alt=""
-                                    />
-                                </span>
-                            </a>
-                        </span>
-                    ))}
-                </SliderSlick>
+                {/* -------------------------- SLIDE IMAGES --------------------*/}
+                {/*<SliderSlick ref={this.storeSliderRef} {...bestSellersSettings}>*/}
+                    {/*{bestSellersGallery.map((item, i) => (*/}
+                        {/*<span key={i}>*/}
+                            {/*<a href={item.href} data-container="#WidePane" data-gtm-name="best sellers" title={item.alt}>*/}
+                                {/*<span>*/}
+                                    {/*<img*/}
+                                        {/*className={styles.slickImg}*/}
+                                        {/*src={`https://ion.r2net.com/images/amazingHomepage/rings/${item.src}.png?v=8`}*/}
+                                        {/*alt=""*/}
+                                    {/*/>*/}
+                                {/*</span>*/}
+                            {/*</a>*/}
+                        {/*</span>*/}
+                    {/*))}*/}
+                {/*</SliderSlick>*/}
+
+                <HomeSlider imgsData={bestSellersGallery}/>
                 {/* --------------------------- SLIDE IMAGES - BUTTONS --------------------*/}
-                <div className={styles['mystic-text']}>
-                    <div className={styles['arrow-right']} onClick={() => slider1.slickNext()} />
-                    <div
-                        style={{
-                            fontSize: '18px', fontWeight: 'bold', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)', textTransform: 'uppercase'
-                        }}
-                        ref="bestSellersHeader"
-                    />
-                    <div style={{ fontSize: '16px', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)' }} ref="bestSellersSub" />
-                    <div className={styles['arrow-left']} onClick={() => slider1.slickPrev()} />
-                </div>
+                {/*<div className={styles['mystic-text']}>*/}
+                    {/*/!*<div className={styles['arrow-right']} onClick={() => slider1.slickNext()} />*!/*/}
+                    {/*<div*/}
+                        {/*style={{*/}
+                            {/*fontSize: '18px', fontWeight: 'bold', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)', textTransform: 'uppercase'*/}
+                        {/*}}*/}
+                        {/*ref="bestSellersHeader"*/}
+                    {/*/>*/}
+                    {/*<div style={{ fontSize: '16px', fontFamily: 'NunitoSans', color: 'rgb(35, 35, 35)' }} ref="bestSellersSub" />*/}
+                    {/*/!*<div className={styles['arrow-left']} onClick={() => slider1.slickPrev()} />*!/*/}
+                {/*</div>*/}
                 {/* -----------------------------------------------*/}
                 <div className={styles['bottom-section']} ref="bottomSection">
                     <div className={styles['bottom-left-bg-container']}>
@@ -606,33 +610,33 @@ with up to 40x magnification.
                 </div>
 
                 {/* ------------------looseDiamonds slider----------------------*/}
-                <SliderSlick ref={c => this.looseDiamondsSlider = c} {...looseDiamondsSettings}>
-                    {looseDiamondsGallery.map((item, i) => (
-                        <span key={i}>
-                            <a
-                                title={item.alt}
-                                href={`/loose-diamonds/${item.name}-${item.name === 'pear' || item.name === 'heart' ? 'shaped' : 'cut'}/`}
-                                data-container="#WidePane"
-                                data-gtm-name="diamond revolution"
-                            >
-                                <span>
-                                    <img
-                                        className={styles.slickImg}
-                                        src={`https://ion.r2net.com/images/amazingHomepage/diamonds/${item.name}-Diamond.png?v=5`}
-                                        alt=""
-                                    />
-                                </span>
-                            </a>
-                        </span>
-                    ))}
-                </SliderSlick>
+                {/*<SliderSlick ref={c => this.looseDiamondsSlider = c} {...looseDiamondsSettings}>*/}
+                    {/*{looseDiamondsGallery.map((item, i) => (*/}
+                        {/*<span key={i}>*/}
+                            {/*<a*/}
+                                {/*title={item.alt}*/}
+                                {/*href={`/loose-diamonds/${item.name}-${item.name === 'pear' || item.name === 'heart' ? 'shaped' : 'cut'}/`}*/}
+                                {/*data-container="#WidePane"*/}
+                                {/*data-gtm-name="diamond revolution"*/}
+                            {/*>*/}
+                                {/*<span>*/}
+                                    {/*<img*/}
+                                        {/*className={styles.slickImg}*/}
+                                        {/*src={`https://ion.r2net.com/images/amazingHomepage/diamonds/${item.name}-Diamond.png?v=5`}*/}
+                                        {/*alt=""*/}
+                                    {/*/>*/}
+                                {/*</span>*/}
+                            {/*</a>*/}
+                        {/*</span>*/}
+                    {/*))}*/}
+                {/*</SliderSlick>*/}
                 {/* ------------------looseDiamonds slider buttons----------------------*/}
-                <div style={{ marginBottom: '80px' }} className={styles['mystic-text']}>
-                    <div className={styles['arrow-right']} onClick={() => this.looseDiamondsSlider.slickNext()} />
-                    <div style={{ fontSize: '18px', fontWeight: 'bold', textTransform: 'uppercase' }} ref="looseDiamondsHeader" />
-                    <div style={{ fontSize: '16px' }} ref="looseDiamondsSub" />
-                    <div className={styles['arrow-left']} onClick={() => this.looseDiamondsSlider.slickPrev()} />
-                </div>
+                {/*<div style={{ marginBottom: '80px' }} className={styles['mystic-text']}>*/}
+                    {/*<div className={styles['arrow-right']} onClick={() => this.looseDiamondsSlider.slickNext()} />*/}
+                    {/*<div style={{ fontSize: '18px', fontWeight: 'bold', textTransform: 'uppercase' }} ref="looseDiamondsHeader" />*/}
+                    {/*<div style={{ fontSize: '16px' }} ref="looseDiamondsSub" />*/}
+                    {/*<div className={styles['arrow-left']} onClick={() => this.looseDiamondsSlider.slickPrev()} />*/}
+                {/*</div>*/}
                 {/* --------------------------------------*/}
                 <div className={`${styles['top-brown-text']} ${styles['design-own']}`}>
                     <div>
