@@ -36,14 +36,14 @@ export default class HomeSlider extends Component {
             className: styles.slickContainer
         };
         return (
-            <div>
+            <div className={styles.root}>
                 <Slider ref={c => (this.slider = c)} {...settings}>
                     {imgsData.map((item, index) => (
-                        <div className={styles.itemContainer}>
+                        <div className={styles.itemContainer} key={item.name}>
                             <a
                                 href={item.href}
                                 title={item.alt}
-                                key={item.name}
+
                             >
                                 <img
                                     className={(currentImgIdx === index) ? styles.center : styles.noCenter}
@@ -56,21 +56,23 @@ export default class HomeSlider extends Component {
                     ))}
                 </Slider>
 
-                <div className={styles.textSlider}>
-                    <div
-                        className={styles.arrowRight}
-                        onClick={() => this.slider.slickNext()}
-                    />
-                    <div className={styles.headerText}>
-                        {imgsData[currentImgIdx].name}
+                <div className={styles.textContainer}>
+                    <div className={styles.textSlider}>
+                        <div
+                            className={styles.arrowRight}
+                            onClick={() => this.slider.slickNext()}
+                        />
+                        <div className={styles.headerText}>
+                            {imgsData[currentImgIdx].name}
+                        </div>
+                        <div className={styles.subText}>
+                            {imgsData[currentImgIdx].sub}
+                        </div>
+                        <div
+                            className={styles.arrowLeft}
+                            onClick={() => this.slider.slickPrev()}
+                        />
                     </div>
-                    <div className={styles.subText}>
-                        {imgsData[currentImgIdx].sub}
-                    </div>
-                    <div
-                        className={styles.arrowLeft}
-                        onClick={() => this.slider.slickPrev()}
-                    />
                 </div>
             </div>
         );

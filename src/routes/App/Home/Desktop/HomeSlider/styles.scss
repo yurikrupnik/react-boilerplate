@@ -5,7 +5,7 @@
   text-align: center;
   position: relative;
   width: 563px;
-  margin: 40px auto;
+  margin: -100px auto;
   margin-bottom: 129px;
   font-family: NunitoSans;
   color: rgb(27, 27, 27);
@@ -59,33 +59,37 @@
 }
 
 .slickContainer{
-  border: 1px solid red;
-  display: flex;
-}
-
-.slick-img {
-  //width: 390px;
-  margin: 0;
-  border: 1px solid black;
+  position: relative;
+  height: 431px;
+  //border: 1px solid black;
 }
 
 .center{
-  border: 1px solid purple;
-  width: 390px;
-  //top: 0;
-  //display: inline-block;
-  //position: absolute;
-  //transition: all .3s;
-  //transform: translate(-50%);
+  width: 600px;
+  z-index: 1000000;
+  top: 0;
+  transform: translateX(-20%);
 }
 
 .noCenter{
   width: 390px;
-  border: 1px solid yellow;
+  top: 54px;
+  position: absolute;
+  z-index: 10;
 }
 
 .itemContainer{
-  //position: relative;
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+.textContainer{
+
+}
+
+.root{
+  position: relative;
 }
 
 
