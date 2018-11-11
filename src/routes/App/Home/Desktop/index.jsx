@@ -1,185 +1,161 @@
-/* eslint-disable react/no-string-refs,react/no-array-index-key */
-import React from 'react';
+import React, { Component } from 'react';
+import SliderSlick from 'react-slick';
 import styles from './styles.scss';
 import stylesSlick from './slick.scss';
 import stylesGeneral from './general.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
-import Collage from "./Collage";
-import HomeSlider from "./HomeSlider";
+import HomeSlider from './HomeSlider';
 
 const looseDiamondsGallery = [
     {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/round-Diamond.png?v=5',
         name: 'round',
-        alt: 'round',
-        sub: 'Maximizes light return from the top of the stone'
-    },
-    {
+        sub: 'Maximizes light return from the top of the stone',
+        href: '/loose-diamonds/round-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/princess-Diamond.png?v=5',
         name: 'princess',
-        alt: 'princess',
-        sub: 'Maximum brilliance in an exquisite square form'
-    },
-    {
+        sub: 'Maximum brilliance in an exquisite square form',
+        href: '/loose-diamonds/princess-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/emerald-Diamond.png?v=5',
         name: 'emerald',
-        alt: 'emerald',
-        sub: 'Long lines create an elegant and sophisticated look'
-    },
-    {
+        sub: 'Long lines create an elegant and sophisticated look',
+        href: '/loose-diamonds/emerald-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/asscher-Diamond.png?v=5',
         name: 'asscher',
-        alt: 'asscher',
-        sub: 'Vintage-style square shape with cropped corners'
-    },
-    {
+        sub: 'Vintage-style square shape with cropped corners',
+        href: '/loose-diamonds/asscher-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/oval-Diamond.png?v=5',
         name: 'oval',
-        alt: 'oval',
-        sub: 'Elongated shape accentuates the length of the finger'
-    },
-    {
+        sub: 'Elongated shape accentuates the length of the finger',
+        href: '/loose-diamonds/oval-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/radiant-Diamond.png?v=5',
         name: 'radiant',
-        alr: 'radiant',
-        sub: 'Brilliance combined with non-traditional cropped corners'
-    },
-    {
+        sub: 'Brilliance combined with non-traditional cropped corners',
+        href: '/loose-diamonds/radiant-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/pear-Diamond.png?v=5',
         name: 'pear',
-        alt: 'pear',
-        sub: 'Tradition meets brilliance in unique ‘water drop’ shape'
-    },
-    {
+        sub: 'Tradition meets brilliance in unique ‘water drop’ shape',
+        href: '/loose-diamonds/radiant-shaped/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/heart-Diamond.png?v=5',
         name: 'heart',
-        alt: 'heart',
-        sub: 'Features a distinctive cleft at the top and superior brilliance'
-    },
-    {
+        sub: 'Features a distinctive cleft at the top and superior brilliance',
+        href: '/loose-diamonds/heart-shaped/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/marquise-Diamond.png?v=5',
         name: 'marquise',
-        alt: 'marquise',
-        sub: 'Long, narrow surface makes it appear larger than life'
-    },
-    {
+        sub: 'Long, narrow surface makes it appear larger than life',
+        href: '/loose-diamonds/marquise-cut/'
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/diamonds/cushion-Diamond.png?v=5',
         name: 'cushion',
-        alt: 'cushion',
-        sub: 'Antique cut with 58 facets and rounded corners'
+        sub: 'Antique cut with 58 facets and rounded corners',
+        href: '/loose-diamonds/cushion-cut/'
     }
 ];
 
 const bestSellersGallery = [
     {
-        src: 'Channel-Set-Engagement-Ring',
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Channel-Set-Engagement-Ring.png?v=8',
         name: 'Channel Set',
-        alt: 'Channel Set',
         sub: 'Bezel Set Pavé Engagement Ring',
         href: '/engagement-rings/tension/14k-white-gold-bezel-set-pave-diamond-engagement-ring-item-53294'
-    },
-    {
-        src: 'Halo-Women-Engagement-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Halo-Women-Engagement-Ring.png?v=8',
         name: 'Halo',
-        alt: 'Halo',
         sub: 'Floral Halo Engagement Ring',
         href: '/engagement-rings/vintage/14k-rose-gold-floral-halo-engagement-ring-item-53439'
-    },
-    {
-        src: 'Anniversary-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Anniversary-Ring.png?v=8',
         name: 'Anniversary',
-        alt: 'Anniversary',
         sub: 'Bar Set Anniversary Ring',
         href: '/wedding-rings/womens-anniversary/18k-white-gold-100ctw-bar-set-diamond-anniversary-ring-item-16453'
-    },
-    {
-        src: 'Side-stone-Engagement-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Side-stone-Engagement-Ring.png?v=8',
         name: 'Side-stone',
-        alt: 'Side-stone',
         sub: 'Round & Marquise Diamond Engagement Ring',
         href: '/engagement-rings/side-stones/14k-white-gold-round-and-marquise-shape-diamond-engagement-ring-item-49489'
-    },
-    {
-        src: 'eternity-ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/eternity-ring.png?v=8',
         name: 'Eternity',
-        alt: 'Eternity',
         sub: 'Angled Common Prong Diamond Eternity Ring',
         href: '/wedding-rings/womens-eternity/14k-yellow-gold-ladies-050ctw-angled-common-prong-diamond-eternity-ring-item-56291'
-    },
-    {
-        src: 'Halo-Engagement-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Halo-Engagement-Ring.png?v=8',
         name: 'Halo',
-        alt: 'Halo',
         sub: 'Round Split Band Halo Engagement Ring',
         href: '/engagement-rings/halo/14k-white-gold-round-split-band-diamond-halo-engagement-ring-item-49498'
-    },
-    {
-        src: 'Solitaire-Classic-Engagement-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Solitaire-Classic-Engagement-Ring.png?v=8',
         name: 'Solitaire',
-        alt: 'Solitaire',
         sub: 'Rope Solitaire Engagement Ring',
         href: '/engagement-rings/solitaire/14k-white-gold-rope-solitaire-engagement-ring-item-52624'
-    },
-    {
-        src: 'Stackable-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Stackable-Ring.png?v=8',
         name: 'Stackable',
-        alt: 'Stackable',
         sub: 'Round Diamond & Marquise Sapphire Wedding Ring',
         href: '/wedding-rings/womens-stackable/14k-white-gold-round-brilliant-diamond-and-marquise-sapphire-wedding-ring-item-49417'
-    },
-    {
-        src: 'diamond-pendant',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/diamond-pendant.png?v=8',
         name: 'Diamond Pendant',
-        alt: 'Diamond Pendant',
         sub: 'Pavé Set Pendant Frame',
         href: '/fine-jewelry/design-your-own-pendants/18k-white-gold-pave-set-frame-pendant-mounting-item-17021'
     },
     {
-        src: 'Side-stone-Diamond-Engagement-Ring',
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Side-stone-Diamond-Engagement-Ring.png?v=8',
         name: 'Side-stone',
-        alt: 'Side-stone',
         sub: 'Blossoming Vine Engagement Ring',
         href: '/engagement-rings/side-stones/14k-yellow-gold-blossoming-vine-engagement-ring-item-53370'
-    },
-    {
-        src: 'Solitaire-Engagement-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Solitaire-Engagement-Ring.png?v=8',
         name: 'Solitaire',
-        alt: 'Solitaire',
         sub: 'Knife Edge Solitaire Engagement Ring',
         href: '/engagement-rings/solitaire/14k-white-gold-2mm-knife-edge-solitaire-engagement-ring-item-7115'
-    },
-    {
-        src: 'pave-engagement-ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/pave-engagement-ring.png?v=8',
         name: 'Pavé',
-        alt: 'Pavé',
         sub: 'Petite Pavé Flush Fit Engagement Ring',
         href: '/engagement-rings/pave/14k-rose-gold-petite-pave-engagement-ring-flush-fit-item-56265'
-    },
-    {
-        src: 'Three-stone-Engagement-Ring',
+    }, {
+        src: 'https://ion.r2net.com/images/amazingHomepage/rings/Three-stone-Engagement-Ring.png?v=8',
         name: 'Three-stone',
-        alt: 'Three-stone',
         sub: 'Tapered Baguette Diamond Engagement Ring',
         href: '/engagement-rings/side-stones/14k-white-gold-tapered-baguette-diamond-engagement-ring-item-7101'
     }
 ];
 
-const collageData =[
+const collageData = [
     {
-        href:'/engagement-moments/?EngagementMomentID=165',
+        href: '/engagement-moments/?EngagementMomentID=165',
         imgSrc: 'https://ion.r2net.com/images/amazingHomepage/a_engage.png',
-        imgAlt:'',
+        imgAlt: '',
     }, {
-        href:'/engagement-moments/?EngagementMomentID=59',
+        href: '/engagement-moments/?EngagementMomentID=59',
         imgSrc: 'https://ion.r2net.com/images/amazingHomepage/b_engage.png',
-        imgAlt:'',
+        imgAlt: '',
     }, {
-        href:'/engagement-moments/?EngagementMomentID=157',
+        href: '/engagement-moments/?EngagementMomentID=157',
         imgSrc: 'https://ion.r2net.com/images/amazingHomepage/c_engage.png',
-        imgAlt:'',
-    },{
-        href:'/engagement-moments/?EngagementMomentID=163',
+        imgAlt: '',
+    }, {
+        href: '/engagement-moments/?EngagementMomentID=163',
         imgSrc: 'https://ion.r2net.com/images/amazingHomepage/d_engage.png',
-        imgAlt:'',
-    },{
-        href:'/engagement-moments/?EngagementMomentID=161',
+        imgAlt: '',
+    }, {
+        href: '/engagement-moments/?EngagementMomentID=161',
         imgSrc: 'https://ion.r2net.com/images/amazingHomepage/e_engage.png',
-        imgAlt:'',
-    },{
-        href:'/engagement-moments/?EngagementMomentID=55',
+        imgAlt: '',
+    }, {
+        href: '/engagement-moments/?EngagementMomentID=55',
         imgSrc: 'https://ion.r2net.com/images/amazingHomepage/f_engage.png',
-        imgAlt:'',
+        imgAlt: '',
     }
 ];
 
@@ -205,32 +181,15 @@ const iconsData = [
     'FeaturedIn', 'Forbes', 'BuzzFeed', 'EliteDaily', 'LaurenConrad', 'Maxim', 'Refinery29', 'Popsugar', 'UsWeekly', 'TheKnot'
 ];
 
-class Desktop extends React.Component {
+export default class Desktop extends Component {
     constructor(props) {
         super(props);
-        // this.videoName = props.test ? 'hp_dog_prod' : 'hp_prod2';
-        // this.state = {
-        //     videoSrc: undefined
-        // };
         this.handleScroll = this.handleScroll.bind(this);
     }
 
     componentDidMount() {
-        // this.setState({
-        //     videoSrc: `https://ion.r2net.com/images/amazingHomepage/${this.videoName}.mp4`
-        // })
         // this.isTouch = !~document.body.className.indexOf('Notouch');
-        // this.refs.bestSellersHeader.innerText = bestSellersGallery[0].name;
-        // this.refs.bestSellersSub.innerText = bestSellersGallery[0].sub;
-        // this.refs.looseDiamondsHeader.innerText = looseDiamondsGallery[0].name;
-        // this.refs.looseDiamondsSub.innerText = looseDiamondsGallery[0].sub;
         global.window.addEventListener('scroll', this.handleScroll);
-        // this.makeSmooth();
-    }
-
-    componentWillUnmount() {
-        // global.window.off('mousewheel DOMMouseScroll');
-        // global.window.removeEventListener('scroll', this.handleScroll);
     }
 
     handleScroll() {
@@ -241,13 +200,24 @@ class Desktop extends React.Component {
         const pageYOffset = global.window.pageYOffset > 0 ? global.window.pageYOffset : 0;
         if (pageYOffset > 0 && !this.scrollStarted) {
             this.scrollStarted = true;
-            this.refs.newhomepage.className += ` ${styles['scroll-started']}`;
         }
         if (this.refs.parallax1) {
             const arr = [this.refs.parallax1, this.refs.parallax2,
                 this.refs.parallax3, this.refs.parallax4];
-            const pinks = [{ pink: 1, el: this.refs.pink1 }, { pink: 2, el: this.refs.pink2 },
-                { pink: 3, el: this.refs.pink3 }, { pink: 4, el: this.refs.pink4 }];
+            const pinks = [{
+                pink: 1,
+                el: this.refs.pink1
+            }, {
+                pink: 2,
+                el: this.refs.pink2
+            },
+            {
+                pink: 3,
+                el: this.refs.pink3
+            }, {
+                pink: 4,
+                el: this.refs.pink4
+            }];
             const { bottom } = this.refs.parallax1.getBoundingClientRect();
             if (bottom > -1600 && bottom < screen.height + 1000) {
                 arr.forEach((el) => {
@@ -323,52 +293,75 @@ class Desktop extends React.Component {
         }
     }
 
-    makeSmooth() {
-        // const $window = $(window);
-        const scrollTime = 1.2;
-        const scrollDistance = 230;
-        global.window.on('mousewheel DOMMouseScroll', (event) => {
-            event.preventDefault();
-            const delta = event.originalEvent.wheelDelta / 120
-                               || -event.originalEvent.detail / 3;
-            const scrollTop = global.window.scrollTop();
-            const finalScroll = scrollTop - parseInt(delta * scrollDistance);
-
-            // TweenLite.to($window, scrollTime, {
-            //     scrollTo: { y: finalScroll, autoKill: true },
-            //     ease: Expo.easeOut,
-            //     overwrite: 5
-            // });
-        });
-    }
-
     render() {
         return (
             <div>
                 <TopBanner />
                 <div style={{ position: 'relative' }}>
-                    <div ref="designYouOwn" style={{ position: 'absolute', width: '100%', paddingTop: '0px' }}>
+                    <div
+                        ref="designYouOwn"
+                        style={{
+                            position: 'absolute',
+                            width: '100%',
+                            paddingTop: '0px'
+                        }}
+                    >
                         <div className={`${styles['top-brown-text']} ${styles['design-own']} }`}>
                             <div>
                                 design your own
                             </div>
                         </div>
                         <div className={styles['top-brown']}>
-                            <div className={styles.wideContent} style={{ position: 'relative', height: '240px' }}>
+                            <div
+                                className={styles.wideContent}
+                                style={{
+                                    position: 'relative',
+                                    height: '240px'
+                                }}
+                            >
                                 <div
                                     className={styles['separator-container']}
-                                    style={{ margin: '0 auto', position: 'absolute', bottom: '-29px' }}
+                                    style={{
+                                        margin: '0 auto',
+                                        position: 'absolute',
+                                        bottom: '-29px'
+                                    }}
                                 >
-                                    <div className={styles.separator} style={{ backgroundColor: '#fff' }} />
-                                    <div className={styles.separator} style={{ backgroundColor: '#f9f3ec' }} />
+                                    <div
+                                        className={styles.separator}
+                                        style={{ backgroundColor: '#fff' }}
+                                    />
+                                    <div
+                                        className={styles.separator}
+                                        style={{ backgroundColor: '#f9f3ec' }}
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className={stylesGeneral.wideContent} style={{ position: 'relative', marginBottom: '105px' }}>
-                    <JustifyAlign className={styles['start-align']} data-styled={{ fontSize: 0, height: '860px', display: 'flex' }}>
-                        <div style={{ position: 'relative', height: '451px' }} data-gtm-name="design your own">
+                <div
+                    className={stylesGeneral.wideContent}
+                    style={{
+                        position: 'relative',
+                        marginBottom: '105px'
+                    }}
+                >
+                    <JustifyAlign
+                        className={styles['start-align']}
+                        data-styled={{
+                            fontSize: 0,
+                            height: '860px',
+                            display: 'flex'
+                        }}
+                    >
+                        <div
+                            style={{
+                                position: 'relative',
+                                height: '451px'
+                            }}
+                            data-gtm-name="design your own"
+                        >
                             <div ref="stoneText" className={styles['start-with-container']}>
                                 <div className={styles['title-pack']}>
                                     <div>
@@ -388,16 +381,40 @@ class Desktop extends React.Component {
                                     </div>
                                 </div>
                                 <JustifyAlign className={styles['start-button-container']}>
-                                    <div className={styles['start-button']} style={{ verticalAlign: 'middle' }}>
-                                        <a style={{ padding: '12px 27px', fontFamily: 'NunitoSans' }} href="/engagement-rings/all-settings/" data-container="#WidePane">
+                                    <div
+                                        className={styles['start-button']}
+                                        style={{ verticalAlign: 'middle' }}
+                                    >
+                                        <a
+                                            style={{
+                                                padding: '12px 27px',
+                                                fontFamily: 'NunitoSans'
+                                            }}
+                                            href="/engagement-rings/all-settings/"
+                                            data-container="#WidePane"
+                                        >
                                             start with a setting
                                         </a>
                                     </div>
-                                    <div style={{ verticalAlign: 'middle', fontFamily: 'NunitoSans' }}>
+                                    <div style={{
+                                        verticalAlign: 'middle',
+                                        fontFamily: 'NunitoSans'
+                                    }}
+                                    >
                                         or
                                     </div>
-                                    <div className={styles['start-button']} style={{ verticalAlign: 'middle' }}>
-                                        <a style={{ padding: '12px 21px', fontFamily: 'NunitoSans' }} href="/loose-diamonds/all-diamonds/" data-container="#WidePane">
+                                    <div
+                                        className={styles['start-button']}
+                                        style={{ verticalAlign: 'middle' }}
+                                    >
+                                        <a
+                                            style={{
+                                                padding: '12px 21px',
+                                                fontFamily: 'NunitoSans'
+                                            }}
+                                            href="/loose-diamonds/all-diamonds/"
+                                            data-container="#WidePane"
+                                        >
                                             start with a diamond
                                         </a>
 
@@ -407,7 +424,15 @@ class Desktop extends React.Component {
                                     <span style={{ fontFamily: 'NunitoSans' }}>
                                         Spark your imagination with these
                                     </span>
-                                    <a style={{ color: '#ff8081', textDecoration: 'underline', fontFamily: 'NunitoSans' }} href="/diamond-rings/diamond-engagement-rings/" data-container="#WidePane">
+                                    <a
+                                        style={{
+                                            color: '#ff8081',
+                                            textDecoration: 'underline',
+                                            fontFamily: 'NunitoSans'
+                                        }}
+                                        href="/diamond-rings/diamond-engagement-rings/"
+                                        data-container="#WidePane"
+                                    >
                                         recently purchased engagement rings.
                                     </a>
                                 </div>
@@ -418,7 +443,10 @@ class Desktop extends React.Component {
                                 <div className={styles['ring-container']}>
                                     <img
                                         style={{
-                                            position: 'absolute', zIndex: 1, right: '0', top: '174px'
+                                            position: 'absolute',
+                                            zIndex: 1,
+                                            right: '0',
+                                            top: '174px'
                                         }}
                                         src="https://ion.r2net.com/images/amazingHomepage/ring.png?v=2"
                                         alt="James Allen 14K white gold diamond engagement ring"
@@ -427,34 +455,65 @@ class Desktop extends React.Component {
                                         ref="stoneSprite"
                                         className={styles.stoneSprite}
                                         style={{
-                                            position: 'absolute', zIndex: 1, right: '426px', top: '-24px'
+                                            position: 'absolute',
+                                            zIndex: 1,
+                                            right: '426px',
+                                            top: '-24px'
                                         }}
                                     />
                                     <img
                                         ref="prong"
                                         style={{
-                                            position: 'absolute', zIndex: 2, top: '338px', right: '470px'
+                                            position: 'absolute',
+                                            zIndex: 2,
+                                            top: '338px',
+                                            right: '470px'
                                         }}
                                         src="https://ion.r2net.com/images/amazingHomepage/Prong.png?v=2"
                                         alt=""
                                     />
-                                    <img src="https://ion.r2net.com/images/amazingHomepage/dyu-bg.png?v=6" alt="" className={styles['dyu-bg']} ref="dyuBg" />
+                                    <img
+                                        src="https://ion.r2net.com/images/amazingHomepage/dyu-bg.png?v=6"
+                                        alt=""
+                                        className={styles['dyu-bg']}
+                                        ref="dyuBg"
+                                    />
                                 </div>
                             </span>
                         </div>
                     </JustifyAlign>
                     {/* --------------------------- ICONS --------------------*/}
-                    <a href="/about-us-press/" data-container="#WidePane" style={{ display: 'block', position: 'relative', bottom: '29px' }}>
+                    <a
+                        href="/about-us-press/"
+                        data-container="#WidePane"
+                        style={{
+                            display: 'block',
+                            position: 'relative',
+                            bottom: '29px'
+                        }}
+                    >
                         <div className={styles['featured-bar']}>
                             {iconsData.map(name => (
                                 <div key={name}>
-                                    <img alt={`featured in ${name}`} title={`featured in ${name}`} src={`https://ion.r2net.com/images/amazingHomepage/FeaturedBar/Grey/${name}_Grey.svg`} />
+                                    <img
+                                        alt={`featured in ${name}`}
+                                        title={`featured in ${name}`}
+                                        src={`https://ion.r2net.com/images/amazingHomepage/FeaturedBar/Grey/${name}_Grey.svg`}
+                                    />
                                 </div>
                             ))}
                         </div>
                     </a>
                     {/* --------------------------- HOVER IMAGES --------------------*/}
-                    <JustifyAlign className={styles['events-align']} data-styled={{ position: 'relative', zIndex: 3, fontFamily: 'NunitoSans' }} data-gtm-name="large image splash">
+                    <JustifyAlign
+                        className={styles['events-align']}
+                        data-styled={{
+                            position: 'relative',
+                            zIndex: 3,
+                            fontFamily: 'NunitoSans'
+                        }}
+                        data-gtm-name="large image splash"
+                    >
                         {imgsData.map(item => (
                             <div key={item.to}>
                                 <div className={styles['abs-scale']}>
@@ -479,9 +538,16 @@ class Desktop extends React.Component {
                     <div className={styles['meet-bg']}>
                         <div
                             className={styles['separator-container']}
-                            style={{ margin: '0 auto', position: 'relative', bottom: '29px' }}
+                            style={{
+                                margin: '0 auto',
+                                position: 'relative',
+                                bottom: '29px'
+                            }}
                         >
-                            <div className={styles.separator} style={{ backgroundColor: '#f9f3ec' }} />
+                            <div
+                                className={styles.separator}
+                                style={{ backgroundColor: '#f9f3ec' }}
+                            />
                             <div className={styles.separator} style={{ backgroundColor: '#fff' }} />
                         </div>
                     </div>
@@ -491,7 +557,7 @@ class Desktop extends React.Component {
                     </div>
                 </div>
                 {/* -------------------------- SLIDE IMAGES --------------------*/}
-                <HomeSlider imgsData={bestSellersGallery}/>
+                <HomeSlider imgsData={bestSellersGallery} />
                 {/* -----------------------------------------------*/}
                 <div className={styles['bottom-section']} ref="bottomSection">
                     <div className={styles['bottom-left-bg-container']}>
@@ -513,21 +579,29 @@ class Desktop extends React.Component {
                                             gemologist. Share your
                                             screen and get expert guidance as you
                                             {' '}
-                                            <b>
-explore
-                                            diamonds in 360° HD
-                                            </b>
+                                            <b>explore diamonds in 360° HD</b>
                                             {' '}
-with up to 40x magnification.
+                                            with up to 40x magnification.
                                             Mark points of interest on the screen while chatting
                                             with your diamond expert in
                                             real time, and review everything from the specs to the
                                             grading certificate together.
                                         </div>
                                     </div>
-                                    <div style={{ fontSize: '17px', fontFamily: 'NunitoSans', color: 'rgb(27, 27, 27)' }}>
-                                        <div style={{ fontWeight: 'bold' }} className={styles['pink-bg']}>
-                                            <a href="/diamond-consultation/" data-container="#WidePane">
+                                    <div style={{
+                                        fontSize: '17px',
+                                        fontFamily: 'NunitoSans',
+                                        color: 'rgb(27, 27, 27)'
+                                    }}
+                                    >
+                                        <div
+                                            style={{ fontWeight: 'bold' }}
+                                            className={styles['pink-bg']}
+                                        >
+                                            <a
+                                                href="/diamond-consultation/"
+                                                data-container="#WidePane"
+                                            >
                                                 START YOUR DIAMOND INSPECTION NOW
                                             </a>
                                         </div>
@@ -538,7 +612,10 @@ with up to 40x magnification.
                     </div>
                 </div>
                 {/* -----------------------------------------------*/}
-                <div style={{ margin: '100px 0px 60px 0' }} className={`${styles['title-pack']} ${styles.center}`}>
+                <div
+                    style={{ margin: '100px 0px 60px 0' }}
+                    className={`${styles['title-pack']} ${styles.center}`}
+                >
                     <div>EXPERIENCE THE</div>
                     <div>DIAMOND REVOLUTION</div>
                     <div className={styles['sub-title']}>
@@ -546,36 +623,8 @@ with up to 40x magnification.
                         biggest collections of loose diamonds, at your fingertips.
                     </div>
                 </div>
-
                 {/* ------------------looseDiamonds slider----------------------*/}
-
-                {/*<SliderSlick ref={c => this.looseDiamondsSlider = c} {...looseDiamondsSettings}>*/}
-                    {/*{looseDiamondsGallery.map((item, i) => (*/}
-                        {/*<span key={i}>*/}
-                            {/*<a*/}
-                                {/*title={item.alt}*/}
-                                {/*href={`/loose-diamonds/${item.name}-${item.name === 'pear' || item.name === 'heart' ? 'shaped' : 'cut'}/`}*/}
-                                {/*data-container="#WidePane"*/}
-                                {/*data-gtm-name="diamond revolution"*/}
-                            {/*>*/}
-                                {/*<span>*/}
-                                    {/*<img*/}
-                                        {/*className={styles.slickImg}*/}
-                                        {/*src={`https://ion.r2net.com/images/amazingHomepage/diamonds/${item.name}-Diamond.png?v=5`}*/}
-                                        {/*alt=""*/}
-                                    {/*/>*/}
-                                {/*</span>*/}
-                            {/*</a>*/}
-                        {/*</span>*/}
-                    {/*))}*/}
-                {/*</SliderSlick>*/}
-                 ------------------looseDiamonds slider buttons----------------------
-                {/*<div style={{ marginBottom: '80px' }} className={styles['mystic-text']}>*/}
-                    {/*<div className={styles['arrow-right']} onClick={() => this.looseDiamondsSlider.slickNext()} />*/}
-                    {/*<div style={{ fontSize: '18px', fontWeight: 'bold', textTransform: 'uppercase' }} ref="looseDiamondsHeader" />*/}
-                    {/*<div style={{ fontSize: '16px' }} ref="looseDiamondsSub" />*/}
-                    {/*<div className={styles['arrow-left']} onClick={() => this.looseDiamondsSlider.slickPrev()} />*/}
-                {/*</div>*/}
+                <HomeSlider imgsData={looseDiamondsGallery} />
                 {/* --------------------------------------*/}
                 <div className={`${styles['top-brown-text']} ${styles['design-own']}`}>
                     <div>
@@ -594,7 +643,11 @@ with up to 40x magnification.
                 >
                     <div
                         className={`${styles['title-pack']} ${styles.center}`}
-                        style={{ padding: '50px', width: '500px', margin: '0px auto' }}
+                        style={{
+                            padding: '50px',
+                            width: '500px',
+                            margin: '0px auto'
+                        }}
                     >
                         <div />
                         <div>the crowning jewels</div>
@@ -616,11 +669,25 @@ with up to 40x magnification.
                         <div className={`${styles['text-bg']} ${styles['text-bg-4']}`}>
                             diamond studs
                         </div>
-                        <div className={`${stylesGeneral.wideContent} ${styles['floating-banners']}`} style={{ textAlign: 'center', padding: '300px 0 240px 0' }} data-gtm-name="floating banners">
+                        <div
+                            className={`${stylesGeneral.wideContent} ${styles['floating-banners']}`}
+                            style={{
+                                textAlign: 'center',
+                                padding: '300px 0 240px 0'
+                            }}
+                            data-gtm-name="floating banners"
+                        >
                             <div className={stylesGeneral.tableAlign}>
                                 <div className={styles['float-area']}>
-                                    <a href="/wedding-rings/womens-eternity/" data-container="#WidePane">
-                                        <span ref="parallax3" className={styles['float-white-box']} style={{ marginBottom: '100px' }}>
+                                    <a
+                                        href="/wedding-rings/womens-eternity/"
+                                        data-container="#WidePane"
+                                    >
+                                        <span
+                                            ref="parallax3"
+                                            className={styles['float-white-box']}
+                                            style={{ marginBottom: '100px' }}
+                                        >
                                             <h3 className={styles['float-header']}>eternity rings</h3>
                                             <div className={styles['float-content']}>
                                                 The ultimate symbol of lifelong commitment,
@@ -635,15 +702,31 @@ with up to 40x magnification.
                                             </div>
                                         </span>
                                     </a>
-                                    <div ref="pink1" className={`${styles['pink-box']} ${styles['pink-box1']}`} />
+                                    <div
+                                        ref="pink1"
+                                        className={`${styles['pink-box']} ${styles['pink-box1']}`}
+                                    />
                                 </div>
                                 <div />
                             </div>
-                            <div className={`${stylesGeneral['table-align']} ${styles['images-align']}`} style={{ marginTop: '-380px' }}>
+                            <div
+                                className={`${stylesGeneral['table-align']} ${styles['images-align']}`}
+                                style={{ marginTop: '-380px' }}
+                            >
                                 <div>
-                                    <div className={styles['float-area']} style={{ marginTop: '400px' }}>
-                                        <a href="/wedding-rings/mens-classic/" data-container="#WidePane">
-                                            <span ref="parallax2" className={styles['float-white-box']} style={{ marginBottom: '200px' }}>
+                                    <div
+                                        className={styles['float-area']}
+                                        style={{ marginTop: '400px' }}
+                                    >
+                                        <a
+                                            href="/wedding-rings/mens-classic/"
+                                            data-container="#WidePane"
+                                        >
+                                            <span
+                                                ref="parallax2"
+                                                className={styles['float-white-box']}
+                                                style={{ marginBottom: '200px' }}
+                                            >
                                                 <h3 className={styles['float-header']}>
                                                     Men's Wedding Rings
                                                 </h3>
@@ -660,14 +743,30 @@ with up to 40x magnification.
                                                 </div>
                                             </span>
                                         </a>
-                                        <div ref="pink3" className={`${styles['pink-box']} ${styles['pink-box3']}`} />
+                                        <div
+                                            ref="pink3"
+                                            className={`${styles['pink-box']} ${styles['pink-box3']}`}
+                                        />
                                     </div>
                                 </div>
                                 <div>
-                                    <div className={styles['float-area']} style={{ marginTop: '250px' }}>
-                                        <div ref="pink2" className={`${styles['pink-box']} ${styles['pink-box2']}`} />
-                                        <a href="/gemstones/blue-sapphire/" data-container="#WidePane">
-                                            <span ref="parallax1" className={styles['float-white-box']} style={{ marginBottom: '100px' }}>
+                                    <div
+                                        className={styles['float-area']}
+                                        style={{ marginTop: '250px' }}
+                                    >
+                                        <div
+                                            ref="pink2"
+                                            className={`${styles['pink-box']} ${styles['pink-box2']}`}
+                                        />
+                                        <a
+                                            href="/gemstones/blue-sapphire/"
+                                            data-container="#WidePane"
+                                        >
+                                            <span
+                                                ref="parallax1"
+                                                className={styles['float-white-box']}
+                                                style={{ marginBottom: '100px' }}
+                                            >
                                                 <h3 className={styles['float-header']}>gemstone collection</h3>
                                                 <div className={styles['float-content']}>Kissed by the colors of nature, sapphire, ruby, and emerald jewelry makes for a stunningly exotic look.</div>
                                                 <div className={styles['float-bottom']}>
@@ -680,9 +779,19 @@ with up to 40x magnification.
                                         </a>
                                     </div>
                                     <div>
-                                        <div className={styles['float-area']} style={{ marginTop: '400px' }}>
-                                            <a href="/fine-jewelry/design-your-own-studs/" data-container="#WidePane">
-                                                <span ref="parallax4" className={styles['float-white-box']} style={{ marginBottom: '50px' }}>
+                                        <div
+                                            className={styles['float-area']}
+                                            style={{ marginTop: '400px' }}
+                                        >
+                                            <a
+                                                href="/fine-jewelry/design-your-own-studs/"
+                                                data-container="#WidePane"
+                                            >
+                                                <span
+                                                    ref="parallax4"
+                                                    className={styles['float-white-box']}
+                                                    style={{ marginBottom: '50px' }}
+                                                >
                                                     <h3 className={styles['float-header']}>diamond studs</h3>
                                                     <div className={styles['float-content']}>
                                                        The perfect gift for any occasion, these
@@ -690,11 +799,18 @@ with up to 40x magnification.
                                                         yet elegant statement.
                                                     </div>
                                                     <div className={styles['float-bottom']}>
-                                                        <div className={styles['pink-bg']}>browse</div>
+                                                        <div
+                                                            className={styles['pink-bg']}
+                                                        >
+browse
+                                                        </div>
                                                     </div>
                                                 </span>
                                             </a>
-                                            <div ref="pink4" className={`${styles['pink-box']} ${styles['pink-box4']}`} />
+                                            <div
+                                                ref="pink4"
+                                                className={`${styles['pink-box']} ${styles['pink-box4']}`}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -703,36 +819,68 @@ with up to 40x magnification.
                     </div>
                 </div>
                 {/* --------------------------------------*/}
-                <div className={`${styles['title-pack']} ${styles.center}`} style={{ marginBottom: '98px' }}>
+                <div
+                    className={`${styles['title-pack']} ${styles.center}`}
+                    style={{ marginBottom: '98px' }}
+                >
                     <div>your personal</div>
                     <div>diamond concierge awaits...</div>
                 </div>
                 <div className={stylesGeneral.wideContent} style={{ marginBottom: '105px' }}>
-                    <JustifyAlign className={styles['as-container']} data-gtm-name="diamond concierge">
-                        <div className={styles['as-content']} style={{ backgroundColor: '#f0e2da', paddingRight: '33px' }}>
+                    <JustifyAlign
+                        className={styles['as-container']}
+                        data-gtm-name="diamond concierge"
+                    >
+                        <div
+                            className={styles['as-content']}
+                            style={{
+                                backgroundColor: '#f0e2da',
+                                paddingRight: '33px'
+                            }}
+                        >
                             <div className={`${styles.Costumer_Brake} ${styles['img-bg']}`} />
                             <div className={styles['as-text']} style={{ borderLeft: 'none' }}>
                                 <div style={{ textAlign: 'right' }}>
-                                    <div style={{ fontSize: '25px', lineHeight: '30px' }}>
+                                    <div style={{
+                                        fontSize: '25px',
+                                        lineHeight: '30px'
+                                    }}
+                                    >
                                         VISIT OUR FIFTH AVENUE,
                                     </div>
-                                    <div style={{ fontSize: '32px', marginBottom: '30px', fontWeight: 'bold' }}>
+                                    <div style={{
+                                        fontSize: '32px',
+                                        marginBottom: '30px',
+                                        fontWeight: 'bold'
+                                    }}
+                                    >
                                         NYC SHOWROOM
                                     </div>
-                                    <div style={{ fontSize: '15px', marginBottom: '30px' }}>
+                                    <div style={{
+                                        fontSize: '15px',
+                                        marginBottom: '30px'
+                                    }}
+                                    >
                                         Stop by our ‘sanctuary of sparkle’ on Fifth Avenue for a
                                         truly immersive 3D experience. Our NYC showroom is
                                         <i>the</i>
                                         {' '}
-place to view diamond rings and fine jewelry up
+                                        place to view diamond rings and fine jewelry up
                                         close,
                                         and
                                         try on
                                         actual products -
                                         <b>by appointment only</b>
-.
+                                        .
                                     </div>
-                                    <div className={styles['pink-bg']} style={{ fontSize: '16px', fontWeight: 'bold', whiteSpace: 'nowrap' }}>
+                                    <div
+                                        className={styles['pink-bg']}
+                                        style={{
+                                            fontSize: '16px',
+                                            fontWeight: 'bold',
+                                            whiteSpace: 'nowrap'
+                                        }}
+                                    >
                                         <a href="/showroom/" data-container="#WidePane">
                                             SCHEDULE APPOINTMENT
                                         </a>
@@ -740,22 +888,50 @@ place to view diamond rings and fine jewelry up
                                 </div>
                             </div>
                         </div>
-                        <div className={styles['as-content']} style={{ backgroundColor: '#fae4cb', paddingLeft: '33px' }}>
+                        <div
+                            className={styles['as-content']}
+                            style={{
+                                backgroundColor: '#fae4cb',
+                                paddingLeft: '33px'
+                            }}
+                        >
                             <div className={styles['as-text']} style={{ borderRight: 'none' }}>
                                 <div>
-                                    <div style={{ fontSize: '25px', lineHeight: '30px' }}>
+                                    <div style={{
+                                        fontSize: '25px',
+                                        lineHeight: '30px'
+                                    }}
+                                    >
                                         WORLD-CLASS
                                     </div>
-                                    <div style={{ fontSize: '32px', marginBottom: '30px', fontWeight: 'bold' }}>
+                                    <div style={{
+                                        fontSize: '32px',
+                                        marginBottom: '30px',
+                                        fontWeight: 'bold'
+                                    }}
+                                    >
                                         CUSTOMER SERVICE
                                     </div>
-                                    <div style={{ fontSize: '15px', marginBottom: '30px' }}>
+                                    <div style={{
+                                        fontSize: '15px',
+                                        marginBottom: '30px'
+                                    }}
+                                    >
                                         James Allen’s team of non-commissioned certified gemologists
                                         is available 24/7 via live chat, phone, and email to help
                                         you choose the product that’s right for you.
                                     </div>
-                                    <div className={styles['pink-bg']} style={{ fontSize: '16px', fontWeight: 'bold' }}>
-                                        <a href="/guarantee/customer-service/" data-container="#WidePane">
+                                    <div
+                                        className={styles['pink-bg']}
+                                        style={{
+                                            fontSize: '16px',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        <a
+                                            href="/guarantee/customer-service/"
+                                            data-container="#WidePane"
+                                        >
                                             CONTACT US
                                         </a>
                                     </div>
@@ -771,10 +947,20 @@ place to view diamond rings and fine jewelry up
                         <div className={styles['meet-bg']}>
                             <div
                                 className={styles['separator-container']}
-                                style={{ margin: '0 auto', position: 'relative', bottom: '29px' }}
+                                style={{
+                                    margin: '0 auto',
+                                    position: 'relative',
+                                    bottom: '29px'
+                                }}
                             >
-                                <div className={styles.separator} style={{ backgroundColor: '#f9f3ec' }} />
-                                <div className={styles.separator} style={{ backgroundColor: '#fff' }} />
+                                <div
+                                    className={styles.separator}
+                                    style={{ backgroundColor: '#f9f3ec' }}
+                                />
+                                <div
+                                    className={styles.separator}
+                                    style={{ backgroundColor: '#fff' }}
+                                />
                             </div>
                         </div>
                         <div className={styles['title-pack']}>
@@ -791,8 +977,8 @@ place to view diamond rings and fine jewelry up
 
                 <div className={stylesGeneral.wideContent}>
                     <div className={styles.moments} data-gtm-name="engagement moments">
-                        {collageData.map(item=>(
-                            <div>
+                        {collageData.map(item => (
+                            <div key={item.href}>
                                 <a
                                     href={item.href}
                                     data-container="#EngagementMomentsItemPreview"
@@ -875,7 +1061,10 @@ place to view diamond rings and fine jewelry up
                         }}
                     >
                         <a
-                            style={{ padding: '15px 27px', fontFamily: 'NunitoSans' }}
+                            style={{
+                                padding: '15px 27px',
+                                fontFamily: 'NunitoSans'
+                            }}
                             href="/engagement-moments/"
                             data-container="#WidePane"
                         >
@@ -887,5 +1076,3 @@ place to view diamond rings and fine jewelry up
         );
     }
 }
-
-export default Desktop;

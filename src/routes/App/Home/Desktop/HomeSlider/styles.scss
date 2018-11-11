@@ -1,9 +1,4 @@
-.slick-img {
-  //transition: transform 0.5s;
-  // height: 190px;
-  // padding: 45px 0;
-  //border: 1px solid;
-}
+
 
 .textSlider {
   line-height: 26px;
@@ -62,6 +57,42 @@
   -webkit-transform: translate(10px, 0);
   transform: translate(10px, 0);
 }
+
+.slickContainer{
+  border: 1px solid red;
+  display: flex;
+}
+
+.slick-img {
+  //width: 390px;
+  margin: 0;
+  border: 1px solid black;
+}
+
+.center{
+  border: 1px solid purple;
+  width: 390px;
+  //top: 0;
+  //display: inline-block;
+  //position: absolute;
+  //transition: all .3s;
+  //transform: translate(-50%);
+}
+
+.noCenter{
+  width: 390px;
+  border: 1px solid yellow;
+}
+
+.itemContainer{
+  //position: relative;
+}
+
+
+
+
+
+
 
 
 

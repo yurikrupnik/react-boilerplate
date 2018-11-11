@@ -6,57 +6,57 @@
   margin: 22px 0 -100px 0;
 }
 
-.next-carousel-button {
-  cursor: pointer;
-  /*display: none !important;*/
-  font-family: JamesallenFonts;
-  position: absolute;
-  width: 20px;
-  height: 28px;
-  z-index: 1;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  color: white;
-  background: rgba(255, 255, 255, 0.36);
-  text-align: center;
-  line-height: 51px;
-  /* background-color: #c2c2c2; */
-  width: 46px;
-  height: 51px;
-  font-size: 25px;
-  border: 1px solid #dbdbdb;
-  box-sizing: border-box;
-}
+// .next-carousel-button {
+//   cursor: pointer;
+//   /*display: none !important;*/
+//   font-family: JamesallenFonts;
+//   position: absolute;
+//   width: 20px;
+//   height: 28px;
+//   z-index: 1;
+//   right: 0;
+//   top: 50%;
+//   -webkit-transform: translate(0, -50%);
+//   transform: translate(0, -50%);
+//   color: white;
+//   background: rgba(255, 255, 255, 0.36);
+//   text-align: center;
+//   line-height: 51px;
+//   /* background-color: #c2c2c2; */
+//   width: 46px;
+//   height: 51px;
+//   font-size: 25px;
+//   border: 1px solid #dbdbdb;
+//   box-sizing: border-box;
+// }
 
-.prev-carousel-button {
-  cursor: pointer;
-  /*  display: none !important;*/
-  font-family: JamesallenFonts;
-  position: absolute;
-  width: 20px;
-  height: 28px;
-  z-index: 1;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  color: white;
-  background: rgba(255, 255, 255, 0.36);
-  text-align: center;
-  line-height: 51px;
-  /* background-color: #c2c2c2; */
-  width: 46px;
-  height: 51px;
-  font-size: 25px;
-  border: 1px solid #dbdbdb;
-  box-sizing: border-box;
-}
+// .prev-carousel-button {
+//   cursor: pointer;
+//   /*  display: none !important;*/
+//   font-family: JamesallenFonts;
+//   position: absolute;
+//   width: 20px;
+//   height: 28px;
+//   z-index: 1;
+//   left: 0;
+//   top: 50%;
+//   -webkit-transform: translate(0, -50%);
+//   transform: translate(0, -50%);
+//   color: white;
+//   background: rgba(255, 255, 255, 0.36);
+//   text-align: center;
+//   line-height: 51px;
+//   /* background-color: #c2c2c2; */
+//   width: 46px;
+//   height: 51px;
+//   font-size: 25px;
+//   border: 1px solid #dbdbdb;
+//   box-sizing: border-box;
+// }
 
-.next-carousel-button, .prev-carousel-button {
-  background-color: rgba(161, 177, 194, 0.36);
-}
+// .next-carousel-button, .prev-carousel-button {
+//   background-color: rgba(161, 177, 194, 0.36);
+// }
 
 .homepage-slick .slick-slide {
   transition: transform 0.5s;

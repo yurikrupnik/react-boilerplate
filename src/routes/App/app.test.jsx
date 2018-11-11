@@ -15,7 +15,7 @@ const {
 it('renders <App /> component', () => {
     const wrapper = mount((
         <StaticRouter context={{}}>
-            <App userAgent={global.navigator.userAgent}/>
+            <App userAgent={global.navigator.userAgent} />
         </StaticRouter>
     ));
     expect(wrapper).toMatchSnapshot();
