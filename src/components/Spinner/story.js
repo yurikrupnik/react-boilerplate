@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 // import { Button } from '@storybook/react/demo';
 import Spinner from './index';
 
-storiesOf('List', module)
+storiesOf('Spinner', module)
     .add('with text', () => (
         <Spinner />
     ));

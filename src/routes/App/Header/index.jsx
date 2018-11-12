@@ -1,4 +1,4 @@
-import Loadable from '../../../components/Loadable/index';
+import Loadable from '../../../components/Loadable';
 
 const Mobile = Loadable({
     loader: () => import(/* webpackChunkName: "headerMobile" */ './Mobile'),

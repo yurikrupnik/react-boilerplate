@@ -29,24 +29,4 @@ List.propTypes = {
     data: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
-// function areEqual(prevProps, nextProps) {
-//
-//
-//     /*
-//     return true if passing nextProps to render would return
-//     the same result as passing prevProps to render,
-//     otherwise return false
-//     */
-//     // console.log('prevProps', prevProps);
-//     // console.log('nextProps', nextProps);
-//
-//     return isEqual(prevProps.data, nextProps.data);
-//     // return false;
-// }
-
 export default List;
-// export default List;
-
-// export default React.memo(List)
-
-// export default List;

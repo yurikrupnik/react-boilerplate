@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const MainDesktop = (props) => {
     return (
         <div>
-            <h1>education center desktop</h1>
+            <h1>education center</h1>
             {/*{links.map(r => {*/}
                 {/*return (*/}
                     {/*<Link key={r.key} to={r.to}>*/}

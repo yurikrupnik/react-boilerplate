@@ -9,8 +9,6 @@ import { Provider as SidebarProvider, Consumer as SidebarConsumer } from '../ser
 import apiProviders from '../../api/providers';
 import routes from './routes';
 import Route from '../../components/Route';
-import Header from './Header';
-import Newsletter from './Newsletter';
 import Loadable from '../../components/Loadable';
 import themeConfig from '../../theme';
 import { isProd } from '../../config';
@@ -112,16 +110,11 @@ const App = ({ userAgent }) => (
                         <MuiThemeProvider theme={theme}>
                             <DeviceConsumer render={(deviceProps) => {
                                 const isMobile = deviceProps.isMobile();
-                                const Head = isMobile ? Header[0] : Header[1];
-                                const News = isMobile ? Newsletter[0] : Newsletter[1];
-
                                 const basicRoutes = (
                                     <Fragment>
                                         {!isProd && <DevSidebarConsumer />}
-                                        <Head />
                                         {routes
                                             .map(route => <Route key={route.key} {...route} />)}
-                                        <News />
                                     </Fragment>
                                 );
 

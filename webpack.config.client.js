@@ -110,8 +110,7 @@ module.exports = (env) => {
         devServer: {
             port: !isProd && config.devPort,
             open: true,
-            proxy: { '/api': { target: !isProd && config.host } },
-            historyApiFallback: { index: '/index.ejs' }
+            proxy: { '/': { target: !isProd && config.host } }
         }
     };
 };
