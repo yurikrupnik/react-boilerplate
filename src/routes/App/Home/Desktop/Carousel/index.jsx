@@ -1,10 +1,10 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events,
+jsx-a11y/no-static-element-interactions,react/self-closing-comp */
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import styles from './styles.scss';
-import stylesSlick from '../slick.scss';
 
-
-export default class HomeSlider extends Component {
+export default class Carousel extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,13 +13,12 @@ export default class HomeSlider extends Component {
     }
 
     render() {
-        const { imgsData } = this.props;
+        const { imgsData, type } = this.props;
         const { currentImgIdx } = this.state;
         const settings = {
             dots: false,
             infinite: true,
             speed: 500,
-            // lazyLoad: true,
             slidesToShow: 5,
             slidesToScroll: 1,
             centerMode: true,
@@ -32,35 +31,26 @@ export default class HomeSlider extends Component {
                     currentImgIdx: next
                 });
             },
-            // className: `${stylesSlick['homepage-slick']} ${stylesSlick['ring-slick']}`
-            className: styles.slickContainer
+            className: `${styles['homepage-slick']} ${type === 'bestSellers'
+                ? styles['ring-slick'] : styles['diamond-slick']}`
         };
         return (
             <div>
-                <Slider ref={c => (this.slider = c)} {...settings}>
-                    {imgsData.map((item, index) => (
-                        <div className={styles.itemContainer}>
-                            <a
-                                href={item.href}
-                                title={item.alt}
-                                key={item.name}
-                            >
-                                <img
-                                    className={(currentImgIdx === index) ? styles.center : styles.noCenter}
-                                    // className={styles['slick-img']}
-                                    src={item.src}
-                                    alt=""
-                                />
+                <Slider ref={c => this.slider = c} {...settings}>
+                    {imgsData.map(item => (
+                        <div key={item.name}>
+                            <a href={item.href} title={item.alt}>
+                                <img src={item.src} alt="" />
                             </a>
                         </div>
                     ))}
                 </Slider>
-
-                <div className={styles.textSlider}>
+                <div className={styles.textContainer}>
                     <div
                         className={styles.arrowRight}
                         onClick={() => this.slider.slickNext()}
-                    />
+                    >
+                    </div>
                     <div className={styles.headerText}>
                         {imgsData[currentImgIdx].name}
                     </div>
@@ -70,7 +60,8 @@ export default class HomeSlider extends Component {
                     <div
                         className={styles.arrowLeft}
                         onClick={() => this.slider.slickPrev()}
-                    />
+                    >
+                    </div>
                 </div>
             </div>
         );

@@ -1,0 +1,153 @@
+@import "../../../../../../src/styles/mixins";
+.homepage-slick {
+  :global .slick-slide {
+    transition: transform 0.5s;
+    text-align: center;
+  }
+
+  :global .slick-track {
+    height: 100%;
+  }
+
+  :global .slick-slide a {
+    display: block;
+    text-align: center;
+    height: 100%;
+  }
+
+  :global .slick-slide div {
+    display: inline-block;
+    position: relative;
+    left: 1px;
+    width: 1px;
+    height: 100%;
+  }
+
+  :global .slick-slide img {
+    transition: all .3s;
+    width: 273px;
+    display: inline-block;
+    position: absolute;
+    @include transform(translate(-50%, 0));
+  }
+
+  :global .slick-list {
+    box-sizing: border-box;
+  }
+
+  :global .slick-center {
+    margin: 0 0;
+    z-index: 1;
+    position: relative;
+  }
+}
+.diamond-slick {
+  margin: 22px 0;
+
+  :global .slick-slide img {
+    top: 35px;
+  }
+
+  :global .slick-center img {
+    width: 480px;
+    top: 0;
+  }
+
+  :global .slick-list {
+    height: 300px;
+  }
+}
+
+.ring-slick {
+  margin: 22px 0 -100px 0;
+  :global .slick-slide img {
+    width: 390px;
+  }
+
+  :global .slick-center img {
+    width: 600px;
+    top: 0;
+  }
+
+  :global .slick-list {
+    height: 431px;
+  }
+
+  :global .slick-slide {
+    position: relative;
+    transition: right .3s;
+  }
+  .ring-slick :global .slick-slide img {
+    top: 54px;
+  }
+}
+
+.ring-slick :global .slick-slide:not(.slick-center) {
+  right: 40px;
+}
+
+.ring-slick :global .slick-center + div.slick-slide {
+  right: -40px;
+}
+
+.ring-slick :global .slick-center + div.slick-slide + div.slick-slide {
+  right: -40px;
+}
+
+.ring-slick :global .slick-center + div.slick-slide + div.slick-slide + div.slick-slide {
+  right: -40px;
+}
+
+.textContainer {
+  line-height: 26px;
+  text-align: center;
+  position: relative;
+  width: 563px;
+  margin: 0 auto 129px;
+  color: rgb(27, 27, 27);
+  font-family: NunitoSans;
+
+  .subText {
+    font-size: 16px;
+    color: rgb(35, 35, 35);
+  }
+
+  .headerText {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(35, 35, 35);
+    text-transform: uppercase;
+  }
+
+  .arrowLeft, .arrowRight {
+    content: '';
+    position: absolute;
+    top: 29%;
+    width: 200px;
+    height: 84px;
+    cursor: pointer;
+    background-size: 50%;
+    margin-top: -42px;
+    transition: all .3s;
+    background: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg') no-repeat center center;
+    background-size: 50%;
+  }
+
+  .arrowLeft {
+    left: -87px;
+    @include transform(rotate(180deg));
+  }
+
+  .arrowRight {
+    right: -87px;
+  }
+  .arrowLeft:hover {
+    @include transform(rotate(180deg) translate(10px, 0));
+  }
+
+  .arrowRight:hover {
+    @include transform(translate(10px, 0));
+  }
+}
+
+
