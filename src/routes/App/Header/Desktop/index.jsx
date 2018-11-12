@@ -30,6 +30,14 @@ class DesktopNav extends React.Component {
             {
                 label: 'education',
                 to: '/education'
+            },
+            {
+                label: 'yeabl1',
+                to: '/yeabl1'
+            },
+            {
+                label: 'yeabl2',
+                to: '/yeabl2'
             }
         ];
 
@@ -78,6 +86,11 @@ class DesktopNav extends React.Component {
                                         </Link>
                                     </div>
                                 ))}
+                                <div>
+                                    <a href="https://www.jamesallen.com/">
+                                        Go to james
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     );

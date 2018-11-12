@@ -1,4 +1,5 @@
 import uniqid from 'uniqid';
+import React from 'react';
 import Dashboard from './Dashboard';
 import Guarantee from './Guarantee';
 import Topics from './Topics';
@@ -35,23 +36,43 @@ const routes = [
         // providers: [api.provider, users.provider]
     },
     {
-        key: keyByElement(Guarantee),
-        component: Guarantee,
-        path: '/guarantee',
-        label: 'guarantee',
+        path: '/yeabl1',
+        component: () => {
+            return (
+                <div>
+                    yebal 1
+                </div>
+            );
+        }
     },
     {
-        key: keyByElement(Education),
-        component: Education,
-        path: '/education',
-        label: 'education',
+        path: '/yeabl2',
+        component: () => {
+            return (
+                <div>
+                    yebal 2
+                </div>
+            );
+        }
     },
-    {
-        key: keyByElement(Topics),
-        component: Topics,
-        path: '/topics',
-        label: 'topics',
-    },
+    // {
+    //     key: keyByElement(Guarantee),
+    //     component: Guarantee,
+    //     path: '/guarantee',
+    //     label: 'guarantee',
+    // },
+    // {
+    //     key: keyByElement(Education),
+    //     component: Education,
+    //     path: '/education',
+    //     label: 'education',
+    // },
+    // {
+    //     key: keyByElement(Topics),
+    //     component: Topics,
+    //     path: '/topics',
+    //     label: 'topics',
+    // },
     {
         key: 'newsletter',
         path: '/',

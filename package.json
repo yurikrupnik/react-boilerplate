@@ -4,7 +4,7 @@
   "description": "react-boilerplate",
   "main": "src/server.jsx",
   "scripts": {
-    "start": "npm run start:server & npm run start:client",
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
     "start:client": "webpack-dev-server --config webpack.config.client.js",
     "start:server": "webpack -w --config webpack.config.server.js",
     "start:mongo": "docker run --rm -d -p 27017:27017 --name mongo mongo",
@@ -81,6 +81,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.2",
+    "concurrently": "^4.0.1",
     "css-hot-loader": "^1.4.2",
     "css-loader": "^1.0.0",
     "dotenv-webpack": "^1.5.7",
