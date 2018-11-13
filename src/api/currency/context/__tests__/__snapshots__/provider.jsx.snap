@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`currency provider renders Projects Provider 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "data": Array [],
+      "fetch": [Function],
+      "lastFetch": "",
+      "loading": false,
+      "selected": "",
+      "setSelected": [Function],
+    }
+  }
+>
+  <Component />
+</ContextProvider>
+`;
