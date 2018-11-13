@@ -200,18 +200,18 @@ export default class Desktop extends Component {
                                     </div>
                                 </div>
                                 <div className={styles['start-button-container']}>
-                                    <GradientButton>
-                                        <a href="/engagement-rings/all-settings/">
+                                    <GradientButton handleClick={() => { console.log('foooo'); }}>
+                                        <a href="/topis">
                                             start with a setting
                                         </a>
                                     </GradientButton>
 
                                     <span className={styles.test}>
-                                        1234
+                                        OR
                                     </span>
 
-                                    <GradientButton>
-                                        <a href="/loose-diamonds/all-diamonds/">
+                                    <GradientButton handleClick={() => { console.log('foooo'); }}>
+                                        <a href="/topis">
                                             start with a diamond
                                         </a>
                                     </GradientButton>
@@ -717,17 +717,8 @@ browse
                                         is available 24/7 via live chat, phone, and email to help
                                         you choose the product that’s right for you.
                                     </div>
-                                    <div
-                                        className={styles['pink-bg']}
-                                        style={{
-                                            fontSize: '16px',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        <a
-                                            href="/guarantee/customer-service/"
-                                            data-container="#WidePane"
-                                        >
+                                    <div className={styles['pink-bg']} style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                                        <a href="/guarantee/customer-service/" data-container="#WidePane">
                                             CONTACT US
                                         </a>
                                     </div>

@@ -1,26 +1,21 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
-// import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button/Button';
+import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
 const Gradient = ({ handleClick, children }) => (
-    <Button
-        disableRipple
-        variant="contained"
-        // fullWidth
-        color="primary"
-        type="submit"
+    <button
         onClick={handleClick}
         className={styles.button}
     >
         {children}
-    </Button>
+    </button>
 );
 
-// GradientButton.propTypes = {
-//     children: PropTypes.isRequired
-// };
 
+Gradient.propTypes = {
+    handleClick: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
+};
 
 export default Gradient;
