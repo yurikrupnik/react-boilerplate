@@ -44,14 +44,18 @@ class DesktopNav extends React.Component {
         return (
             <div>
                 <Consumer render={(p) => {
+                    console.log('p', p);
+
                     return (
                         <div>
-                            header deskotp
+                            <div>
+                                header deskotp
+                            </div>
                             <Top routes={[]} />
                             <FormControl>
                                 <Select
                                     value={p.selected}
-                                    onChange={p.handleChange}
+                                    onChange={p.setSelected}
                                 >
 
                                     {

@@ -1,13 +1,12 @@
-import uniqid from 'uniqid';
+// import uniqid from 'uniqid';
 import React from 'react';
 import Dashboard from './Dashboard';
-import Guarantee from './Guarantee';
+// import Guarantee from './Guarantee';
 import Topics from './Topics';
-import Education from './Education';
-import Header from './Header';
-import Newsletter from './Newsletter';
-import api from '../../api/currency/api';
-import users from '../../api/users/api';
+import NoMatch from './NoMatch';
+// import Education from './Education';
+// import api from '../../api/currency/api';
+// import users from '../../api/users/api';
 
 const keyByElement = (ele) => {
     if (Array.isArray(ele)) {
@@ -17,11 +16,6 @@ const keyByElement = (ele) => {
 };
 
 const routes = [
-    {
-        key: 'header',
-        path: '/',
-        component: Header
-    },
     {
         key: keyByElement(Dashboard),
         path: '/',
@@ -36,6 +30,7 @@ const routes = [
         // providers: [api.provider, users.provider]
     },
     {
+        key: '2d',
         path: '/yeabl1',
         component: () => {
             return (
@@ -46,6 +41,7 @@ const routes = [
         }
     },
     {
+        key: 't',
         path: '/yeabl2',
         component: () => {
             return (
@@ -67,16 +63,16 @@ const routes = [
     //     path: '/education',
     //     label: 'education',
     // },
-    // {
-    //     key: keyByElement(Topics),
-    //     component: Topics,
-    //     path: '/topics',
-    //     label: 'topics',
-    // },
     {
-        key: 'newsletter',
-        path: '/',
-        component: Newsletter
+        key: keyByElement(Topics),
+        component: Topics,
+        path: '/topics',
+        label: 'topics',
+    },
+    {
+        key: 'no-match',
+        path: '/*',
+        component: NoMatch
     }
 ];
 

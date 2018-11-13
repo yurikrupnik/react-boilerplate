@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter, Route } from 'react-router-dom';
 import Component from '../index';
 
 const {
@@ -8,10 +8,10 @@ const {
     mount
 } = global;
 
-it('renders Header for Mobile', () => {
+it('renders NoMatch for Desktop', () => {
     const wrapper = mount((
         <StaticRouter context={{}}>
-            <Component />
+            <Route component={Component} />
         </StaticRouter>
     ));
     expect(wrapper).toMatchSnapshot();

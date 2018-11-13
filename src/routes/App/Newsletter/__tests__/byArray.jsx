@@ -5,13 +5,14 @@ import components from '../index';
 
 const {
     it,
-    expect
+    expect,
+    mount
 } = global;
 
 it('renders desktop header component', () => {
-    components.forEach(c => {
+    components.forEach((c) => {
         expect(typeof c).toBe('function');
-    })
+    });
 });
 
 it('renders array of Components 0', () => {

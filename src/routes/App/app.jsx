@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Route as R } from 'react-router-dom';
+import { Route as R, Switch } from 'react-router-dom';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import Providers from './providers';
 import { Provider as ThemeProvider } from '../services/context/themes';
@@ -10,6 +10,8 @@ import apiProviders from '../../api/providers';
 import routes from './routes';
 import Route from '../../components/Route';
 import Loadable from '../../components/Loadable';
+import Header from './Header';
+import Newsletter from './Newsletter';
 import themeConfig from '../../theme';
 import { isProd } from '../../config';
 
@@ -110,11 +112,17 @@ const App = ({ userAgent }) => (
                         <MuiThemeProvider theme={theme}>
                             <DeviceConsumer render={(deviceProps) => {
                                 const isMobile = deviceProps.isMobile();
+                                const Head = isMobile ? Header[0] : Header[1];
+                                const News = isMobile ? Newsletter[0] : Newsletter[1];
                                 const basicRoutes = (
                                     <Fragment>
                                         {!isProd && <DevSidebarConsumer />}
-                                        {routes
-                                            .map(route => <Route key={route.key} {...route} />)}
+                                        <Head />
+                                        <Switch>
+                                            {routes
+                                                .map(route => <Route key={route.key} {...route} />)}
+                                        </Switch>
+                                        <News />
                                     </Fragment>
                                 );
 

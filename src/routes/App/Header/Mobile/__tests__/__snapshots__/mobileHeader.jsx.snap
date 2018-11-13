@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders <Component /> component 1`] = `
+exports[`renders Header for Mobile 1`] = `
 <StaticRouter
   basename=""
   context={Object {}}

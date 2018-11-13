@@ -8,7 +8,7 @@ const {
     mount
 } = global;
 
-it('renders <Component /> component', () => {
+it('renders Header for Desktop', () => {
     const wrapper = mount((
         <StaticRouter context={{}}>
             <Component />

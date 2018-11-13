@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders <Component /> component 1`] = `
+exports[`renders Header for Desktop 1`] = `
 <StaticRouter
   basename=""
   context={Object {}}
@@ -37,10 +37,12 @@ exports[`renders <Component /> component 1`] = `
             fetch={[Function]}
             loading={false}
             render={[Function]}
-            selected={null}
+            selected=""
           >
             <div>
-              header deskotp
+              <div>
+                header deskotp
+              </div>
               <Top
                 routes={Array []}
               >
@@ -70,7 +72,7 @@ exports[`renders <Component /> component 1`] = `
                     className="MuiFormControl-root-1"
                   >
                     <WithStyles(Select)
-                      value={null}
+                      value=""
                     >
                       <Select
                         IconComponent={[Function]}
@@ -90,7 +92,7 @@ exports[`renders <Component /> component 1`] = `
                         input={<WithStyles(Input) />}
                         multiple={false}
                         native={false}
-                        value={null}
+                        value=""
                       >
                         <WithStyles(Input)
                           inputComponent={[Function]}
@@ -120,7 +122,7 @@ exports[`renders <Component /> component 1`] = `
                               "variant": "standard",
                             }
                           }
-                          value={null}
+                          value=""
                         >
                           <Input
                             classes={
@@ -167,7 +169,7 @@ exports[`renders <Component /> component 1`] = `
                                 "variant": "standard",
                               }
                             }
-                            value={null}
+                            value=""
                           >
                             <WithStyles(InputBase)
                               classes={
@@ -217,7 +219,7 @@ exports[`renders <Component /> component 1`] = `
                               }
                               multiline={false}
                               type="text"
-                              value={null}
+                              value=""
                             >
                               <InputBase
                                 classes={
@@ -271,7 +273,7 @@ exports[`renders <Component /> component 1`] = `
                                 }
                                 multiline={false}
                                 type="text"
-                                value={null}
+                                value=""
                               >
                                 <div
                                   className="MuiInputBase-root-25 MuiInput-root-12 MuiInput-underline-16 MuiInputBase-formControl-26 MuiInput-formControl-13"
@@ -301,7 +303,7 @@ exports[`renders <Component /> component 1`] = `
                                     onChange={[Function]}
                                     onFocus={[Function]}
                                     required={false}
-                                    value={null}
+                                    value=""
                                     variant="standard"
                                   >
                                     <div
@@ -329,7 +331,7 @@ exports[`renders <Component /> component 1`] = `
                                       </div>
                                       <input
                                         type="hidden"
-                                        value={null}
+                                        value=""
                                       />
                                       <pure(ArrowDropDown)
                                         className="MuiSelect-icon-11"
@@ -971,6 +973,45 @@ exports[`renders <Component /> component 1`] = `
                       education
                     </a>
                   </Link>
+                </div>
+                <div
+                  className="col-xs"
+                  key="yeabl1"
+                >
+                  <Link
+                    replace={false}
+                    to="/yeabl1"
+                  >
+                    <a
+                      href="/yeabl1"
+                      onClick={[Function]}
+                    >
+                      yeabl1
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="col-xs"
+                  key="yeabl2"
+                >
+                  <Link
+                    replace={false}
+                    to="/yeabl2"
+                  >
+                    <a
+                      href="/yeabl2"
+                      onClick={[Function]}
+                    >
+                      yeabl2
+                    </a>
+                  </Link>
+                </div>
+                <div>
+                  <a
+                    href="https://www.jamesallen.com/"
+                  >
+                    Go to james
+                  </a>
                 </div>
               </div>
             </div>

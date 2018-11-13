@@ -9,6 +9,8 @@ const render = (App, routes) => (req, response, next) => {
         ? activeRoute.fetchInitialData(req.url)
         : Promise.resolve([]);
 
+    console.log('activeRoute', activeRoute);
+
     return promise
         .then((res) => {
             let appData = {};
