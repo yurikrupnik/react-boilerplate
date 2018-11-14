@@ -206,7 +206,7 @@ export default class Desktop extends Component {
                                         </a>
                                     </GradientButton>
 
-                                    <span className={styles.test}>
+                                    <span className={styles.middleStartButtons}>
                                         OR
                                     </span>
 
@@ -216,22 +216,16 @@ export default class Desktop extends Component {
                                         </a>
                                     </GradientButton>
                                 </div>
-                                {/* <div style={{ whiteSpace: 'nowrap' }}> */}
-                                {/* <span style={{ fontFamily: 'NunitoSans' }}> */}
-                                {/* Spark your imagination with these */}
-                                {/* </span> */}
-                                {/* <a */}
-                                {/* style={{ */}
-                                {/* color: '#ff8081', */}
-                                {/* textDecoration: 'underline', */}
-                                {/* fontFamily: 'NunitoSans' */}
-                                {/* }} */}
-                                {/* href="/diamond-rings/diamond-engagement-rings/" */}
-                                {/* data-container="#WidePane" */}
-                                {/* > */}
-                                {/* recently purchased engagement rings. */}
-                                {/* </a> */}
-                                {/* </div> */}
+                                <div className={styles.footerStartContainer}>
+                                    <div style={{ fontFamily: 'NunitoSans', fontSize: '15px' }}>
+                                        Spark your imagination with these&nbsp;
+                                        <span>
+                                            <a href="/diamond-rings/diamond-engagement-rings/">
+                                                recently purchased engagement rings.
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className={styles['right-t1']}>
@@ -836,9 +830,10 @@ browse
                             </a>
                         </div>
                     </div>
+
+
+
                     <div
-                        data-gtm-name="engagement moments"
-                        className={styles['start-button']}
                         style={{
                             width: '225px',
                             margin: '42px auto',
@@ -847,16 +842,11 @@ browse
                             display: 'block'
                         }}
                     >
-                        <a
-                            style={{
-                                padding: '15px 27px',
-                                fontFamily: 'NunitoSans'
-                            }}
-                            href="/engagement-moments/"
-                            data-container="#WidePane"
-                        >
-                            READ THE STORIES
-                        </a>
+                        <GradientButton handleClick={() => { console.log('foooo'); }}>
+                            <a href="/topis">
+                                read the stories
+                            </a>
+                        </GradientButton>
                     </div>
                 </div>
             </div>

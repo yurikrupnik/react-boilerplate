@@ -135,7 +135,7 @@
   /* transition: top 1s ease-out;*/
 }
 
-a{
+a {
   color: black !important;
 }
 
@@ -178,6 +178,7 @@ a{
 }
 
 .start-with-container {
+  font-family: NunitoSans;
   text-align: left;
   width: 519px;
   position: relative;
@@ -186,11 +187,23 @@ a{
   margin: 0 auto;
   padding-top: 70px;
   transform-origin: top;
+
+  .footerStartContainer {
+    font-size: 1rem;
+    white-space: nowrap;
+    span > a {
+      color: #ff8081 !important;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
+
 }
 
 .design-text {
-  font-size: 30px; /* Approximation due to font substitution */
-  line-height: 52px; /* Approximation due to font substitution */
+  font-size: 30px;
+  line-height: 52px;
 }
 
 .design-text-2 {
@@ -435,7 +448,7 @@ a{
   display: flex;
   justify-content: space-between;
 
-  .test{
+  .middleStartButtons {
     font-size: 15px;
     margin: auto auto;
   }
@@ -954,7 +967,6 @@ a{
     line-height: 80px;
   }
 
-
 }
 
 @media (max-width: 1060px) {
@@ -1007,8 +1019,6 @@ a{
       .start-align {
           height: 820px !important;
       }*/
-
-
 
 }
 

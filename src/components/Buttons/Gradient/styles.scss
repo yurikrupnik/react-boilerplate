@@ -15,7 +15,6 @@
 
 .button {
   border: 1px solid #1b1b1b;
-  border-radius: 0;
   background: rgba(252, 252, 252, -5.1) linear-gradient(to left, transparent, transparent 50%, #feeeee 50%, #feeeee) 100% 0;
   background-size: 200% 100%;
   transition: all 0.3s;
@@ -23,9 +22,7 @@
   padding: 12px 21px;
   text-transform: uppercase;
   white-space: nowrap;
-  width: fit-content;
-  height: fit-content;
-
+  cursor: pointer;
 }
 
 
