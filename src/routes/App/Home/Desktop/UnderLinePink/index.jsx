@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
 
-const Gradient = ({
+const PinkUnderLine = ({
     handleClick, children, href, style
 }) => (
     <button
@@ -28,16 +28,17 @@ const Gradient = ({
 );
 
 
-Gradient.defaultProps = {
+PinkUnderLine.defaultProps = {
     href: '',
-    style: {}
+    style: {},
+    handleClick: () => {}
 };
 
-Gradient.propTypes = {
-    handleClick: PropTypes.func.isRequired,
+PinkUnderLine.propTypes = {
+    handleClick: PropTypes.func,
     children: PropTypes.node.isRequired,
     href: PropTypes.string,
-    style: PropTypes.object,
+    style: PropTypes.object
 };
 
-export default Gradient;
+export default PinkUnderLine;

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const data = {
     looseDiamondsGallery: [
         {
@@ -171,7 +173,13 @@ const data = {
 
     iconsData: [
         'FeaturedIn', 'Forbes', 'BuzzFeed', 'EliteDaily', 'LaurenConrad', 'Maxim', 'Refinery29', 'Popsugar', 'UsWeekly', 'TheKnot'
-    ]
+    ],
+
+    bannerData: {
+        src: 'https://ion.r2net.com/images/Campaigns/casa-pagina/WrappedInPink//HPBanner.jpg?v=5',
+        alt: 'A woman wearing an engagement ring and diamond bracelets, embracing her fiancé in a scarf.',
+        title: 'A woman wearing an engagement ring and diamond bracelets, embracing her fiancé in a scarf.'
+    }
 };
 
 export default data;

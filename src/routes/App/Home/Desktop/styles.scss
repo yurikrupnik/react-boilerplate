@@ -548,45 +548,45 @@ a {
 
 /* link style */
 
-.pink-bg {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.pink-bg:before {
-  content: '';
-  display: block;
-  height: 15px;
-  position: absolute;
-  top: 11px;
-  width: 300%;
-  z-index: -1;
-  right: 0;
-  transition: right .4s ease-out;
-  background: linear-gradient(to right, #fdc6c7 0%, #fdc6c7 33.3%, transparent 33.3%, transparent 66.6%, #fdc6c7 66.6%, #fdc6c7 100%);;
-}
-
-.pink-bg:hover:before {
-  transition: right .5s ease-out;
-  right: -200%;
-}
-
-.top-title.pink-bg {
-  display: block;
-}
-
-.top-title.pink-bg:before {
-  height: 21px;
-  top: 27px;
-}
-
-.float-area .pink-bg:before {
-  height: 12px;
-  top: 9px;
-}
+//.pink-bg {
+//  position: relative;
+//  display: inline-block;
+//  z-index: 1;
+//  overflow: hidden;
+//  cursor: pointer;
+//}
+//
+//.pink-bg:before {
+//  content: '';
+//  display: block;
+//  height: 15px;
+//  position: absolute;
+//  top: 11px;
+//  width: 300%;
+//  z-index: -1;
+//  right: 0;
+//  transition: right .4s ease-out;
+//  background: linear-gradient(to right, #fdc6c7 0%, #fdc6c7 33.3%, transparent 33.3%, transparent 66.6%, #fdc6c7 66.6%, #fdc6c7 100%);;
+//}
+//
+//.pink-bg:hover:before {
+//  transition: right .5s ease-out;
+//  right: -200%;
+//}
+//
+//.top-title.pink-bg {
+//  display: block;
+//}
+//
+//.top-title.pink-bg:before {
+//  height: 21px;
+//  top: 27px;
+//}
+//
+//.float-area .pink-bg:before {
+//  height: 12px;
+//  top: 9px;
+//}
 
 .events-align > div {
   max-width: 32%;

@@ -1,18 +1,3 @@
-
-.button:active {
-  color: #ff8081;
-  border: 1px solid #ff8081;
-}
-
-.button:hover {
-  background-position: 0 0;
-  color: #333;
-}
-
-.button:focus {
-  outline: none;
-}
-
 .button {
   border: 1px solid #1b1b1b;
   background: rgba(252, 252, 252, -5.1) linear-gradient(to left, transparent, transparent 50%, #feeeee 50%, #feeeee) 100% 0;
@@ -23,6 +8,18 @@
   text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
+
+  &:active{
+    color: #ff8081;
+    border: 1px solid #ff8081;
+  }
+  &:hover{
+    background-position: 0 0;
+    color: #333;
+  }
+  &:focus{
+    outline: none;
+  }
 }
 
 

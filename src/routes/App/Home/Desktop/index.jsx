@@ -6,6 +6,7 @@ import JustifyAlign from './JustifyAlign/index.jsx';
 import Carousel from './Carousel';
 import data from './data';
 import GradientButton from '../../../../components/Buttons/Gradient';
+import UnderLinePink from './UnderLinePink';
 
 export default class Desktop extends Component {
     constructor(props) {
@@ -122,7 +123,7 @@ export default class Desktop extends Component {
     render() {
         return (
             <div>
-                <TopBanner />
+                <TopBanner data={data.bannerData} />
                 <div style={{ position: 'relative' }}>
                     <div
                         ref="designYouOwn"
@@ -132,7 +133,9 @@ export default class Desktop extends Component {
                             paddingTop: '0px'
                         }}
                     >
-                        <div className={`${styles['top-brown-text']} ${styles['design-own']} }`}>
+                        <div
+                            className={`${styles['top-brown-text']} ${styles['design-own']} }`}
+                        >
                             <div>
                                 design your own
                             </div>
@@ -175,10 +178,17 @@ export default class Desktop extends Component {
                 >
                     <JustifyAlign
                         className={styles['start-align']}
-                        data-styled={{ fontSize: 0, height: '860px', display: 'flex' }}
+                        data-styled={{
+                            fontSize: 0,
+                            height: '860px',
+                            display: 'flex'
+                        }}
                     >
                         <div
-                            style={{ position: 'relative', height: '451px' }}
+                            style={{
+                                position: 'relative',
+                                height: '451px'
+                            }}
                             data-gtm-name="design your own"
                         >
                             <div ref="stoneText" className={styles['start-with-container']}>
@@ -200,24 +210,32 @@ export default class Desktop extends Component {
                                     </div>
                                 </div>
                                 <div className={styles['start-button-container']}>
-                                    <GradientButton handleClick={() => { console.log('foooo'); }}>
-                                        <a href="/topis">
-                                            start with a setting
-                                        </a>
+                                    <GradientButton
+                                        handleClick={() => {
+                                            console.log('foooo');
+                                        }}
+                                        href="/topics/"
+                                    >
+                                        start with a setting
                                     </GradientButton>
-
                                     <span className={styles.middleStartButtons}>
                                         OR
                                     </span>
-
-                                    <GradientButton handleClick={() => { console.log('foooo'); }}>
-                                        <a href="/topis">
-                                            start with a diamond
-                                        </a>
+                                    <GradientButton
+                                        handleClick={() => {
+                                            console.log('foooo');
+                                        }}
+                                        href="/topics/"
+                                    >
+                                        start with a diamond
                                     </GradientButton>
                                 </div>
                                 <div className={styles.footerStartContainer}>
-                                    <div style={{ fontFamily: 'NunitoSans', fontSize: '15px' }}>
+                                    <div style={{
+                                        fontFamily: 'NunitoSans',
+                                        fontSize: '15px'
+                                    }}
+                                    >
                                         Spark your imagination with these&nbsp;
                                         <span>
                                             <a href="/diamond-rings/diamond-engagement-rings/">
@@ -381,20 +399,12 @@ export default class Desktop extends Component {
                                     <div style={{
                                         fontSize: '17px',
                                         fontFamily: 'NunitoSans',
-                                        color: 'rgb(27, 27, 27)'
+                                        color: 'rgb(27, 27,F 27)'
                                     }}
                                     >
-                                        <div
-                                            style={{ fontWeight: 'bold' }}
-                                            className={styles['pink-bg']}
-                                        >
-                                            <a
-                                                href="/diamond-consultation/"
-                                                data-container="#WidePane"
-                                            >
-                                                START YOUR DIAMOND INSPECTION NOW
-                                            </a>
-                                        </div>
+                                        <UnderLinePink href="/topics/" style={{ fontSize: '17px' }}>
+                                            START YOUR DIAMOND INSPECTION NOW
+                                        </UnderLinePink>
                                     </div>
                                 </div>
                             </div>
@@ -403,7 +413,7 @@ export default class Desktop extends Component {
                 </div>
                 {/* -----------------------------------------------*/}
                 <div
-                    style={{ margin: '100px 0px 60px 0' }}
+                    style={{ margin: '100pxF 0px 60px 0' }}
                     className={`${styles['title-pack']} ${styles.center}`}
                 >
                     <div>EXPERIENCE THE</div>
@@ -485,10 +495,10 @@ export default class Desktop extends Component {
                                                 anniversary ring, or can be worn alongside your
                                                 engagement ring.
                                             </div>
-                                            <div className={styles['float-bottom']}>
-                                                <div className={styles['pink-bg']}>
-                                                    explore
-                                                </div>
+                                            <div className={styles['float-bottom']} style={{ fontSize: '13px' }}>
+                                                <UnderLinePink style={{ fontSize: '13px' }}>
+                                                    Explore
+                                                </UnderLinePink>
                                             </div>
                                         </span>
                                     </a>
@@ -527,9 +537,9 @@ export default class Desktop extends Component {
                                                     alternative metal.
                                                 </div>
                                                 <div className={styles['float-bottom']}>
-                                                    <div className={styles['pink-bg']}>
-                                                        discover
-                                                    </div>
+                                                    <UnderLinePink style={{ fontSize: '13px' }}>
+                                                        Discover
+                                                    </UnderLinePink>
                                                 </div>
                                             </span>
                                         </a>
@@ -560,9 +570,9 @@ export default class Desktop extends Component {
                                                 <h3 className={styles['float-header']}>gemstone collection</h3>
                                                 <div className={styles['float-content']}>Kissed by the colors of nature, sapphire, ruby, and emerald jewelry makes for a stunningly exotic look.</div>
                                                 <div className={styles['float-bottom']}>
-                                                    <div className={styles['pink-bg']}>
+                                                    <UnderLinePink style={{ fontSize: '13px' }}>
                                                         Browse
-                                                    </div>
+                                                    </UnderLinePink>
                                                 </div>
                                             </span>
 
@@ -589,11 +599,9 @@ export default class Desktop extends Component {
                                                         yet elegant statement.
                                                     </div>
                                                     <div className={styles['float-bottom']}>
-                                                        <div
-                                                            className={styles['pink-bg']}
-                                                        >
-browse
-                                                        </div>
+                                                        <UnderLinePink style={{ fontSize: '13px' }}>
+                                                            Browse
+                                                        </UnderLinePink>
                                                     </div>
                                                 </span>
                                             </a>
@@ -711,8 +719,17 @@ browse
                                         is available 24/7 via live chat, phone, and email to help
                                         you choose the product that’s right for you.
                                     </div>
-                                    <div className={styles['pink-bg']} style={{ fontSize: '16px', fontWeight: 'bold' }}>
-                                        <a href="/guarantee/customer-service/" data-container="#WidePane">
+                                    <div
+                                        className={styles['pink-bg']}
+                                        style={{
+                                            fontSize: '16px',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        <a
+                                            href="/guarantee/customer-service/"
+                                            data-container="#WidePane"
+                                        >
                                             CONTACT US
                                         </a>
                                     </div>
@@ -832,7 +849,6 @@ browse
                     </div>
 
 
-
                     <div
                         style={{
                             width: '225px',
@@ -842,10 +858,13 @@ browse
                             display: 'block'
                         }}
                     >
-                        <GradientButton handleClick={() => { console.log('foooo'); }}>
-                            <a href="/topis">
-                                read the stories
-                            </a>
+                        <GradientButton
+                            handleClick={() => {
+                                console.log('foooo');
+                            }}
+                            href="/topis"
+                        >
+                            read the stories
                         </GradientButton>
                     </div>
                 </div>

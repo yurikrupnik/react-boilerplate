@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.scss';
 
-export default () => (
+export default ({ data }) => (
     <div className={styles.root}>
         <Link to="/topics">
             <img
                 className={styles.imgBanner}
-                src="https://ion.r2net.com/images/Campaigns/casa-pagina/WrappedInPink//HPBanner.jpg?v=5"
-                alt="A woman wearing an engagement ring and diamond bracelets, embracing her fiancé in a scarf."
-                title="A woman wearing an engagement ring and diamond bracelets, embracing her fiancé in a scarf."
+                src={data.src}
+                alt={data.alt}
+                title={data.title}
             />
             <div className={styles.textContainer}>
                 <div className={styles.topHeader}>
