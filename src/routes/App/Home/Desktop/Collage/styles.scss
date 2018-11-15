@@ -1,0 +1,44 @@
+
+.moments {
+  max-width: 1375px;
+  margin: 0 auto;
+}
+
+//.moments a {
+//  display: block;
+//}
+
+.moments > div {
+  padding: 0.7%;
+  display: inline-block;
+  width: 20%;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.moments img {
+  max-width: 100%;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.moments > div.collage-double {
+  width: 40%;
+}
+
+.moments > div.collage-middle {
+  padding: 0;
+}
+
+.collage-middle > div {
+  padding: 3.5%;
+  display: inline-block;
+}
+
+.moments > div.collage-middle:hover {
+  opacity: 1;
+}
+
+.moments > div:hover, .collage-middle > div:hover {
+  opacity: .3;
+}

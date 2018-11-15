@@ -127,28 +127,59 @@ const data = {
 
     collageData: [
         {
+            type: 1,
             href: '/engagement-moments/?EngagementMomentID=165',
             imgSrc: 'https://ion.r2net.com/images/amazingHomepage/a_engage.png',
             imgAlt: '',
         }, {
+            type: 1,
             href: '/engagement-moments/?EngagementMomentID=59',
             imgSrc: 'https://ion.r2net.com/images/amazingHomepage/b_engage.png',
             imgAlt: '',
         }, {
+            type: 1,
             href: '/engagement-moments/?EngagementMomentID=157',
             imgSrc: 'https://ion.r2net.com/images/amazingHomepage/c_engage.png',
             imgAlt: '',
         }, {
+            type: 1,
             href: '/engagement-moments/?EngagementMomentID=163',
             imgSrc: 'https://ion.r2net.com/images/amazingHomepage/d_engage.png',
             imgAlt: '',
         }, {
+            type: 1,
             href: '/engagement-moments/?EngagementMomentID=161',
             imgSrc: 'https://ion.r2net.com/images/amazingHomepage/e_engage.png',
             imgAlt: '',
         }, {
+            type: 1,
             href: '/engagement-moments/?EngagementMomentID=55',
             imgSrc: 'https://ion.r2net.com/images/amazingHomepage/f_engage.png',
+            imgAlt: '',
+        }, {
+            type: 2,
+            href: '/engagement-moments/?EngagementMomentID=470',
+            imgSrc: 'https://ion.r2net.com/images/amazingHomepage/g_engage.png',
+            imgAlt: '',
+        }, {
+            type: 2,
+            href: '/engagement-moments/?EngagementMomentID=464',
+            imgSrc: 'https://ion.r2net.com/images/amazingHomepage/j_engage.png',
+            imgAlt: '',
+        }, {
+            type: 3,
+            href: '/engagement-moments/?EngagementMomentID=408',
+            imgSrc: 'https://ion.r2net.com/images/amazingHomepage/h_engage.png',
+            imgAlt: '',
+        }, {
+            type: 3,
+            href: '/engagement-moments/?EngagementMomentID=188',
+            imgSrc: 'https://ion.r2net.com/images/amazingHomepage/k_engage.png',
+            imgAlt: '',
+        }, {
+            type: 4,
+            href: '/engagement-moments/?EngagementMomentID=183',
+            imgSrc: 'https://ion.r2net.com/images/amazingHomepage/i_engage.png',
             imgAlt: '',
         }
     ],

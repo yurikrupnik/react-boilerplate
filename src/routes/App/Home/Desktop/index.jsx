@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import styles from './styles.scss';
-import stylesGeneral from './general.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
 import Carousel from './Carousel';
 import data from './data';
 import GradientButton from '../../../../components/Buttons/Gradient';
 import UnderLinePink from './UnderLinePink';
+import Collage from './Collage';
+import DiamondInspection from './DiamondInspection';
+// import CrowningJewels from './CrowningJewels';
 
 export default class Desktop extends Component {
     constructor(props) {
@@ -170,7 +172,7 @@ export default class Desktop extends Component {
                     </div>
                 </div>
                 <div
-                    className={stylesGeneral.wideContent}
+                    className={styles.wideContent}
                     style={{
                         position: 'relative',
                         marginBottom: '105px'
@@ -210,23 +212,13 @@ export default class Desktop extends Component {
                                     </div>
                                 </div>
                                 <div className={styles['start-button-container']}>
-                                    <GradientButton
-                                        handleClick={() => {
-                                            console.log('foooo');
-                                        }}
-                                        href="/topics/"
-                                    >
+                                    <GradientButton href="/topics/">
                                         start with a setting
                                     </GradientButton>
                                     <span className={styles.middleStartButtons}>
                                         OR
                                     </span>
-                                    <GradientButton
-                                        handleClick={() => {
-                                            console.log('foooo');
-                                        }}
-                                        href="/topics/"
-                                    >
+                                    <GradientButton href="/topics/">
                                         start with a diamond
                                     </GradientButton>
                                 </div>
@@ -367,50 +359,7 @@ export default class Desktop extends Component {
                 {/* -------------------------- SLIDE IMAGES --------------------*/}
                 <Carousel imgsData={data.bestSellersGallery} type="bestSellers" />
                 {/* -----------------------------------------------*/}
-                <div className={styles['bottom-section']} ref="bottomSection">
-                    <div className={styles['bottom-left-bg-container']}>
-                        <div ref="sparkleBg" className={styles['sparkle-bg']} />
-                        <div className={styles['bottom-left-bg']} />
-                    </div>
-                    <div className={stylesGeneral.wideContent} data-gtm-name="diamond inspection">
-                        <div className={stylesGeneral['table-align']}>
-                            <div style={{ width: '50%' }} />
-                            <div className={styles['diamond-inspection-container']}>
-                                <div className={styles['diamond-inspection']}>
-                                    <div className={styles['title-pack']}>
-                                        <div>REAL-TIME INTERACTIVE</div>
-                                        <div>DIAMOND INSPECTION</div>
-                                        <div className={styles['sub-title']}>
-                                            Take a closer look at your favorite diamonds using our
-                                            Real-Time Diamond Inspection service; a one-on-one
-                                            consultation with a non-commissioned certified
-                                            gemologist. Share your
-                                            screen and get expert guidance as you
-                                            {' '}
-                                            <b>explore diamonds in 360° HD</b>
-                                            {' '}
-                                            with up to 40x magnification.
-                                            Mark points of interest on the screen while chatting
-                                            with your diamond expert in
-                                            real time, and review everything from the specs to the
-                                            grading certificate together.
-                                        </div>
-                                    </div>
-                                    <div style={{
-                                        fontSize: '17px',
-                                        fontFamily: 'NunitoSans',
-                                        color: 'rgb(27, 27,F 27)'
-                                    }}
-                                    >
-                                        <UnderLinePink href="/topics/" style={{ fontSize: '17px' }}>
-                                            START YOUR DIAMOND INSPECTION NOW
-                                        </UnderLinePink>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <DiamondInspection />
                 {/* -----------------------------------------------*/}
                 <div
                     style={{ margin: '100pxF 0px 60px 0' }}
@@ -426,6 +375,7 @@ export default class Desktop extends Component {
                 {/* ------------------looseDiamonds slider----------------------*/}
                 <Carousel imgsData={data.looseDiamondsGallery} type="looseDiamonds" />
                 {/* --------------------------------------*/}
+                {/* <CrowningJewels /> */}
                 <div className={`${styles['top-brown-text']} ${styles['design-own']}`}>
                     <div>
                         find your sparkle
@@ -470,18 +420,17 @@ export default class Desktop extends Component {
                             diamond studs
                         </div>
                         <div
-                            className={`${stylesGeneral.wideContent} ${styles['floating-banners']}`}
+                            className={`${styles.wideContent} ${styles['floating-banners']}`}
                             style={{
                                 textAlign: 'center',
                                 padding: '300px 0 240px 0'
                             }}
-                            data-gtm-name="floating banners"
                         >
-                            <div className={stylesGeneral.tableAlign}>
+                            {/*------------------------------*/}
+                            <div className={styles['table-align']}>
                                 <div className={styles['float-area']}>
                                     <a
                                         href="/wedding-rings/womens-eternity/"
-                                        data-container="#WidePane"
                                     >
                                         <span
                                             ref="parallax3"
@@ -495,7 +444,10 @@ export default class Desktop extends Component {
                                                 anniversary ring, or can be worn alongside your
                                                 engagement ring.
                                             </div>
-                                            <div className={styles['float-bottom']} style={{ fontSize: '13px' }}>
+                                            <div
+                                                className={styles['float-bottom']}
+                                                style={{ fontSize: '13px' }}
+                                            >
                                                 <UnderLinePink style={{ fontSize: '13px' }}>
                                                     Explore
                                                 </UnderLinePink>
@@ -509,8 +461,9 @@ export default class Desktop extends Component {
                                 </div>
                                 <div />
                             </div>
+                            {/*------------------------------*/}
                             <div
-                                className={`${stylesGeneral['table-align']} ${styles['images-align']}`}
+                                className={`${styles['table-align']} ${styles['images-align']}`}
                                 style={{ marginTop: '-380px' }}
                             >
                                 <div>
@@ -624,7 +577,7 @@ export default class Desktop extends Component {
                     <div>your personal</div>
                     <div>diamond concierge awaits...</div>
                 </div>
-                <div className={stylesGeneral.wideContent} style={{ marginBottom: '105px' }}>
+                <div className={styles.wideContent} style={{ marginBottom: '105px' }}>
                     <JustifyAlign
                         className={styles['as-container']}
                         data-gtm-name="diamond concierge"
@@ -671,18 +624,10 @@ export default class Desktop extends Component {
                                         <b>by appointment only</b>
                                         .
                                     </div>
-                                    <div
-                                        className={styles['pink-bg']}
-                                        style={{
-                                            fontSize: '16px',
-                                            fontWeight: 'bold',
-                                            whiteSpace: 'nowrap'
-                                        }}
-                                    >
-                                        <a href="/showroom/" data-container="#WidePane">
-                                            SCHEDULE APPOINTMENT
-                                        </a>
-                                    </div>
+
+                                    <UnderLinePink style={{ fontSize: '16px' }}>
+                                        Schedule Appointment
+                                    </UnderLinePink>
                                 </div>
                             </div>
                         </div>
@@ -719,20 +664,9 @@ export default class Desktop extends Component {
                                         is available 24/7 via live chat, phone, and email to help
                                         you choose the product that’s right for you.
                                     </div>
-                                    <div
-                                        className={styles['pink-bg']}
-                                        style={{
-                                            fontSize: '16px',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        <a
-                                            href="/guarantee/customer-service/"
-                                            data-container="#WidePane"
-                                        >
-                                            CONTACT US
-                                        </a>
-                                    </div>
+                                    <UnderLinePink style={{ fontSize: '16px' }}>
+                                        Contact Us
+                                    </UnderLinePink>
                                 </div>
                             </div>
                             <div className={styles['img-bg']} />
@@ -771,102 +705,10 @@ export default class Desktop extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div className={stylesGeneral.wideContent}>
-                    <div className={styles.moments} data-gtm-name="engagement moments">
-                        {data.collageData.map(item => (
-                            <div key={item.href}>
-                                <a
-                                    href={item.href}
-                                    data-container="#EngagementMomentsItemPreview"
-                                >
-                                    <img src={item.imgSrc} alt={item.imgAlt} />
-                                </a>
-                            </div>
-                        ))}
-
-                        <div className={styles['collage-middle']}>
-                            <div>
-                                <a
-                                    href="/engagement-moments/?EngagementMomentID=470"
-                                    data-container="#EngagementMomentsItemPreview"
-                                >
-                                    <img
-                                        src="https://ion.r2net.com/images/amazingHomepage/g_engage.png"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                            <div>
-                                <a
-                                    href="/engagement-moments/?EngagementMomentID=464"
-                                    data-container="#EngagementMomentsItemPreview"
-                                >
-                                    <img
-                                        src="https://ion.r2net.com/images/amazingHomepage/j_engage.png"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                        <div className={styles['collage-middle']}>
-                            <div>
-                                <a
-                                    href="/engagement-moments/?EngagementMomentID=408"
-                                    data-container="#EngagementMomentsItemPreview"
-                                >
-                                    <img
-                                        src="https://ion.r2net.com/images/amazingHomepage/h_engage.png"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                            <div>
-                                <a
-                                    href="/engagement-moments/?EngagementMomentID=188"
-                                    data-container="#EngagementMomentsItemPreview"
-                                >
-                                    <img
-                                        src="https://ion.r2net.com/images/amazingHomepage/k_engage.png"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className={styles['collage-double']}>
-                            <a
-                                href="/engagement-moments/?EngagementMomentID=183"
-                                data-container="#EngagementMomentsItemPreview"
-                            >
-                                <img
-                                    src="https://ion.r2net.com/images/amazingHomepage/i_engage.png"
-                                    alt=""
-                                />
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div
-                        style={{
-                            width: '225px',
-                            margin: '42px auto',
-                            textAlign: 'center',
-                            fontSize: '18px',
-                            display: 'block'
-                        }}
-                    >
-                        <GradientButton
-                            handleClick={() => {
-                                console.log('foooo');
-                            }}
-                            href="/topis"
-                        >
-                            read the stories
-                        </GradientButton>
-                    </div>
+                    <Collage />
+                    <GradientButton href="/topis">
+                        read the stories
+                    </GradientButton>
                 </div>
             </div>
         );

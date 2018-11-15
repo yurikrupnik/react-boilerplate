@@ -38,7 +38,7 @@ PinkUnderLine.propTypes = {
     handleClick: PropTypes.func,
     children: PropTypes.node.isRequired,
     href: PropTypes.string,
-    style: PropTypes.object
+    style: PropTypes.objectOf(PropTypes.string)
 };
 
 export default PinkUnderLine;

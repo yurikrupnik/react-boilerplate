@@ -30,14 +30,16 @@ const Gradient = ({
 
 Gradient.defaultProps = {
     href: '',
-    style: {}
+    style: {},
+    handleClick: () => {
+    }
 };
 
 Gradient.propTypes = {
-    handleClick: PropTypes.func.isRequired,
+    handleClick: PropTypes.func,
     children: PropTypes.node.isRequired,
     href: PropTypes.string,
-    style: PropTypes.object,
+    style: PropTypes.objectOf(PropTypes.string)
 };
 
 export default Gradient;

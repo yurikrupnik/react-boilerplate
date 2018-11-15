@@ -1,0 +1,152 @@
+.wideContent {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1590px;
+  min-width: 980px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  box-sizing: border-box;
+}
+.table-align {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+}
+
+.title-pack {
+  color: #1b1b1b;
+  line-height: 41px;
+  text-transform: uppercase;
+  margin-bottom: 53px;
+}
+
+.title-pack > h1 > span, .title-pack > h1 > span.sub-title {
+  display: block;
+}
+
+.title-pack > div, .title-pack > div > span {
+  font-size: 42px;
+  font-family: 'Playfair Display'
+}
+
+.title-pack > div:first-child, .title-pack > div > span:first-child {
+  font-size: 31px;
+  font-family: 'NunitoSans';
+  height: 41px;
+  display: block;
+}
+
+.title-pack > div.sub-title, .title-pack > div > span.sub-title {
+  font-size: 18px;
+  text-transform: none;
+  font-family: 'NunitoSans';
+  line-height: 28px;
+  margin-top: 6px;
+}
+
+.diamond-inspection-container {
+  width: 50%;
+  padding-left: 90px;
+}
+
+.start-with-container .title-pack > div.sub-title, .diamond-inspection .title-pack > div.sub-title {
+  margin-top: 58px;
+}
+.diamond-inspection {
+  max-width: 583px;
+  text-align: left;
+}
+
+.table-align > * {
+  display: table-cell;
+  text-align: center;
+}
+
+.bottom-section {
+  transition: background-position .1s ease-out;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.bottom-section {
+  position: relative;
+  padding: 243px 0;
+  background-color: #fdfdfa;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
+  background-repeat: no-repeat;
+  background-position: right 70px top 100px, 0 117px;
+}
+
+.bottom-left-bg-container {
+  position: relative;
+  bottom: 200px;
+}
+
+.sparkle-bg {
+  position: absolute;
+  width: 357px;
+  height: 305px;
+  z-index: 1;
+  left: 400px;
+  top: 200px;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1');
+  background-repeat: no-repeat;
+}
+
+//.scroll-started .sparkle-bg {
+//  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1');
+//  background-repeat: no-repeat;
+//}
+
+.bottom-left-bg {
+  height: 800px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5');
+  background-repeat: no-repeat;
+}
+
+//.scroll-started .bottom-left-bg {
+//  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5');
+//  background-repeat: no-repeat;
+//}
+
+
+@media (max-width: 1660px) {
+  .bottom-left-bg-container {
+    left: -100px;
+  }
+}
+
+@media (max-width: 1460px) {
+  .bottom-left-bg-container {
+    left: -200px;
+  }
+
+}
+@media (max-width: 1260px) {
+  .bottom-left-bg-container {
+    left: -300px;
+  }
+}
+@media (max-width: 1060px) {
+
+  .bottom-left-bg-container {
+    left: -340px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .diamond-inspection-container {
+    width: 74%;
+    padding-left: 0;
+  }
+
+  .diamond-inspection {
+    max-width: 883px;
+  }
+
+}

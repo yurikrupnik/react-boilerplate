@@ -1,50 +1,16 @@
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    margin: 35px;
+  }
+}
+
 @font-face {
   font-family: "PlayfairDisplay";
   src: url("https://ion.r2net.com/Images/Fonts/JAFonts/PlayfairDisplay.ttf");
-}
-
-.moments {
-  max-width: 1375px;
-  margin: 0 auto;
-}
-
-.moments a {
-  display: block;
-}
-
-.moments > div {
-  padding: 0.7%;
-  display: inline-block;
-  width: 20%;
-  box-sizing: border-box;
-  vertical-align: top;
-}
-
-.moments img {
-  max-width: 100%;
-  cursor: pointer;
-  vertical-align: top;
-}
-
-.moments > div.collage-double {
-  width: 40%;
-}
-
-.moments > div.collage-middle {
-  padding: 0;
-}
-
-.collage-middle > div {
-  padding: 3.5%;
-  display: inline-block;
-}
-
-.moments > div.collage-middle:hover {
-  opacity: 1;
-}
-
-.moments > div:hover, .collage-middle > div:hover {
-  opacity: .3;
 }
 
 .vertical-center:before {
@@ -94,6 +60,29 @@
   width: 49%;
   vertical-align: middle;
   box-sizing: border-box;
+}
+
+.wideContent {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1590px;
+  min-width: 980px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: auto;
+  box-sizing: border-box;
+}
+
+.table-align {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+}
+
+.table-align > * {
+  display: table-cell;
+  text-align: center;
 }
 
 .as-text {
@@ -460,8 +449,15 @@ a {
   margin-bottom: -64px;
 }
 
-.pics-or .meet-bg {
-  height: 61px;
+.pics-or {
+  text-align: center;
+  margin-bottom: 40px;
+  button {
+    margin-top: 35px;
+  }
+  .meet-bg {
+    height: 61px;
+  }
 }
 
 .meet-bg-container {
@@ -545,48 +541,6 @@ a {
 .separator {
   height: 29px;
 }
-
-/* link style */
-
-//.pink-bg {
-//  position: relative;
-//  display: inline-block;
-//  z-index: 1;
-//  overflow: hidden;
-//  cursor: pointer;
-//}
-//
-//.pink-bg:before {
-//  content: '';
-//  display: block;
-//  height: 15px;
-//  position: absolute;
-//  top: 11px;
-//  width: 300%;
-//  z-index: -1;
-//  right: 0;
-//  transition: right .4s ease-out;
-//  background: linear-gradient(to right, #fdc6c7 0%, #fdc6c7 33.3%, transparent 33.3%, transparent 66.6%, #fdc6c7 66.6%, #fdc6c7 100%);;
-//}
-//
-//.pink-bg:hover:before {
-//  transition: right .5s ease-out;
-//  right: -200%;
-//}
-//
-//.top-title.pink-bg {
-//  display: block;
-//}
-//
-//.top-title.pink-bg:before {
-//  height: 21px;
-//  top: 27px;
-//}
-//
-//.float-area .pink-bg:before {
-//  height: 12px;
-//  top: 9px;
-//}
 
 .events-align > div {
   max-width: 32%;
@@ -719,11 +673,11 @@ a {
   background-position: right 70px top 100px, 0 117px;
 }
 
-.scroll-started .bottom-section {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
-  background-repeat: no-repeat;
-  background-position: right 70px top 100px, 0 117px;
-}
+//.scroll-started .bottom-section {
+//  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
+//  background-repeat: no-repeat;
+//  background-position: right 70px top 100px, 0 117px;
+//}
 
 .bottom-left-bg-container {
   position: relative;
