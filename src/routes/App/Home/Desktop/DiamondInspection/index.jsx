@@ -35,27 +35,6 @@ export default class DiamondInspection extends Component {
             sparkleBg.style.top = `${top}px`;
             // }
         }
-
-        const progSpeed = (global.window.innerWidth) <= 1460 ? 0.56 : (global.window.innerWidth) <= 1280 ? 0.6 : 0.36;
-        let isInPlace = false;
-        if (stoneSprite) {
-            const sy = pageYOffset * progSpeed;
-            let top = -24 + sy;
-            isInPlace = top >= 192;// && parseInt(stoneSprite.style.top) == 192;
-            top > 192 && (top = 192);
-
-            if (!isInPlace) {
-                stoneSprite.style.top = `${top}px`;
-                const floor = Math.floor(sy / 11);
-                const pos = floor * 292;
-                if (floor < 20) {
-                    stoneSprite.style.backgroundPosition = `left top ${-pos}px`;
-                }
-            } else {
-                stoneSprite.style.top = '192px';
-                stoneSprite.style.backgroundPosition = 'left top -5548px';
-            }
-        }
     }
 
     render() {

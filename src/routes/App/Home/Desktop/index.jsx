@@ -14,6 +14,20 @@ export default class Desktop extends Component {
     constructor(props) {
         super(props);
         this.handleScroll = this.handleScroll.bind(this);
+        this.stoneTextRef = React.createRef();
+        this.bottomSectionRef = React.createRef();
+        this.dyuBgRef = React.createRef();
+        this.designYouOwnRef = React.createRef();
+        this.sparkleBgRef = React.createRef();
+        this.stoneSpritenRef = React.createRef();
+        this.parallax1Ref = React.createRef();
+        this.parallax2Ref = React.createRef();
+        this.parallax3Ref = React.createRef();
+        this.parallax4Ref = React.createRef();
+        this.pink1Ref = React.createRef();
+        this.pink2Ref = React.createRef();
+        this.pink3Ref = React.createRef();
+        this.pink4Ref = React.createRef();
     }
 
     componentDidMount() {
@@ -23,31 +37,33 @@ export default class Desktop extends Component {
 
     handleScroll() {
         const {
-            bottomSection, dyuBg, designYouOwn, sparkleBg, stoneText, stoneSprite
-        } = this.refs;
+            bottomSectionRef, dyuBgRef, designYouOwnRef, sparkleBgRef, stoneTextRef,
+            stoneSpritenRef, parallax1Ref, parallax2Ref, parallax3Ref, parallax4Ref, pink1Ref,
+            pink2Ref, pink3Ref, pink4Ref
+        } = this;
 
         const pageYOffset = global.window.pageYOffset > 0 ? global.window.pageYOffset : 0;
         if (pageYOffset > 0 && !this.scrollStarted) {
             this.scrollStarted = true;
         }
-        if (this.refs.parallax1) {
-            const arr = [this.refs.parallax1, this.refs.parallax2,
-                this.refs.parallax3, this.refs.parallax4];
+        if (parallax1Ref.current) {
+            const arr = [parallax1Ref.current, parallax2Ref.current,
+                parallax3Ref.current, parallax4Ref.current];
             const pinks = [{
                 pink: 1,
-                el: this.refs.pink1
+                el: pink1Ref.current
             }, {
                 pink: 2,
-                el: this.refs.pink2
+                el: pink2Ref.current
             },
             {
                 pink: 3,
-                el: this.refs.pink3
+                el: pink3Ref.current
             }, {
                 pink: 4,
-                el: this.refs.pink4
+                el: pink4Ref.current
             }];
-            const { bottom } = this.refs.parallax1.getBoundingClientRect();
+            const { bottom } = parallax1Ref.current.getBoundingClientRect();
             if (bottom > -1600 && bottom < screen.height + 1000) {
                 arr.forEach((el) => {
                     el.style.bottom = `${(bottom / 8).toFixed()}px`;
@@ -56,68 +72,69 @@ export default class Desktop extends Component {
                 pinks.forEach((d) => {
                     d.el.style.bottom = `${(bottom / 7).toFixed()}px`;
                     const speedDelta = bottom / bgSpeed;
-                    d.el.style.backgroundPositionY = d.pink == 1 ? `${(speedDelta - 100).toFixed()}px`
-                        : d.pink == 2 ? `${(speedDelta).toFixed()}px`
-                            : d.pink == 3 ? `${(speedDelta - 40).toFixed()}px`
-                                : d.pink == 4 ? `${speedDelta.toFixed()}px`
+                    d.el.style.backgroundPositionY = d.pink === 1 ? `${(speedDelta - 100).toFixed()}px`
+                        : d.pink === 2 ? `${(speedDelta).toFixed()}px`
+                            : d.pink === 3 ? `${(speedDelta - 40).toFixed()}px`
+                                : d.pink === 4 ? `${speedDelta.toFixed()}px`
                                     : `${(speedDelta - 100).toFixed()}px`;
                 });
             }
         }
 
-        if (bottomSection) {
-            const { bottom } = bottomSection.getBoundingClientRect();
+        if (bottomSectionRef.current) {
+            const { bottom } = bottomSectionRef.current.getBoundingClientRect();
             if (bottom > -600 && bottom < screen.height + 1000) {
-                bottomSection.style.backgroundPosition = `right 70px top 100px, 0 ${0 + (bottom / 20).toFixed()}px`;
+                bottomSectionRef.current.style.backgroundPosition = `right 70px top 100px, 0 ${0 + (bottom / 20).toFixed()}px`;
             }
         }
 
-        if (dyuBg) {
-            const { bottom } = dyuBg.getBoundingClientRect();
+        if (dyuBgRef.current) {
+            const { bottom } = dyuBgRef.current.getBoundingClientRect();
             if (bottom > -600 && bottom < screen.height + 1000) {
-                dyuBg.style.transform = `translate(-50%, ${(bottom / 23 - 10).toFixed()}px)`;
+                dyuBgRef.current.style.transform = `translate(-50%, ${(bottom / 23 - 10).toFixed()}px)`;
             }
         }
 
-        if (designYouOwn) {
+        if (designYouOwnRef.current) {
             const top = pageYOffset * 0.1;
-            designYouOwn.style.top = `${top}px`;
+            designYouOwnRef.current.style.top = `${top}px`;
         }
 
-        if (sparkleBg) {
-            const bsTop = sparkleBg.getBoundingClientRect().top;
+        if (sparkleBgRef.current) {
+            const bsTop = sparkleBgRef.current.getBoundingClientRect().top;
             const top = 200 + ((bsTop - 383) * 0.06);
             // if (bs && bsTop > 383) {
-            sparkleBg.style.top = `${top}px`;
+            sparkleBgRef.current.style.top = `${top}px`;
             // }
         }
 
-        const progSpeed = (global.window.innerWidth) <= 1460 ? 0.56 : (global.window.innerWidth) <= 1280 ? 0.6 : 0.36;
+        const progSpeed = (global.window.innerWidth) <= 1460 ? 0.56
+            : (global.window.innerWidth) <= 1280 ? 0.6 : 0.36;
         let isInPlace = false;
-        if (stoneSprite) {
+        if (stoneSpritenRef.current) {
             const sy = pageYOffset * progSpeed;
             let top = -24 + sy;
-            isInPlace = top >= 192;// && parseInt(stoneSprite.style.top) == 192;
+            isInPlace = top >= 192;
             top > 192 && (top = 192);
 
             if (!isInPlace) {
-                stoneSprite.style.top = `${top}px`;
+                stoneSpritenRef.current.style.top = `${top}px`;
                 const floor = Math.floor(sy / 11);
                 const pos = floor * 292;
                 if (floor < 20) {
-                    stoneSprite.style.backgroundPosition = `left top ${-pos}px`;
+                    stoneSpritenRef.current.style.backgroundPosition = `left top ${-pos}px`;
                 }
             } else {
-                stoneSprite.style.top = '192px';
-                stoneSprite.style.backgroundPosition = 'left top -5548px';
+                stoneSpritenRef.current.style.top = '192px';
+                stoneSpritenRef.current.style.backgroundPosition = 'left top -5548px';
             }
         }
 
-        if (stoneText) {
+        if (stoneTextRef.current) {
             let top = pageYOffset * 0.3;
             top > 215 && (top = 215);
             if (!isInPlace && top <= 215) {
-                stoneText.style.top = `${top}px`;
+                stoneTextRef.current.style.top = `${top}px`;
             }
         }
     }
@@ -128,16 +145,14 @@ export default class Desktop extends Component {
                 <TopBanner data={data.bannerData} />
                 <div style={{ position: 'relative' }}>
                     <div
-                        ref="designYouOwn"
+                        ref={this.designYouOwnRef}
                         style={{
                             position: 'absolute',
                             width: '100%',
                             paddingTop: '0px'
                         }}
                     >
-                        <div
-                            className={`${styles['top-brown-text']} ${styles['design-own']} }`}
-                        >
+                        <div className={`${styles['top-brown-text']} ${styles['design-own']} }`}>
                             <div>
                                 design your own
                             </div>
@@ -186,14 +201,8 @@ export default class Desktop extends Component {
                             display: 'flex'
                         }}
                     >
-                        <div
-                            style={{
-                                position: 'relative',
-                                height: '451px'
-                            }}
-                            data-gtm-name="design your own"
-                        >
-                            <div ref="stoneText" className={styles['start-with-container']}>
+                        <div style={{ position: 'relative', height: '451px' }}>
+                            <div ref={this.stoneTextRef} className={styles['start-with-container']}>
                                 <div className={styles['title-pack']}>
                                     <div>
                                         <span>
@@ -252,7 +261,7 @@ export default class Desktop extends Component {
                                         alt="James Allen 14K white gold diamond engagement ring"
                                     />
                                     <div
-                                        ref="stoneSprite"
+                                        ref={this.stoneSpritenRef}
                                         className={styles.stoneSprite}
                                         style={{
                                             position: 'absolute',
@@ -276,7 +285,7 @@ export default class Desktop extends Component {
                                         src="https://ion.r2net.com/images/amazingHomepage/dyu-bg.png?v=6"
                                         alt=""
                                         className={styles['dyu-bg']}
-                                        ref="dyuBg"
+                                        ref={this.dyuBgRef}
                                     />
                                 </div>
                             </span>
@@ -433,7 +442,7 @@ export default class Desktop extends Component {
                                         href="/wedding-rings/womens-eternity/"
                                     >
                                         <span
-                                            ref="parallax3"
+                                            ref={this.parallax3Ref}
                                             className={styles['float-white-box']}
                                             style={{ marginBottom: '100px' }}
                                         >
@@ -455,7 +464,7 @@ export default class Desktop extends Component {
                                         </span>
                                     </a>
                                     <div
-                                        ref="pink1"
+                                        ref={this.pink1Ref}
                                         className={`${styles['pink-box']} ${styles['pink-box1']}`}
                                     />
                                 </div>
@@ -476,7 +485,7 @@ export default class Desktop extends Component {
                                             data-container="#WidePane"
                                         >
                                             <span
-                                                ref="parallax2"
+                                                ref={this.parallax2Ref}
                                                 className={styles['float-white-box']}
                                                 style={{ marginBottom: '200px' }}
                                             >
@@ -497,7 +506,7 @@ export default class Desktop extends Component {
                                             </span>
                                         </a>
                                         <div
-                                            ref="pink3"
+                                            ref={this.pink3Ref}
                                             className={`${styles['pink-box']} ${styles['pink-box3']}`}
                                         />
                                     </div>
@@ -508,7 +517,7 @@ export default class Desktop extends Component {
                                         style={{ marginTop: '250px' }}
                                     >
                                         <div
-                                            ref="pink2"
+                                            ref={this.pink2Ref}
                                             className={`${styles['pink-box']} ${styles['pink-box2']}`}
                                         />
                                         <a
@@ -516,7 +525,7 @@ export default class Desktop extends Component {
                                             data-container="#WidePane"
                                         >
                                             <span
-                                                ref="parallax1"
+                                                ref={this.parallax1Ref}
                                                 className={styles['float-white-box']}
                                                 style={{ marginBottom: '100px' }}
                                             >
@@ -541,7 +550,7 @@ export default class Desktop extends Component {
                                                 data-container="#WidePane"
                                             >
                                                 <span
-                                                    ref="parallax4"
+                                                    ref={this.parallax4Ref}
                                                     className={styles['float-white-box']}
                                                     style={{ marginBottom: '50px' }}
                                                 >
@@ -559,7 +568,7 @@ export default class Desktop extends Component {
                                                 </span>
                                             </a>
                                             <div
-                                                ref="pink4"
+                                                ref={this.pink4Ref}
                                                 className={`${styles['pink-box']} ${styles['pink-box4']}`}
                                             />
                                         </div>

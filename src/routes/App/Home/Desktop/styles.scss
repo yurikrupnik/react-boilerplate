@@ -474,31 +474,6 @@ a {
   cursor: pointer;
 }
 
-.start-button a {
-  display: inline-block;
-}
-
-.start-button:after {
-  content: '';
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(253, 198, 199, 0.3);
-  position: absolute;
-  z-index: -1;
-  transition: all 0.3s;
-}
-
-.start-button:active {
-  color: #ff8081;
-  border-color: #ff8081;
-}
-
-.start-button:hover:after, .start-button:active:after {
-  width: 100%;
-}
-
 .top-brown-text {
   /*    background-image: url(https://ion.r2net.com/images/amazingHomepage/design-as.jpg);
       background-position: bottom;

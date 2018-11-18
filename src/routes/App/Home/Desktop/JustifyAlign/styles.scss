@@ -293,3 +293,9 @@ select {
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+@media (max-width: 1400px) {
+  .justify-align:after {
+    display: none;
+  }
+}
