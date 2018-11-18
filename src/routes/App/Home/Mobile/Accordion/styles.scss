@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "JamesAllenFonts";
+  src: url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.eot?v=40");
+  src: url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.eot?v=40") format("embedded-opentype"),
+  url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.woff?v=40") format("woff"),
+  url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.ttf?v=40") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+.root {
+  .panelDetails {
+    .mainPanel {
+      margin: 0px 20px 20px 20px;
+    }
+    .bottomBannerContainer {
+      position: relative;
+      .imgBanner {
+        width: 100%;
+      }
+
+      .textBanner {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 48%;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #656565;
+      }
+
+    }
+  }
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    .iconHeader {
+      margin-right: 15px;
+      font-family: "JamesAllenFonts";
+      color: #909090;
+      font-size: 2em;
+    }
+    .headerText {
+      font-size: 1.2em;
+      text-transform: uppercase;
+      padding: 0;
+    }
+  }
+
+  .engagementRings:before {
+    content: "\E90B";
+  }
+
+  .diamonds:before {
+    content: "\E90D";
+  }
+
+  .gemstones:before {
+    content: "\E905";
+  }
+
+  .weddingRings:before {
+    content: "\E631";
+  }
+
+  .fineJewelry:before {
+    content: "\E909";
+  }
+
+  .expandIcon:before {
+    font-family: "JamesAllenFonts";
+    font-size: 14px;
+    content: "";
+  }
+}

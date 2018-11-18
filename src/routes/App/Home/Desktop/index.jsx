@@ -3,7 +3,7 @@ import styles from './styles.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
 import Carousel from './Carousel';
-import data from './data';
+import data from '../data';
 import GradientButton from '../../../../components/Buttons/Gradient';
 import UnderLinePink from './UnderLinePink';
 import Collage from './Collage';
@@ -271,7 +271,6 @@ export default class Desktop extends Component {
                                         }}
                                     />
                                     <img
-                                        ref="prong"
                                         style={{
                                             position: 'absolute',
                                             zIndex: 2,

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.scss';
-import data from '../data';
+import data from '../../data';
 import Image from './Image';
 
 const Collage = () => (
