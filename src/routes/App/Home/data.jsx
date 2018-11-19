@@ -1,5 +1,3 @@
-import React from 'react';
-
 const data = {
     looseDiamondsGallery: [
         {
@@ -210,7 +208,255 @@ const data = {
         src: 'https://ion.r2net.com/images/Campaigns/casa-pagina/WrappedInPink//HPBanner.jpg?v=5',
         alt: 'A woman wearing an engagement ring and diamond bracelets, embracing her fiancé in a scarf.',
         title: 'A woman wearing an engagement ring and diamond bracelets, embracing her fiancé in a scarf.'
-    }
+    },
+
+    mobileAccordionData: [
+        {
+            title: 'Engagement rings',
+            content: [
+                {
+                    type: '',
+                    title: 'Design your own engagement ring',
+                    list: [
+                        {
+                            icon: '\\E65A',
+                            text: 'start with a setting'
+                        }, {
+                            icon: '\\E917',
+                            text: 'start with a diamond'
+                        }, {
+                            icon: '\\E659',
+                            text: 'start with a gemstone'
+                        }
+                    ]
+                }
+            ],
+            iconClass: 'engagementRings',
+            bottomBanner: {
+                directionText: 'left',
+                src: 'https://ion.r2net.com/Images/MobileTest/SplashPages/EngagementSplash/menu-link-bg.jpg',
+                alt: '',
+                text: 'design your own engagement ring >',
+                to: '/topics/'
+            }
+        }, {
+            title: 'Diamonds',
+            content: [
+                {
+                    type: '',
+                    title: 'Design your own engagement ring',
+                    list: [
+                        {
+                            icon: '\\E917',
+                            text: 'start with a diamond'
+                        }, {
+                            icon: '\\E65A',
+                            text: 'start with a setting'
+                        }
+                    ]
+                }, {
+                    type: '',
+                    title: 'Premier diamond collection',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'True Hearts™ Diamonds'
+                        }
+                    ]
+                }
+            ],
+            iconClass: 'diamonds',
+            bottomBanner: {
+                directionText: 'right',
+                src: 'https://ion.r2net.com/Images/MobileTest/SplashPages/DiamondsSplash/menu-link-bg.jpg',
+                alt: '',
+                text: 'See loose diamonds in 360° HD >',
+                to: '/topics/'
+            }
+        }, {
+            title: 'Gemstones',
+            content: [
+                {
+                    type: '',
+                    title: 'Design your own engagement ring',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'start with a setting'
+                        }, {
+                            icon: '',
+                            text: 'start with a diamond'
+                        }, {
+                            icon: '',
+                            text: 'start with a gemstone'
+                        }
+                    ]
+                }
+            ],
+            iconClass: 'gemstones',
+            bottomBanner: {
+                directionText: 'left',
+                src: 'https://ion.r2net.com/Images/MobileTest/SplashPages/GemstoneSplash/menu-link-bg.jpg',
+                alt: '',
+                text: 'get to know your gemstone >',
+                to: '/topics/'
+            }
+        }, {
+            title: 'Wedding Rings',
+            content: [
+                {
+                    type: '',
+                    title: 'Design your own engagement ring',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'start with a setting'
+                        }, {
+                            icon: '',
+                            text: 'start with a diamond'
+                        }, {
+                            icon: '',
+                            text: 'start with a gemstone'
+                        }
+                    ]
+                }
+            ],
+            iconClass: 'weddingRings',
+            bottomBanner: {
+                directionText: 'right',
+                src: 'https://ion.r2net.com/Images/MobileTest/SplashPages/WeddingSplash/menu-link-bg.jpg',
+                alt: '',
+                text: 'Say "I DO" With A James Allen Wedding Ring >',
+                to: '/topics/'
+            }
+        }, {
+            title: 'Fine Jewelry',
+            content: [
+                {
+                    type: '',
+                    title: 'Studs/Earring',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'Diamond Studs'
+                        }, {
+                            icon: '',
+                            text: 'Diamond Earrings'
+                        }, {
+                            icon: '',
+                            text: 'Gemstone Earrings'
+                        }, {
+                            icon: '',
+                            text: 'Design Your Own Earrings'
+                        }
+                    ]
+                }, {
+                    type: '',
+                    title: 'Pendants',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'Diamond Pendants'
+                        }, {
+                            icon: '',
+                            text: 'Gemstone Pendants'
+                        }, {
+                            icon: '',
+                            text: 'Design Your Own Pendant'
+                        }
+                    ]
+                }, {
+                    type: '',
+                    title: 'Rings',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'Diamond Rings'
+                        }, {
+                            icon: '',
+                            text: 'Gemstone Rings'
+                        }
+                    ]
+                }, {
+                    type: '',
+                    title: 'Bracelets',
+                    list: [
+                        {
+                            icon: '',
+                            text: 'Diamond Bracelets'
+                        }, {
+                            icon: '',
+                            text: 'Gemstone Bracelets'
+                        }
+                    ]
+                }
+            ],
+            iconClass: 'fineJewelry',
+            bottomBanner: {
+                directionText: 'right',
+                src: 'https://ion.r2net.com/Images/MobileTest/SplashPages/FineJewelrySplash/menu-link-bg.jpg',
+                alt: '',
+                text: 'find the Perfect jewelry piece for any occasion >',
+                to: '/topics/'
+            }
+        }
+    ],
+
+    mobileBottomNavLink: [
+        {
+            label: 'CUSTOMER SERVICE',
+            to: '/topics/',
+            iconClass: 'customerService'
+        }, {
+            label: 'About',
+            to: '/topics/',
+            iconClass: 'about'
+        }, {
+            label: 'James Allen Guarantee',
+            to: '/topics/',
+            iconClass: 'guarantee'
+        }, {
+            label: 'Inspiration Gallery',
+            to: '/topics/',
+            iconClass: 'inspirationGallery'
+        }, {
+            label: 'Engagement Moments',
+            to: '/topics/',
+            iconClass: 'engagementMoments'
+        }, {
+            label: 'NYC SHOWROOM',
+            to: '/topics/',
+            iconClass: 'nycShowRoom'
+        }, {
+            label: 'EDUCATION CENTER',
+            to: '/education',
+            iconClass: 'eduction'
+        }, {
+            label: 'THE JA BLOG',
+            to: '/topics/',
+            iconClass: 'jaBlog'
+        }, {
+            label: 'SECURE CHECKOUT',
+            to: '/topics/',
+            iconClass: 'secureCheckout'
+        }, {
+            label: 'FAQ',
+            to: '/topics/',
+            iconClass: 'faq'
+        }, {
+            label: 'FULL SITE',
+            to: '/topics/',
+            iconClass: 'fullSite'
+        }
+    ]
 };
 
-export default data;
+const {
+    looseDiamondsGallery, bestSellersGallery, collageData, imgsData,
+    iconsData, bannerData, mobileAccordionData, mobileBottomNavLink
+} = data;
+
+export {
+    looseDiamondsGallery, bestSellersGallery, collageData, imgsData, iconsData, bannerData,
+    mobileAccordionData as accordionData, mobileBottomNavLink as bottomNavLink
+};

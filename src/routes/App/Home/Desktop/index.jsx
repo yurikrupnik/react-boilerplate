@@ -3,7 +3,9 @@ import styles from './styles.scss';
 import TopBanner from './TopBanner';
 import JustifyAlign from './JustifyAlign/index.jsx';
 import Carousel from './Carousel';
-import data from '../data';
+import {
+    bannerData, bestSellersGallery, looseDiamondsGallery, iconsData, imgsData
+} from '../data';
 import GradientButton from '../../../../components/Buttons/Gradient';
 import UnderLinePink from './UnderLinePink';
 import Collage from './Collage';
@@ -142,7 +144,7 @@ export default class Desktop extends Component {
     render() {
         return (
             <div>
-                <TopBanner data={data.bannerData} />
+                <TopBanner data={bannerData} />
                 <div style={{ position: 'relative' }}>
                     <div
                         ref={this.designYouOwnRef}
@@ -301,7 +303,7 @@ export default class Desktop extends Component {
                         }}
                     >
                         <div className={styles['featured-bar']}>
-                            {data.iconsData.map(name => (
+                            {iconsData.map(name => (
                                 <div key={name}>
                                     <img
                                         alt={`featured in ${name}`}
@@ -322,7 +324,7 @@ export default class Desktop extends Component {
                         }}
                         data-gtm-name="large image splash"
                     >
-                        {data.imgsData.map(item => (
+                        {imgsData.map(item => (
                             <div key={item.to}>
                                 <div className={styles['abs-scale']}>
                                     <div className={styles.abs}>
@@ -365,7 +367,7 @@ export default class Desktop extends Component {
                     </div>
                 </div>
                 {/* -------------------------- SLIDE IMAGES --------------------*/}
-                <Carousel imgsData={data.bestSellersGallery} type="bestSellers" />
+                <Carousel imgsData={bestSellersGallery} type="bestSellers" />
                 {/* -----------------------------------------------*/}
                 <DiamondInspection />
                 {/* -----------------------------------------------*/}
@@ -381,7 +383,7 @@ export default class Desktop extends Component {
                     </div>
                 </div>
                 {/* ------------------looseDiamonds slider----------------------*/}
-                <Carousel imgsData={data.looseDiamondsGallery} type="looseDiamonds" />
+                <Carousel imgsData={looseDiamondsGallery} type="looseDiamonds" />
                 {/* --------------------------------------*/}
                 {/* <CrowningJewels /> */}
                 <div className={`${styles['top-brown-text']} ${styles['design-own']}`}>

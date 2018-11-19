@@ -1,6 +1,66 @@
-.root {
+$nav-links-icons: (
+        customerService: "\E62D",
+        about: "\E63E",
+        guarantee: "\E904",
+        inspirationGallery: "\E604",
+        engagementMoments: "\E900",
+        nycShowRoom: "\E657",
+        eduction: "\E91B",
+        jaBlog: "\E901",
+        secureCheckout: "\E655",
+        faq: "\ED60",
+        fullSite: "\E902",
+);
 
-  .test {
-
+@each $nav-icon, $icon in $nav-links-icons {
+  .#{$nav-icon}:before {
+    content: $icon;
   }
 }
+
+.root {
+  .navContainer {
+    margin: 20px 0px 31px 0px;
+    .linkContainer {
+      display: flex;
+      margin-bottom: 22px;
+      align-items: center;
+      .icon {
+        padding: 0 8px 0px 15.6px;
+        font-family: "JamesAllenFonts";
+        font-size: 20px;
+        color: #909090;
+      }
+      .label {
+        color: #a3a3a3;
+        text-transform: uppercase;
+        font-size: 10.53px;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #DED5C8;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background: rgba(173, 159, 140, 1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(173, 159, 140, 0.5);
+}
+

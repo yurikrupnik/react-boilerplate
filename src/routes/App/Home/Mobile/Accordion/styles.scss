@@ -1,16 +1,40 @@
-@font-face {
-  font-family: "JamesAllenFonts";
-  src: url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.eot?v=40");
-  src: url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.eot?v=40") format("embedded-opentype"),
-  url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.woff?v=40") format("woff"),
-  url("https://ion.r2net.com/Images/Fonts/JAFonts/ja-font.ttf?v=40") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
+$menu-icons: (
+        engagementRings: "\E90B",
+        diamonds: "\E90D",
+        gemstones: "\E905",
+        weddingRings: "\E631",
+        fineJewelry: "\E909",
+);
 
 .root {
+  @each $menu-icon, $icon in $menu-icons {
+    .#{$menu-icon}:before {
+      content: $icon;
+    }
+  }
+
+  :global .MuiExpansionPanelSummary-root-94 {
+    background-color: rgb(255, 255, 255);
+    height: fit-content;
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left: medium none #bebebe;
+    border-right: medium none #bebebe;
+  }
+
+  :global .MuiExpansionPanel-expanded-92 {
+    margin: 0;
+  }
+
+  :global .MuiExpansionPanelDetails-root-110 {
+    padding: 0;
+  }
+
   .panelDetails {
+    box-shadow: inset 0 20px 20px -20px #969696;
     .mainPanel {
+      padding-top: 15px;
       margin: 0px 20px 20px 20px;
     }
     .bottomBannerContainer {
@@ -21,14 +45,23 @@
 
       .textBanner {
         position: absolute;
-        top: 30%;
-        left: 10%;
-        width: 48%;
         text-transform: uppercase;
         font-weight: 500;
         color: #656565;
       }
 
+      .textBanner.left {
+        width: 48%;
+        top: 30%;
+        left: 10%;
+      }
+
+      .textBanner.right {
+        top: 30%;
+        right: 10%;
+        width: 29%;
+        text-align: center;
+      }
     }
   }
   .headerContainer {
@@ -47,29 +80,15 @@
     }
   }
 
-  .engagementRings:before {
-    content: "\E90B";
-  }
-
-  .diamonds:before {
-    content: "\E90D";
-  }
-
-  .gemstones:before {
-    content: "\E905";
-  }
-
-  .weddingRings:before {
-    content: "\E631";
-  }
-
-  .fineJewelry:before {
-    content: "\E909";
-  }
-
   .expandIcon:before {
     font-family: "JamesAllenFonts";
     font-size: 14px;
     content: "";
   }
 }
+
+
+
+
+
+

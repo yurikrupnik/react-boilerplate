@@ -1,0 +1,10 @@
+.icon{
+  font-family: "JamesAllenFonts";
+  font-size: 30px;
+  line-height: 20px;
+}
+
+.icon:before{
+  //content: attr(data-icon);
+  content: '\E65A' ;
+}
