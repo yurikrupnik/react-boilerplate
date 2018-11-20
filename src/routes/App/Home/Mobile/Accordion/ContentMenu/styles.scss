@@ -1,10 +1,155 @@
-.icon{
-  font-family: "JamesAllenFonts";
-  font-size: 30px;
-  line-height: 20px;
+$content-icons: (
+        startSetting: "\E65A",
+        startDiamond: "\E917",
+        startGemstone: "\E659",
+        trueHearts: "\E63D",
+        diamondPairs: "\E658",
+        diamondStuds: "\E64B",
+        diamondEarrings: "\E64C",
+        gemstoneEarrings: "\E64D",
+        diamondPendants: "\E64F",
+        gemstonePendants: "\E651",
+        designPendant: "\E64E",
+        diamondRings:"\E652",
+        gemstoneRings:"\E903",
+        designEarrings:"\E928",
+        solitaireRing: "\E611",
+        channelRing: "\E60D",
+        tensionRing: "\E612",
+        haloRing: "\E60E",
+        paveRing: "\E60F",
+        sideStoneRing: "\E610",
+        threeStoneRing: "\E613",
+        vintageRing: "\E615",
+        gemstones: "\E621",
+        diamondBracelets: "\E901",
+        gemstoneBracelets:"\E904",
+        round: "\E621",
+        princess: "\E61E",
+        cushion: "\E618",
+        emerald: "\E619",
+        oval: "\E61C",
+        radiant: "\E61F",
+        asscher: "\E617",
+        marquise: "\E61B",
+        heart: "\E61A",
+        pear: "\E61D",
+        classicWeddingRings: "\E609",
+        eternityWeddingRings: "\E60C",
+        anniversaryWeddingRings: "\E605",
+        diamondWeddingRings: "\E60B",
+        stackableWeddingRings: "\E65D",
+        carvedWeddingRings: "\E607",
+        alternativeWeddingRings: "\E606"
+);
+
+.root {
+  margin-top: 25px;
+
+  .listHeader {
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    //justify-content: space-between;
+  }
+  .listItem {
+    max-height: 30px;
+    a {
+      color: #656565;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      text-transform: uppercase;
+      .icon {
+        font-family: "JamesAllenFonts";
+        font-size: 26px;
+        line-height: 20px;
+        margin-right: 7px;
+      }
+      @each $content-icon, $icon in $content-icons {
+        .#{$content-icon}:before {
+          content: $icon;
+        }
+      }
+    }
+  }
 }
 
-.icon:before{
-  //content: attr(data-icon);
-  content: '\E65A' ;
+.imgLogo {
+  height: 34px;
+  width: 80px;
+  background: no-repeat center;
 }
+
+.imgLogo.unique {
+  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/unique-logo.svg');
+}
+
+.imgLogo.jeff {
+  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/jeff-logo.svg');
+}
+
+.imgLogo.verragio {
+  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/verragio-logo.svg');
+}
+
+.imgLogo.mf {
+  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/mf-logo.svg');
+}
+
+.imgLogo.danhov {
+  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/danhov-logo.svg');
+}
+
+.imgSprite {
+  background-image: url('https://ion.r2net.com/images/mobiletest/fancy-sprite.png?v=1');
+  background-size: 200%;
+  width: 28px;
+  height: 28px;
+  margin-right: 7px;
+}
+
+.imgSprite.yellow {
+  background-position: 0 0;
+}
+
+.imgSprite.blue {
+  background-position: 0 28px;
+}
+
+.imgSprite.purple {
+  background-position: 0 77px;
+}
+
+.imgSprite.orange {
+  background-position: 31px 226px;
+}
+
+.imgSprite.black {
+  background-position: 31px -70px;
+}
+
+.imgSprite.pink {
+  background-position: 0 -23px;
+}
+
+.imgSprite.brown {
+  background-position: 31px -46px;
+}
+
+.imgSprite.green {
+  background-position: 31px 0;
+}
+
+.imgSprite.gray {
+  background-position: 31px 28px;
+}
+
+.imgSprite.red {
+  background-position: 0 -70px;
+}
+

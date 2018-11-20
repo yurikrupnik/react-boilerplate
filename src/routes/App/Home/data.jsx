@@ -215,18 +215,90 @@ const data = {
             title: 'Engagement rings',
             content: [
                 {
-                    type: '',
                     title: 'Design your own engagement ring',
+                    maxItemsPerCol: 3,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '\\E65A',
-                            text: 'start with a setting'
+                            iconName: 'startSetting',
+                            text: 'start with a setting',
+                            to: '/topics/'
                         }, {
-                            icon: '\\E917',
-                            text: 'start with a diamond'
+                            iconName: 'startDiamond',
+                            text: 'start with a diamond',
+                            to: '/topics/'
                         }, {
-                            icon: '\\E659',
-                            text: 'start with a gemstone'
+                            iconName: 'startGemstone',
+                            text: 'start with a gemstone',
+                            to: '/topics/'
+                        }
+                    ]
+                },
+                {
+                    title: 'Engagement ring styles',
+                    maxItemsPerCol: 4,
+                    maxSizeItem: 30,
+                    list: [
+                        {
+                            iconName: 'solitaireRing',
+                            text: 'Solitaire',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'channelRing',
+                            text: 'Channel Set',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'tensionRing',
+                            text: 'Tension',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'haloRing',
+                            text: 'Halo',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'paveRing',
+                            text: 'Pave',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'sideStoneRing',
+                            text: 'Side-Stone',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'threeStoneRing',
+                            text: 'Three-Stone',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'vintageRing',
+                            text: 'Vintage',
+                            to: '/topics/'
+                        }
+                    ]
+                },
+                {
+                    title: 'Designer Collection',
+                    maxItemsPerCol: 2,
+                    maxSizeItem: 35,
+                    list: [
+                        {
+                            text: 'unique',
+                            to: '/topics/',
+                            classImg: 'imgLogo'
+                        }, {
+                            text: 'jeff',
+                            to: '/topics/',
+                            classImg: 'imgLogo'
+                        }, {
+                            text: 'verragio',
+                            to: '/topics/',
+                            classImg: 'imgLogo'
+                        }, {
+                            text: 'mf',
+                            to: '/topics/',
+                            classImg: 'imgLogo'
+                        }, {
+                            text: 'danhov',
+                            to: '/topics/',
+                            classImg: 'imgLogo'
                         }
                     ]
                 }
@@ -239,28 +311,140 @@ const data = {
                 text: 'design your own engagement ring >',
                 to: '/topics/'
             }
-        }, {
+        },
+        {
             title: 'Diamonds',
             content: [
                 {
-                    type: '',
                     title: 'Design your own engagement ring',
+                    maxItemsPerCol: 2,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '\\E917',
-                            text: 'start with a diamond'
+                            iconName: 'startDiamond',
+                            text: 'start with a diamond',
+                            to: '/topics/'
                         }, {
-                            icon: '\\E65A',
-                            text: 'start with a setting'
+                            iconName: 'startSetting',
+                            text: 'start with a setting',
+                            to: '/topics/'
                         }
                     ]
                 }, {
-                    type: '',
-                    title: 'Premier diamond collection',
+                    title: 'Loose Diamonds',
+                    maxItemsPerCol: 5,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'True Hearts™ Diamonds'
+                            iconName: 'round',
+                            text: 'Round',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'princess',
+                            text: 'Princess',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'cushion',
+                            text: 'Cushion',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'emerald',
+                            text: 'Emerald',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'oval',
+                            text: 'Oval',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'radiant',
+                            text: 'Radiant',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'asscher',
+                            text: 'Asscher',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'marquise',
+                            text: 'Marquise',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'heart',
+                            text: 'Heart',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'pear',
+                            text: 'Pear',
+                            to: '/topics/'
+                        }
+                    ]
+                }, {
+                    title: '',
+                    maxItemsPerCol: 1,
+                    maxSizeItem: 30,
+                    list: [
+                        {
+                            iconName: 'diamondPairs',
+                            text: 'matching diamond pairs',
+                            to: '/topics/'
+                        }
+                    ]
+                }, {
+                    title: 'Premier diamond collection',
+                    maxItemsPerCol: 1,
+                    maxSizeItem: 30,
+                    list: [
+                        {
+                            iconName: 'trueHearts',
+                            iconColor: '#ea5f61',
+                            text: 'True Hearts™ Diamonds',
+                            to: '/topics/'
+                        }
+                    ]
+                }, {
+                    title: 'Fancy Color Diamonds',
+                    maxItemsPerCol: 5,
+                    maxSizeItem: 30,
+                    list: [
+                        {
+                            text: 'yellow',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'purple',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'blue',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'orange',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'black',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'pink',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'red',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'green',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'brown',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
+                        }, {
+                            text: 'gray',
+                            to: '/topics/',
+                            classImg: 'imgSprite'
                         }
                     ]
                 }
@@ -273,22 +457,40 @@ const data = {
                 text: 'See loose diamonds in 360° HD >',
                 to: '/topics/'
             }
-        }, {
+        },
+        {
             title: 'Gemstones',
             content: [
                 {
-                    type: '',
-                    title: 'Design your own engagement ring',
+                    title: '',
+                    maxItemsPerCol: 3,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'start with a setting'
+                            iconName: 'gemstones',
+                            iconColor: '#8c9aff',
+                            text: 'Blue Sapphire',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'start with a diamond'
+                            iconName: 'gemstones',
+                            iconColor: '#eca2e6',
+                            text: 'Pink Sapphire',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'start with a gemstone'
+                            iconName: 'gemstones',
+                            iconColor: '#ffe414',
+                            text: 'Yellow Sapphire',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'gemstones',
+                            iconColor: '#dc8fa3',
+                            text: 'Red Ruby',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'gemstones',
+                            iconColor: '#7eb671',
+                            text: 'Green Emerald',
+                            to: '/topics/'
                         }
                     ]
                 }
@@ -301,22 +503,51 @@ const data = {
                 text: 'get to know your gemstone >',
                 to: '/topics/'
             }
-        }, {
+        },
+        {
             title: 'Wedding Rings',
             content: [
                 {
-                    type: '',
-                    title: 'Design your own engagement ring',
+                    title: 'Woman',
+                    maxItemsPerCol: 5,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'start with a setting'
+                            iconName: 'classicWeddingRings',
+                            text: 'Classic',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'start with a diamond'
+                            iconName: 'eternityWeddingRings',
+                            text: 'Eternity',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'start with a gemstone'
+                            iconName: 'anniversaryWeddingRings',
+                            text: 'Anniversary',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'diamondWeddingRings',
+                            text: 'Diamond',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'stackableWeddingRings',
+                            text: 'Stackable',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'classicWeddingRings',
+                            text: 'Classic',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'carvedWeddingRings',
+                            text: 'Carved',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'diamondWeddingRings',
+                            text: 'Diamond',
+                            to: '/topics/'
+                        }, {
+                            iconName: 'alternativeWeddingRings',
+                            text: 'Alternative',
+                            to: '/topics/'
                         }
                     ]
                 }
@@ -329,64 +560,80 @@ const data = {
                 text: 'Say "I DO" With A James Allen Wedding Ring >',
                 to: '/topics/'
             }
-        }, {
+        },
+        {
             title: 'Fine Jewelry',
             content: [
                 {
-                    type: '',
                     title: 'Studs/Earring',
+                    maxItemsPerCol: 4,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'Diamond Studs'
+                            iconName: 'diamondStuds',
+                            text: 'Diamond Studs',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Diamond Earrings'
+                            iconName: 'diamondEarrings',
+                            text: 'Diamond Earrings',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Gemstone Earrings'
+                            iconName: 'gemstoneEarrings',
+                            text: 'Gemstone Earrings',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Design Your Own Earrings'
+                            iconName: 'designEarrings',
+                            text: 'Design Your Own Earrings',
+                            to: '/topics/'
                         }
                     ]
                 }, {
-                    type: '',
                     title: 'Pendants',
+                    maxItemsPerCol: 3,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'Diamond Pendants'
+                            iconName: 'diamondPendants',
+                            text: 'Diamond Pendants',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Gemstone Pendants'
+                            iconName: 'gemstonePendants',
+                            text: 'Gemstone Pendants',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Design Your Own Pendant'
+                            iconName: 'designPendant',
+                            text: 'Design Your Own Pendant',
+                            to: '/topics/'
                         }
                     ]
                 }, {
-                    type: '',
                     title: 'Rings',
+                    maxItemsPerCol: 2,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'Diamond Rings'
+                            iconName: 'diamondRings',
+                            text: 'Diamond Rings',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Gemstone Rings'
+                            iconName: 'gemstoneRings',
+                            text: 'Gemstone Rings',
+                            to: '/topics/'
                         }
                     ]
                 }, {
-                    type: '',
                     title: 'Bracelets',
+                    maxItemsPerCol: 2,
+                    maxSizeItem: 30,
                     list: [
                         {
-                            icon: '',
-                            text: 'Diamond Bracelets'
+                            iconName: 'diamondBracelets',
+                            text: 'Diamond Bracelets',
+                            to: '/topics/'
                         }, {
-                            icon: '',
-                            text: 'Gemstone Bracelets'
+                            iconName: 'gemstoneBracelets',
+                            text: 'Gemstone Bracelets',
+                            to: '/topics/'
                         }
                     ]
                 }
