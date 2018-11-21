@@ -43,113 +43,104 @@ $content-icons: (
         alternativeWeddingRings: "\E606"
 );
 
-.root {
+$logo: (
+        unique: "https://ion.r2net.com/Images/svg/designers-logos/unique-logo.svg",
+        jeff: "https://ion.r2net.com/Images/svg/designers-logos/jeff-logo.svg",
+        verragio: "https://ion.r2net.com/Images/svg/designers-logos/verragio-logo.svg",
+        mf: "https://ion.r2net.com/Images/svg/designers-logos/mf-logo.svg",
+        danhov: "https://ion.r2net.com/Images/svg/designers-logos/danhov-logo.svg",
+);
+
+$positions-sprite: (
+        yellow: 0 0,
+        blue: 0 28px,
+        purple: 0 77px,
+        orange: 31px 226px,
+        black: 31px -70px,
+        pink: 0 -23px,
+        brown: 31px -46px,
+        green: 31px 0,
+        gray: 31px 28px,
+        red: 0 -70px,
+);
+
+.contentMenuContainer {
   margin-top: 25px;
 
-  .listHeader {
-    text-transform: uppercase;
-    margin-bottom: 25px;
+  .headerContainer {
+    position: relative;
+
+    .listHeader {
+      text-transform: uppercase;
+      margin-bottom: 25px;
+
+      &.subListHeader {
+        position: absolute;
+        top: 0;
+        left: 50%;
+      }
+    }
   }
-  .listContainer {
+
+  .mainListContainer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     //justify-content: space-between;
-  }
-  .listItem {
-    max-height: 30px;
-    a {
-      color: #656565;
-      display: flex;
-      align-items: center;
-      padding: 5px;
-      text-transform: uppercase;
-      .icon {
-        font-family: "JamesAllenFonts";
-        font-size: 26px;
-        line-height: 20px;
-        margin-right: 7px;
-      }
-      @each $content-icon, $icon in $content-icons {
-        .#{$content-icon}:before {
-          content: $icon;
+
+    .listItem {
+      max-height: 30px;
+
+      a {
+        color: #656565;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+
+        .icon {
+          font-family: "JamesAllenFonts";
+          font-size: 26px;
+          line-height: 20px;
+          margin-right: 7px;
+        }
+        @each $content-icon, $icon in $content-icons {
+          .#{$content-icon}:before {
+            content: $icon;
+          }
+        }
+
+        .imgLogo {
+          height: 34px;
+          width: 80px;
+          background: no-repeat center;
+          @each $logo-item, $src in $logo {
+            &.#{$logo-item} {
+              background-image: url($src);
+            }
+          }
+        }
+
+        .imgSprite {
+          background-image: url('https://ion.r2net.com/images/mobiletest/fancy-sprite.png?v=1');
+          background-size: 200%;
+          width: 28px;
+          height: 28px;
+          margin-right: 7px;
+          @each $color, $position in $positions-sprite {
+            &.#{$color} {
+              background-position: $position;
+            }
+          }
         }
       }
     }
   }
 }
 
-.imgLogo {
-  height: 34px;
-  width: 80px;
-  background: no-repeat center;
-}
 
-.imgLogo.unique {
-  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/unique-logo.svg');
-}
 
-.imgLogo.jeff {
-  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/jeff-logo.svg');
-}
 
-.imgLogo.verragio {
-  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/verragio-logo.svg');
-}
 
-.imgLogo.mf {
-  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/mf-logo.svg');
-}
 
-.imgLogo.danhov {
-  background-image: url('https://ion.r2net.com/Images/svg/designers-logos/danhov-logo.svg');
-}
 
-.imgSprite {
-  background-image: url('https://ion.r2net.com/images/mobiletest/fancy-sprite.png?v=1');
-  background-size: 200%;
-  width: 28px;
-  height: 28px;
-  margin-right: 7px;
-}
-
-.imgSprite.yellow {
-  background-position: 0 0;
-}
-
-.imgSprite.blue {
-  background-position: 0 28px;
-}
-
-.imgSprite.purple {
-  background-position: 0 77px;
-}
-
-.imgSprite.orange {
-  background-position: 31px 226px;
-}
-
-.imgSprite.black {
-  background-position: 31px -70px;
-}
-
-.imgSprite.pink {
-  background-position: 0 -23px;
-}
-
-.imgSprite.brown {
-  background-position: 31px -46px;
-}
-
-.imgSprite.green {
-  background-position: 31px 0;
-}
-
-.imgSprite.gray {
-  background-position: 31px 28px;
-}
-
-.imgSprite.red {
-  background-position: 0 -70px;
-}
 

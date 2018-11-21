@@ -221,15 +221,15 @@ const data = {
                     list: [
                         {
                             iconName: 'startSetting',
-                            text: 'start with a setting',
+                            text: 'START WITH A SETTING',
                             to: '/topics/'
                         }, {
                             iconName: 'startDiamond',
-                            text: 'start with a diamond',
+                            text: 'START WITH A DIAMOND',
                             to: '/topics/'
                         }, {
                             iconName: 'startGemstone',
-                            text: 'start with a gemstone',
+                            text: 'START WITH A GEMSTONE',
                             to: '/topics/'
                         }
                     ]
@@ -322,11 +322,11 @@ const data = {
                     list: [
                         {
                             iconName: 'startDiamond',
-                            text: 'start with a diamond',
+                            text: 'START WITH A DIAMOND',
                             to: '/topics/'
                         }, {
                             iconName: 'startSetting',
-                            text: 'start with a setting',
+                            text: 'START WITH A SETTING',
                             to: '/topics/'
                         }
                     ]
@@ -384,7 +384,7 @@ const data = {
                     list: [
                         {
                             iconName: 'diamondPairs',
-                            text: 'matching diamond pairs',
+                            text: 'Matching Diamond Pairs',
                             to: '/topics/'
                         }
                     ]
@@ -406,43 +406,43 @@ const data = {
                     maxSizeItem: 30,
                     list: [
                         {
-                            text: 'yellow',
+                            text: 'Yellow',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'purple',
+                            text: 'Purple',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'blue',
+                            text: 'Blue',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'orange',
+                            text: 'Orange',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'black',
+                            text: 'Black',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'pink',
+                            text: 'Pink',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'red',
+                            text: 'Red',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'green',
+                            text: 'Green',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'brown',
+                            text: 'Brown',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }, {
-                            text: 'gray',
+                            text: 'Gray',
                             to: '/topics/',
                             classImg: 'imgSprite'
                         }
@@ -509,6 +509,7 @@ const data = {
             content: [
                 {
                     title: 'Woman',
+                    subTitle: 'Men',
                     maxItemsPerCol: 5,
                     maxSizeItem: 30,
                     list: [

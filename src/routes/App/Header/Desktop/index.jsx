@@ -38,35 +38,33 @@ class DesktopNav extends React.Component {
 
         return (
             <div>
-                <Consumer render={(p) => {
-                    return (
-                        <div>
+                <Consumer render={p => (
+                    <div>
                             header deskotp
-                            {/*<Top routes={[]} />*/}
-                            <div>
-                                {p.data.map(v => (
-                                    <div key={v.CurrencyCode}>
-                                        {v.CurrencyCode}
-                                    </div>
-                                ))}
-                            </div>
-                            <div>
-                                <Link to="/">
-                                    Main
-                                </Link>
-                            </div>
-                            <div className="row">
-                                {links.map(route => (
-                                    <div className="col-xs" key={route.key}>
-                                        <Link to={route.to}>
-                                            {route.label}
-                                        </Link>
-                                    </div>
-                                ))}
-                            </div>
+                        {/* <Top routes={[]} /> */}
+                        <div>
+                            {p.data.map(v => (
+                                <div key={v.CurrencyCode}>
+                                    {v.CurrencyCode}
+                                </div>
+                            ))}
                         </div>
-                    );
-                }}
+                        <div>
+                            <Link to="/">
+                                    Main
+                            </Link>
+                        </div>
+                        <div className="row">
+                            {links.map(route => (
+                                <div className="col-xs" key={route.key}>
+                                    <Link to={route.to}>
+                                        {route.label}
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
                 />
             </div>
         );
