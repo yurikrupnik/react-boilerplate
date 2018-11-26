@@ -1,0 +1,21 @@
+
+.root {
+  width: 100%;
+  border: 1px solid black;
+  .navContainer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1260px;
+    margin: 0 auto;
+    .itemContainer {
+      height: 73px;
+      display: flex;
+      align-items: center;
+      img{
+        width: 200px;
+        height: 100%;
+      }
+    }
+  }
+
+}
