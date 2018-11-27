@@ -1,8 +1,5 @@
-//.test {
-//  font-size: 0px;
-//  height: 860px;
-//  display: flex;
-//}
+
+@import "../../../../styles/variables";
 
 @font-face {
   font-family: "PlayfairDisplay";
@@ -25,30 +22,17 @@
 .img-bg {
   width: 43%;
   height: 100%;
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/Showroom.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background: url('https://ion.r2net.com/images/amazingHomepage/Showroom.jpg') no-repeat;
 }
-
-//.scroll-started .img-bg {
-//  background-image: url('https://ion.r2net.com/images/amazingHomepage/Showroom.jpg');
-//  background-size: cover;
-//  background-repeat: no-repeat;
-//}
-
-//.scroll-started .img-bg.Costumer_Brake {
-//  background-image: url('https://ion.r2net.com/images/amazingHomepage/Costumer_Brake.jpg?v=1');
-//  background-position: right -72px top 0;
-//}
 
 .img-bg.Costumer_Brake {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/Costumer_Brake.jpg?v=1');
-  background-position: right -72px top 0;
+  background: url('https://ion.r2net.com/images/amazingHomepage/Costumer_Brake.jpg?v=1') right -72px top 0;
 }
-
-/*.as-container {
-    font-size: 0;
-}*/
+.as-container{
+  display: flex;
+  //justify-content: space-around;
+}
 
 .as-container > div {
   text-align: left;
@@ -56,6 +40,7 @@
   width: 49%;
   vertical-align: middle;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .wideContent {
@@ -113,15 +98,9 @@
 }
 
 .stoneSprite {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/Diamond_Sprite.png');
   width: 318px;
   height: 266px;
-  background-position: left top 0;
-  /* transition: top 1s ease-out;*/
-}
-
-a {
-  color: black !important;
+  background: url('https://ion.r2net.com/images/amazingHomepage/Diamond_Sprite.png') left top 0;
 }
 
 .newhomepage {
@@ -133,10 +112,6 @@ a {
 
 .newhomepage a {
   color: #232323;
-}
-
-.video-container {
-  /* min-height: 400px;*/
 }
 
 .featured-bar {
@@ -177,7 +152,7 @@ a {
     font-size: 1rem;
     white-space: nowrap;
     span > a {
-      color: #ff8081 !important;
+      color: map_get($colors, 'primary');
       text-decoration: underline;
       cursor: pointer;
       display: inline-block;
@@ -195,62 +170,17 @@ a {
   font-family: 'Playfair Display', serif;
   font-size: 42px;
   line-height: 49px;
-  /*margin-bottom: 58px;*/
 }
 
 .mystic-text {
   line-height: 26px;
   text-align: center;
-  /*margin-bottom: 109px;*/
   position: relative;
   width: 563px;
-  margin: 0 auto;
-  margin-bottom: 129px;
+  margin: 0 auto 129px;
   font-family: 'NunitoSans';
   color: rgb(27, 27, 27);
 }
-
-//.arrow-left, .arrow-right {
-//  content: '';
-//  position: absolute;
-//  top: 29%;
-//  width: 200px;
-//  height: 84px;
-//  cursor: pointer;
-//  /*background-image: url('https://ion.r2net.com/images/amazingHomepage/arrow-left.png');*/
-//  background-size: 50%;
-//  margin-top: -42px;
-//  transition: all .3s;
-//}
-
-//.arrow-left,  .arrow-right {
-//  background-image: url('https://ion.r2net.com/images/amazingHomepage/Arrow.svg');
-//  background-repeat: no-repeat;
-//  background-position: center center;
-//  background-size: 50%;
-//}
-//
-//.arrow-left:hover {
-//  -ms-transform: rotate(180deg) translate(10px, 0);
-//  -webkit-transform: rotate(180deg) translate(10px, 0);
-//  transform: rotate(180deg) translate(10px, 0);
-//}
-//
-//.arrow-right:hover {
-//  -ms-transform: translate(10px, 0);
-//  -webkit-transform: translate(10px, 0);
-//  transform: translate(10px, 0);
-//}
-//
-//.arrow-left {
-//  left: -87px;
-//  transform: rotate(180deg);
-//}
-//
-//.arrow-right {
-//  right: -87px;
-//
-//}
 
 .design-own > div:first-child {
   color: rgba(243, 227, 213, 0.3);
@@ -279,9 +209,7 @@ a {
 }
 
 .scroll-started .brown {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/find.jpg');
-  background-position: top;
-  background-repeat: no-repeat;
+  background: url('https://ion.r2net.com/images/amazingHomepage/find.jpg') no-repeat top;
 }
 
 .brown > div {
@@ -313,9 +241,7 @@ a {
 .pink-box {
   position: relative;
   width: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
-  /*  margin: 0 auto;*/
+  background: no-repeat center;
   box-shadow: 0px 40px 72px -16px rgba(0, 0, 0, 0.22);
   max-width: 96%;
   display: inline-block;
@@ -471,9 +397,6 @@ a {
 }
 
 .top-brown-text {
-  /*    background-image: url(https://ion.r2net.com/images/amazingHomepage/design-as.jpg);
-      background-position: bottom;
-      background-repeat: no-repeat;*/
   font-family: NunitoSans;
   font-weight: bold;
 }
@@ -500,6 +423,13 @@ a {
   vertical-align: middle;
 }
 
+.start-align {
+  text-align: justify;
+  font-size: 0px;
+  height: 860px;
+  display: flex;
+}
+
 .start-align > div {
   width: 50%;
 }
@@ -511,32 +441,6 @@ a {
 
 .separator {
   height: 29px;
-}
-
-.events-align > div {
-  max-width: 32%;
-  position: relative;
-  overflow: hidden;
-  vertical-align: top;
-}
-
-.abs-scale {
-  cursor: pointer;
-}
-
-.abs-scale .abs-img-box {
-  transition: transform .4s;
-  transition: opacity 0.35s, transform 0.35s;
-}
-
-.abs-scale:hover .abs-img-box {
-  transform: scale(1.2);
-  opacity: 0.6;
-}
-
-.events-align > div img {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .events-text-cell {
@@ -583,34 +487,6 @@ a {
   margin-top: 58px;
 }
 
-.abs {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.line-text {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 33px;
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-  font-weight: bold;
-}
-
-.line {
-  height: 100%;
-  display: inline-block;
-  width: 0px;
-  background: red;
-  vertical-align: middle;
-}
-
 .events-text {
   position: absolute;
   width: 100%;
@@ -626,29 +502,18 @@ a {
   z-index: 1;
   left: 400px;
   top: 200px;
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1');
-  background-repeat: no-repeat;
+  background: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1') no-repeat;
 }
 
 .scroll-started .sparkle-bg {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1');
-  background-repeat: no-repeat;
+  background: url('https://ion.r2net.com/images/amazingHomepage/twy_Glare.png?v=1') no-repeat;
 }
 
 .bottom-section {
   position: relative;
   padding: 243px 0;
-  background-color: #fdfdfa;
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
-  background-repeat: no-repeat;
-  background-position: right 70px top 100px, 0 117px;
+  background: #fdfdfa url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5') no-repeat right 70px top 100px, 0 117px;
 }
-
-//.scroll-started .bottom-section {
-//  background-image: url('https://ion.r2net.com/images/amazingHomepage/GIA.png?v=1'), url('https://ion.r2net.com/images/amazingHomepage/twy_BG.png?v=5');
-//  background-repeat: no-repeat;
-//  background-position: right 70px top 100px, 0 117px;
-//}
 
 .bottom-left-bg-container {
   position: relative;
@@ -660,20 +525,11 @@ a {
   position: absolute;
   width: 100%;
   top: 0;
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5');
-  background-repeat: no-repeat;
+  background: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5') no-repeat;
 }
 
 .scroll-started .bottom-left-bg {
-  background-image: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5');
-  background-repeat: no-repeat;
-}
-
-/* slick slider */
-.slickImg {
-  /*    transition: transform 0.5s;
-      height: 190px;
-      padding: 45px 0;*/
+  background: url('https://ion.r2net.com/images/amazingHomepage/twy.png?v=5') no-repeat;
 }
 
 .ring-container {
@@ -699,7 +555,6 @@ a {
   display: inline-block;
   position: relative;
   height: 100%;
-  /*   background: yellow;*/
 }
 
 .right-vav .ring-container {
@@ -709,7 +564,6 @@ a {
   transform-origin: top;
 }
 
-/*  HOME PAGE BANNER */
 
 .main-banner-container .text-container {
   position: absolute;
@@ -741,7 +595,6 @@ a {
   letter-spacing: 1px;
   font-weight: normal;
   color: #1b1b1b;
-  /* font-family: PlayFairDisplay; */
   text-transform: uppercase;
   margin: 0 0 10px 0;
 }
@@ -750,7 +603,6 @@ a {
   color: #000000;
   font-size: 26px;
   text-align: center;
-  /* font-family: PlayFairDisplay; */
   text-transform: uppercase;
   font-weight: normal;
   letter-spacing: 1px;
@@ -786,13 +638,6 @@ a {
   line-height: 80px;
 }
 
-/*.main-banner-container .text-container {
-    position: absolute;
-    top: 35%;
-    right: 16%;
-    text-align: center;
-    width: 40%;
-}*/
 .main-banner-container .text-container .buttons-container {
   width: 90%;
   margin: 0 auto;
@@ -810,7 +655,6 @@ a {
 }
 
 @media screen and (max-width: 1260px) {
-
   .banner-button-container > div {
     font-size: 14px;
   }
@@ -820,27 +664,10 @@ a {
   }
 }
 
-@media screen and (max-width: 1320px) {
-
-}
-
-/*@media (min-width: 768px) and (max-width: 1290px) {
-    .main-banner-container .text-container {
-        position: absolute;
-        right: 10%;
-        text-align: center;
-        width: 45%;
-    }
-}*/
-
 @media (max-width: 1660px) {
   .bottom-left-bg-container {
     left: -100px;
   }
-}
-
-@media (max-width: 1600px) {
-
 }
 
 @media (max-width: 1460px) {
@@ -849,15 +676,13 @@ a {
   }
 
 }
+.ring-container {
+  transform: translate(-50%, 0) scale(.8);
+}
 
 @media (max-width: 1400px) {
-
   .start-align {
     height: 740px !important;
-  }
-
-  .ring-container {
-    transform: translate(-50%, 0) scale(.8);
   }
 
   .design-own > div:first-child {
@@ -939,14 +764,6 @@ a {
   }
 }
 
-@media (max-width: 1500px) {
-  /*
-      .start-align {
-          height: 820px !important;
-      }*/
-
-}
-
 @media (max-width: 1422px) {
   .featured-bar {
     white-space: nowrap;
@@ -989,6 +806,7 @@ a {
     box-sizing: border-box;
     z-index: 1;
     padding: 45px;
+    color: black;
   }
 
   .pink-box1 {
@@ -1024,6 +842,10 @@ a {
 
   .img-bg {
     background-position-y: -65px;
+  }
+
+  .as-container{
+    flex-direction: column;
   }
 
   .as-container > div {
@@ -1111,5 +933,4 @@ a {
   .diamond-inspection {
     max-width: 883px;
   }
-
 }

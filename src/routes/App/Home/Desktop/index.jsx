@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles.scss';
 import TopBanner from './TopBanner';
-import JustifyAlign from './JustifyAlign/index.jsx';
 import Carousel from './Carousel';
 import {
     bannerData, bestSellersGallery, looseDiamondsGallery, iconsData, imgsData
@@ -10,6 +9,7 @@ import GradientButton from '../../../../components/Buttons/Gradient';
 import UnderLinePink from './UnderLinePink';
 import Collage from './Collage';
 import DiamondInspection from './DiamondInspection';
+import ZoomImgs from './ZoomImges';
 // import CrowningJewels from './CrowningJewels';
 
 export default class Desktop extends Component {
@@ -195,14 +195,7 @@ export default class Desktop extends Component {
                         marginBottom: '105px'
                     }}
                 >
-                    <JustifyAlign
-                        className={styles['start-align']}
-                        data-styled={{
-                            fontSize: 0,
-                            height: '860px',
-                            display: 'flex'
-                        }}
-                    >
+                    <div className={styles['start-align']}>
                         <div style={{ position: 'relative', height: '451px' }}>
                             <div ref={this.stoneTextRef} className={styles['start-with-container']}>
                                 <div className={styles['title-pack']}>
@@ -291,7 +284,7 @@ export default class Desktop extends Component {
                                 </div>
                             </span>
                         </div>
-                    </JustifyAlign>
+                    </div>
                     {/* --------------------------- ICONS --------------------*/}
                     <a
                         href="/about-us-press/"
@@ -315,33 +308,7 @@ export default class Desktop extends Component {
                         </div>
                     </a>
                     {/* --------------------------- HOVER IMAGES --------------------*/}
-                    <JustifyAlign
-                        className={styles['events-align']}
-                        data-styled={{
-                            position: 'relative',
-                            zIndex: 3,
-                            fontFamily: 'NunitoSans'
-                        }}
-                        data-gtm-name="large image splash"
-                    >
-                        {imgsData.map(item => (
-                            <div key={item.to}>
-                                <div className={styles['abs-scale']}>
-                                    <div className={styles.abs}>
-                                        <div className={styles.line} />
-                                        <div className={styles['line-text']}>
-                                            {item.text}
-                                        </div>
-                                    </div>
-                                    <div className={styles['abs-img-box']}>
-                                        <a href={item.to} data-container="#WidePane">
-                                            <img src={item.imgSrc} alt="" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </JustifyAlign>
+                    <ZoomImgs data={imgsData} />
                 </div>
                 {/* --------------------------- Brown bar --------------------*/}
                 <div className={styles['meet-bg-container']}>
@@ -588,10 +555,7 @@ export default class Desktop extends Component {
                     <div>diamond concierge awaits...</div>
                 </div>
                 <div className={styles.wideContent} style={{ marginBottom: '105px' }}>
-                    <JustifyAlign
-                        className={styles['as-container']}
-                        data-gtm-name="diamond concierge"
-                    >
+                    <div className={styles['as-container']}>
                         <div
                             className={styles['as-content']}
                             style={{
@@ -681,7 +645,7 @@ export default class Desktop extends Component {
                             </div>
                             <div className={styles['img-bg']} />
                         </div>
-                    </JustifyAlign>
+                    </div>
                 </div>
                 {/* --------------------------------------*/}
                 <div className={styles['pics-or']}>

@@ -8,16 +8,19 @@
   text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
+  a {
+    color: black;
+  }
 
-  &:active{
+  &:active {
     color: #ff8081;
     border: 1px solid #ff8081;
   }
-  &:hover{
+  &:hover {
     background-position: 0 0;
     color: #333;
   }
-  &:focus{
+  &:focus {
     outline: none;
   }
 }
