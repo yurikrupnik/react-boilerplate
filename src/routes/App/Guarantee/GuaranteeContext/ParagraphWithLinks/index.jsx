@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './styles.scss'
 import PropTypes from 'prop-types';
+import styles from './styles.scss';
 
 const ParagraphWithLinks = (props) => {
     const { paragraphConfig } = props;

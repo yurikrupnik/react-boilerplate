@@ -8,19 +8,9 @@ import styles from './styles.scss';
 class NavTop extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            value: 0,
-        };
-        // this.handleChange = this.handleChange.bind(this);
     }
-    //
-    // handleChange(event, value) {
-    //     this.setState({ value });
-    // }
 
     render() {
-        // const { value } = this.state;
-
         return (
             <div className={styles.root}>
                 <div className={styles.navContainer}>
@@ -29,21 +19,22 @@ class NavTop extends Component {
                             <img alt="" src="https://ion.r2net.com/Images/logo.svg" />
                         </a>
                     </div>
-                    <div className={styles.itemContainer}>
+                    <div className={`${styles.itemContainer} ${styles.hoverItem}`}>
                         engagement rings
                     </div>
-                    <div className={styles.itemContainer}>
+                    <div className={`${styles.itemContainer} ${styles.hoverItem}`}>
                         wedding rings
                     </div>
-                    <div className={styles.itemContainer}>
+                    <div className={`${styles.itemContainer} ${styles.hoverItem}`}>
                         diamonds
                     </div>
-                    <div className={styles.itemContainer}>
+                    <div className={`${styles.itemContainer} ${styles.hoverItem}`}>
                         gemstones
                     </div>
-                    <div className={styles.itemContainer}>
+                    <div className={`${styles.itemContainer} ${styles.hoverItem}`}>
                         fine jewelry
                     </div>
+                    |
                     <div className={styles.itemContainer}>
                         education
                     </div>
@@ -51,23 +42,6 @@ class NavTop extends Component {
                         faq
                     </div>
                 </div>
-
-                {/* <AppBar position="static"> */}
-                {/* <Tabs */}
-                {/* value={value} */}
-                {/* onChange={this.handleChange} */}
-                {/* centered */}
-                {/* fullWidth */}
-                {/* > */}
-                {/* <Tab label="engagement rings" /> */}
-                {/* <Tab label="wedding rings" /> */}
-                {/* <Tab label="diamonds" /> */}
-                {/* <Tab label="gemstones" /> */}
-                {/* <Tab label="fine jewelry" /> */}
-                {/* <Tab label="education" /> */}
-                {/* <Tab label="faq" /> */}
-                {/* </Tabs> */}
-                {/* </AppBar> */}
             </div>
         );
     }
