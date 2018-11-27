@@ -1,15 +1,8 @@
+/* eslint-disable linebreak-style */
 import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import styles from './styles.scss';
 
 class NavTop extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className={styles.root}>

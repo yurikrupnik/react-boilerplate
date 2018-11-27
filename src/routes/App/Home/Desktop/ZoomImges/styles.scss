@@ -1,0 +1,51 @@
+.root {
+  .abs-scale {
+    cursor: pointer;
+  }
+
+  .abs-scale .abs-img-box {
+    transition: transform .4s;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+
+  .abs-scale:hover .abs-img-box {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  .abs {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .line {
+    height: 100%;
+    display: inline-block;
+    width: 0px;
+    background: red;
+    vertical-align: middle;
+  }
+  .line-text {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 33px;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    font-weight: bold;
+  }
+  .abs-scale .abs-img-box {
+    transition: transform .4s;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+
+  .abs-scale:hover .abs-img-box {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+

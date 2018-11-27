@@ -4,6 +4,7 @@
   border-top: 1px solid #d6d6d6;
   height: 76px;
 
+
   .navContainer {
     display: flex;
     justify-content: space-between;
@@ -17,10 +18,14 @@
       display: flex;
       align-items: center;
       text-transform: uppercase;
-      padding: 0;
+      white-space: nowrap;
+      cursor: pointer;
+      .hoverItem{
+        border-bottom: 3px solid blue;
+      }
 
       &.hoverItem:hover{
-        border-bottom: 3px solid red;
+        box-shadow: 0 5px 0px -2px #ff8080;
       }
 
       img {
