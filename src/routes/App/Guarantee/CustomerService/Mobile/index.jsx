@@ -4,48 +4,32 @@ import styles from './styles.scss';
 import HeaderMobile from '../../HeaderMobile';
 import data from '../data';
 
-const CustomerService = () => (
-    <div className={styles.rootContainer}>
-        <HeaderMobile text={data.header} />
-        <p>
-            {data.text}
-        </p>
-        <div className={styles.servicesContainer}>
-            <a className={styles.serviceItem}>
-                <div className={styles.imgService}>
-                    <h3>
-                        LOGO
-                    </h3>
-                </div>
-                Call
-            </a>
-            <a className={styles.serviceItem}>
-                <div className={styles.imgService}>
-                    <h3>
-                        LOGO
-                    </h3>
-                </div>
-                Skype
-            </a>
-            <a className={styles.serviceItem}>
-                <div className={styles.imgService}>
-                    <h3>
-                        LOGO
-                    </h3>
-                </div>
-                Chat
-            </a>
-            <a className={styles.serviceItem}>
-                <div className={styles.imgService}>
-                    <h3>
-                        LOGO
-                    </h3>
-                </div>
-                Email
-            </a>
+const CustomerService = () => {
+    const { header, text, items } = data;
+    return (
+        <div className={styles.root}>
+            <HeaderMobile text={header} />
+            <p>
+                {text}
+            </p>
+            <div className={styles.servicesContainer}>
+                {items.filter(arrItem => (arrItem.mobileLabel !== ''))
+                    .map((item) => {
+                        const { icon, mobileLabel, path } = item;
+                        return (
+                            <a
+                                key={icon}
+                                className={styles.serviceItem}
+                                href={path}
+                            >
+                                <span className={`${styles.icon} ${styles[icon]}`} />
+                                {mobileLabel}
+                            </a>
+                        );
+                    })}
+            </div>
         </div>
-
-    </div>
-);
+    );
+};
 
 export default CustomerService;

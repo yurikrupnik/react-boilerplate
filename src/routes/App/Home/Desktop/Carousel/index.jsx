@@ -22,7 +22,6 @@ export default class Carousel extends Component {
             slidesToShow: 5,
             slidesToScroll: 1,
             centerMode: true,
-            // draggable: this.isTouch,
             responsive: [{ breakpoint: 1600, settings: { slidesToShow: 4.31 } },
                 { breakpoint: 1300, settings: { slidesToShow: 3 } }],
             centerPadding: '0px',

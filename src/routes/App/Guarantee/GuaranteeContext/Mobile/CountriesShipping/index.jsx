@@ -12,14 +12,9 @@ const CountriesShipping = () => (
     <div className={styles.root}>
         <h3>We ship to:</h3>
         {countriesData.map(country => (
-            <div>{country}</div>
+            <div key={country}>{country}</div>
         ))}
     </div>
 );
-
-
-// HeaderMobile.propTypes = {
-//     text: PropTypes.string.isRequired
-// };
 
 export default CountriesShipping;

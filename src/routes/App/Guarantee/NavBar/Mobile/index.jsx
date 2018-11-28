@@ -6,9 +6,11 @@ import styles from './styles.scss';
 const NavBar = () => (
     <div>
         <div className={styles.imgContainer}>
-            <div className={styles.img}>
-                IMG here!
-            </div>
+            <img
+                className={styles.img}
+                src="https://ion.r2net.com/images/mobiletest/riskfree/risk-free-header.png"
+                alt=""
+            />
         </div>
         <div className={styles.navContainer}>
             {linksData.map(link => (

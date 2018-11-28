@@ -12,8 +12,6 @@ $nav-links-icons: (
         fullSite: "\E902",
 );
 
-
-
 .root {
   .navContainer {
     margin: 20px 0px 31px 0px;
@@ -43,28 +41,3 @@ $nav-links-icons: (
     }
   }
 }
-
-//::-webkit-scrollbar {
-//  width: 8px;
-//  background-color: #DED5C8;
-//  border-radius: 10px;
-//}
-//
-//::-webkit-scrollbar-track {
-//  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-//  -webkit-border-radius: 8px;
-//  border-radius: 8px;
-//  display: none;
-//}
-//
-//::-webkit-scrollbar-thumb {
-//  -webkit-border-radius: 8px;
-//  border-radius: 8px;
-//  background: rgba(173, 159, 140, 1);
-//  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-//}
-//
-//::-webkit-scrollbar-thumb:window-inactive {
-//  background: rgba(173, 159, 140, 0.5);
-//}
-

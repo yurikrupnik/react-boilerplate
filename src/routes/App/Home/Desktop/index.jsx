@@ -10,7 +10,6 @@ import UnderLinePink from './UnderLinePink';
 import Collage from './Collage';
 import DiamondInspection from './DiamondInspection';
 import ZoomImgs from './ZoomImges';
-// import CrowningJewels from './CrowningJewels';
 
 export default class Desktop extends Component {
     constructor(props) {

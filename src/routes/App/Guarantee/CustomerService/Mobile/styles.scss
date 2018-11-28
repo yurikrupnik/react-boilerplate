@@ -1,47 +1,61 @@
-.rootContainer {
+@import "../../../../../../src/styles/variables";
+
+$services-icons: (
+        call: "\E907",
+        chat: "\E65E",
+        email: "\E922",
+        realTime: "\E905",
+        message: "\E65F",
+        skype: "\E65F"
+);
+
+.root {
   width: 80%;
   margin: 0 auto;
-  color: black;
+  color: #656565;
+
+  p {
+    text-align: justify;
+    font-size: 17px;
+  }
+  .servicesContainer {
+    margin-top: 40px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .serviceItem {
+      width: 50%;
+      margin-bottom: 8%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      font-size: 17px;
+
+      .icon {
+        font-family: "JamesAllenFonts";
+        color: map_get($colors, 'primary');
+        font-size: 60px;
+        margin-bottom: 10px;
+      }
+
+      @each $service-icon, $icon in $services-icons {
+        .#{$service-icon}:before {
+          content: $icon;
+        }
+      }
+    }
+  }
 }
 
-.header {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 30px;
-  text-align: center;
-  line-height: 150%;
-  max-width: 80%;
-  margin: 24px auto;
 
-}
 
-.rootContainer p {
-  text-align: justify;
-  font-size: 17px;
-}
 
-.servicesContainer {
-  margin-top: 40px;
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-}
 
-.serviceItem {
-  width: 50%;
-  margin-bottom: 8%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  font-size:  17px;
-}
 
-.imgService {
-  background-color: rgb(255, 128, 128);
-  height: 64px;
-  width: 64px;
-  border-radius: 100px;
-  margin-bottom: 10px;
-}
+
+
+
+
 

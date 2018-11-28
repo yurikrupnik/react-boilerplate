@@ -1,5 +1,13 @@
 @import "../../../../../../src/styles/variables";
 
+$services-icons: (
+        call: "\E907",
+        chat: "\E65E",
+        email: "\E922",
+        realTime: "\E905",
+        message: "\E65F",
+);
+
 .root {
   margin-bottom: 25px;
 
@@ -25,6 +33,17 @@
   .itemContainer {
     margin-bottom: 20px;
 
+    .icon {
+      font-family: "JamesAllenFonts";
+      color: map_get($colors, 'primary');
+      font-size: 46px;
+    }
+
+    @each $service-icon, $icon in $services-icons {
+      .#{$service-icon}:before {
+        content: $icon;
+      }
+    }
   }
 }
 

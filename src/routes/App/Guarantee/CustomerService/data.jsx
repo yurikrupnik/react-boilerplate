@@ -4,30 +4,30 @@ const data = {
     items: [
         {
             type: 'general',
-            iconSrc: '',
+            icon: 'call',
             header: 'Call Us',
-            mobileLable: 'Call',
+            mobileLabel: 'Call',
             path: '',
             text: 'USA: 877 826 9866, outside USA: +1 301 631 1414'
         }, {
             type: 'general',
-            iconSrc: '',
+            icon: 'chat',
             header: 'Chat Now',
-            mobileLable: 'Chat',
+            mobileLabel: 'Chat',
             path: '',
             text: 'Get instant answers to your questions'
         }, {
             type: 'general',
-            iconSrc: '',
+            icon: 'email',
             header: 'Email Us',
-            mobileLable: 'Email',
+            mobileLabel: 'Email',
             path: 'mailto:social@jamesallen.com',
             text: 'All questions will be answered within two business days.'
         }, {
             type: 'desktop',
-            iconSrc: '',
+            icon: 'realTime',
             header: 'Real-Time Diamond Inspection',
-            mobileLable: '',
+            mobileLabel: '',
             path: '/diamond-consultation',
             text: 'We offer an interactive Real-time Diamond Inspection service, the first of its kind in'
                 + ' the industry. Our experts will share their screen with you, and walk you through the attributes'
@@ -35,15 +35,15 @@ const data = {
                 + 'diamond itself, and review everything from the specs to the grading certificate together.'
         }, {
             type: 'desktop',
-            iconSrc: '',
+            icon: 'message',
             header: 'Send a Message',
-            mobileLable: '',
+            mobileLabel: '',
             path: '',
             text: 'All questions will be answered within two business days'
         }, {
             type: 'mobile',
-            iconSrc: '',
-            mobileLable: 'Skype',
+            icon: 'skype',
+            mobileLabel: 'Skype',
             path: '',
         }
     ]
