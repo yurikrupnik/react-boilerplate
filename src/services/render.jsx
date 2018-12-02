@@ -30,8 +30,6 @@ const render = (App, routes) => (req, response, next) => {
                     <App userAgent={req.headers['user-agent']} />
                 </StaticRouter>
             ));
-            console.log('html', html);
-            console.log('appData', appData);
             const state = { title, html, appData };
             return context.url ? response.redirect(301, context.url) : response.render('index', state);
         })

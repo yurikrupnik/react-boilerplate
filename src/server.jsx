@@ -7,8 +7,8 @@ import render from './services/render';
 import db from './services/db';
 import server from './services/socket/server';
 import passport from './services/passport';
-import App from './routes/App';
-import routes from './routes/App/routes';
+import App from './components/App';
+import routes from './components/routes';
 
 const app = express();
 
