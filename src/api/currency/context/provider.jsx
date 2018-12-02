@@ -19,11 +19,13 @@ class CurrencyProvider extends Component {
         };
         this.fetch = this.fetch.bind(this);
         this.toggleCallback = this.toggleCallback.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.setSelected = this.setSelected.bind(this);
     }
 
-    fetch(params, cb) {
-        this.setState(toggleLoading, this.toggleCallback(params, cb));
+    setSelected(event) {
+        const { target } = event;
+        const { value } = target;
+        this.setState({ selected: value });
     }
 
     toggleCallback(params, cb) {
@@ -43,10 +45,8 @@ class CurrencyProvider extends Component {
             });
     }
 
-    handleChange(event) {
-        const { target } = event;
-        const { value } = target;
-        this.setState({ selected: value });
+    fetch(params, cb) {
+        this.setState(toggleLoading, this.toggleCallback(params, cb));
     }
 
     render() {
@@ -55,7 +55,7 @@ class CurrencyProvider extends Component {
             <Provider value={{
                 ...this.state,
                 fetch: this.fetch,
-                handleChange: this.handleChange
+                setSelected: this.setSelected
             }}
             >
                 {children}

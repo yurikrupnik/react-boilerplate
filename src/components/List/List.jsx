@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import isEqual from 'lodash/isEqual';
-import Spinner from '../Spinner';
+import Spinner from '../Spinner/index';
 
 const List = (props) => {
     const { data, loading } = props;

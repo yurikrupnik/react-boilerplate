@@ -4,7 +4,7 @@
   "description": "react-boilerplate",
   "main": "src/server.jsx",
   "scripts": {
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start": "npm run start:client & npm run start:server",
     "start:client": "webpack-dev-server --config webpack.config.client.js",
     "start:server": "webpack -w --config webpack.config.server.js",
     "start:mongo": "docker run --rm -d -p 27017:27017 --name mongo mongo",
