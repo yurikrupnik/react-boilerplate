@@ -1,5 +1,5 @@
 # React-boilerplate  
-[![Build Status](https://travis-ci.org/yurikrupnik/react-boilerplate.svg?branch=master)](https://travis-ci.org/yurikrupnik/react-boilerplate)
+[![Build Status](https://travis-ci.org/yurikrupnik/react-boilerplate.svg?branch=master)](https://travis-ci.org/yurikrupnik/react-boilerplate) [![Greenkeeper badge](https://badges.greenkeeper.io/yurikrupnik/react-boilerplate.svg)](https://greenkeeper.io/)
 
 Fullstack MEAN boilerplate with best practices.
 
